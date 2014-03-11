@@ -135,11 +135,11 @@ def main(argv):
 
             lastAudioChambrePower = audioChambrePower
             lastAudioCuisinePower = audioCuisinePower
-            lastAudioSdbPower = audioSdbPower
+            lastAudioSdbPower     = audioSdbPower
 
             audioChambrePower = ((int(time.time()) - lastPacketChambre) < audioMaxDelay)
             audioCuisinePower = ((int(time.time()) - lastPacketCuisine) < audioMaxDelay)
-            audioSdbPower = ((int(time.time()) - lastPacketSdb) < audioMaxDelay)
+            audioSdbPower     = ((int(time.time()) - lastPacketSdb) < audioMaxDelay)
 	
 	    if lastAudioCuisinePower != audioCuisinePower:
                 set_ArduinoValue(oidAmpliCuisineState,ipHostSnmp,audioCuisinePower)
