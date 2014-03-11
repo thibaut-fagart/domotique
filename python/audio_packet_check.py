@@ -17,9 +17,10 @@ gflags.DEFINE_string('i', 'eth0',
 
 ipHostSnmp      = "192.168.0.70"
 ipSqueezCenter  = "192.168.0.103"
-ipSqueezCuisine = "192.168.0.6"
-ipSqueezChambre = "192.168.0.7"
-ipSqueezSdb     = "192.168.0.8"
+ipSqueezChambre = "192.168.0.5"
+ipSqueezSalon   = "192.168.0.6"
+ipSqueezSdb     = "192.168.0.7"
+ipSqueezCuisine = "192.168.0.8"
 oidAmpliSalonState   = "1.3.6.1.4.1.36582.30"
 oidAmpliSdBState     = "1.3.6.1.4.1.36582.31"
 oidAmpliCuisineState = "1.3.6.1.4.1.36582.32"
@@ -59,7 +60,7 @@ audioChambrePower = 0
 audioSdBPower = 0
 audioCuisinePower = 0
 
-def set_ArduinoValue(self,Oid,ipHostSnmp,value):
+def set_ArduinoValue(Oid,ipHostSnmp,value):
     errorIndication, errorStatus, errorIndex, varBinds = cmdgen.CommandGenerator().setCmd(
           cmdgen.CommunityData('private',mpModel=0),
           cmdgen.UdpTransportTarget((ipHostSnmp, 161)),
@@ -142,13 +143,10 @@ def main(argv):
 	
 	    if lastAudioCuisinePower != audioCuisinePower:
                 set_ArduinoValue(oidAmpliCuisineState,ipHostSnmp,audioCuisinePower)
-                print "audioCuisinePower : ",audioCuisinePower
 	    if lastAudioSdbPower != audioSdbPower:
                 set_ArduinoValue(oidAmpliSdBState,ipHostSnmp,audioSdbPower)
-                print "audioSdbPower : ",audioSdbPower
 	    if lastAudioChambrePower != audioChambrePower:
                 set_ArduinoValue(oidAmpliChambreState,ipHostSnmp,audioChambrePower)
-                print "audioChambrePower : ",audioChambrePower
 		
             lastTime = int(time.time())
 	
