@@ -1,5 +1,6 @@
 #include <DHT.h>
 #include <SoftwareSerial.h>
+#include <edf.h>
 
 int dht22EdfPin = 4; 
 int EdfRxPin    = 9;
@@ -13,7 +14,7 @@ void setup() {
 }
 
 void loop() {
-  
+  getTeleinfo(EdfSerial, Serial);
   if (EdfSerial.available())
     Serial.write(EdfSerial.read() & 0x7F);
 }
