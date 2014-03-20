@@ -14,7 +14,8 @@ void setup() {
 }
 
 void loop() {
-  getTeleinfo(EdfSerial, Serial);
-  if (EdfSerial.available())
-    Serial.write(EdfSerial.read() & 0x7F);
+  Teleinfos teleinfos;
+  getTeleinfo(EdfSerial, teleinfos, Serial);
+  Serial << "teleinfos {" <<teleinfos << "}" << endl;
+
 }
