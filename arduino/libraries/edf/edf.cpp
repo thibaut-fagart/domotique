@@ -1,5 +1,4 @@
 #include "edf.h"
-#include <Streaming.h> 
 
 /***************** Teleinfo configuration part *******************/
 char CaractereRecu ='\0';
@@ -33,9 +32,9 @@ int finTrame=0;
 
 
 void getTeleinfo(SoftwareSerial& cptSerial, Teleinfos& teleinfos, Print& debug) {
-	if (DEBUG) {
+	#ifdef DEBUG
 		debug << ">>getTeleinfo" << endl;
-	}
+	#endif
 	/* vider les infos de la dernière trame lue */
 	memset(Ligne,'\0',32); 
 	memset(Trame,'\0',512);
@@ -61,18 +60,18 @@ void getTeleinfo(SoftwareSerial& cptSerial, Teleinfos& teleinfos, Print& debug) 
 		finTrame = i;
 		Trame[i++]='\0';
 
-		if (DEBUG) {
+		#ifdef DEBUG
 			debug << "Trame [" << Trame <<  "]" << endl;
-		}
+		#endif
 
 		lireTrame(Trame, teleinfos, debug);	
 
 		// on vérifie si on a une trame complète ou non
 		trameComplete = teleinfos.isTrameComplete(debug);
 	}
-	if (DEBUG) {
+	#ifdef DEBUG
 		debug <<  "<<getTeleinfo" << endl;
-	}
+	#endif
 
 }
 
@@ -86,12 +85,8 @@ int checksum_ok(char *etiquette, char *valeur, char checksum, Print& debug) {
 	for (i=0; i < strlen(etiquette); i++) sum = sum + etiquette[i] ;
 	for (i=0; i < strlen(valeur); i++) sum = sum + valeur[i] ;
 	sum = (sum & 63) + 32 ;
-	//debug .print (etiquette) ; debug.print( " ") ; debug.print(valeur); debug .print (" ") ; debug .print (checksum) ; debug .print("\n");
-	//debug .print( "Sum = "); debug .print (sum) ; debug .print( "\n");
-	//debug .print( "Cheksum = "); debug .print(int(checksum));debug .print( "\n");
 	if ( sum == checksum) return 1 ;	// Return 1 si checkum ok.
 	return 0 ;
-    //debug .print( "<<checksum_ok") ;debug .print("\n");
 }
 
 void lireTrame(char *trame, Teleinfos& teleinfos, Print& debug){
@@ -200,9 +195,9 @@ void Teleinfos::setVariable (char* variable, char* valeur, int variableLength, b
 }
 int Teleinfos::set(char *etiquette, char *valeur, Print& debug) {
 	long etiquettesLuesBefore = etiquettesLues; 
-	if (DEBUG) {
+	#ifdef DEBUG
 		debug << " set " << etiquette << " = " << valeur << endl;
-	}
+	#endif
 	if(strcmp(etiquette,"ADCO") == 0) { 
 		setVariable (ADCO, valeur, 12, ADCO_idx);
 	} else if(strcmp(etiquette,"OPTARIF") == 0) { 
@@ -255,25 +250,28 @@ int Teleinfos::set(char *etiquette, char *valeur, Print& debug) {
 		memset(HHPHC,'\0',2); strcpy(HHPHC, valeur); etiquettesLues ++; 
 	*/
 	} else {
-		if (DEBUG) {
+		#ifdef DEBUG
 			debug <<  " unknown etiquette " <<  etiquette << endl;
-		}
+		#endif
 	}
-	if (DEBUG) {
+	#ifdef DEBUG
 		debug << etiquette << " : " << valeur << "(" << etiquettesLuesBefore << " -> "<<etiquettesLues << ")" << endl;
-	}
+	#endif
 
 	return etiquettesLues != etiquettesLuesBefore;
 }
 	
 int Teleinfos::isTrameComplete(Print& debug) {
 	// 0 si non, 1 si oui
-//	if (strcmp(OPTARIF, "EJP.") ==0) {
 	if (strstr(OPTARIF, "EJP") !=NULL) {
-		debug << "OPTARIF reconnue " << endl;
+		#ifdef DEBUG 
+			debug << "OPTARIF reconnue " << endl;
+		#endif
 		return (maskEJPComplet & etiquettesLues) == maskEJPComplet;
 	} else {
-		debug << "OPTARIF inconnue [" <<OPTARIF <<"]"<< endl;
+		#ifdef DEBUG 
+			debug << "OPTARIF inconnue [" <<OPTARIF <<"]"<< endl;
+		#endif
 		return 0;
 	}
 }

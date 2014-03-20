@@ -1,3 +1,5 @@
+#include <Streaming.h>
+
 #include <DHT.h>
 #include <SoftwareSerial.h>
 #include <edf.h>

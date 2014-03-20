@@ -2,11 +2,9 @@
 #define edf_h
 
 #include "Arduino.h"
-#include <Flash.h>
-#include "../Streaming/Streaming.h"
 #include <SoftwareSerial.h>
+#include <Streaming.h>
 
-#define DEBUG 1
 /*
 reference EDF : http://www.planete-domotique.com/notices/ERDF-NOI-CPT_O2E.pdf
 Si l'intensité mesurée sur l'une quelconque des phases dépasse la valeur de réglage du disjoncteur, le cycle
