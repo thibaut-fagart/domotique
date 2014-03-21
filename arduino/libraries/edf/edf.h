@@ -40,15 +40,14 @@ see http://duramecho.com/ComputerInformation/WhyHowCppConst.html
 
 struct Teleinfos {
 	char CaractereRecu;
-	char Checksum[32] ;
+	char Checksum[2] ;
 	char Ligne[32];
 	char Etiquette[9] ;
 	char Donnee[13] ;
-	char Trame[512] ;
+//	char Trame[512] ;
 	int i ;
 	int j ;
 
-	int finTrame;
 
 	char ADCO[13]; // 041330071201 - N° d’identification du compteur : ADCO (12 caractères)
 	char OPTARIF[5]; // EJP. " Option tarifaire (type d’abonnement) : OPTARIF (4 car.)

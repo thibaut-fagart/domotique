@@ -20,12 +20,6 @@ ethernet shield : 4 10 11 12 13
 #include <snmp_utils.h>
 
 
-#ifdef EDF
-#include <edf.h>
-#endif
-//
-//
-
 static byte mac[] = { 0x90, 0xA2, 0xDA, 0x0E, 0x0C, 0x4A };
 static byte ip[] = { 192, 168, 1, 99 };
 static byte gateway[] = { 192, 168, 1, 254 };
@@ -54,6 +48,12 @@ int flowPin     = 9;
 int ETHERNET_RESERVED_PIN2 = 10;
 int ETHERNET_RESERVED_PIN3 = 11;
 int ETHERNET_RESERVED_PIN4 = 12;
+
+#ifdef EDF
+#include <edf.h>
+SoftwareSerial edfSerial(EDFRxPin, EDFTxPin);
+Teleinfos teleinfos;
+#endif
 
 DHT dht_exterieur(dht22ExtPin, DHTTYPE);
 DHT dht_nouvelleMaison(dht22NewPin, DHTTYPE);
@@ -124,14 +124,6 @@ uint32_t burningTime_s = 0;
 uint32_t burningTime_ms = 0;
 // fuel supposed to be remaining in the fuel tank
 uint32_t remainingFuel_l = FUEL_TANK_CAPACITY;
-
-/*****************************************
- * EDF 
- */
-#ifdef EDF
-SoftwareSerial edfSerial(EDFRxPin, EDFTxPin);
-Teleinfos teleinfos;
-#endif
 
 /******************* END OF CONFIGURATION *******************/
 
@@ -299,17 +291,20 @@ void pduReceived()
           pdu.error = status;
       }
 */
-#ifdef EDF
     } else if (strcmp_P(oid, oidEDFIndexNormal ) == 0) {
       if ( pdu.type == SNMP_PDU_SET ) {
           // response packet from set-request - object is read-only
           pdu.type = SNMP_PDU_RESPONSE;
           pdu.error = SNMP_ERR_READ_ONLY;
       } else {
-        getTeleinfo(edfSerial, teleinfos, Serial);
-        status = pdu.VALUE.encode(SNMP_SYNTAX_COUNTER, teleinfos.EJPHN);
-        pdu.type = SNMP_PDU_RESPONSE;
+        int ok  = teleinfos.read(edfSerial, Serial);
+        if (!ok)  { 
+          status = SNMP_ERR_READ_ONLY;
+        } else {
+          status = pdu.VALUE.encode(SNMP_SYNTAX_COUNTER, teleinfos.EJPHN);
+        }
         pdu.error = status;
+        pdu.type = SNMP_PDU_RESPONSE;
       }
     } else if (strcmp_P(oid, oidEDFIndexPointe ) == 0) {
       if ( pdu.type == SNMP_PDU_SET ) {
@@ -317,13 +312,16 @@ void pduReceived()
           pdu.type = SNMP_PDU_RESPONSE;
           pdu.error = SNMP_ERR_READ_ONLY;
       } else {
-        Teleinfos teleinfos;
-        getTeleinfo(edfSerial, teleinfos, Serial);
-        status = pdu.VALUE.encode(SNMP_SYNTAX_COUNTER, teleinfos.EJPHPM);
-        pdu.type = SNMP_PDU_RESPONSE;
+        int ok  = teleinfos.read(edfSerial, Serial);
+        Serial << ok  << endl;
+        if (!ok)  { 
+          status = SNMP_ERR_READ_ONLY;
+        } else {
+          status = pdu.VALUE.encode(SNMP_SYNTAX_COUNTER, teleinfos.EJPHPM);
+        }
         pdu.error = status;
+        pdu.type = SNMP_PDU_RESPONSE;
       }
-#endif      
     }  else {
       // oid does not exist
       //
@@ -338,7 +336,7 @@ void pduReceived()
   Agentuino.freePdu(&pdu);
   //
   #ifdef DEBUG
-  Serial << "UDP Packet Received End.." << " RAM:" << freeMemory() << endl;
+  Serial << F("UDP Packet Received End..") << F(" RAM:") << freeMemory() << endl;
   #endif
 }
 
@@ -351,14 +349,11 @@ void pduReceived()
 */
 void setup()
 {
-  Serial.begin(1200);
-  Serial << "setup" << endl;
+  Serial.begin(9600);
+  Serial << F("setup") << endl;
 //  pinMode(relayPin,    OUTPUT);
 //  pinMode(resetPin,    OUTPUT);
   pinMode(flowPin,     INPUT);
-#ifdef EDF
-  edfSerial.begin(1200);
-#endif
     // manually reset the ethernet shield before using it
 //  resetEthernet();
   delay(1000); 
@@ -366,12 +361,12 @@ void setup()
   dht_nouvelleMaison.begin();
   dht_ancienneMaison.begin();
 
-  Serial << "ethernet begin" << endl;
+  Serial << F("ethernet begin") << endl;
   Ethernet.begin(mac, ip, leroux_dns, gateway, subnet);
   delay(1000); // donne le temps à la carte Ethernet de s'initialiser
   //
   #ifdef SNMP
-  Serial << "agentuino begin" << endl;
+  Serial << ("agentuino begin") << endl;
   
   api_status = Agentuino.begin();
   //
@@ -400,8 +395,13 @@ void loop()
   #endif
   #ifndef SNMP
   Serial << "getTeleinfos begin " << endl;
-  getTeleinfo(edfSerial, teleinfos, Serial);
-  Serial << "teleinfos " << teleinfos << endl;
+  int ok  = teleinfos.read(edfSerial, Serial);
+  if (!ok)  {
+    Serial << "getTeleinfo timedout" << endl;
+  } else {
+    Serial << "getTeleinfo complete in " << ok << endl;
+    Serial << teleinfos.EJPHN << endl;
+  }
   #endif
   //
   // sysUpTime - The time (in hundredths of a second) since

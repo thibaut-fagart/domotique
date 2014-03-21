@@ -1,59 +1,93 @@
 #include "edf.h"
-#define DEBUG
+//#define DEBUG
 /***************** Teleinfo configuration part *******************/
 Teleinfos::Teleinfos(){
 	reset();
 }
 
+/*
+Structure d'une ligne de la trame
+La composition d'un groupe d'information est la suivante :
+• un caractère "Line Feed" LF (00A h) indiquant le début du groupe.
+• le champ étiquette dont la longueur est inférieure ou égale à huit caractères,
+• un caractère "SPace" SP (020 h) séparateur du champ étiquette et du champ donnée,
+• le champ donnée dont la longueur est variable,
+• un caractère "SPace" SP (020 h) séparateur du champ donnée et du champ contrôle,
+• le champ contrôle se composant d'un caractère contenant la "checksum" dont le calcul est
+donné ci-dessous en remarque,
+• un caractère "Carriage Return" CR (00D h) indiquant la fin du groupe d'information.
+*/
 #define ERROR 0
 #define EDF_TIMEOUT 1000
+#define SERIAL_BUFFER_OVERFLOW 50
 int Teleinfos::read(SoftwareSerial &cptSerial, Print &debug) {
 	#ifdef DEBUG
 		debug << F(">>getTeleinfo") << endl;
 	#endif
+	cptSerial.begin(1200);
+	uint32_t startMillis = millis();
 	/* vider les infos de la dernière trame lue */
-	memset(Ligne,'\0',32); 
-	memset(Trame,'\0',512);
+	memset(Ligne,'\0',sizeof(Ligne)); 
 	int trameComplete=0;
 	
 	reset();
-	uint32_t startMillis = millis();
 	while (!trameComplete) {
 		while(CaractereRecu != 0x02) {
-			if (millis()-startMillis > EDF_TIMEOUT) return ERROR;
+			if (millis()-startMillis > EDF_TIMEOUT) {
+				cptSerial.end();
+				return ERROR;
+			}
 		// boucle jusqu'a "Start Text 002" début de la trame
 			if (cptSerial.available()) {
 				CaractereRecu = cptSerial.read() & 0x7F;
 			}
 		}
 
-		i=0; 
-		while(CaractereRecu != 0x03) { 
-			if (millis()-startMillis > EDF_TIMEOUT) return ERROR;
-			// Tant qu'on est pas arrivé à "EndText 003" Fin de trame ou que la trame est incomplète
-			if (cptSerial.available()) {
-				CaractereRecu = cptSerial.read() & 0x7F;
-				Trame[i++]=CaractereRecu;
-			}	
+		while (CaractereRecu != 0x03) {
+			i=0; 
+			while(CaractereRecu != 0x03 && CaractereRecu != 0x0D /* fin de ligne */) { 
+				if (millis()-startMillis > EDF_TIMEOUT) {
+					cptSerial.end();
+					return ERROR;
+				}
+				// Tant qu'on est pas arrivé à "EndText 003" Fin de trame ou que la trame est incomplète
+				int available = cptSerial.available();
+				#ifdef DEBUG
+				if (available > SERIAL_BUFFER_OVERFLOW) {
+					debug << "O " << available << endl;
+				}
+				#endif
+				if (available) {
+					CaractereRecu = cptSerial.read() & 0x7F;
+					Ligne[i++]=CaractereRecu;
+				}	
+			}
+			if (i > 0) { 
+				Ligne[i++] = '\0';
+				#ifdef DEBUG
+				debug << Ligne << endl;
+				#endif
+				decodeLigne(Ligne, debug);
+				memset(Ligne,'\0',sizeof(Ligne)); // on vide la ligne pour la lecture suivante
+				if (CaractereRecu ==  0x0D) {
+					CaractereRecu = '\0';
+				}
+			}
 		}
-		finTrame = i;
-		Trame[i++]='\0';
-
-		#ifdef DEBUG
-			//debug << "Trame [" << Trame <<  "]" << endl;
-		#endif
-
-		lireTrame(Trame, debug);	
 
 		// on vérifie si on a une trame complète ou non
 		trameComplete = isTrameComplete(debug);
+		#ifdef DEBUG
+		debug << F("complete ? ") << trameComplete << endl;
+		#endif
 	}
 	#ifdef DEBUG
 		debug <<  F("<<getTeleinfo") << endl;
 	#endif
+	cptSerial.end();
 	return millis() - startMillis;
 }
-void Teleinfos::lireTrame(char *trame, Print& debug) {
+/*void Teleinfos::lireTrame(char *trame, Print& debug) {
 	int i;
 	int j=0;
 	for (i=0; i < strlen(trame); i++){
@@ -66,7 +100,7 @@ void Teleinfos::lireTrame(char *trame, Print& debug) {
 		}
 	}
 }
-
+*/
 int Teleinfos::decodeLigne(char *ligne, Print& debug) { 
 	int debutValeur; 
 	int debutChecksum;
@@ -100,7 +134,7 @@ int Teleinfos::checksum_ok(char *etiquette, char *valeur, char checksum, Print& 
 int Teleinfos::lireEtiquette(char *ligne, Print& debug){
     int i;
     int j=0;
-    memset(Etiquette,'\0',9);
+    memset(Etiquette,'\0',sizeof(Etiquette));
     for (i=1; i < strlen(ligne); i++){ 
       if (ligne[i] != 0x20) { // Tant qu'on est pas au SP, c'est qu'on est sur l'étiquette
           Etiquette[j++]=ligne[i];
@@ -108,7 +142,6 @@ int Teleinfos::lireEtiquette(char *ligne, Print& debug){
       else { //On vient de finir de lire une etiquette
           return j+2; // on est sur le dernier caractère de l'etiquette, il faut passer l'espace aussi (donc +2) pour arriver à la valeur
       }
-
    }
 }
 
@@ -116,7 +149,7 @@ int Teleinfos::lireEtiquette(char *ligne, Print& debug){
 int Teleinfos::lireValeur(char *ligne, int offset, Print& debug){
     int i;
     int j=0;
-    memset(Donnee,'\0',13);
+    memset(Donnee,'\0',sizeof(Donnee));
     for (i=offset; i < strlen(ligne); i++){ 
       if (ligne[i] != 0x20) { // Tant qu'on est pas au SP, c'est qu'on est sur l'étiquette
           Donnee[j++]=ligne[i];
@@ -131,7 +164,7 @@ int Teleinfos::lireValeur(char *ligne, int offset, Print& debug){
 void Teleinfos::lireChecksum(char *ligne, int offset, Print& debug){
 	int i;
 	int j=0;
-	memset(Checksum,'\0',32);
+	memset(Checksum,'\0',sizeof(Checksum));
 	for (i=offset; i < strlen(ligne); i++){ 
 		Checksum[j++]=ligne[i];
 	}
