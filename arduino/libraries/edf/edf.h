@@ -27,13 +27,13 @@ int(3) IINST1 , IINST2, IINST3 Adresse du compteur ADCO 12 Intensité Instantan�
 
 struct Teleinfos {
 	
-	char ADCO[12]; // 041330071201 - N° d’identification du compteur : ADCO (12 caractères)
-	char OPTARIF[4]; // EJP. " Option tarifaire (type d’abonnement) : OPTARIF (4 car.)
+	char ADCO[13]; // 041330071201 - N° d’identification du compteur : ADCO (12 caractères)
+	char OPTARIF[5]; // EJP. " Option tarifaire (type d’abonnement) : OPTARIF (4 car.)
 	int ISOUSC ; //30 9 Intensité souscrite : ISOUSC ( 2 car. unité = ampères)
-	char EJPHN[9]; // 002727095 E Index heures normales si option = EJP : EJP HN ( 9 car. unité = Wh)
-	char EJPHPM[9]; // 000100755 F Index heures de pointe mobile si option = EJP : EJP HPM ( 9 car. unité = Wh)
+	long EJPHN; // 002727095 E Index heures normales si option = EJP : EJP HN ( 9 car. unité = Wh)
+	long EJPHPM; // 000100755 F Index heures de pointe mobile si option = EJP : EJP HPM ( 9 car. unité = Wh)
 	int PEJP; // int (2) Préavis Début EJP (30 min avant) , en minutes
-	char PTEC [4]; //HN.. ^ Période tarifaire en cours : PTEC ( 4 car.)
+	char PTEC [5]; //HN.. ^ Période tarifaire en cours : PTEC ( 4 car.)
 	int IINST1; // 002 J Intensité instantanée : IINST ( 3 car. unité = ampères)
 	int IINST2; // 000 I Intensité instantanée : IINST ( 3 car. unité = ampères)
 	int IINST3; // 001 K Intensité instantanée : IINST ( 3 car. unité = ampères)
@@ -42,8 +42,8 @@ struct Teleinfos {
 	long IMAX3; // 042 8 Intensité maximale : IMAX ( 3 car. unité = ampères)
 	long PMAX; // 14370 5 Puissance maximale triphasée atteinte (Watts)
 	long PAPP; // 00690 0 Puissance apparente : PAPP ( 5 car. unité = Volt.ampères)
-	char MOTDETAT[10];// 000000 B Mot d’état (autocontrôle) : MOTDETAT (6 car.)
-	char PPOT[2]; // 00 # Présence des potentiels
+	char MOTDETAT[7];// 000000 B Mot d’état (autocontrôle) : MOTDETAT (6 car.)
+	char PPOT[3]; // 00 # Présence des potentiels
 	
 	unsigned long etiquettesLues;
 	int set(char *etiquette, char *valeur, Print& debug) ;
@@ -51,13 +51,13 @@ struct Teleinfos {
 	void setVariable (char* variable, char* valeur, int variableLength, byte idx) ;
 
 	void reset() {
-		memset(ADCO,'\0',12);
-		memset(OPTARIF,'\0',4);
+		memset(ADCO,'\0',13);
+		memset(OPTARIF,'\0',5);
 		ISOUSC = 0;
-		memset(EJPHN,'\0', 9); 
-		memset( EJPHPM,'\0',9); 
+		EJPHN = 0L; 
+		EJPHPM=0L; 
 		PEJP= 0;
-		memset(PTEC ,'\0',4);
+		memset(PTEC ,'\0',5);
 		IINST1=0; 
 		IINST2=0; 
 		IINST3=0; 
@@ -66,8 +66,8 @@ struct Teleinfos {
 		IMAX3=0l; 
 		PMAX=0l; 
 		PAPP=0l; 
-		memset(MOTDETAT,'\0',10);
-		memset(PPOT,'\0',2 );
+		memset(MOTDETAT,'\0',7);
+		memset(PPOT,'\0',3 );
 		
 		etiquettesLues=0l;
 	

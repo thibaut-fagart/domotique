@@ -13,19 +13,6 @@ int j = 0;
 unsigned long Chrono = 0;
 unsigned long LastChrono = 0;
 
-
-char ADCO[12] ;      // Adresse du concentrateur de téléreport (numéro de série du compteur), 12 numériques + \0
-long HCHC = 0;      // Index option Heures Creuses - Heures Creuses, 8 numériques, Wh
-long HCHP = 0;      // Index option Heures Creuses - Heures Pleines, 8 numériques, Wh
-char PTEC[4] ;      // Période Tarifaire en cours, 4 alphanumériques
-char HHPHC[2] ; // Horaire Heures Pleines Heures Creuses, 1 alphanumérique (A, C, D, E ou Y selon programmation du compteur)
-int IINST = 0;     // Monophasé - Intensité Instantanée, 3 numériques, A  (intensité efficace instantanée)
-long PAPP = 0;      // Puissance apparente, 5 numérique, VA (arrondie à la dizaine la plus proche)
-long IMAX = 0;      // Monophasé - Intensité maximale appelée, 3 numériques, A
-char OPTARIF[4] ;    // Option tarifaire choisie, 4 alphanumériques (BASE => Option Base, HC.. => Option Heures Creuses, EJP. => Option EJP, BBRx => Option Tempo [x selon contacts auxiliaires])
-char MOTDETAT[10] = "";  // Mot d'état du compteur, 10 alphanumériques
-int ISOUSC = 0;    // Intensité souscrite, 2 numériques, A
-
 int check[11];  // Checksum by etiquette
 int trame_ok = 1; // global trame checksum flag
 int finTrame=0;
@@ -39,7 +26,7 @@ void getTeleinfo(SoftwareSerial& cptSerial, Teleinfos& teleinfos, Print& debug) 
 	memset(Ligne,'\0',32); 
 	memset(Trame,'\0',512);
 	int trameComplete=0;
-
+	
 	teleinfos.reset();
 	while (!trameComplete){
 		while(CaractereRecu != 0x02) {
@@ -199,21 +186,23 @@ int Teleinfos::set(char *etiquette, char *valeur, Print& debug) {
 		debug << " set " << etiquette << " = " << valeur << endl;
 	#endif
 	if(strcmp(etiquette,"ADCO") == 0) { 
-		setVariable (ADCO, valeur, 12, ADCO_idx);
+		setVariable (ADCO, valeur, 13, ADCO_idx);
 	} else if(strcmp(etiquette,"OPTARIF") == 0) { 
-		setVariable (OPTARIF, valeur, 4, OPTARIF_idx);
+		setVariable (OPTARIF, valeur, 5, OPTARIF_idx);
 	} else if(strcmp(etiquette,"ISOUSC") == 0) { 
 		ISOUSC = atoi(valeur); 
 		etiquettesLues |= (1L << ISOUSC_idx); 
 	} else if(strcmp(etiquette,"EJPHN") == 0) { 
-		setVariable (EJPHN, valeur, 9, EJPHN_idx);
+		EJPHN = atol(valeur);
+		etiquettesLues |= (1L << EJPHN_idx);
 	} else if(strcmp(etiquette,"EJPHPM") == 0) {
-		setVariable (EJPHPM, valeur, 9, EJPHPM_idx);
+		EJPHPM = atol(valeur);
+		etiquettesLues |= (1L << EJPHPM_idx);
 	} else if(strcmp(etiquette,"PEJP") == 0) { 
 		PEJP = atoi( valeur); 
 		etiquettesLues |= (1L << PEJP_idx); 
 	} else if(strcmp(etiquette,"PTEC") == 0) { 
-		setVariable (PTEC, valeur, 4, PTEC_idx);
+		setVariable (PTEC, valeur, 5, PTEC_idx);
 	} else if(strcmp(etiquette,"IINST1") == 0) { 
 		IINST1 = atoi(valeur); 
 		etiquettesLues |= (1L << IINST1_idx); 
@@ -239,9 +228,9 @@ int Teleinfos::set(char *etiquette, char *valeur, Print& debug) {
 		PAPP = atol(valeur); 
 		etiquettesLues |= (1L << PAPP_idx); 
 	} else if(strcmp(etiquette,"MOTDETAT") == 0) { 
-		setVariable (MOTDETAT, valeur, 10, MOTDETAT_idx);
+		setVariable (MOTDETAT, valeur, 7, MOTDETAT_idx);
 	} else if(strcmp(etiquette,"PPOT") == 0) { 
-		setVariable (PPOT, valeur, 2, PPOT_idx);
+		setVariable (PPOT, valeur, 3, PPOT_idx);
 	/*} else if(strcmp(etiquette,"HCHC") == 0) { 
 		HCHC = atol(valeur); etiquettesLues ++; 
 	} else if(strcmp(etiquette,"HCHP") == 0) { 

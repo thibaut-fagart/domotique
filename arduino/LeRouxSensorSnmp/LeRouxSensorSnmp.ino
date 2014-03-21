@@ -1,4 +1,13 @@
-#include <edf.h>
+/*
+reserved pins
+ethernet shield : 4 10 11 12 13
+
+*/
+
+#define DEBUG 1
+#define EDF
+#define SNMP
+
 
 #include <DHT.h>
 #include <Streaming.h>         // Include the Streaming library
@@ -10,34 +19,45 @@
 #include <SoftwareSerial.h>
 #include <snmp_utils.h>
 
-//
-#define DEBUG
-//
 
+#ifdef EDF
+#include <edf.h>
+#endif
+//
+//
 
 static byte mac[] = { 0x90, 0xA2, 0xDA, 0x0E, 0x0C, 0x4A };
-// MAC de l'ancienne carte
-//static byte mac[] = { 0x90, 0xA2, 0xDA, 0x0D, 0xEE, 0x82 };
 static byte ip[] = { 192, 168, 1, 99 };
-//static byte ip[] = { 192, 168, 1, 100 };
 static byte gateway[] = { 192, 168, 1, 254 };
 static byte subnet[] = { 255, 255, 255, 0 };
 static byte leroux_dns[] = { 192, 168, 1, 254 };
 #define DHTTYPE DHT22 // DHT 22 (AM2302)
+/*
+0-3 capteurs dht
+4 viierge
+5 relay
+6 reset
+7-9 capteurs
 
-int dht22XXX = 0; 
-int dht22YYY = 1; 
+*/
+//int dht22XXX    = 0; 
+//int dht22YYY    = 1; 
 int dht22OldPin = 2; 
+int EDFRxPin    = 3;
+int ETHERNET_RESERVED_PIN1 = 4;
+int EDFTxPin    = 5;
+//int relayPin    = 5; 
+//int resetPin    = 6; 
 int dht22NewPin = 7;
 int dht22ExtPin = 8; 
+int flowPin     = 9; 
+int ETHERNET_RESERVED_PIN2 = 10;
+int ETHERNET_RESERVED_PIN3 = 11;
+int ETHERNET_RESERVED_PIN4 = 12;
+
 DHT dht_exterieur(dht22ExtPin, DHTTYPE);
 DHT dht_nouvelleMaison(dht22NewPin, DHTTYPE);
 DHT dht_ancienneMaison(dht22OldPin, DHTTYPE);
-int relayPin    = 5; 
-int resetPin    = 6; 
-int EDFPin      = 3;
-int flowPin     = 9; 
-
 //
 // tkmib - linux mib browser
 //
@@ -79,8 +99,8 @@ static char const oidBurningTime[] PROGMEM   = "1.3.6.1.4.1.36582.10";  // read-
 static char const oidBurntFuel[] PROGMEM   = "1.3.6.1.4.1.36582.11";  // read-only  (SNMP_SYNTAX_COUNTER64)
 static char const oidRemainingFuel[] PROGMEM   = "1.3.6.1.4.1.36582.12";  // read-only  (gauge)
 static char const oidTest[] PROGMEM   = "1.3.6.1.4.1.36582.19";  // read-write  (Integer)
-static char const oidSwitchEDF[] PROGMEM   = "1.3.6.1.4.1.36582.20";  // read-write  (String)
-
+static char const oidEDFIndexNormal[] PROGMEM = "1.3.6.1.4.1.36582.20";
+static char const oidEDFIndexPointe[] PROGMEM = "1.3.6.1.4.1.36582.21";
 //
 // RFC1213 local values
 static char locDescr[]              = "Agentuino, a light-weight SNMP Agent.";  // read-only (static)
@@ -108,10 +128,10 @@ uint32_t remainingFuel_l = FUEL_TANK_CAPACITY;
 /*****************************************
  * EDF 
  */
-SoftwareSerial edfSerial(EDFPin, 1);
-uint32_t prevEDFReadMillis = 0;
-static char edfOnOff[20]             = "off";
-static int edfOn =  strcmp("on",edfOnOff);
+#ifdef EDF
+SoftwareSerial edfSerial(EDFRxPin, EDFTxPin);
+Teleinfos teleinfos;
+#endif
 
 /******************* END OF CONFIGURATION *******************/
 
@@ -126,7 +146,7 @@ void pduReceived()
   SNMP_PDU pdu;
   //
   #ifdef DEBUG
-//    Serial << F("UDP Packet Received Start..") << F(" RAM:") << freeMemory() << endl;
+    Serial << F("UDP Packet Received Start..") << F(" RAM:") << freeMemory() << endl;
   #endif
   //
   api_status = Agentuino.requestPdu(&pdu);
@@ -279,25 +299,32 @@ void pduReceived()
           pdu.error = status;
       }
 */
-    } else if ( strcmp_P(oid, oidSwitchEDF ) == 0 ) {
-      // start/stop listening to edf signals
+#ifdef EDF
+    } else if (strcmp_P(oid, oidEDFIndexNormal ) == 0) {
       if ( pdu.type == SNMP_PDU_SET ) {
-        // response packet from set-request - object is read/write
-        status = pdu.VALUE.decode(edfOnOff, strlen(edfOnOff)); 
-        edfOn = strcmp ("on", edfOnOff);
-        pdu.type = SNMP_PDU_RESPONSE;
-        pdu.error = status;
-      #ifdef DEBUG
-        Serial << F("edf switched ...") << (edfOn ? "on" : "off") << endl;
-      #endif
+          // response packet from set-request - object is read-only
+          pdu.type = SNMP_PDU_RESPONSE;
+          pdu.error = SNMP_ERR_READ_ONLY;
       } else {
-        // response packet from get-request - locName
-        status = pdu.VALUE.encode(SNMP_SYNTAX_OCTETS, edfOnOff);
+        getTeleinfo(edfSerial, teleinfos, Serial);
+        status = pdu.VALUE.encode(SNMP_SYNTAX_COUNTER, teleinfos.EJPHN);
         pdu.type = SNMP_PDU_RESPONSE;
         pdu.error = status;
       }
-      //
-}  else {
+    } else if (strcmp_P(oid, oidEDFIndexPointe ) == 0) {
+      if ( pdu.type == SNMP_PDU_SET ) {
+          // response packet from set-request - object is read-only
+          pdu.type = SNMP_PDU_RESPONSE;
+          pdu.error = SNMP_ERR_READ_ONLY;
+      } else {
+        Teleinfos teleinfos;
+        getTeleinfo(edfSerial, teleinfos, Serial);
+        status = pdu.VALUE.encode(SNMP_SYNTAX_COUNTER, teleinfos.EJPHPM);
+        pdu.type = SNMP_PDU_RESPONSE;
+        pdu.error = status;
+      }
+#endif      
+    }  else {
       // oid does not exist
       //
       // response packet - object not found
@@ -310,40 +337,42 @@ void pduReceived()
   //
   Agentuino.freePdu(&pdu);
   //
-  //Serial << "UDP Packet Received End.." << " RAM:" << freeMemory() << endl;
+  #ifdef DEBUG
+  Serial << "UDP Packet Received End.." << " RAM:" << freeMemory() << endl;
+  #endif
 }
 
-void resetEthernet() {
+/*void resetEthernet() {
   digitalWrite(resetPin,LOW); // put reset pin to low ==> reset the ethernet shield
   delay(200);
   digitalWrite(resetPin,HIGH); // set it back to high
   delay(2000);
 }
-
+*/
 void setup()
 {
-  pinMode(relayPin,    OUTPUT);
-  pinMode(resetPin,    OUTPUT);
+  Serial.begin(1200);
+  Serial << "setup" << endl;
+//  pinMode(relayPin,    OUTPUT);
+//  pinMode(resetPin,    OUTPUT);
   pinMode(flowPin,     INPUT);
-  pinMode(EDFPin,      INPUT);
-  // fil rose = flow (pin 7)
-  // fil orange = edf (pin 9)
-  // gris = 5v
-  // marron = masse
-  // blanc
-  Serial.begin(9600);
+#ifdef EDF
   edfSerial.begin(1200);
+#endif
     // manually reset the ethernet shield before using it
-  resetEthernet();
+//  resetEthernet();
   delay(1000); 
   dht_exterieur.begin();
   dht_nouvelleMaison.begin();
   dht_ancienneMaison.begin();
 
-
+  Serial << "ethernet begin" << endl;
   Ethernet.begin(mac, ip, leroux_dns, gateway, subnet);
   delay(1000); // donne le temps à la carte Ethernet de s'initialiser
   //
+  #ifdef SNMP
+  Serial << "agentuino begin" << endl;
+  
   api_status = Agentuino.begin();
   //
   if ( api_status == SNMP_API_STAT_SUCCESS ) {
@@ -360,12 +389,20 @@ void setup()
   delay(10);
   //
   Serial << F("SNMP Agent Initalization Problem...") << status << endl;
+  #endif
 }
 
 void loop()
 {
+  #ifdef SNMP
   // listen/handle for incoming SNMP requests
   Agentuino.listen();
+  #endif
+  #ifndef SNMP
+  Serial << "getTeleinfos begin " << endl;
+  getTeleinfo(edfSerial, teleinfos, Serial);
+  Serial << "teleinfos " << teleinfos << endl;
+  #endif
   //
   // sysUpTime - The time (in hundredths of a second) since
   // the network management portion of the system was last
@@ -389,17 +426,6 @@ void loop()
         burningTime_ms -=1000;
       }
     }
-  }
-  if (/*currentMillis > 10000  && currentMillis  > prevEDFReadMillis +30000*/ 0==0) { // une minute
-   // getTeleinfo();
-      if (edfSerial.available()) {
-    uint32_t start = millis();
-    Serial << F("debut lecture teleinfo") << endl;
-        while (edfSerial.available())
-          Serial.write(edfSerial.read() & 0x7F);
-    Serial << F(" teleinfo lue en ") << (prevEDFReadMillis-start) << endl;
-    prevEDFReadMillis = millis();
-      }
   }
  
 }
