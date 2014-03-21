@@ -4,6 +4,7 @@
 #include "Arduino.h"
 #include <SoftwareSerial.h>
 #include <Streaming.h>
+#include <Flash.h>
 
 /*
 reference EDF : http://www.planete-domotique.com/notices/ERDF-NOI-CPT_O2E.pdf
@@ -54,11 +55,11 @@ struct Teleinfos {
 	int ISOUSC ; //30 9 Intensité souscrite : ISOUSC ( 2 car. unité = ampères)
 	uint32_t EJPHN; // 002727095 E Index heures normales si option = EJP : EJP HN ( 9 car. unité = Wh)
 	uint32_t EJPHPM; // 000100755 F Index heures de pointe mobile si option = EJP : EJP HPM ( 9 car. unité = Wh)
-	int PEJP; // int (2) Préavis Début EJP (30 min avant) , en minutes
+	uint32_t PEJP; // int (2) Préavis Début EJP (30 min avant) , en minutes
 	char PTEC [5]; //HN.. ^ Période tarifaire en cours : PTEC ( 4 car.)
-	int IINST1; // 002 J Intensité instantanée : IINST ( 3 car. unité = ampères)
-	int IINST2; // 000 I Intensité instantanée : IINST ( 3 car. unité = ampères)
-	int IINST3; // 001 K Intensité instantanée : IINST ( 3 car. unité = ampères)
+	uint32_t IINST1; // 002 J Intensité instantanée : IINST ( 3 car. unité = ampères)
+	uint32_t IINST2; // 000 I Intensité instantanée : IINST ( 3 car. unité = ampères)
+	uint32_t IINST3; // 001 K Intensité instantanée : IINST ( 3 car. unité = ampères)
 	uint32_t IMAX1; //014 5 Intensité maximale : IMAX ( 3 car. unité = ampères)
 	uint32_t IMAX2; //018 : Intensité maximale : IMAX ( 3 car. unité = ampères)
 	uint32_t IMAX3; // 042 8 Intensité maximale : IMAX ( 3 car. unité = ampères)

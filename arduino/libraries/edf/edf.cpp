@@ -2,24 +2,14 @@
 #define DEBUG
 /***************** Teleinfo configuration part *******************/
 Teleinfos::Teleinfos(){
-	CaractereRecu ='\0';
-	Checksum[0] = '\0';
-	Ligne[0] = '\0';
-	Etiquette [0] = '\0';
-	Donnee [0] = '\0';
-	Trame [0] = '\0';
-	i = 0;
-	j = 0;
-
-	finTrame=0;
-
+	reset();
 }
 
 #define ERROR 0
 #define EDF_TIMEOUT 1000
 int Teleinfos::read(SoftwareSerial &cptSerial, Print &debug) {
 	#ifdef DEBUG
-		debug << ">>getTeleinfo" << endl;
+		debug << F(">>getTeleinfo") << endl;
 	#endif
 	/* vider les infos de la dernière trame lue */
 	memset(Ligne,'\0',32); 
@@ -59,25 +49,10 @@ int Teleinfos::read(SoftwareSerial &cptSerial, Print &debug) {
 		trameComplete = isTrameComplete(debug);
 	}
 	#ifdef DEBUG
-		debug <<  "<<getTeleinfo" << endl;
+		debug <<  F("<<getTeleinfo") << endl;
 	#endif
 	return millis() - startMillis;
 }
-
-/*------------------------------------------------------------------------------*/
-/* Test checksum d'un message (Return 1 si checkum ok)				*/
-/*------------------------------------------------------------------------------*/
-int Teleinfos::checksum_ok(char *etiquette, char *valeur, char checksum, Print& debug) {
-	unsigned char sum = 32 ;		// Somme des codes ASCII du message + un espace
-	int i ;
- 
-	for (i=0; i < strlen(etiquette); i++) sum = sum + etiquette[i] ;
-	for (i=0; i < strlen(valeur); i++) sum = sum + valeur[i] ;
-	sum = (sum & 63) + 32 ;
-	if ( sum == checksum) return 1 ;	// Return 1 si checkum ok.
-	return 0 ;
-}
-
 void Teleinfos::lireTrame(char *trame, Print& debug) {
 	int i;
 	int j=0;
@@ -106,6 +81,21 @@ int Teleinfos::decodeLigne(char *ligne, Print& debug) {
 		return 0;
 	}
 }
+
+/*------------------------------------------------------------------------------*/
+/* Test checksum d'un message (Return 1 si checkum ok)				*/
+/*------------------------------------------------------------------------------*/
+int Teleinfos::checksum_ok(char *etiquette, char *valeur, char checksum, Print& debug) {
+	unsigned char sum = 32 ;		// Somme des codes ASCII du message + un espace
+	int i ;
+ 
+	for (i=0; i < strlen(etiquette); i++) sum = sum + etiquette[i] ;
+	for (i=0; i < strlen(valeur); i++) sum = sum + valeur[i] ;
+	sum = (sum & 63) + 32 ;
+	if ( sum == checksum) return 1 ;	// Return 1 si checkum ok.
+	return 0 ;
+}
+
 
 int Teleinfos::lireEtiquette(char *ligne, Print& debug){
     int i;
@@ -242,7 +232,7 @@ int Teleinfos::set(char *etiquette, char *valeur, Print& debug) {
 	*/
 	} else {
 		#ifdef DEBUG
-			debug <<  " unknown etiquette " <<  etiquette << endl;
+			debug <<  F(" unknown etiquette ") <<  etiquette << endl;
 		#endif
 	}
 	#ifdef DEBUG
@@ -261,7 +251,7 @@ int Teleinfos::isTrameComplete(Print& debug) const {
 		return (maskEJPComplet & etiquettesLues) == maskEJPComplet;
 	} else {
 		#ifdef DEBUG 
-			debug << "OPTARIF inconnue [" <<OPTARIF <<"]"<< endl;
+			debug << F("OPTARIF inconnue [") <<OPTARIF <<("]")<< endl;
 		#endif
 		return 0;
 	}
