@@ -25,31 +25,63 @@ int(3) IINST1 , IINST2, IINST3 Adresse du compteur ADCO 12 Intensité Instantan�
 
 */
 
-struct Teleinfos {
+/*
+rappels sur 'const'
+see http://duramecho.com/ComputerInformation/WhyHowCppConst.html
+    const int * Constant2 :  Constant2 is a variable pointer to a constant integer
+	int const * Constant2 : same as above
+	int * const Constant3 : Constant3 is constant pointer to a variable integer
+    int const * const Constant4 : declares that Constant4 is constant pointer to a constant integer.
+	Basically ‘const’ applies to whatever is on its immediate left (other than if there is nothing there in which case it applies to whatever is its immediate right)
 	
+	big_structure_type const &Parameter1 : const pointer
+*/
+
+struct Teleinfos {
+	char CaractereRecu;
+	char Checksum[32] ;
+	char Ligne[32];
+	char Etiquette[9] ;
+	char Donnee[13] ;
+	char Trame[512] ;
+	int i ;
+	int j ;
+
+	int finTrame;
+
 	char ADCO[13]; // 041330071201 - N° d’identification du compteur : ADCO (12 caractères)
 	char OPTARIF[5]; // EJP. " Option tarifaire (type d’abonnement) : OPTARIF (4 car.)
 	int ISOUSC ; //30 9 Intensité souscrite : ISOUSC ( 2 car. unité = ampères)
-	long EJPHN; // 002727095 E Index heures normales si option = EJP : EJP HN ( 9 car. unité = Wh)
-	long EJPHPM; // 000100755 F Index heures de pointe mobile si option = EJP : EJP HPM ( 9 car. unité = Wh)
+	uint32_t EJPHN; // 002727095 E Index heures normales si option = EJP : EJP HN ( 9 car. unité = Wh)
+	uint32_t EJPHPM; // 000100755 F Index heures de pointe mobile si option = EJP : EJP HPM ( 9 car. unité = Wh)
 	int PEJP; // int (2) Préavis Début EJP (30 min avant) , en minutes
 	char PTEC [5]; //HN.. ^ Période tarifaire en cours : PTEC ( 4 car.)
 	int IINST1; // 002 J Intensité instantanée : IINST ( 3 car. unité = ampères)
 	int IINST2; // 000 I Intensité instantanée : IINST ( 3 car. unité = ampères)
 	int IINST3; // 001 K Intensité instantanée : IINST ( 3 car. unité = ampères)
-	long IMAX1; //014 5 Intensité maximale : IMAX ( 3 car. unité = ampères)
-	long IMAX2; //018 : Intensité maximale : IMAX ( 3 car. unité = ampères)
-	long IMAX3; // 042 8 Intensité maximale : IMAX ( 3 car. unité = ampères)
-	long PMAX; // 14370 5 Puissance maximale triphasée atteinte (Watts)
-	long PAPP; // 00690 0 Puissance apparente : PAPP ( 5 car. unité = Volt.ampères)
+	uint32_t IMAX1; //014 5 Intensité maximale : IMAX ( 3 car. unité = ampères)
+	uint32_t IMAX2; //018 : Intensité maximale : IMAX ( 3 car. unité = ampères)
+	uint32_t IMAX3; // 042 8 Intensité maximale : IMAX ( 3 car. unité = ampères)
+	uint32_t PMAX; // 14370 5 Puissance maximale triphasée atteinte (Watts)
+	uint32_t PAPP; // 00690 0 Puissance apparente : PAPP ( 5 car. unité = Volt.ampères)
 	char MOTDETAT[7];// 000000 B Mot d’état (autocontrôle) : MOTDETAT (6 car.)
 	char PPOT[3]; // 00 # Présence des potentiels
 	
-	unsigned long etiquettesLues;
-	int set(char *etiquette, char *valeur, Print& debug) ;
-	int isTrameComplete(Print& debug); 
-	void setVariable (char* variable, char* valeur, int variableLength, byte idx) ;
-
+	uint32_t etiquettesLues;
+	
+	Teleinfos();
+	int read(SoftwareSerial &cptSerial, Print &debug);
+	int set(char *etiquette, char *valeur, Print &debug) ;
+	int isTrameComplete(Print &debug) const; 
+	void setVariable (char * const variable, char const * const valeur, int variableLength, byte idx) ;
+	int checksum_ok(char *etiquette, char *valeur, char checksum, Print& debug) ;
+	void lireTrame(char *trame, Print& debug) ;
+	int decodeLigne(char *ligne, Print& debug);
+	int lireEtiquette(char *ligne, Print& debug);
+	int lireValeur(char *ligne, int offset, Print& debug);
+	void lireChecksum(char *ligne, int offset, Print& debug);
+	int affecteEtiquette(char *etiquette, char *valeur, Print& debug);
+	
 	void reset() {
 		memset(ADCO,'\0',13);
 		memset(OPTARIF,'\0',5);
@@ -72,7 +104,7 @@ struct Teleinfos {
 		etiquettesLues=0l;
 	
 	}
-	void print(Print& debug) const {
+	void print(Print &debug) const {
 		debug << "ADCO :" << ADCO << endl;
 		debug << "OPTARIF :" << OPTARIF<< endl;
 		debug << "ISOUSC :" << ISOUSC<< endl;
@@ -97,12 +129,5 @@ inline Print &operator <<(Print &obj, const Teleinfos &arg)
 { arg.print(obj); return obj; }
 
 
-void getTeleinfo(SoftwareSerial& edfSerials, Teleinfos& teleinfos, Print& serial) ;
-void lireTrame(char *trame, Teleinfos& teleinfos, Print& debug);
-int decodeLigne(char *ligne, Teleinfos& teleinfos, Print& debug);
-int lireEtiquette(char *ligne, Print& debug);
-int lireValeur(char *ligne, int offset, Print& debug);
-void lireChecksum(char *ligne, int offset, Print& debug);
-int affecteEtiquette(Teleinfos& teleinfos, char *etiquette, char *valeur, Print& debug);
 
 #endif

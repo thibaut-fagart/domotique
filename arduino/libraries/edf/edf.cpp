@@ -1,24 +1,23 @@
 #include "edf.h"
-
+#define DEBUG
 /***************** Teleinfo configuration part *******************/
-char CaractereRecu ='\0';
-char Checksum[32] = "";
-char Ligne[32]="";
-char Etiquette[9] = "";
-char Donnee[13] = "";
-char Trame[512] ="";
-int i = 0;
-int j = 0;
+Teleinfos::Teleinfos(){
+	CaractereRecu ='\0';
+	Checksum[0] = '\0';
+	Ligne[0] = '\0';
+	Etiquette [0] = '\0';
+	Donnee [0] = '\0';
+	Trame [0] = '\0';
+	i = 0;
+	j = 0;
 
-unsigned long Chrono = 0;
-unsigned long LastChrono = 0;
+	finTrame=0;
 
-int check[11];  // Checksum by etiquette
-int trame_ok = 1; // global trame checksum flag
-int finTrame=0;
+}
 
-
-void getTeleinfo(SoftwareSerial& cptSerial, Teleinfos& teleinfos, Print& debug) {
+#define ERROR 0
+#define EDF_TIMEOUT 1000
+int Teleinfos::read(SoftwareSerial &cptSerial, Print &debug) {
 	#ifdef DEBUG
 		debug << ">>getTeleinfo" << endl;
 	#endif
@@ -27,9 +26,11 @@ void getTeleinfo(SoftwareSerial& cptSerial, Teleinfos& teleinfos, Print& debug) 
 	memset(Trame,'\0',512);
 	int trameComplete=0;
 	
-	teleinfos.reset();
-	while (!trameComplete){
+	reset();
+	uint32_t startMillis = millis();
+	while (!trameComplete) {
 		while(CaractereRecu != 0x02) {
+			if (millis()-startMillis > EDF_TIMEOUT) return ERROR;
 		// boucle jusqu'a "Start Text 002" début de la trame
 			if (cptSerial.available()) {
 				CaractereRecu = cptSerial.read() & 0x7F;
@@ -38,6 +39,7 @@ void getTeleinfo(SoftwareSerial& cptSerial, Teleinfos& teleinfos, Print& debug) 
 
 		i=0; 
 		while(CaractereRecu != 0x03) { 
+			if (millis()-startMillis > EDF_TIMEOUT) return ERROR;
 			// Tant qu'on est pas arrivé à "EndText 003" Fin de trame ou que la trame est incomplète
 			if (cptSerial.available()) {
 				CaractereRecu = cptSerial.read() & 0x7F;
@@ -48,24 +50,24 @@ void getTeleinfo(SoftwareSerial& cptSerial, Teleinfos& teleinfos, Print& debug) 
 		Trame[i++]='\0';
 
 		#ifdef DEBUG
-			debug << "Trame [" << Trame <<  "]" << endl;
+			//debug << "Trame [" << Trame <<  "]" << endl;
 		#endif
 
-		lireTrame(Trame, teleinfos, debug);	
+		lireTrame(Trame, debug);	
 
 		// on vérifie si on a une trame complète ou non
-		trameComplete = teleinfos.isTrameComplete(debug);
+		trameComplete = isTrameComplete(debug);
 	}
 	#ifdef DEBUG
 		debug <<  "<<getTeleinfo" << endl;
 	#endif
-
+	return millis() - startMillis;
 }
 
 /*------------------------------------------------------------------------------*/
 /* Test checksum d'un message (Return 1 si checkum ok)				*/
 /*------------------------------------------------------------------------------*/
-int checksum_ok(char *etiquette, char *valeur, char checksum, Print& debug) {
+int Teleinfos::checksum_ok(char *etiquette, char *valeur, char checksum, Print& debug) {
 	unsigned char sum = 32 ;		// Somme des codes ASCII du message + un espace
 	int i ;
  
@@ -76,21 +78,21 @@ int checksum_ok(char *etiquette, char *valeur, char checksum, Print& debug) {
 	return 0 ;
 }
 
-void lireTrame(char *trame, Teleinfos& teleinfos, Print& debug){
+void Teleinfos::lireTrame(char *trame, Print& debug) {
 	int i;
 	int j=0;
 	for (i=0; i < strlen(trame); i++){
 		if (trame[i] != 0x0D) { // Tant qu'on est pas au CR, c'est qu'on est sur une ligne du groupe
 			Ligne[j++]=trame[i];
 		} else { //On vient de finir de lire une ligne, on la décode (récupération de l'etiquette + valeur + controle checksum
-			decodeLigne(Ligne,teleinfos, debug);
+			decodeLigne(Ligne, debug);
 			memset(Ligne,'\0',32); // on vide la ligne pour la lecture suivante
 			j=0;
 		}
 	}
 }
 
-int decodeLigne(char *ligne, Teleinfos& teleinfos, Print& debug){ 
+int Teleinfos::decodeLigne(char *ligne, Print& debug) { 
 	int debutValeur; 
 	int debutChecksum;
 	// Décomposer en fonction pour lire l'étiquette etc ...  
@@ -99,13 +101,13 @@ int decodeLigne(char *ligne, Teleinfos& teleinfos, Print& debug){
 	lireChecksum(ligne,debutValeur + debutChecksum -1,debug);
 
 	if (checksum_ok(Etiquette, Donnee, Checksum[0], debug)){ // si la ligne est correcte (checksum ok) on affecte la valeur à l'étiquette
-		return teleinfos.set(Etiquette,Donnee,debug);
+		return set(Etiquette,Donnee,debug);
 	} else {
 		return 0;
 	}
 }
 
-int lireEtiquette(char *ligne, Print& debug){
+int Teleinfos::lireEtiquette(char *ligne, Print& debug){
     int i;
     int j=0;
     memset(Etiquette,'\0',9);
@@ -121,7 +123,7 @@ int lireEtiquette(char *ligne, Print& debug){
 }
 
 
-int lireValeur(char *ligne, int offset, Print& debug){
+int Teleinfos::lireValeur(char *ligne, int offset, Print& debug){
     int i;
     int j=0;
     memset(Donnee,'\0',13);
@@ -136,7 +138,7 @@ int lireValeur(char *ligne, int offset, Print& debug){
 }
 
 
-void lireChecksum(char *ligne, int offset, Print& debug){
+void Teleinfos::lireChecksum(char *ligne, int offset, Print& debug){
 	int i;
 	int j=0;
 	memset(Checksum,'\0',32);
@@ -176,14 +178,14 @@ unsigned long maskEJPComplet =
 	| (1 << PMAX_idx)
 	| (1 << PAPP_idx);
 
-void Teleinfos::setVariable (char* variable, char* valeur, int variableLength, byte idx) {
+void Teleinfos::setVariable (char * const variable, char const * const valeur, int variableLength, byte idx) {
 	memset(variable,'\0',variableLength); memcpy(variable, valeur,strlen(valeur));
 	etiquettesLues |= (1L << idx); 
 }
 int Teleinfos::set(char *etiquette, char *valeur, Print& debug) {
 	long etiquettesLuesBefore = etiquettesLues; 
 	#ifdef DEBUG
-		debug << " set " << etiquette << " = " << valeur << endl;
+		//debug << " set " << etiquette << " = " << valeur << endl;
 	#endif
 	if(strcmp(etiquette,"ADCO") == 0) { 
 		setVariable (ADCO, valeur, 13, ADCO_idx);
@@ -244,17 +246,17 @@ int Teleinfos::set(char *etiquette, char *valeur, Print& debug) {
 		#endif
 	}
 	#ifdef DEBUG
-		debug << etiquette << " : " << valeur << "(" << etiquettesLuesBefore << " -> "<<etiquettesLues << ")" << endl;
+		//debug << etiquette << " : " << valeur << "(" << etiquettesLuesBefore << " -> "<<etiquettesLues << ")" << endl;
 	#endif
 
 	return etiquettesLues != etiquettesLuesBefore;
 }
 	
-int Teleinfos::isTrameComplete(Print& debug) {
+int Teleinfos::isTrameComplete(Print& debug) const {
 	// 0 si non, 1 si oui
 	if (strstr(OPTARIF, "EJP") !=NULL) {
 		#ifdef DEBUG 
-			debug << "OPTARIF reconnue " << endl;
+			//debug << "OPTARIF reconnue " << endl;
 		#endif
 		return (maskEJPComplet & etiquettesLues) == maskEJPComplet;
 	} else {
