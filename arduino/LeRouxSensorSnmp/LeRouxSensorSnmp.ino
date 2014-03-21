@@ -101,6 +101,11 @@ static char const oidRemainingFuel[] PROGMEM   = "1.3.6.1.4.1.36582.12";  // rea
 static char const oidTest[] PROGMEM   = "1.3.6.1.4.1.36582.19";  // read-write  (Integer)
 static char const oidEDFIndexNormal[] PROGMEM = "1.3.6.1.4.1.36582.20";
 static char const oidEDFIndexPointe[] PROGMEM = "1.3.6.1.4.1.36582.21";
+static char const oidEDFPreavisEJP[] PROGMEM = "1.3.6.1.4.1.36582.22";
+static char const oidEDF_IInst1[] PROGMEM = "1.3.6.1.4.1.36582.23";
+static char const oidEDF_IInst2[] PROGMEM = "1.3.6.1.4.1.36582.24";
+static char const oidEDF_IInst3[] PROGMEM = "1.3.6.1.4.1.36582.25";
+static char const oidEDF_PApp[] PROGMEM = "1.3.6.1.4.1.36582.25";
 //
 // RFC1213 local values
 static char locDescr[]              = "Agentuino, a light-weight SNMP Agent.";  // read-only (static)
@@ -292,37 +297,63 @@ void pduReceived()
       }
 */
     } else if (strcmp_P(oid, oidEDFIndexNormal ) == 0) {
-      if ( pdu.type == SNMP_PDU_SET ) {
-          // response packet from set-request - object is read-only
-          pdu.type = SNMP_PDU_RESPONSE;
-          pdu.error = SNMP_ERR_READ_ONLY;
-      } else {
         int ok  = teleinfos.read(edfSerial, Serial);
         if (!ok)  { 
-          status = SNMP_ERR_READ_ONLY;
+          handleReadUInt32(&pdu, teleinfos.EJPHN);
         } else {
-          status = pdu.VALUE.encode(SNMP_SYNTAX_COUNTER, teleinfos.EJPHN);
+          pdu.type = SNMP_PDU_RESPONSE;
+          pdu.error = SNMP_ERR_READ_ONLY;
         }
-        pdu.error = status;
-        pdu.type = SNMP_PDU_RESPONSE;
-      }
     } else if (strcmp_P(oid, oidEDFIndexPointe ) == 0) {
-      if ( pdu.type == SNMP_PDU_SET ) {
-          // response packet from set-request - object is read-only
+        int ok  = teleinfos.read(edfSerial, Serial);
+        if (!ok)  { 
+          handleReadUInt32(&pdu, teleinfos.EJPHPM);
+        } else {
           pdu.type = SNMP_PDU_RESPONSE;
           pdu.error = SNMP_ERR_READ_ONLY;
-      } else {
-        int ok  = teleinfos.read(edfSerial, Serial);
-        Serial << ok  << endl;
-        if (!ok)  { 
-          status = SNMP_ERR_READ_ONLY;
-        } else {
-          status = pdu.VALUE.encode(SNMP_SYNTAX_COUNTER, teleinfos.EJPHPM);
         }
-        pdu.error = status;
-        pdu.type = SNMP_PDU_RESPONSE;
-      }
-    }  else {
+    }      
+  } else if (strcmp_P(oid, oidEDFPreavisEJP ) == 0) {
+        int ok  = teleinfos.read(edfSerial, Serial);
+        if (!ok)  { 
+          handleReadInt(&pdu, teleinfos.PEJP);
+        } else {
+          pdu.type = SNMP_PDU_RESPONSE;
+          pdu.error = SNMP_ERR_READ_ONLY;
+        }
+  } else if (strcmp_P(oid, oidEDF_PApp ) == 0) {
+        int ok  = teleinfos.read(edfSerial, Serial);
+        if (!ok)  { 
+          handleReadUInt32(&pdu, teleinfos.PAPP);
+        } else {
+          pdu.type = SNMP_PDU_RESPONSE;
+          pdu.error = SNMP_ERR_READ_ONLY;
+        }
+  } else if (strcmp_P(oid, oidEDF_IInst1 ) == 0) {
+        int ok  = teleinfos.read(edfSerial, Serial);
+        if (!ok)  { 
+          handleReadInt(&pdu, teleinfos.IINST1);
+        } else {
+          pdu.type = SNMP_PDU_RESPONSE;
+          pdu.error = SNMP_ERR_READ_ONLY;
+        }
+  } else if (strcmp_P(oid, oidEDF_IInst2 ) == 0) {
+        int ok  = teleinfos.read(edfSerial, Serial);
+        if (!ok)  { 
+          handleReadInt(&pdu, teleinfos.IINST2);
+        } else {
+          pdu.type = SNMP_PDU_RESPONSE;
+          pdu.error = SNMP_ERR_READ_ONLY;
+        }
+  } else if (strcmp_P(oid, oidEDF_IInst3 ) == 0) {
+        int ok  = teleinfos.read(edfSerial, Serial);
+        if (!ok)  { 
+          handleReadInt(&pdu, teleinfos.IINST3);
+        } else {
+          pdu.type = SNMP_PDU_RESPONSE;
+          pdu.error = SNMP_ERR_READ_ONLY;
+        }
+  } else {
       // oid does not exist
       //
       // response packet - object not found
