@@ -17,8 +17,8 @@ void handleStringOID (SNMP_PDU* pdu, char* currentValue, boolean readonly);
  
 void handleIntOID(SNMP_PDU* pdu, int* value, boolean readonly);
 
-void handleUInt32OID(SNMP_PDU* pdu, int value, boolean readonly);    
-
+void handleUInt32OID(SNMP_PDU* pdu, uint32_t &value, boolean readonly);    
+void handleReadUInt32(SNMP_PDU* pdu, uint32_t value);
 /**
  * reads the current temperature from the provided dht and stores it in the pdu
  */ 

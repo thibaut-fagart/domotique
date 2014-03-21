@@ -40,7 +40,7 @@ void handleIntOID(SNMP_PDU* pdu, int* currentValue, boolean readonly) {
 void handleReadInt(SNMP_PDU* pdu, int value) {
     handleIntOID(pdu,&value,TRUE);
 }
-void handleUInt32OID(SNMP_PDU* pdu, uint32_t* currentValue, boolean readonly) {
+void handleUInt32OID(SNMP_PDU* pdu, uint32_t &currentValue, boolean readonly) {
       if ( pdu->type == SNMP_PDU_SET ) {
         if (readonly) {
           // response packet from set-request - object is read-only
@@ -48,16 +48,16 @@ void handleUInt32OID(SNMP_PDU* pdu, uint32_t* currentValue, boolean readonly) {
           pdu->error = SNMP_ERR_READ_ONLY;
         } else {
           pdu->type = SNMP_PDU_RESPONSE;
-          pdu->error = pdu->VALUE.decode(currentValue);
+          pdu->error = pdu->VALUE.decode(&currentValue);
         }
       } else {
         pdu->type = SNMP_PDU_RESPONSE;
-        pdu->error =  pdu->VALUE.encode(SNMP_SYNTAX_UINT32, *currentValue);
+        pdu->error =  pdu->VALUE.encode(SNMP_SYNTAX_UINT32, currentValue);
       }
 }
 
-void handleReadUInt32(SNMP_PDU* pdu, int value) {
-    handleUInt32OID(pdu,&value,TRUE);
+void handleReadUInt32(SNMP_PDU* pdu, uint32_t value) {
+    handleUInt32OID(pdu,value,TRUE);
 }
 
 /**

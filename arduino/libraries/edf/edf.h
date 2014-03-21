@@ -39,6 +39,7 @@ see http://duramecho.com/ComputerInformation/WhyHowCppConst.html
 */
 
 struct Teleinfos {
+	uint32_t lastRefresh;
 	char CaractereRecu;
 	char Checksum[2] ;
 	char Ligne[32];

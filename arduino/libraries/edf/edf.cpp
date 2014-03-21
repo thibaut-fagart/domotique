@@ -20,12 +20,16 @@ donné ci-dessous en remarque,
 #define ERROR 0
 #define EDF_TIMEOUT 1000
 #define SERIAL_BUFFER_OVERFLOW 50
+#define VALID_FOR 60000
 int Teleinfos::read(SoftwareSerial &cptSerial, Print &debug) {
 	#ifdef DEBUG
 		debug << F(">>getTeleinfo") << endl;
 	#endif
-	cptSerial.begin(1200);
 	uint32_t startMillis = millis();
+	if ((lastRefresh !=0) && (startMillis - lastRefresh < VALID_FOR)) {
+		return 1;
+	}
+	cptSerial.begin(1200);
 	/* vider les infos de la dernière trame lue */
 	memset(Ligne,'\0',sizeof(Ligne)); 
 	int trameComplete=0;
@@ -85,6 +89,7 @@ int Teleinfos::read(SoftwareSerial &cptSerial, Print &debug) {
 		debug <<  F("<<getTeleinfo") << endl;
 	#endif
 	cptSerial.end();
+	lastRefresh = millis(); 
 	return millis() - startMillis;
 }
 /*void Teleinfos::lireTrame(char *trame, Print& debug) {
