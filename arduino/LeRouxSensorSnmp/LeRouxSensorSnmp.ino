@@ -1,10 +1,11 @@
+
 /*
 reserved pins
-ethernet shield : 4 10 11 12 13
+ ethernet shield : 4 10 11 12 13
+ 
+ */
 
-*/
-
-#define DEBUG 1
+//#define DEBUG 1
 #define EDF
 #define SNMP
 
@@ -14,26 +15,34 @@ ethernet shield : 4 10 11 12 13
 #include <Ethernet.h>          // Include the Ethernet library
 #include <SPI.h>
 #include <MemoryFree.h>
-#include <Agentuino.h> 
 #include <Flash.h>
 #include <SoftwareSerial.h>
+
+#include <Agentuino.h> 
 #include <snmp_utils.h>
 
+#include <EEPROM.h>
+#include <fuel.h>
 
-static byte mac[] = { 0x90, 0xA2, 0xDA, 0x0E, 0x0C, 0x4A };
-static byte ip[] = { 192, 168, 1, 99 };
-static byte gateway[] = { 192, 168, 1, 254 };
-static byte subnet[] = { 255, 255, 255, 0 };
-static byte leroux_dns[] = { 192, 168, 1, 254 };
+static byte mac[] = { 
+  0x90, 0xA2, 0xDA, 0x0E, 0x0C, 0x4A };
+static byte ip[] = { 
+  192, 168, 1, 99 };
+static byte gateway[] = { 
+  192, 168, 1, 254 };
+static byte subnet[] = { 
+  255, 255, 255, 0 };
+static byte leroux_dns[] = { 
+  192, 168, 1, 254 };
 #define DHTTYPE DHT22 // DHT 22 (AM2302)
 /*
 0-3 capteurs dht
-4 viierge
-5 relay
-6 reset
-7-9 capteurs
-
-*/
+ 4 viierge
+ 5 relay
+ 6 reset
+ 7-9 capteurs
+ 
+ */
 //int dht22XXX    = 0; 
 //int dht22YYY    = 1; 
 int dht22OldPin = 2; 
@@ -41,7 +50,7 @@ int EDFRxPin    = 3;
 int ETHERNET_RESERVED_PIN1 = 4;
 int EDFTxPin    = 5;
 //int relayPin    = 5; 
-//int resetPin    = 6; 
+int resetPin    = 6; 
 int dht22NewPin = 7;
 int dht22ExtPin = 8; 
 int flowPin     = 9; 
@@ -95,10 +104,10 @@ static char const oidTempOld[] PROGMEM    = "1.3.6.1.4.1.36582.2";  // read-only
 static char const oidHumidOld[] PROGMEM   = "1.3.6.1.4.1.36582.3";  // read-only  (Integer)
 static char const oidTempNew[] PROGMEM    = "1.3.6.1.4.1.36582.4";  // read-only  (Integer)
 static char const oidHumidNew[] PROGMEM   = "1.3.6.1.4.1.36582.5";  // read-only  (Integer)
-static char const oidBurningTime[] PROGMEM   = "1.3.6.1.4.1.36582.10";  // read-only  (counter)
+/*static char const oidBurningTime[] PROGMEM   = "1.3.6.1.4.1.36582.10";  // read-only  (counter)
 static char const oidBurntFuel[] PROGMEM   = "1.3.6.1.4.1.36582.11";  // read-only  (SNMP_SYNTAX_COUNTER64)
 static char const oidRemainingFuel[] PROGMEM   = "1.3.6.1.4.1.36582.12";  // read-only  (gauge)
-static char const oidTest[] PROGMEM   = "1.3.6.1.4.1.36582.19";  // read-write  (Integer)
+*/static char const oidTest[] PROGMEM   = "1.3.6.1.4.1.36582.19";  // read-write  (Integer)
 static char const oidEDFIndexNormal[] PROGMEM = "1.3.6.1.4.1.36582.20";
 static char const oidEDFIndexPointe[] PROGMEM = "1.3.6.1.4.1.36582.21";
 static char const oidEDFPreavisEJP[] PROGMEM = "1.3.6.1.4.1.36582.22";
@@ -117,19 +126,6 @@ static char locLocation[20]         = "Le Roux France";                        /
 static int32_t locServices          = 7;                                        // read-only (static)
 
 
-/****************************************
- * Fuel management
- */
-const uint32_t FUEL_TANK_CAPACITY = 2000;
-const float fuel_flow_l_per_hour = 4.6f;
-const int seconds_per_hour = 3600;
-// cumulated burning time (seconds), updated in real time by the main loop
-uint32_t burningTime_s = 0;
-// intermediate time counter for precision
-uint32_t burningTime_ms = 0;
-// fuel supposed to be remaining in the fuel tank
-uint32_t remainingFuel_l = FUEL_TANK_CAPACITY;
-
 /******************* END OF CONFIGURATION *******************/
 
 
@@ -142,12 +138,12 @@ void pduReceived()
 {
   SNMP_PDU pdu;
   //
-  #ifdef DEBUG
-    Serial << F("UDP Packet Received Start..") << F(" RAM:") << freeMemory() << endl;
-  #endif
+#ifdef DEBUG
+  Serial << F("UDP Packet Received Start..") << F(" RAM:") << freeMemory() << endl;
+#endif
   //
   api_status = Agentuino.requestPdu(&pdu);
-  
+
   Serial << F("api ") << api_status << F(" pdu.type") << pdu.type << endl;
   //
   if ( pdu.type == SNMP_PDU_GET || pdu.type == SNMP_PDU_GET_NEXT || pdu.type == SNMP_PDU_SET
@@ -158,183 +154,161 @@ void pduReceived()
     //Serial << "OID: " << oid << endl;
     //
     if ( strcmp_P(oid, sysDescr ) == 0 ) {
-		handleStringOID (&pdu, locDescr, TRUE);
+      handleStringOID (&pdu, locDescr, TRUE);
       //
-      #ifdef DEBUG
-        Serial << F("sysDescr...") << locDescr << F(" ") << pdu.VALUE.size << endl;
-      #endif
-    } else if ( strcmp_P(oid, sysUpTime ) == 0 ) {
+#ifdef DEBUG
+      Serial << F("sysDescr...") << locDescr << F(" ") << pdu.VALUE.size << endl;
+#endif
+    } 
+    else if ( strcmp_P(oid, sysUpTime ) == 0 ) {
       // handle sysName (set/get) requests
       if ( pdu.type == SNMP_PDU_SET ) {
         // response packet from set-request - object is read-only
         pdu.type = SNMP_PDU_RESPONSE;
         pdu.error = SNMP_ERR_READ_ONLY;
-      } else {
+      } 
+      else {
         // response packet from get-request - locUpTime
         status = pdu.VALUE.encode(SNMP_SYNTAX_TIME_TICKS, locUpTime);
         pdu.type = SNMP_PDU_RESPONSE;
         pdu.error = status;
       }
       //
-      #ifdef DEBUG
-        Serial << F("sysUpTime...") << locUpTime << F(" ") << pdu.VALUE.size << endl;
-      #endif
-    } else if ( strcmp_P(oid, sysName ) == 0 ) {
-		handleStringOID (&pdu, locName, FALSE);
-      #ifdef DEBUG
-        Serial << F("sysName...") << locName << F(" ") << pdu.VALUE.size << endl;
-      #endif
-    } else if ( strcmp_P(oid, sysContact ) == 0 ) {
-		handleStringOID (&pdu, locContact, FALSE);
-      #ifdef DEBUG
-        Serial << F("sysContact...") << locContact << F(" ") << pdu.VALUE.size << endl;
-      #endif
-    } else if ( strcmp_P(oid, sysLocation ) == 0 ) {
-		handleStringOID (&pdu, locLocation, FALSE);
-      #ifdef DEBUG
-        Serial << F("sysLocation...") << locLocation << F(" ") << pdu.VALUE.size << endl;
-      #endif
-    } else if ( strcmp_P(oid, sysServices) == 0 ) {
+#ifdef DEBUG
+      Serial << F("sysUpTime...") << locUpTime << F(" ") << pdu.VALUE.size << endl;
+#endif
+    } 
+    else if ( strcmp_P(oid, sysName ) == 0 ) {
+      handleStringOID (&pdu, locName, FALSE);
+#ifdef DEBUG
+      Serial << F("sysName...") << locName << F(" ") << pdu.VALUE.size << endl;
+#endif
+    } 
+    else if ( strcmp_P(oid, sysContact ) == 0 ) {
+      handleStringOID (&pdu, locContact, FALSE);
+#ifdef DEBUG
+      Serial << F("sysContact...") << locContact << F(" ") << pdu.VALUE.size << endl;
+#endif
+    } 
+    else if ( strcmp_P(oid, sysLocation ) == 0 ) {
+      handleStringOID (&pdu, locLocation, FALSE);
+#ifdef DEBUG
+      Serial << F("sysLocation...") << locLocation << F(" ") << pdu.VALUE.size << endl;
+#endif
+    } 
+    else if ( strcmp_P(oid, sysServices) == 0 ) {
       // handle sysServices (set/get) requests
       if ( pdu.type == SNMP_PDU_SET ) {
         // response packet from set-request - object is read-only
         pdu.type = SNMP_PDU_RESPONSE;
         pdu.error = SNMP_ERR_READ_ONLY;
-      } else {
+      } 
+      else {
         // response packet from get-request - locServices
         status = pdu.VALUE.encode(SNMP_SYNTAX_INT, locServices);
         pdu.type = SNMP_PDU_RESPONSE;
         pdu.error = status;
       }
       //
-      #ifdef DEBUG
-        Serial << F("locServices...") << locServices << F(" ") << pdu.VALUE.size << endl;
-      #endif
-      
-    } else if (strcmp_P(oid, oidTempExt ) == 0) {
-		handleReadTemperature(&pdu, &dht_exterieur);
-    } else if (strcmp_P(oid, oidHumidExt ) == 0) {
-		handleReadHumidity(&pdu, &dht_exterieur);
-    } else if (strcmp_P(oid, oidTempOld ) == 0) {
-		handleReadTemperature(&pdu, &dht_ancienneMaison);
-    } else if (strcmp_P(oid, oidHumidOld ) == 0 ) {
-		handleReadHumidity(&pdu, &dht_ancienneMaison);
-    } else if (strcmp_P(oid, oidTempNew ) == 0 ) {
-		handleReadTemperature(&pdu, &dht_nouvelleMaison);
-    } else if (strcmp_P(oid, oidHumidNew ) == 0) {
-		handleReadHumidity(&pdu, &dht_nouvelleMaison);
-    } else if (strcmp_P(oid, oidBurningTime ) == 0) {
-      if ( pdu.type == SNMP_PDU_SET ) {
-        // response packet from set-request - object is read-write
-        uint32_t newBurningTime = burningTime_s;
-        status = pdu.VALUE.decode(&newBurningTime);
-        #ifdef DEBUG
-        Serial << F("updating burningTime ") << burningTime_s << F(" to ") << newBurningTime << endl;
-        #endif
-        burningTime_s = newBurningTime;
-        pdu.type = SNMP_PDU_RESPONSE;
-        pdu.error = status;
-      } else {
-        status = pdu.VALUE.encode(SNMP_SYNTAX_COUNTER, burningTime_s);
-        pdu.type = SNMP_PDU_RESPONSE;
-        pdu.error = status;
-      }
-    } else if (strcmp_P(oid, oidBurntFuel ) == 0) {
-      if ( pdu.type == SNMP_PDU_SET ) {
-        // response packet from set-request - object is read-only
+#ifdef DEBUG
+      Serial << F("locServices...") << locServices << F(" ") << pdu.VALUE.size << endl;
+#endif
+
+    } 
+    else if (strcmp_P(oid, oidTempExt ) == 0) {
+      handleReadTemperature(&pdu, &dht_exterieur);
+    } 
+    else if (strcmp_P(oid, oidHumidExt ) == 0) {
+      handleReadHumidity(&pdu, &dht_exterieur);
+    } 
+    else if (strcmp_P(oid, oidTempOld ) == 0) {
+      handleReadTemperature(&pdu, &dht_ancienneMaison);
+    } 
+    else if (strcmp_P(oid, oidHumidOld ) == 0 ) {
+      handleReadHumidity(&pdu, &dht_ancienneMaison);
+    } 
+    else if (strcmp_P(oid, oidTempNew ) == 0 ) {
+      handleReadTemperature(&pdu, &dht_nouvelleMaison);
+    } 
+    else if (strcmp_P(oid, oidHumidNew ) == 0) {
+      handleReadHumidity(&pdu, &dht_nouvelleMaison);
+    } 
+    else if (handleFuelOIDs(pdu, oid)) {
+      // all done in handleFuelOIDs
+    } 
+    #ifdef EDF
+    else if (strcmp_P(oid, oidEDFIndexNormal ) == 0) {
+      int ok  = teleinfos.read(edfSerial, Serial);
+      if (ok)  { 
+        handleReadUInt32(&pdu, teleinfos.EJPHN);
+      } 
+      else {
         pdu.type = SNMP_PDU_RESPONSE;
         pdu.error = SNMP_ERR_READ_ONLY;
-      } else {
-        uint64_t usedFuel_ml =  (((uint64_t) burningTime_s ) *fuel_flow_l_per_hour)/ 3.6;
-      #ifdef DEBUG
-      Serial << F(" consumed fuel since reset ") << (uint32_t)usedFuel_ml << endl;
-      #endif
-        status = pdu.VALUE.encode(SNMP_SYNTAX_COUNTER64, usedFuel_ml);
+      }
+    } 
+    else if (strcmp_P(oid, oidEDFIndexPointe ) == 0) {
+      int ok  = teleinfos.read(edfSerial, Serial);
+      if (ok)  { 
+        handleReadUInt32(&pdu, teleinfos.EJPHPM);
+      } 
+      else {
         pdu.type = SNMP_PDU_RESPONSE;
-        pdu.error = status;
-      }      
-    } else if (strcmp_P(oid, oidRemainingFuel ) == 0) {
-        // response packet from set-request - object is read-only
-        #ifdef DEBUG
-        Serial << F(" oidRemainingFuel , pduType=") << pdu.type  << endl;
-        #endif
-        if ( pdu.type == SNMP_PDU_SET ) {
-          uint32_t newRemainingFuel = remainingFuel_l ;
-          status = pdu.VALUE.decode(&newRemainingFuel);
-          #ifdef DEBUG
-          Serial << F(" init Fuel, previous remaining ") << remainingFuel_l 
-                 << F(" new remaining ") << newRemainingFuel << endl;
-          #endif
-          remainingFuel_l = newRemainingFuel;
-          pdu.type = SNMP_PDU_RESPONSE;
-          pdu.error = status;
-        } else {
-          uint64_t usedFuel_ml =  (((uint64_t) burningTime_s ) *fuel_flow_l_per_hour)/ 3.6;
-          uint32_t temp_remainingFuel_l = remainingFuel_l - (usedFuel_ml/1000);
-          #ifdef DEBUG
-          Serial << F(" remaining fuel since reset ") << temp_remainingFuel_l << F(", init fuel tank ")<<remainingFuel_l << endl;
-          #endif
-          status = pdu.VALUE.encode(SNMP_SYNTAX_GAUGE, temp_remainingFuel_l);
-          pdu.type = SNMP_PDU_RESPONSE;
-          pdu.error = status;
-        }
-    } else if (strcmp_P(oid, oidEDFIndexNormal ) == 0) {
-        int ok  = teleinfos.read(edfSerial, Serial);
-        if (ok)  { 
-          handleReadUInt32(&pdu, teleinfos.EJPHN);
-        } else {
-          pdu.type = SNMP_PDU_RESPONSE;
-          pdu.error = SNMP_ERR_READ_ONLY;
-        }
-    } else if (strcmp_P(oid, oidEDFIndexPointe ) == 0) {
-        int ok  = teleinfos.read(edfSerial, Serial);
-        if (ok)  { 
-          handleReadUInt32(&pdu, teleinfos.EJPHPM);
-        } else {
-          pdu.type = SNMP_PDU_RESPONSE;
-          pdu.error = SNMP_ERR_READ_ONLY;
-        }
-    } else if (strcmp_P(oid, oidEDFPreavisEJP ) == 0) {
-		int ok  = teleinfos.read(edfSerial, Serial);
-		if (ok)  { 
-		  handleReadUInt32(&pdu, teleinfos.PEJP);
-		} else {
-		  pdu.type = SNMP_PDU_RESPONSE;
-		  pdu.error = SNMP_ERR_READ_ONLY;
-		}
-    } else if (strcmp_P(oid, oidEDF_PApp ) == 0) {
-        int ok  = teleinfos.read(edfSerial, Serial);
-        if (ok)  { 
-          handleReadUInt32(&pdu, teleinfos.PAPP);
-        } else {
-          pdu.type = SNMP_PDU_RESPONSE;
-          pdu.error = SNMP_ERR_READ_ONLY;
-        }
-	} else if (strcmp_P(oid, oidEDF_IInst1 ) == 0) {
-		int ok  = teleinfos.read(edfSerial, Serial);
-		if (ok)  { 
-		  handleReadUInt32(&pdu, teleinfos.IINST1);
-		} else {
-		  pdu.type = SNMP_PDU_RESPONSE;
-		  pdu.error = SNMP_ERR_READ_ONLY;
-		}
-	} else if (strcmp_P(oid, oidEDF_IInst2 ) == 0) {
-		int ok  = teleinfos.read(edfSerial, Serial);
-		if (ok)  { 
-		  handleReadUInt32(&pdu, teleinfos.IINST2);
-		} else {
-		  pdu.type = SNMP_PDU_RESPONSE;
-		  pdu.error = SNMP_ERR_READ_ONLY;
-		}
-	} else if (strcmp_P(oid, oidEDF_IInst3 ) == 0) {
-		int ok  = teleinfos.read(edfSerial, Serial);
-		if (ok)  { 
-		  handleReadUInt32(&pdu, teleinfos.IINST3);
-		} else {
-		  pdu.type = SNMP_PDU_RESPONSE;
-		  pdu.error = SNMP_ERR_READ_ONLY;
-		}
-	} else {
+        pdu.error = SNMP_ERR_READ_ONLY;
+      }
+    } 
+    else if (strcmp_P(oid, oidEDFPreavisEJP ) == 0) {
+      int ok  = teleinfos.read(edfSerial, Serial);
+      if (ok)  { 
+        handleReadUInt32(&pdu, teleinfos.PEJP);
+      } 
+      else {
+        pdu.type = SNMP_PDU_RESPONSE;
+        pdu.error = SNMP_ERR_READ_ONLY;
+      }
+    } 
+    else if (strcmp_P(oid, oidEDF_PApp ) == 0) {
+      int ok  = teleinfos.read(edfSerial, Serial);
+      if (ok)  { 
+        handleReadUInt32(&pdu, teleinfos.PAPP);
+      } 
+      else {
+        pdu.type = SNMP_PDU_RESPONSE;
+        pdu.error = SNMP_ERR_READ_ONLY;
+      }
+    } 
+    else if (strcmp_P(oid, oidEDF_IInst1 ) == 0) {
+      int ok  = teleinfos.read(edfSerial, Serial);
+      if (ok)  { 
+        handleReadUInt32(&pdu, teleinfos.IINST1);
+      } 
+      else {
+        pdu.type = SNMP_PDU_RESPONSE;
+        pdu.error = SNMP_ERR_READ_ONLY;
+      }
+    } 
+    else if (strcmp_P(oid, oidEDF_IInst2 ) == 0) {
+      int ok  = teleinfos.read(edfSerial, Serial);
+      if (ok)  { 
+        handleReadUInt32(&pdu, teleinfos.IINST2);
+      } 
+      else {
+        pdu.type = SNMP_PDU_RESPONSE;
+        pdu.error = SNMP_ERR_READ_ONLY;
+      }
+    } 
+    else if (strcmp_P(oid, oidEDF_IInst3 ) == 0) {
+      int ok  = teleinfos.read(edfSerial, Serial);
+      if (ok)  { 
+        handleReadUInt32(&pdu, teleinfos.IINST3);
+      } 
+      else {
+        pdu.type = SNMP_PDU_RESPONSE;
+        pdu.error = SNMP_ERR_READ_ONLY;
+      }
+    } 
+    #endif
+    else {
       // oid does not exist
       //
       // response packet - object not found
@@ -347,27 +321,29 @@ void pduReceived()
   //
   Agentuino.freePdu(&pdu);
   //
-  #ifdef DEBUG
+#ifdef DEBUG
   Serial << F("UDP Packet Received End..") << F(" RAM:") << freeMemory() << endl;
-  #endif
+#endif
 }
 
-/*void resetEthernet() {
-  digitalWrite(resetPin,LOW); // put reset pin to low ==> reset the ethernet shield
-  delay(200);
-  digitalWrite(resetPin,HIGH); // set it back to high
-  delay(2000);
+void resetEthernet() {
+ digitalWrite(resetPin,LOW); // put reset pin to low ==> reset the ethernet shield
+ delay(200);
+ digitalWrite(resetPin,HIGH); // set it back to high
+ delay(2000);
 }
-*/
+
 void setup()
 {
   Serial.begin(9600);
   Serial << F("setup") << endl;
-//  pinMode(relayPin,    OUTPUT);
-//  pinMode(resetPin,    OUTPUT);
+  //  pinMode(relayPin,    OUTPUT);
+  pinMode(resetPin,    OUTPUT);
   pinMode(flowPin,     INPUT);
-    // manually reset the ethernet shield before using it
-//  resetEthernet();
+  
+  initFuelFromEEPROM();
+  // manually reset the ethernet shield before using it
+  resetEthernet();
   delay(1000); 
   dht_exterieur.begin();
   dht_nouvelleMaison.begin();
@@ -377,9 +353,9 @@ void setup()
   Ethernet.begin(mac, ip, leroux_dns, gateway, subnet);
   delay(1000); // donne le temps à la carte Ethernet de s'initialiser
   //
-  #ifdef SNMP
+#ifdef SNMP
   Serial << ("agentuino begin") << endl;
-  
+
   api_status = Agentuino.begin();
   //
   if ( api_status == SNMP_API_STAT_SUCCESS ) {
@@ -396,25 +372,28 @@ void setup()
   delay(10);
   //
   Serial << F("SNMP Agent Initalization Problem...") << status << endl;
-  #endif
+#endif
 }
 
 void loop()
 {
-  #ifdef SNMP
+#ifdef SNMP
   // listen/handle for incoming SNMP requests
   Agentuino.listen();
-  #endif
-  #ifndef SNMP
+#endif
+#ifndef SNMP
+#ifdef EDF
   Serial << "getTeleinfos begin " << endl;
   int ok  = teleinfos.read(edfSerial, Serial);
   if (!ok)  {
     Serial << "getTeleinfo timedout" << endl;
-  } else {
+  } 
+  else {
     Serial << "getTeleinfo complete in " << ok << endl;
     Serial << teleinfos.EJPHN << endl;
   }
   #endif
+#endif
   //
   // sysUpTime - The time (in hundredths of a second) since
   // the network management portion of the system was last
@@ -427,17 +406,19 @@ void loop()
     //
     // increment up-time counter
     locUpTime += 100;
-    if (digitalRead(flowPin) ==1) {
+    incrementBurningTimeIfBurning(flowPin, lastStep);
+/*    if (digitalRead(flowPin) ==1) {
       // currentlyBurning
       burningTime_ms +=lastStep;
       if (burningTime_ms > 1000) {
         burningTime_s +=1;
-        #ifdef DEBUG
-//        Serial << F("burning for ") << burningTime_s << endl;
-        #endif
+#ifdef DEBUG
+        //        Serial << F("burning for ") << burningTime_s << endl;
+#endif
         burningTime_ms -=1000;
       }
-    }
+    }*/
   }
- 
+
 }
+
