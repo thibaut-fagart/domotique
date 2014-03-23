@@ -1,5 +1,7 @@
 #include "edf.h"
 //#define DEBUG
+#define DEBUGLIGNE
+
 /***************** Teleinfo configuration part *******************/
 Teleinfos::Teleinfos(){
 	reset();
@@ -18,7 +20,7 @@ donné ci-dessous en remarque,
 • un caractère "Carriage Return" CR (00D h) indiquant la fin du groupe d'information.
 */
 #define ERROR 0
-#define EDF_TIMEOUT 1000
+#define EDF_TIMEOUT 5000
 #define SERIAL_BUFFER_OVERFLOW 50
 #define VALID_FOR 60000
 int Teleinfos::read(SoftwareSerial &cptSerial, Print &debug) {
@@ -68,7 +70,7 @@ int Teleinfos::read(SoftwareSerial &cptSerial, Print &debug) {
 			}
 			if (i > 0) { 
 				Ligne[i++] = '\0';
-				#ifdef DEBUG
+				#ifdef DEBUGLIGNE
 				debug << Ligne << endl;
 				#endif
 				decodeLigne(Ligne, debug);
@@ -192,6 +194,10 @@ byte PMAX_idx = IMAX3_idx + 1;
 byte PAPP_idx = PMAX_idx + 1;
 byte MOTDETAT_idx = PAPP_idx + 1;
 byte PPOT_idx = MOTDETAT_idx + 1;
+byte BASE_idx = PPOT_idx + 1;
+byte IINST_idx = BASE_idx + 1;
+byte ADPS_idx = IINST_idx + 1;
+byte IMAX_idx = ADPS_idx + 1;
 
 unsigned long maskEJPComplet = 
 	(1 << ADCO_idx) 
@@ -204,6 +210,14 @@ unsigned long maskEJPComplet =
 	| (1 << IMAX2_idx)
 	| (1 << IMAX3_idx)
 	| (1 << PMAX_idx)
+	| (1 << PAPP_idx);
+
+unsigned long maskNormalComplet = 
+	(1 << ADCO_idx) 
+	| (1 << BASE_idx)
+	| (1 << PTEC_idx)
+	| (1 << IINST_idx)
+	| (1 << IMAX_idx)
 	| (1 << PAPP_idx);
 
 void Teleinfos::setVariable (char * const variable, char const * const valeur, int variableLength, byte idx) {
@@ -228,11 +242,17 @@ int Teleinfos::set(char *etiquette, char *valeur, Print& debug) {
 	} else if(strcmp(etiquette,"EJPHPM") == 0) {
 		EJPHPM = atol(valeur);
 		etiquettesLues |= (1L << EJPHPM_idx);
+	} else if(strcmp(etiquette,"BASE") == 0) { 
+		BASE = atol(valeur);
+		etiquettesLues |= (1L << BASE_idx);
 	} else if(strcmp(etiquette,"PEJP") == 0) { 
 		PEJP = atoi( valeur); 
 		etiquettesLues |= (1L << PEJP_idx); 
 	} else if(strcmp(etiquette,"PTEC") == 0) { 
 		setVariable (PTEC, valeur, 5, PTEC_idx);
+	} else if(strcmp(etiquette,"IINST") == 0) { 
+		IINST = atoi(valeur); 
+		etiquettesLues |= (1L << IINST_idx); 
 	} else if(strcmp(etiquette,"IINST1") == 0) { 
 		IINST1 = atoi(valeur); 
 		etiquettesLues |= (1L << IINST1_idx); 
@@ -242,6 +262,9 @@ int Teleinfos::set(char *etiquette, char *valeur, Print& debug) {
 	} else if(strcmp(etiquette,"IINST3") == 0) { 
 		IINST3 = atoi(valeur); 
 		etiquettesLues |= (1L << IINST3_idx); 
+	} else if(strcmp(etiquette,"IMAX") == 0) { 
+		IMAX = atol(valeur); 
+		etiquettesLues |= (1L << IMAX_idx); 
 	} else if(strcmp(etiquette,"IMAX1") == 0) { 
 		IMAX1 = atol(valeur); 
 		etiquettesLues |= (1L << IMAX1_idx); 
@@ -287,6 +310,11 @@ int Teleinfos::isTrameComplete(Print& debug) const {
 			//debug << "OPTARIF reconnue " << endl;
 		#endif
 		return (maskEJPComplet & etiquettesLues) == maskEJPComplet;
+	}else if (strstr(OPTARIF, "BASE") !=NULL) {
+		#ifdef DEBUG 
+			//debug << "OPTARIF reconnue " << endl;
+		#endif
+		return (maskNormalComplet & etiquettesLues) == maskNormalComplet;
 	} else {
 		#ifdef DEBUG 
 			debug << F("OPTARIF inconnue [") <<OPTARIF <<("]")<< endl;

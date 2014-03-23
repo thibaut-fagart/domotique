@@ -11,8 +11,8 @@ reserved pins
 
 
 #include <DHT.h>
-#include <Streaming.h>         // Include the Streaming library
-#include <Ethernet.h>          // Include the Ethernet library
+#include <Streaming.h>        
+#include <Ethernet.h>         
 #include <SPI.h>
 #include <MemoryFree.h>
 #include <Flash.h>
