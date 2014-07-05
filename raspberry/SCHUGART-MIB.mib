@@ -1,0 +1,143 @@
+SCHUGART-MIB DEFINITIONS ::= BEGIN
+
+-- Imports
+IMPORTS
+    MODULE-IDENTITY, OBJECT-TYPE, NOTIFICATION-TYPE,
+    Integer32, Unsigned32, Counter32, Counter64, TimeTicks, IpAddress,
+    enterprises
+        FROM SNMPv2-SMI
+    TEXTUAL-CONVENTION, DisplayString
+        FROM SNMPv2-TC
+    MODULE-COMPLIANCE, OBJECT-GROUP, NOTIFICATION-GROUP
+        FROM SNMPv2-CONF
+    agentxObjects
+        FROM AGENTX-MIB;
+
+-- Description and update information                                                                                                            
+schugart MODULE-IDENTITY
+    LAST-UPDATED "201405040000Z"
+    ORGANIZATION "N/A"
+    CONTACT-INFO
+        "Editor:
+        Dimitri Fagart
+        EMail: <dimitri@schugart.net>"
+    DESCRIPTION
+        "schugart MIB for python-netsnmpagent"
+
+    ::= { agentxObjects 99999 }
+
+-- Definition of MIB's root nodes
+
+raspberry         OBJECT IDENTIFIER ::= { schugart 1 }
+raspHome           OBJECT IDENTIFIER ::= { raspberry 1 }
+ampliPower           OBJECT IDENTIFIER ::= { raspHome 1 }
+dht22                OBJECT IDENTIFIER ::= { raspHome 2 }
+dht22Ext               OBJECT IDENTIFIER ::= { dht22 1 }
+dht22Sdb               OBJECT IDENTIFIER ::= { dht22 2 }
+dht22Salon             OBJECT IDENTIFIER ::= { dht22 3 }
+dht22Pc                OBJECT IDENTIFIER ::= { dht22 4 }
+raspCars           OBJECT IDENTIFIER ::= { raspberry 1 }
+raspEdf            OBJECT IDENTIFIER ::= { raspberry 1 }
+raspLeroux         OBJECT IDENTIFIER ::= { raspberry 1 }
+
+------------------------------------------------------------------------
+-- Scalars
+------------------------------------------------------------------------
+
+ampliCuisine OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "Ampli power state 0:Off  1:On"
+    ::= { ampliPower 1 }
+
+ampliChambre OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "Ampli power state 0:Off  1:On"
+    ::= { ampliPower 2 }
+
+ampliSdb OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "Ampli power state 0:Off  1:On"
+    ::= { ampliPower 3 }
+
+ampliSalon OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "Ampli power state 0:Off  1:On"
+    ::= { ampliPower 4 }
+
+dht22ExtTemp OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 temperature"
+    ::= { dht22Ext 1 }
+
+dht22ExtHum OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 humidity"
+    ::= { dht22Ext 2 }
+
+dht22SdbTemp OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 temperature"
+    ::= { dht22Sdb 1 }
+
+dht22SdbHum OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 humidity"
+    ::= { dht22Sdb 2 }
+
+dht22SalonTemp OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 temperature"
+    ::= { dht22Salon 1 }
+
+dht22SalonHum OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 humidity"
+    ::= { dht22Salon 2 }
+
+dht22PcTemp OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 temperature"
+    ::= { dht22Pc 1 }
+
+dht22PcHum OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 humidity"
+    ::= { dht22Pc 2 }
+
+END

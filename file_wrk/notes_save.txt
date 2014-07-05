@@ -1,0 +1,2117 @@
+Categories	Bouffe_Sale
+
+Salade de pommes de terre et feves au chorizo         
+
+ Préparation : 20 minutes
+ Cuisson : 20 minutes
+ Theme : Entrées
+
+Pour 4 personnes
+500 g de fèves, 1 kg pommes de terre, 150 g de lardons, 200 g de chorizo, quelques oignons blancs bottent, 3 tomates, 10 cl de vin blanc sec, 1 cuil. à soupe d'huile d'olive, 1 bouquet garni, 1 gousse d'ail, quelques brins de persil, sel et poivre.
+
+1. Couper le chorizo en fines tranches. Emincer l'ail et les oignons blancs.
+
+2. Couper les pommes de terre en morceaux puis les faire cuire à la vapeur pendant 15 min.
+
+3. Oter la cosse des fèves avant de les éplucher et les plonger 30 secondes dans de l'eau bouillante puis les rafraîchir avant d'ôter leur première peau. A l'aide d'un petit couteau pointu. Fendre la peau et appuyer fermement pour faire sortir la fève.
+
+4. Ebouillanter les tomates et les éplucher, en retirer les graines et hacher la pulpe.
+
+5. Verser l'huile dans une sauteuse, la poser sur un feu doux, y ajouter les tranches de chorizo et les lardons. Les faire revenir pendant 5 min. Retirer de la sauteuse le chorizo et les lardons, les remplacer par les oignons et la gousse d'ail émincés. Faire cuire 3 min sans laisser dorer, en mélangeant tous les éléments, puis ajouter la pulpe de tomates. Laisser cuire 3 min, verser le vin blanc et laisser cuire encore 5 min.
+
+6.Ajouter les fèves et les pommes de terre, le bouquet garni, saler, poivrer, ajouter 5 cl d'eau, le chorizo et les lardons, couvrir et laisser cuire à feu doux pendant 8 à 10 min.
+
+7. Lorsque les fèves sont cuites, retirer le bouquet garni et ajouter le persil ciselé. Servir bien chaud ou complètement refroidi.
+
+Categories	Taf
+
+Faire une micro Simu Thesim
+global_build.py
+model_install.sh GLOBAL
+model_xface2Xsrc.py "de tous les models"
+dans SSISVE
+load.py load.ldp (avec une mise a jour de load.ldp pour inclure les models)
+process_build.py PSYNC02
+model_install.sh PSYNC02
+sched_build.py SSISVE
+ccd SSISVE
+CIF_Studio
+
+Categories	Divers
+
+4 martyrs
+cabine int 108/60 ext 80/125
+escalier 105/108
+
+13 rue manuel (sacamas)
+cabine int 109/49 ext 68/135
+escalier 75-80/95
+
+9 rue milton
+cabine int 120/50 ext 75/138
+escalier 85/125
+
+notre
+210 largeur
+205 arondi palier
+
+Categories	Bouffe_Sale
+
+Sauté de porc aux raisins secs
+
+1kg de porc bien entrelardé 
+150g de raisins secs
+1 morceau de gingembre frais 
+50g de pignons de pin
+1 oignon blanc
+1 verre de vin blanc
+1 c à s de miel
+sel, poivre, huile, beurre.
+
+La veille (ou quelques heures avant) mettre à tremper les raisins dans le vin blanc avec le miel.
+Le jour même  couper le porc en gros cubes, les faire dorer à l'huile dans une cocotte, jeter la graisse de cuisson, retirer les morceaux de viande.
+Ajouter un bon morceau de beurre et l'oignon coupé en fines lamelles, laisser fondre à très petit feu. Quand il est transparent remettre la viande ,les raisins secs trempés, saler, poivrer, ajouter le verre d'eau, laisser cuire à tout petit feu 40' . 
+Ajouter 1 c à c de gingembre rapé, les pignons, servir.
+
+Servir accompagné de riz additionné de petits dés de poires sautées au beurre.
+
+Categories	Java
+
+Le 8 c'est activite nautique. Snorkling toute la journee sur l'ile du park national a 45min de bateau. super fond avec plein de coraux et plein de poisson.
+
+Categories	Java
+
+Le 6 la Java est fini. Direction Bali en ferry. En theorie 45min mais notre bateau fera des rond dans le port. puis bus jusqu'a pemuteran.
+La comme d'hab, petite chambre dans un hotel de luxe. Apres midi piscine plage et mer enfin. De beau coraux juste en face de l'hotel. Le resto est bon on va se faire une cure de poisson.
+Le 7 on prend une voiture pour 1h30 vers monduk (450000) et de la on se fait 4h de marche (400000) a travers les plantation de clou de girofle, de cafe et a travers les riziere. c'est magnifique et le guide est bien. Il nous fait meme passer par chez lui pour le cafe. Du coup vu que les epices sont local et pas chere, je fait le plein
+
+Categories	Java
+
+Kalibaru, le 4, premier jour de pluie. l'hotel contrairement a ce que disait le site, n'oganise pas grand chose. Ils reussissent tout de meme a nous trouver un guide qui nous fera parcourir divers plantations, nous donnera de la cannelle fraiche et du sucre de coco. On passera ensuite dans une ecole avec une prof d'anglais qui nous invitera dans sa classe. Tres sympa...
+Puis balade dans les rizieres juste avant l'averse.
+Comme il n'y a plus rien a faire, on decide de prendre le bus local direction bagnu-yangi. Apres midi piscine et preparation du kawa-igen pour demain. On rencontre 2 francaise sur le point de se faire refiler un pakage un peu cher. Du coup on leur propose de partager (350000).
+Le 5 sera encore prive de grasse mat. Depart pour le kawa-igen a 4h30. Apres 1h30 de 4x4 on part pour 1h30 de monte qui nous emene sur le bord du cratere puis 30min pour descendre dans le cratere. Super balade loin de la foule du Bromo. Et du coup le peux de monde est francais....
+Lilou n'ira pas au fond du cratere car il y a tout de meme des grosses fumerole de souffre. il faut se proteger avec un foulard. super journee!
+Fin de journee piscine a l'hotel.
+
+Categories	Java
+
+Le 2 reveil a 3h30 du matin. La veille on a decouvert que dans le coin il n'y a pas 50 truc a faire. La seul balade c'est 1h de jeep pour le point de vue sur la caldera a 2700 metres puis descente toujour en jeep au pied du bromo et de la 25 minutes a pied pour monter sur le bromo (280000). C'est comparable au Peritomoreno, la vue est magnifique mais c'est tout betonee, il y a plein de boutiques a touristes et plein de touristes. Dommage a pied dans la nature (pas le long de l'autoroute de jeep) cela aurais pu etre magique.
+Retour a l'hotel a 8h30 petit dej avec super panorama et transfert  a probolimbo en voiture (250000) pour prendre le train (160000) vers kalibaru. De la on se rend en voiture a cheval (kalibaru est tout petit et on ne voit pas de taxi ou bemo) a 4km dans un grand hotel comfort plein de hollandais ou on voit des danses indonesiennes.
+
+Categories	Java
+
+A par la piscine de l'hotel on ne vera pas solo. La nuit passe etait juste pour limiter le transport...
+Le 1 au matin depart pour Subaraya (4h) en train (75000x2). De la un minibus envoye par l'hotel du mont bromo nous recupere et nous depose sur le bord de la caldera 3h30 plus tard (600000)
+Ce bled est pas super vivant l'hotel pas top confort mais la vue est belle.
+
+Categories	Java
+
+Prambanan au menu du 30. Cette fois ci on fait ca avec viavia une agence de voyage alternative carrement notre style. Avant Prambanan on visite trois petit temple desert en passant par de petites routes aux milieux des rizieres. Avec nous un etudiant javanais qui nous sert de guide et avec qui on peut aborder plein de sujets (620000). Apres midi balade en ville et piscine.
+Le lendemain le 31 retripe avec viavia. Cette fois ci le theme c'est les temples erotique. en fait deux temples indou dedie a la fertilite avec une balade de 3h dans les montagnes. Journee parfaite, on aura en plus de la guide un couple Belge bien sympa avec nous. Meme lilou aura bien la peche malgres ptit ange.
+Au retour on se fait droper a solo ce qui nous evite 2h de voiture.
+
+Categories	Java
+
+Depart tot pour 7h de train le matin du 28. direction Jogyakarta. Beau paysage wagon confortable. A 14h on descend du train et la, c'est le drame... on a oublie l'appareil photo dans le train! qui est reparti. Du coup on revient a la gare et on passe 1h avec la securite de la gare qui passent plein de coup de fil... 
+on repart de la avec un faible espoire. Et un rdv a 12h30 le lendemain.
+Balade dans la ville et resto. C'est une ville bcp plus sympa et calme.
+Le 29 au matin visite de la ville et de ces temple et palais. on est conquis par Jogyakarta.
+Pour couroner tout ca on recupere l'apareil. On a sacrement du bol.
+L'apres midi visite de Borobodour (360000) un temple magnifique.
+Et bon resto le soir apres un plouf dans notre super piscine
+
+Categories	Java
+
+ 26 matin depart pour le gede national park en bemo. Marche sympa dans la forest jusqu'a des chutes. On est tout seul, c'est tranquille, enfin au calme. Par contre probablement du a l'activite volcanique on ne pourra pas aller voir les hot spring. Pas tres grave car avec ptit ange lilou fatigue plus vite et 3h de balade lui iront tres bien. Apres midi repos car en faite l'unique route du vilage est super passante et c'est pas super agreable de marcher le long. On aurai pu rester un jour de moins.
+Le 27 depart en bus local apres 1h d'attente le long de la route. (contairement a ce qu'a dit l'hotel il n'y en a pas tant que ca.)
+apres 3h de route, arrivee a Bandung tres grosse ville ou on peut se balader a pied, ambiance mais avec bcp de circulation, bruit et polution. retour a l'hotel suiss bien luxe (480000) mais resto pas top.
+
+Categories	Java
+
+Depart le 24 au matin en train pour Bogor a 1h (2*13000).
+Plus un train de banlieu. D'ailleur on ne quitte pas vraiement la ville. Arrivee sous un soleil de plomb avec un gros sac a dos. Le quartier de la gare est impresionnant. Ca grouille de monde on dirai un marche tout le long des rue. 1er hotel un peu vieux, 2eme dur a trouver sans l'adresse... et comme ange fatigue lilou, on decide de se rabatre sur un 3eme choix plus sur et plus luxe... le Santika (580000).
+On tente la nego avec un pousse pousse mais il abuse sur le prix. Du coup on commence a pied. Un mec qui a du nous entendre nous dit de le suivre. Il nous fait monter dans un bemo autour du parc sur un pseudo perif. Il ira meme jusqu'a nous payer le bemo (2000*pers).
+Hotel grand luxe, rien a dire. Lilou se fera meme un massage.
+L'apres midi balade dans la ville mais la cirulation est bruyante et fatiguante. retour a la piscine.
+Le 25 au matin leve tot pour passer a l'office de tourisme, negocier une voiture pour cipanas. Avant ca visite du park central de Bogor. C'est calme et impressionant.
+Petite bouffe puis depart pour cipanas. Apres 1 heure de route avec la fin dans les plantation de the, arrivee au novous puncak (600000).
+Ancien hotel de luxe vide. De la apres midi a cibodas dans un imense park botanique a flan de volcan. Retour a l'hotel en bemo, on commence a maitriser.
+
+Categories	Java
+
+Arrivee a jakarta le 22 au matin. L'hotel sparks est tres bien pour un prix raisonable (420000) bien designe et moderne avec une piscine bien agreable. Seul incovenien, il est pas vraiement dans un quartier ou c'est facile de se balader a pied. Du coup on prend le taxi pour quitter et revenir a l'hotel. La pemiere journee c'est recuperation sieste et piscine. chouette resto le soir avec des satay a tomber par terre et un super gateau a la banne.
+Le 23 on attaque la visite de jakarta.
+La grande mosque de jakarta, moderne et super grande, l'obelisque de l'independance avec des vitrines historique qui embelissent l'histoire et un beau point de vue sur la ville.
+Apres on va vers la mer et l'ancien quartier hollandais. Ce quartier est un peu en ruine et pue enormement. La faute a d'anciens canneau d'eau stagnante remplie d'ordure. Ce quartier tente la reabilitation avec des rues pietonnes mais il y a encore du boulot...
+Globalement jakarta ne nous embale pas. principalement par ce qu'on ne peut pas vraiment se balader a pied.
+On ne s'attendais pas au coup de foudre mais je ne regrette pas d'y etre venu.
+
+Categories	Bouffe_Sucre
+
+Gateau a l'orange
+
+175g de sucre, 175g de farine, 175g de beurre, 3 Oeufs
+le zest de 2 oranges, le jus d'une orange, 1/2 sachet de levure
+
+150°C et 40minutes
+
+Glacage jus de 2 orange + 125 g de sucre glace (a chauffer dans casserole)
+
+Melanger beure en pommade + sucre puis oeuf puis farine + levure puis jus + zest
+
+Categories	Bouffe_Sale
+
+Tagine d'agneau
+(6 pers)
+1 epaule d'agneau
+3 oignons
+3 tomates
+3 gousses d'ail
+5 c a soupe huile d'olive
+1/2 c a cafe de cumin
+1/2 c a cafe de cannelle
+1/2 c a cafe de piment
+1/2 c a cafe de gingembre
+1 dose de safran
+100g d'abricot sec
+100g de pruneau
+40g d'amande
+40g de raisin sec
+30cl de bouillon de volaille
+1 noix de gingembre
+1/3 bouquet de coriandre
+poivre
+
+faire revenir 1/2 huile, oignon, et tomate en des. Retirer du feux.
+Faire revenir la viande et 1/2 huile.
+Ajouter tout. Faire cuire 2h.
+
+Categories	Bouffe_Sucre
+
+Pate Feuillete
+500g de farine
+200 ml d'eau
+25ml de vinaigre
+12g de sel
+450g de beurre
+
+Faire la pate avec 50g de beurre fondue. Avec une incision reserver 2h au frigo.
+Mettre le beurre souple au millieu et reserver 30min au frigo.
+Donner 2 tours et mettre au frigo ou congelo.
+Redonner 1 tour et utiliser
+
+Categories	Resto
+
+Anciene maison 6deg
+nouvellle maison 12,5deg
+chaudiere 40 40 10 10
+conso 1450
+eau chaude = oui
+allumage courant ok
+la chaudiere se met en route
+elec 125265 - 5234
+tel 444,36
+coffre a bois 1/3
+apres 5min chaudiere 40 30 40 30
+apres 1jour chaudiere 70 60 70 60
+
+chauffage maison ok en 12h avec -6deg dehors et radiateur a 2
+
+Categories	Resto
+
+L'esclafidou (Nimes)
+7 rue xavier sigalon
+Place des esclafidous
+30000 Nimes
+
+Tel 04 66 21 28 49
+Ferme le mercredi et dimanche
+
+Categories	Bouffe_Sale
+
+Soupe de butternuts
+Courge de butternuts
+Orange (zest ?)
+Ciboulette
+Creme
+Chorizo
+
+Categories	Taf
+
+New Hotel La Baume (50065), Nîmes, 21, rue Nationale, Nîmes, 30000
+
+Téléphone: +33 (0)4 66 76 28 42
+Durée du séjour     1 nuit
+Détails des chambres     
+Chambre Double Standard - Conditions Spéciales [Type de chambre:Double]
+70,00 
+Chambre Double Standard - Conditions Spéciales
+
+Le petit déjeuner buffet en supplément coûte 10,00 EUR par personne.
+Montant total     70,00 
+Demandes Spéciales     Chambres non fumeurs
+
+Categories	Bouffe_Sale
+
+Crumble de tomates et poivron au basilic.         
+Pour 4 personnes
+4 tomates, 2 courgettes, 1 poivron vert, 100 g de farine, 100 g de beurre, 75 g de parmesan rapé, 1 oignon, 1 gousse d'ail, 1 branche de basilic, 3 cuil. à soupe d'huile d'olive, 1 cuil. à café de concentré de tomates, sel et poivre.
+
+Préchauffez le four sur th 8 (240°c). Préparez la pate à crumble.
+Coupez le beurre en morceaux. Dans un saladier, mélangez la farine, les morceaux de beurre et le parmesan rapé. Assaisonnez. Mélangez du bout des doigts pour obtenir une substance sableuse puis réservez. Epluchez puis émincez l'ail et l'oignon. Effeuillez le basilic puis ciselez-le.
+Coupez le poivron en 2, retirez les graines puis taillez-le en lanières.
+Coupez les tomates en quartiers et les courgettes en petits dés. Faites chauffer l'huile d'olive dans une poêle puis faites revenir l'ail, l'oignon et le poivron. Laissez colorer puis ajoutez les tomates et les courgettes, assaisonnez et laissez cuire 15 min en remuant régulièrement.
+Versez la préparation dans un plat allant au four, assaisonnez de nouveau, parsemez de basilic puis recouvrez de pate à crumble. Enfournez pour 10 min puis terminez la cuisson en position grill pour 2 min afin que le dessus du plat se colore.
+
+
+Categories	Bouffe_Sucre
+
+Leckerli de Bale
+pour 4 personnes
+Préparation:
+40 mn
+Cuisson:
+10 à 15 mn
+Ingrédients :
+250 g de sucre en poudre
+2 oeufs
+350 g de farine
+10 g de levure chimique
+8 g de cannelle
+1 pincée de clous de girofle en poudre
+250 g d'amandes hachées grossièrement
+le zeste d'1 citron et d'1 orange
+100 g de miel de sapin
+2,5 cl de Kirsch
+Glaçage :
+150 g de sucre glace
+1 blanc d'oeuf
+2,5 cl de Kirsch
+
+Préchauffez le four à 150° ou thermostat 5-6.
+Tournez le sucre et le beurre en mousse.
+Ajoutez la farine avec la levure et les épices.
+Faites chauffer légèrement le miel et le kirsch ensemble.
+Ajoutez les amandes, les zestes et le miel mélangé au kirsch.
+Mélangez rapidement et étalez tout de suite la pate sur une plaque recouverte de papier cuisson ou sur une feuille de silicone, sur 1 cm d'épaisseur.
+Faites cuire 10 à 15 mn à 150° ou 5-6.
+La pate doit être encore molle, elle durcit en refroidissant.
+Avec un pinceau étalez le glaçage.
+Remettez au four 30 secondes.
+Dès la fin de la cuisson, coupez la plaque en losanges.
+
+Categories	Bouffe_Sale
+
+Tatin de Carotte
+Ingrédients (pour 4 personnes) :
+- 800 g de carottes
+- 200 g de lardons
+- 1 pate feuilletée
+- 1 échalote
+- 2 cuillères à soupe de crème fraîche
+- poivre, thym, épices (cumin, curry...)
+- 1 noix de beurre
+
+Peler et couper les carottes en batonnets de 5 cm (carotte coupée en 8).
+Faire fondre le beurre dans une poêle et y faire fondre l'échalote
+hachée à feu doux.
+Ajouter les carottes, faire revenir à feu moyen avec les épices (cumin,
+curry selon les goûts) et du thym jusqu'à ce qu'elles soient cuites.
+(Ajouter de l'eau si elles attachent).
+Préchauffer le four à 210°C (thermostat 7).
+Beurrer un plat à tarte. Disposer les carottes au fond du moule.
+Faire revenir les lardons et ajouter la crème fraiche lorsqu'ils sont
+dorés. Répartir les lardons au-dessus des carottes.
+Disposer la pate feuilletée sur de la préparation en veillant à ce
+qu'elle entoure bien la préparation en adhérant aux bords du moule.
+Enfourner la tarte tatin pendant 40-45 min (la pate doit être dorée).
+
+Servir chaud ou froid avec une salade.
+
+Categories	Travaux
+
+Hotel des balances
+Hotel Krone
+Wilden Mann Hotel
+Hotel Schiff ?
+Schiller Hotel
+Hotel continental-park (pres gare)
+Hotel Waldstatterhof (pres gare)
+
+Categories	Bouffe_Sale
+
+ Soufflé de chou-fleur au jambon         
+1 chou-fleur, 100 g de dés de jambon, 4 oeufs.
+Sauce béchamel : 30 g de beurre, 25 g de farine, 20 cl de lait, sel, poivre et noix de muscade
+
+Chauffez le four sur th 6 (180°c). Découpez le chou-fleur en bouquets puis faites-le blanchir pendant 15 min à l'eau bouillante. Préparez la sauce béchamel pendant ce temps. Faites chauffer le beurre avec la farine pendant 3 min puis incorporez petit à petit le lait jusqu'à épaississement. Assaisonnez. Ecrasez le chou-fleur en purée, mélangez-le à la sauce et ajoutez le jambon. Laissez tiédir. Séparez les jaunes des blancs d'oeufs. Battez les blancs en neige ferme. Incorporez les jaunes à la préparation tiède puis les blancs. Versez dans un moule à soufflé beurré et placez au four pendant 45 min. 
+
+Categories	Bouffe_Sucre
+
+Galette frangipane
+Ingrédients (pour 8 personnes) :
+
+- 2 pates feuilletées
+- 125 g d'amandes en poudre
+- 125 g de beurre
+- 125 g de sucre
+- 2 oeufs entiers + 1 jaune
+- 1 fève
+
+Préchauffer votre four à 220°C (thermostat 7).
+Sur une plaque de four, étaler une pate feuillettée.
+Mixer la poudre d'amande, le beurre ramolli, le sucre et les 2 oeufs.
+Lorsque le mélange est homogène, le verser sur la pate jusqu'à 1 cm des bords et placer la fève.
+Recouvrir avec la seconde pate et lier les 2 à la main ou à la fourchette.
+Faire un dessin sur le dessus avec la pointe d'un couteau et lepeindre avec le jaune d'oeuf. Enfourner et laisser cuire environ 30 mn. (jusqu'à ce qu'elle soit dorée).
+
+Categories	Bouffe_Sale
+
+Chou rouge à la bourguignonne.       
+Pour 4 personnes
+1 chou rouge, 150 g de lardons fumés, 80 g de beurre, 3 cl de vin rouge (bourgogne), 2 gousses d'ail, 2 échalotes, 1 oignon, 2 à 3 clous de girofle, 2 pommes, 1 boîte de marrons, sel et poivre.
+           
+Epluchez l'oignon puis piquez-le des clous de girofle. Epluchez les pommes, l'ail et l'échalote puis émincez-les. Faites revenir les lardons et les échalotes dans une poêle avec la moitié du beurre. Pendant ce temps, coupez le chou en 4, ôtez le trognon puis coupez le reste en lanières. Lorsque les lardons sont dorés, versez le chou et faites revenir pendant 7 à 8 min en remuant à l'aide d'une cuillère de bois. Ajoutez le vin, l'ail, l'oignon, les pommes. Poursuivez la cuisson pendant 20 min environ en veillant à ce que le chou n'attache pas. Egouttez les marrons puis ajoutez-les à la préparation avec le beurre restant. Laissez encore 5 min et servez avec une viande blanche. 
+
+Categories	Equateur
+
+Amazonie 3
+Aujourd'hui grande journee. Apres 2h de barque avec les fameux oiseaux gris qui bougent pas, on se fait une balade de 2h30 dans la forest sympa mais la fin ou on cherche la petite grenouille rouge veneneuse est un peu longue. Ensuite vu que le schaman est parti en ville on va dans un village voir la fabrication des crepes a partir des racines du manioc et puis comme il y a aussi un schaman dans ce village on a droit a la total. Globalement interessant mais ca fait carrement artificielle.
+Repirogue jusqu'au lodge diner et dodo.
+Reveil a 5h pour une journee transport. 1h30 de pirogue, 2h30 de jeep et 30 minutes d'avion.
+Arrivee a 12h30 a l'hotel de Tyson et de Christine avec qui on a bien accroche. La c'est pas donnee, note a 230$, mais c'est le luxe. Piscine ext chaufe, hammam, sauna, bonne bouffe et bon vin.
+Repas de midi ou attitude ? En tout cas c'est pas la fete pour lilou qui ne dinera pas le soir.
+Depart pour l'aeroport 1h30 avant le decolage. Je n'aurai jamais aussi peu attendu.
+
+Categories	Equateur
+
+Amazonie 2
+reveil le matin par la pluie qui tombe.
+Ici quand il pleut c'est pas a moitie.
+Vers 10h ca s'arrete et on par en pirogue (30 minutes) vers un coin du lac couyabeno ou on se fait une balade de 2h30 a pied en pleine forest vierge. C'est magnifique d'etre la, le soleil ne descent pas jusqu'au sol mais il fait tout de meme 28°C.
+A la fin de la balade, on retrouve tyson qui est reste pecher avec 2 pirania mais avec un bout de doigt en moins. En voulant retirer l'hamecon, le pirania lui a sectione net 4mm de doigt.
+Le guide Kurt n'est pas super securite et dit que c'est rien...
+Heureusement ma Lilou a tout pour soigner.
+Apres le repas, on repart pour une balade en pirogue et admirer le coucher de soleil.
+Juste au moment du coucher de soleil kurt tape avec sa tete dans un nid de guepe fixe sur un arbre. Du coup on se fait attaquer tous les 2 et avant que le chauffeur ai pu reculer le bateau, on se jette a l'eau pour eviter de se faire trop piquer.
+Resultat 15 piqures pour mois et 2 pour lilou + une perte de confiance de lilou dans Kurt qui gere mal la suite.
+Il veux attendre la nuit pour voire les caimans.
+Retour un peu tendu au lodge. Ma lilou est toute stresse.
+Le lendemain matin, on se refait une rando a pied + pirogue a rame mais lilou n'ayant plus confiance en Kurt n'en profite pas.
+Du coup l'apres midi, on decide de rester tranquile au lodge plutot que de se faire deposer 3h30 sur une barque a rame sur un lac le temp que Kurt aille checher 2 touristes.
+Bonne decision car il y a une grosse aversse qui dure bien 1h30. En plus, comme les 2 allemands on eu un pb de voiture, ils ne reviendrons tous que vers 18h45. 6h15 sur une barque... ma lilou en fremi rien que d'y penser.
+Au court du diner 2 clans se forment.
+Kurt et les allemands et les francais et du coup on commence a dauber  gentillement sur le guide.
+
+Categories	Equateur
+
+Amazonie 1
+reveil tot pour allez chercher un endroit pour le petit dej. Malgres la forte proximite avec le bar boite de la place, bonne nuit de recuperation.
+Petit dej magnifique au "magic beans" mais pas donnee (14$).
+Puis depart pour l'aeroport.
+Arrivee a lago agrio apres 30 minutes de vol au lieu de 9h de bus (avec 45 minute de retard).
+De la depart en 4x4 vers les pirogues (2h).
+On rencontre Kurt notre guide et on part pour 2h30 de pirogue.
+Un seul mot, c'est epoustouflan.
+L'ambiance est magique, tout seul sur la riviere au milieu de nul part.
+Tout au long de la riviere on commence a voir en plus des plantes, des oiseaux de toute les couleurs, des singes.
+Arrivee au lodge avec un joli ponton en bois. C'est joli meme si c'est rustic.
+Faut dire ca doit etre super dur d'avoir des habitation nickel au milieu de nul part avec toute cette humidite.
+Nous ne somme que 4 dans ce lodge et l'autre couple franco-anglais est bien sympa.
+l'anglais, tyson, a meme le temp de pecher 2 poissons pour le diner. Ils sont bon mais il y a trop d'arrete.
+C'est bizzare de s'endormir avec tout les bruit de la forest, mais c'est une tres bonne nuit...
+
+Categories	Equateur
+
+Cotopaxie
+Reveil tot, petit dej naze, et attente du minibus de l'agence d'hier.
+Arrivee du minibus avec 7 personnes dedans au lieu de 3 avec certain qui ont paye 40 d'autre 45 (nous... mais bon avec notre trip complique ils ont charge la note...)
+Le guide baraguine a peine l'anglais, notre image plutot bonne de l'agence hier baisse beaucoup.
+Depart pour le parc national  du Cotopaxie, le temp est nuageux mais les contres fort du Cotopaxie sont bien chouette. Arret dans un petit musee sans grand interet vu le niveau d'anglais du guide. Petite balade le long de "dry water-fall" puis rebus juqu'au lac.
+Par raport aux photo de l'agence, le lac a du etre beaucoup plus grand par le passe.
+Le paysage est chouette mais le temps est gris avec pas mal de vent.
+On reprend donc le bus pour allez au parking 300 metres sous le refuge qui est a 4800 metres.
+Le temps se decouvre bien et c'est sous le soleil que l'on monte au refuge.
+L'altitude se fait bien sentir et lilou pene un peu.
+Apres un pic-nick cheap on part a flan de coteau vers le glacier.
+Apres ca lilou redescent avec le groupe et je reste au refuge pour tenter l'ascenssion le lendemain.
+Au refuge, pas grand monde. Une italiene et son guide et 2 toulousains avec un guide tres con et qui n'apreci pas du tout que je soit seul.
+Les 2 toulousains sont heureusement bien sympa.
+Diner a 6 heures puis au lit.
+A 1 heure du mat, alors que les autres partent sous un ciel etoile, je ne trouve pas la motivation pour aller faire 8h d'effort tout seul. Les ascenssions en solitaire c'est pas pour moi.
+Du coup je me recouche jusqu'a 6h.
+Je me reveil au dessus de la mer de nuage sous le soleil. C'est magnifique.
+N'etant pas trop sur de pouvoir compter sur le guide pour me ramener en voiture et n'ayant pas envie d'attendre 4h, je redescent a pied histoire de marcher un peu.
+le paysage sous le soleil est grandiose et je vois des renard des lamas et pas mal d'oiseau.
+Apres 2h40 de marche j'arrive au musee et 10 minutes plus tard le facteur m'emene jusqu'a la panamericaine pour 5$.
+Il restait quand meme 20km.
+Apres bus et arrivee a la cienaga, puis douche et rebus jusqu'a Quito avec ma lilou qui est a peine remis de sa marche en altitude.
+Arrivee a Quito on se book 4 nuits en amazonie depart le lendemain. puis bull tranquille dans une ville ou on commence a avoir des reperes.
+
+Categories	Equateur
+
+Banos - Lasso
+Reveil dans notre belle chambre de la posada. Il fait beau, avec quelques courtes averses dans la matinee.
+Apres un magnifique petit dej, balade dans banos et visite d'eglise.
+Puis on fait les agences pour un trip de 3 jour dans l'amazonie. On voit un truc pas mal vers Puyo mais apres avoir parle avec l'americaine qui tient la posada nous decidons plutot d'aller dans la reserve de Cuyabeno apres le retour a Quito car il parrait que la 1ere est pas vraiement de la forest vierge.
+L'apres midi, location de velo (5$ la journee) et descente des 22km vers rio verde.
+Au passage traverse de la riviere dans une nacelle et balade vers les chutes du diables.
+Retour a banos en camion (1.5$) ou l'on pourra admirer le volcan Tungurahua tout fumant et bonne bouffe apres dans un resto francais.
+Apres ca direction les bains chaud en pleine nuit. Bien sympa avec le retour en tshirt.
+Le lendemain depart pour notre hotel de luxe du sejour. Apres 2h30 de bus arrivee a l'hosteria de la cienaga, une ancienne hacienda. Le batiement et les parties communes sont magnifique mais malheureusement les chambres ne sont pas du meme niveau... Ensuite repas du midi a l'hacienda car on est un peu paume au milieu de nul part.
+Et la grave erreur on prend le menu du jour qui sera digne d'une cantine bas de gamme.
+Apres on est partie pour une heure de rando a cheval. Le paysage est magnifique avec le cotopaxie mais on n'est pas vraiement en pleine nature.
+Malheureusement ma lilou a bien mal au bide, et le cheval n'arange rien. Le cheval l'a t il senti ? en tout cas il l'a vide de selle 2 minutes avant la fin.
+Du coup on va meme decouvrir le medecin local. Resultat quelques beau bleu et un doigt abime.
+Pour demain, les mec de l'hotel sont telement mauvais que l'on saute dans un bus vers Latacunga pour gerer une balade autour du cotopaxie avec une agence.
+Retour en tacos pour 10$ et diner bien mieux que le dejeuner. En fait il faut pas prendre le menu !
+
+Categories	Equateur
+
+Cueuca - Banos
+le lendemains lever tot pour prendre le bus vers le plus grand site inca de l'equateur.
+Au programme 2h de bus, 2h de visite, 2h de bus.
+En realite on passe plus de 5h30 dans le bus et 1/2 h sufit largement pour visiter les 3 pierres alignee.
+Heureusement on peu prendre un repas chaud dans une chouette possada.
+Au retour balade dans Cuenca qui est pas mal comme ville.
+C'etait  la journee de trop pour ma cherie. Il faut dire les 10° ambiant n'aident pas.
+Du coup on change de plan. Demain on par direct pour banos pres de la jungle ou il est cense faire plus chaud.
+Grosse journee de bus.... Depart 9h arrivee 19h.
+9h de bus 9$ c'est sinple, et une corespondance a riobamba ou on vera pas le chimborazo qui se cache dans les nuages.
+Que retenir de la journee, 2h d'un film debile avec le son a fond, des superbes paysages, une lilou pas en forme et heureusement une arrivee dans une surerbe posada a banos ou il fait chaud.
+
+Categories	Equateur
+
+Galapagos fin
+A Santa Cruz island finalement ce n'etait pas une petite baie mais une grosse avec plein de bateau partout.
+Au matin depart tot pour le zoo / parc de la fondation Darwin.
+La quelques beau specimen de tortue terestre meme si c'est un peu decevant de pas les voire en pleine nature. Puis c'est partie pour une traversee de l'ile en bus pour prendre un bac puis re un bus pour aller a l'aeroport. 
+Arrivee 2h plus tard a Guayaquil ou l'on saute dans un bus pour Cuenca.
+4h plus tard dont 2 avec un film niais volume a fond nous arrivons a Cuenca. Le temps est gris et il fait 10°C. Faut dire a 2800 metre on est en plein nuage.
+On se trouve un petit hotel sympa mais apres une journee de transport, c'est dur d'arrivee dans une chambre sans chauffage.
+Heureusement que le paysage le long de la route etait chouette.
+
+Categories	Equateur
+
+Galapagos 4
+Arrivee le matin a south plaza island une petite ile toute pleine de lion de mer. Une partie est meme dedie aux male qui n'ont pas de teritoire. Les autres male surveillent leurs femellle dans l'eau. Le temps est un peu bouche, c'est pas top pour la chaleur et pour les tof mais pour l'ambiance c'est genial. En plus on aura meme un peu de soleil sur la fin.
+Ensuite apres 2h de nav on arrive a santa fe island.
+Apres le repas de midi, on par pour du snorkling. L'eau est bien froide mais on s'y habitue, d'autant plus q'entre les tortues et les jeux avec les lions de mer on n'y pense plus trop.
+La proximite dans l'eau avec de grosse bestiole super agile et rapide est grisante d'autan plus qu'on a pu les voire se trainer avant tel de gros sac sur terre. Il y a meme un lion de mer avec qui je joue qui va meme jusqu'a mordre le bout de mes palmes. Meme lilou commence a etre a l'aise avec des PMT.
+Apres une bonne douche bien chaude, on repart a terre pour une balade a la recherche d'un iguane different de ceux que l'on a pu voir depuis le debut.
+Au retour on arrive sur une petite plage ou il y a pas loin de 200 lion de mer qui font la sieste. Ca pue un peu mais ca reste impressionant.
+Retour au bateau et depart pour Santa Cruz island ou l'on va trouver une petite baie pour passer la nuit.
+
+Categories	Equateur
+
+Galapagos 3
+un petit film hier soir sur l'ecran plat du salon et au lit. Le bateau navigue toute la nuit vers l'ile genovesa.
+Le ronronement des moteurs et le roulis me berce toute la nuit.
+Reveil sous un temp breton bien bouche mais le plafond est haut et cela ne devrait pas gener la balade sur l'ile.
+Arrivee en zodiac sur l'ile. C'est impressionant, il y a des oiseaux partout...
+Au debut on hesite a s'approcher de peur de gener et puis quand on se retourne on constate que l'on est a 30 cm d'un autre.
+Repas du midi, puis snorkeling sur un tombant dans une eau bien froide...
+Magnifique. Plein de poisson, un requin et des lions de mer en pleine eau. Ils sont quand meme plus a l'aise que sur terre.
+apres on part pour 2h de balade sur l'ile. Toujours autan d'oiseau. c'est impressionant...
+Le paysage est phantomatique, avec plein d'arbre assez bas sans aucun feuillage.
+Le guide est toujours aussi bon, sans etre trop technique il donne des info interessantes.
+Retour au bateau, bouffe film et au lit pour une nuit de travevse direction south plaza island.
+
+Categories	Equateur
+
+Galapagos 2
+reveil au son de la chaine de l'ancre qui remonte vers 5 heures. On a 2h de nav pour arriver sur Santiago island.
+puis 'zodiac ride' a la recherche frnctueuse des pinguins. 
+et balade sur l'ile sur un 'lava terrain' tres chouette. (sulivan bay  Santiago island)
+l'apres midi snorkeling et plage. 1 requin en pleine eau, un  pinguins et 2 tortue (bartolome island).
+Puis monte sur le point culminan de l'ile sur des 'woden step volcanic landscape'.
+Globalement c'est quand meme pas mal comme croisiere. Le fait de limiter les parties a visiter est un peu frustran mais c'est un peu grace a ca que les iles sont encore bien nature sans buvette ou ordure pour gacher le paysage.
+Le timing des journee est plutot bien fait. Juste ce qu'il faut de temp libre.
+
+Categories	Equateur
+
+Galapagos 1
+reveil tot ce matin. pas question de rater l'avion....
+Petit dej pas top puis tacos vers l'aeroport.
+Vol Quito Guayaquil Baltra.
+Ca y est on est aux galapagos.
+Il fait beau et pas trop chaud car il y a pas mal de vent. La piste est vraiement une langue de bitume dans un paysage desert. Vegetation raz et seche.
+5 minutes de bus et on passe de la cabane en bois aeroport a l'abris bus port.
+Mais il est la notre bateau. Et il est beau notre bateau :-) enfin beau ca reste moins beau qu'un voilier mais en tout cas il est tout neuf et tout comfort. C'est quand meme bien le luxe.
+On est 12 touriste sur un bateau prevu pour 16 avec 10 personnes pour nous chouchouter..
+Le cuisto est top et le guide a l'air bien.
+Par contre on est les seul non anglophone. 9 ricain et une singapouriene. Mais ils on l'air tous cool.
+Apres avoir quite les lions de mer qui squattent les bancs du port, on leve l'ancre pour l'ile Santa Cruz.
+La, balade sur la plage et baignade.
+L'eau est fraiche avec quelques beau poisson. Les oiseau qui pechent sont impressionant. Surtout les pelicans.
+Retour sur le Galaxie avec un pur repas et une bonne nuit.
+
+Categories	Equateur
+
+Arrivee Quito
+Petit tacos pour l'hotel dans une ville dificilement qualifiable.
+le temps est pas top et la temperature limite. 
+l'arrivee a l'hotel est aussi super bizzare. Il semble ferme et abandone.
+Il a surement ete beau par le passe mais le manque d'entretien pardone pas. 
+Resto bien sympa avec tapas a volonte et vin a volonte avec un choix de 8 crus chilien, argentin, et meme italien. Pur concept qui nous fait sortir bourre.
+Nuit mitige sur un matelas foireux  avec Lilou bien malade.
+L'absence de chaufage et le cote lugubre de la chambre nous incite a changer d'hotel pour que Lilou se remette.
+Cap sur le chalet suisse ou les chambres on du chauffage!
+Matinee tranquillle et repos.
+En fin d'apres midi, balade dans le vieux Quito colonial. Le temp n'est pas au beau fixe mais la lumiere est belle.
+Le soir, resto de bouffe typique equatorien. Pas top... la bouffe de ce resto en tout cas.
+Le lendemaim matin on par en quette d'une croisiere au galapagos.
+Les 4 premieres agences sont vraiment pas bonnes. On a beau leur expliquer que l'on veut soit tout de suite soit a la fin du voyage 5 jours de croisieres, apres 2 coups de fil et 10 minutes elles proposent 7 jours au milleu de notre voyage...
+Puis on fini par trouver 2 bonnes agences (safari et sun shine) et une croisiere de 5 jours a quand meme 1275 $ (plus 100$ de parc et 380$ d'avion) mais c'est un bateau de luxe 'first class'.
+Au debut on a vraiement cru qu'on allai pas faire de croisiere devant les prix et les dates pourris.
+L'apres midi, rebalade dans le vieux 
+quito et visite d'eglise de cloitre et de musee.
+Puis resto mexicain bof (et oui on est difficile sur la bouffe....)
+nuit un peu bruillante car juste a cote de la place branchouille de Quito ou un resto au lieu de passer de la musique, passe une compile d'alarme de voiture.
+
+Categories	Equateur
+
+Voyage
+Depart roissy 11h vendredi  arrivee quito samedi 16h...
+Et oui quand meme 35h de voyage.
+Mais avec le mauvais temp ca aide pas. Arrivee vendredi soir a la vertical de quito mais impossible de se poser. Du coup l'avion est deroute sur Guaya aquil. Mais comme tout les hotels sont plein et que l'aeroport de quito est toujours ferme, l'avion redecole pour Cali en Colombie.
+Arrivee a 2h du mat dans un hotel grand luxe. Pure salle de bain, pure douche :-)
+La matinee on peut se balader pour laisser au pilote le temps de se reposer. 
+Ville bizarre, pas tres belle avec des militaire a tous les coins de rue.
+Encore un petit coup d'avion et nous voici enfin a Quito!
+
+Categories	Equateur
+
+Lexique
+sucre - sucar
+the - te
+petit dej - desayuno
+riz - arroz
+tomate - tomate
+poulet - pollo
+fromage - queso
+ananas - pina
+oeuf - huevos
+
+Categories	Bouffe_Sale
+
+Boulettes de viandes
+600g de steak hache
+2 oignons
+2 gousse d'ail
+2 brin de menthe
+6 brin de persil plat
+1 oeuf
+10cl de lait
+100g de pain de mie
+6 cuillere a soupe d'huile d'olive
+1 pince de cumin
+1 pince de coriandre
+1 pince de gingembre
+1 pointe de piment
+sel poivre
+hacher oignon et ail + pain de mie et lait + reste
+
+Vin potentiel
+Terre des chardons , bien lune (pays d'oc)
+
+Categories	Vacance
+
+Hotel tuscania
+via dell'Olivo,    53 - 01017 Tuscania
+Tel : 0761 444080
+Fax : 0761 444380
+www.tuscaniahotel.it
+
+Categories	Bouffe_Sale
+
+Crumble de tomates, courgettes et poivron vert au basilic
+(4 persones)
+
+4 tomates
+2 courgettes
+1 poivron vert
+100g de farine, 100g de beurre
+75g de parmesan rapé
+1 oignon, 1 gousse d'ail
+1 branche de basilic
+3 cuilleres a soupe d'huile
+1 cuilere a cafe de concentre de tomate
+
+Four th 240°C.
+melanger beurre coupé + farine + parmesan. puis reservez au frigo.
+Faire revenir oignon, ail, poivron coupé en laniere dans l'huile. Laisser colorer.
+ajouter les tomates et courgette en cube et cuire 15 min.
+Dans un plat, 1 couche de legume, 1 couche de basilic, 1 couche de pate, puis 10 minutes au four.
+Finir par 2 minutes au grill.
+
+Categories	Bouffe_Sucre
+
+Sucre pour caramel
+
+mettre 2mm de sucre dans une casserolle.
+Sur plaque a induction mettre a 8.
+Des que une partie du sucre devient translucide, baisser a 6.
+melanger le sucre non fondu avec le fondu.
+Des que le sucre est homogene, passer le thermostat a 4.
+
+Categories	Bouffe_Sucre
+
+Pièce montée
+
+Pour 20 personnes. temps de preparation 5h
+
+2 proportion de chou
+500 ml de creme patissere + 200 ml de creme fraiche
+375g de nougatine (pour le socle) 
+xxxg de nougatine pour la deco
+
+Bien faire cuire les choux pour que la piece tienne (ils ramollissent avec la creme)
+Apres montage stocker au sec et frais
+
+Categories	Bouffe_Sucre
+
+Crème patisière
+
+50ml de lait, 125g de sucre, 6 jaunes d'oeuf, 1 gousse de vanille, 40g de farine
+
+Faire chauffer le lait avec les 2/3 du sucre et la vanille.
+battre jaune + 1/3 de sucre puis ajouter la farine.
+ajouter 1/3 du lait bouillant, melanger et retransvaser dans la casserolle.
+maintenir a ebulition 2 minutes
+
+Categories	Bouffe_Sucre
+
+Nougatine
+250g de sucre, 125g d'amande effilé
+
+Mettre le sucre a fondre dans une casserolle (th 8 induction)
+faire chauffer les amandes au four.
+Melanger le tout et travailler rapidement
+
+(Quantité pour un socle de piece montée)
+
+Categories	Bouffe_Sucre
+
+Pate a Choux
+
+155 ml d'eau, 155 ml de lait, 4 g de sel, 6 g de sucre, 125 g de beurre, 190 g de farine, 5 oeufs (de 60g chacun)
+
+Placer l'eau, le lait, le beurre, le sucre et le sel dans une casserolle. Porter a ebulition 1 minute.
+Hors du feu, ajouter la farine. Remettre sur le feu et desecher 1 minute.
+Placer dans une terrine et incorporer les oeuf 1 a 1.
+
+Mettre a four 200°C de 10 à 20 minutes (entrouvrir legerement la porte au bout de 10 minutes.)
+
+(Recette pour Une plaque de Chou soit environ 30 chou)
+
+Categories	Bouffe_Sucre
+
+Pate d'amande 
+faire cuire un sirop avec par exemple 130gr de sucre et de l eau pour le faire cuire au thermomètre 112° de température. Y melanger 70gr d amandes blanchies et verser sur un marbre ou un plan de travail ou une plaque et laisser refroidir. Puis mettre au robot et faire tourner en evitant que la masse s echauffe. Pour cela arreter son robot et reprendre une heure apres au fur et a mesure du broyage la pate d amande va se faire . il faut eviter que ca s echauffe car la chaleur va faire sortir l huile des amandes et la pate d amandes sera huileuse et cassante
+
+Categories	Bouffe_Sucre
+
+Temperature sucre 
+Nappé 100°C
+Petit lissé 102°C
+Grand lissé 103°C
+Grand perlé 105°C
+Filé 106°C
+Petit soufflé 108°C
+Grand soufflé 112°C
+Petit boulé 115°C
+Boulé 118°C
+Gros boulé 121°C
+Petit cassé 125°C
+Cassé 141°C
+Grand cassé 145°C
+Caramel 150°C et plus 
+
+Categories	Bouffe_Sucre
+
+Pate de pistache 
+broyer au robot 100gr de sucre semoule avec 100gr de pistaches emondees jusqu a obtenir une pate souple
+pour emonder les pistaches, mettre a bouillir de l'eau quand elle bout y verser les pistaches et attendre une nouvelle ebulition et arreter sortir les pistaches par petites quantites et prendre celles ci entre les pouces et index de chaque mains en exercant une pression sur le plan de travail. les pistaches vont être expulsees de leurs enveloppes
+les secher au four doux(65°)
+
+ou
+5ml d'eau
+50 de sucre semoule
+100g de pistaches mondées
+25g de poudre d'amande
+faire un sirop avec le sucre et l'eau et laisser bouilloner jusqu'à 121°C.
+Verser sur les pistaches avec la poudre d'amandes.
+Broyer au mixeur jusqu'à l'obtention d'une pate.
+
+Categories	Resto
+
+Lascalier (Brou)
+place du dauphin
+Brou
+tel : 02 37 96 05 52
+
+Autoroute A11
+sortie 4 (brou)
+
+Categories	Bouffe_Sale
+
+Timbale de brocoli à la sauce aux noix  
+
+Pour 4 personnes
+2 têtes de brocolis, 20 g de beurre, 1 cube de bouillon de légumes, 2 oeufs, 20 cl de crème liquide, sel et poivre.
+Pour la sauce : 25 g de cerneaux de noix, 20 cl de crème fraîche.
+
+Préchauffez le four th 7 (210°c). Coupez les brocolis en petits morceaux et faites les cuire dans une casserole d'eau bouillante additionnée d'un bouillon cube de légumes. Egouttez-les et réduisez-les en purée. Incorporez les oeufs, la crème liquide et assaisonnez. Beurrez un moule à soufflé et versez la purée de brocolis. Enfournez pour 20 min. Pendant ce temps, préparez la sauce aux noix. Broyez les cerneaux de noix et mélangez-les à la crème fraîche. Salez et poivrez. Une fois la timbale cuite, découpez-la en tranches et parsemez de sauce.
+
+Categories	Bouffe_Sale
+
+Terrine de poisson
+(10 pers)
+300 g de saumon
+300 g de cabillaud
+4 tranche de pain de mie (sans la croûte)
+3 oeufs
+Persil
+200 g de crème fraîche
+Sel, poivre, citron, laurier, thym
+
+Faire pocher dans l'eau + citron, laurier, thym le poisson 5 mn.
+Retirer la peau du saumon et la chair grise et le laisser en gros morceaux.
+Retirer les arrêtes du cabillaud.
+Mixer très fin cabillaud + mie trempée dans lait et essoré + oeuf + crème fraîche + sel + poivre + persil.
+Dans un moule a cake recouvert de film étirable, mettre le mixage puis saumon puis le mixage.
+Faire cuire 40 mn au bain-marie au four (avec feuille de papier allu pour éviter qu'il dore.
+
+Categories	Bouffe_Sale
+
+Temps de cuisson cocotte
+Artichauts à la vapeur : 12mn
+Asperges : 8 mn
+Carottes (rondelles) : 5 mn
+Chou-fleur : 5 mn
+Courgettes : 9 mn
+Céleri-rave 10mn
+Chou braisé 50mn
+Endives : 10 mn
+Epinards : 11 mn
+Epinards 20mn
+Fenouil au citron 8mn
+Haricots verts : 6 mn
+Petis pois : 9 mn
+Poireaux : 10 mn
+Pommes de terre : 10 mn
+Petits pois 10mn
+Pois cassés en purée 30mn
+Poireaux 8mn
+Pommes de terre 10 à 12mn
+Tomates en coulis 15mn
+Salsifis : 25 mn
+Tomates provençales 5mn
+Mais : 3-5 mn
+
+Categories	Resto
+
+Le montagnard  (St Martin de Blle)
+Les deux places
+73440 St martin de Belleville
+tel : 04 79 01 08 40
+www.le-montagnard.com
+
+Categories	Travaux
+
+Achats bricollage
+clees plates : 18-19 ; 26-28 ; 24-25 ; 6-7
+
+Achats cuisine
+fouet
+couvercle Christel 18 - 16 - 14
+poele Christel 20 -28
+
+Categories	Resto
+
+Ksar (Marrakech)
+Rue des Ksour
+3, Derb El Messaoudyenne
+Marrakech
+Tel : 024 44 06 32
+www.essaoussane.com
+
+Categories	Taf
+
+Assurance deplacement Professionnel
+Thales Mission - Buisness Travel
+Convention Number : 720 29 56
+AXA Assistance - 24 hour Alarm Center
+Tel : +33 (0) 1 55 92 21 01
+Fax: +33 (0) 1 55 92 40 69
+
+Categories	Resto
+
+Chez Corto (Paris)
+47 rue Rodier
+75009 Paris
+Tel : 01 49 95 96 80
+chezcorto@hotmail.com
+
+Categories	Taf
+
+Ajout d'un aeroport generique
+
+Menu.py, onglet ANDC
+-> Start ANDC
+  -> Radio Aids & Airport database
+    -> Custom Airport topologie
+      -> Local geo area => Add
+        -> renseigner les champs
+
+Aller chercher les pistes Radio Aids/Airport database/Runway Helipad (update)
+
+      -> Airport => Add
+        -> renseigner les champs avec les infos cherché precedement
+      -> Landing strip & Runway => Add
+        -> remplir - Runway ident
+                 - Generic visual configuration
+                 - Runway order (1/2 3/4 ...)
+  -> Simulation object format
+    -> Generate & Transfert
+
+-> Exporter sur DAT (si transfert a faire sur helisun-sdf ou sauvegarde)
+-> faire le package pour le Load.
+
+Categories	Taf
+
+Export de vue Clearcase de Helisun-sdf vers PC Linux 
+
+Apres un rebboot de la sun, lancer la commande :
+/opt/atria/etc/export_mvfs -a 
+pour authoriser les montage clearcase
+et /opt/atria/etc/export_mvfs   pour controler ce qu'il authorise
+Il faut ensuite rebooter le pc Linux
+
+Categories	Taf
+
+Instalation nouveau CSCI pour confection Load 
+
+- Mise a jour du fichier multiplexeur
+- dans le rep "environ" mise a jour du fichier "ssys_environ.dat" pour l'export et pour l'import
+- creer le rep destination sous une vue wrk et verifier sa visibilité sous une vue int (ct ls)
+- faire l'export / import
+- Dans la vue d'integration modifier le config spec (ct edcs)
+- compiler la 1ere fois sous la vue int
+- aller dans le rep task et modifier le fichier *.ld de la tache associé, et le fichier Makefile.option
+
+Categories	Taf
+
+Generation dump moteur
+
+-> vue d'integration
+cd $DPL_XRF_PATH/
+cat spp* | sort | uniq | awk '{print $1}' > eng.dmp
+
+Categories	Taf
+
+Commande Debug taches 
+
+"lancer sur une tache OK et sur la tache a probleme. les numeros doivent etre en 8000..."
+/opt/public/cross-ppc-lynx30/ppc-cetia-lynxos/bin/nm HOST_S3.x | grep pool | grep D
+
+"lancer sur une librairie OK et sur la librairie a probleme. les lettres seront differente ..."
+/opt/public/cross-ppc-lynx30/ppc-cetia-lynxos/bin/nm gps/ppc30/libgps.a | grep pool04
+
+Verifier que le HOST_XX compile sans la librairie (en commentaire dans le HOST_XX.ld)
+cmake HOST_XX.x
+
+Categories	Taf
+
+NDSPLM 
+
+Se loguer ndsplm sur Sunsta400
+pwd : ndsplm98
+
+Faire les modifs sous la vue wrk, archiver
+Aller sous la vue exp
+menu.py, -> exporter les librairies sous la bonne cible et eventuellement l'INCLUDE (dans le rep delivery)
+copier ces *.tar dans l'attelier affaire.
+
+Categories	Taf
+
+Production DTGEN
+
+Faire modif DTGEN
+Compile & Archive
+
+Dans vue N4
+ccd dt1_N4 -> carc  (nom du Label dit_* dans le commentaire de la GFL)
+ccd dt2_N4 -> carc  (nom du Label dit_* dans le commentaire de la GFL)
+
+Compile & Archive  (doit rester dans la meme version)
+ccd dt1_N4 -> carc
+ccd dt2_N4 -> carc
+
+Exporter dt1_N4 et dt2_N4
+Importer dt1_N4 et dt2_N4
+
+Dans la tache on retrouve le numero du Label dit_*
+Tache a faire : toutes les taches ARINC + HOSTS2 + HOSTS3
+
+Categories	Taf
+
+Load a distance LFML 
+
+IMPORT :
+passer dans une vue de travail sur la SUN à Marseille
+aller dans le repertoir du CSCI a importer ("ccd")
+"importexport.py -import $IMPORT/CSCI_XX_YY"
+
+LOAD :
+passer dans une vue d'integration sur la SUN à Marseille
+"blseq.py"
+Se deplacer dans le fichier vi, avec les touches H, J, K, et L
+- Config spec, remplacer EDIT par le nom des CSCI à updater
+- Taches, remplacer EDIT par le nom des taches
+enregistrer et quitter
+Selectionner les versions des CSCI à updater
+Verifier les taches a faire
+Quitter
+Selectioner "update modified links"
+Selectioner "Export"
+Entrer un commentaire
+Selectioner "Exit"
+
+Categories	Taf
+
+Timming avec Modctl 
+
+utiliser tps.py
+
+Categories	Taf
+
+Association Host - hostfiles 
+
+utiliser ec_host.py dans $SCRIPT
+
+Categories	Taf
+
+Instalation IOS depuis CD 
+
+Copier les fichiers type "IOS_XX_intXX.tgz" dans $EXPORT/ihmpi sur helisun-sdf
+Copier les fichiers type "gatsim_GEN_XX.tar.gz" dans $IMPORT sur helisun-sdf
+Aller dans une vue de travail
+Importer GATSIM depuis un menu.py 
+Script -> Gatsim -> Package
+Aller dans une vue d'integration
+Load -> Simu -> update Gatsim
+Load -> IOS -> update IHMPI
+Finir le Load
+
+Categories	Taf
+
+Load a Marseille sur Helisun-sdf 
+1) import
+
+Copier les fichier des CSC sur $IMPORT de la sun
+Aller dans une vue de travail
+aller dans le repertoire du CSC
+Lancer la commande : "importexport.py -import $IMPORT/'CSC'.tar.gz"
+
+2) Load
+
+Lancer la commande : "blseq.py"
+
+Categories	Taf
+
+DPOOL a Cergy sur Helisun-sdf 
+
+Apres Build & Export All dans menu.py vue INT sur helisun-sdf
+dernier option, dertnier onglet de DPOOL dans menu.py vue WRK sur helisun-sdf (Export dpl Package)
+dernier option, de E/S dans menu.py vue WRK sur helisun-sdf (Export Dpool symbol file to GoldIO)
+Mise a jour de Simu et Arinc dans Load menu.py vue INT sur helisun-sdf
+Mise a jour a la "main"de Masterio dans Load menu.py vue INT sur helisun-sdf
+
+Categories	Bouffe_Sucre
+
+Tarte normande aux pommes
+300g de pate sable
+900g de pommes
+40g de beurre
+125g de sucre
+4g de cannelle
+1 oeuf entier
+2 jaune d'oeuf
+40g de poudre d'amande
+20g de farine
+10cl de lait entier
+175g de creme fraiche epaisse
+7g de vanille liquide
+sucre glace pour saupoudrer
+
+prechaufer le four a 160°C
+faire revenir les morceaux de pomme a la poel avec le beurre 50g de sucre et la cannelle.
+battez les oeufs et le sucre.
+Ajouter la farine, la poudre d'amande, le lait, la creme et la vanille.
+Metre les pommes et la creme sur la pate dans le moule.
+Cuire 40 minutes
+
+Categories	Taf
+
+modifs pour avoir plus de 100 aéroports.
+
+Modification dans le fichier "WCUST.dim" de la directorie "include/envtms" du define : *maxarpt* que j'ai mis à 205.
+
+Introduction des nouveaux aéroports dans l'ANDC:
+-dans Custom Airport Topologie : ajouter :      
+-Local Geo Area
+- Airport
+- Landing strip& Runway
+
+Les codes OACI et les noms des pistes à mettre sont ceux que l'on trouve dans les panneaux" Runway/Helipad "ou "Airport Heliport" de "Radioaids & Airport Database" / " Airport Heliport"
+
+Generer une nouvelle version des objets  ANDC ( Generate & Transfert de Simulation Ojet Format)
+Mise à jour des includes
+Mettre les nouveaux fichiers ANDC et Includes dans le Load
+
+Dans la nouvelle BDD j'ai rajouté :
+- LFPG Paris CDG
+- LFPO Paris Orly
+- LFAB Dieppe Saint Aubin
+- LFBD Bordeau Merignac
+- LFLL lyon Saint Exupery
+- LFMU Bezier Vias
+- LFAC Calais Dunkerque
+- LFDB Montauban
+- LFMC Le luc
+- LFMD Canne Mandelieu
+- LFRV Vanne
+- LFRU Morlaix
+
+Categories	Bouffe_Sale
+
+Roti de veau orloff
+Pour 6
+1.2 Kg de noix patissiere
+400g de champignons
+80g de beurre
+120cl de creme fraiche
+1 jaune d'oeuf
+1 cuillere a cafe de farine
+
+cuire les champignons 15 minutes avec 20g de beurre
+ajouter aux champignons hache la creme et la farine et cuire quelques minutes. Oeuf et salez poivrez.
+Cuire 1h10 au four le roti
+puis garnir avec champignons et repasser au four
+
+Categories	Bouffe_Sale
+
+Roti de porc à la moutarde       
+
+1,5 kg de filet de porc, 4 carottes, 2 oignons, 1 bouquet garni, 3 cuil. à soupe de moutarde, 40 g de beurre, 50cl de cidre, 60cl de creme fraiche, sel et poivre.
+
+Faire revenir le roti dans le beurre dans une cocotte. salez et poivrez. ajouter carrotte en rondelle, oignon emince, bouquet garni, et cidre.
+Couvrez et laissez cuire a petit feu 1h30.
+Passez le jus et les legumes au mixeur. Faire reduire a feu vif puis ajoutez la moutarde et la creme fraiche. Chauffez 1 minute.
+Servez avec le roti.
+
+Categories	Bouffe_Sale
+
+Risotto de potimaron
+1 potimaron
+200g de riz
+1 oignon
+bouillon de legume
+70g de parmesan
+40g de beurre
+faire revenir les oignons puis le riz avec le beurre.
+Ajouter potimaron en dés de 1cm et bouillon et laisser cuire 30min.
+Ajouter le parmesan
+
+Categories	Bouffe_Sale
+
+Risotto de brocolis aux amandes.   
+    
+Pour 4 personnes
+1 oignon, 2 cuil. à soupe d'huile, 150 g de riz, ¾ l de bouillon de volaille, 2 cuil. à soupe d'amandes effilées, 500 g de brocolis, 50 g de parmesan rapé, sel et poivre.
+
+Epluchez l'oignon, émincez-le et faites-le revenir à la poêle dans l'huile pendant 3 min. Ajoutez le riz, remuez et ajoutez progressivement le bouillon de volaille. Portez à ébullition, assaisonnez et ajoutez les amandes. Couvrez et laissez mijoter pendant 20 min. Pendant ce temps, divisez le brocoli en petits bouquets, ajoutez-le à la préparation précédente et poursuivez la cuisson pendant 8 min. Ajoutez ensuite le parmesan puis saupoudrez d'amandes avant de servir très chaud.
+
+Categories	Bouffe_Sale
+
+Quiche aux poivrons       
+
+3 poivrons verts, 1 pate brisée, 1-2 oignons, 2 cuil. à soupe d'huile d'olive, 200 g de bacon, 3 oeufs, 10 cl de crème fraîche, 50 g de gruyère rapé, sel et poivre.
+
+réchauffez le four sur th 6 (180°c). Foncez un moule à tarte de pate brisée. Epépinez les poivrons. Pelez les oignons. Coupez le tout en fines lamelles. Dans une poêle, faites chauffer l'huile puis versez les poivrons et oignons pour les faire fondre. Retirez-les et remplacez-les par le bacon. Disposez les poivrons et les oignons sur la pate puis les morceaux de bacon. Dans un saladier, battez les oeufs avec la crème fraîche, assaisonnez puis versez sur la préparation. Parsemez de gruyère rapé et enfournez pour 30 min. 
+
+Categories	Bouffe_Sale
+
+Quiche aux artichaut, tapenade et parmesan
+400g de pate brisee salee
+5g de graines de fenouil
+1.5 oeufs
+10cl de creme fraiche
+10cl de lait entier
+140g de tapenade d'olive noires
+10 coeurs d'artichauts frais
+1/2 citron
+100g de copeaux de parmesan
+sel, poivre
+
+pate brisee avec graines de fenouil.
+Fouettez oeufs + creme + lait. ajouter la tapenade.
+Laisser 1 nuit au frigo
+four 180°C
+blanchir artichaut dans eau + sel + citron
+pate dans moule cuite a blanc 20 minutes.
+Mettez le tout 25 minutes a four
+copeaux de parmesan desus apres
+
+Categories	Bouffe_Sale
+
+Proportion par personne
+sole : 300g/pers
+grenaille : 250g/pers
+
+Categories	Bouffe_Sale
+
+Potee au choux 
+(8 personnes)
+1 chou vert
+5 grosses pdt
+4 carottes
+3 saussices de montbeliard
+2 oignons
+1 palette de porc
+1 bouquet garni
+clou de girofle
+sel
+poivre
+
+le tout dans de l'eau sauf pdt 45 minutes puis avec pdt 45 minuteg
+
+Categories	Bouffe_Sale
+
+Poêlée de Pdt et chou romanesco.       
+
+0.5 kg de PDT, 1 chou romanesco, 50 g de beurre, 2 gousses d'ail, quelques brins de persil, sel et poivre.
+
+Détaillez le romanesco en petits bouquets (comme un chou-fleur), passez-le sous l'eau claire puis faites-le cuire à la vapeur pendant 5 min. Epluchez les PDT puis faites-les cuire dans une casserole d'eau salée pendant 20 min environ. Ciselez le persil, pelez et pressez l'ail ; coupez les PDT en rondelles. Faites fondre le beurre dans une poêle avec l'ail puis faites dorer les PDT en remuant régulièrement. A mi-cuisson (10 min), versez le persil puis assaisonnez. 5 minutes avant la fin de cuisson, ajoutez les brocolis puis servez chaud.
+     
+Categories	Bouffe_Sale
+
+Pate brise
+160g de farine
+100g de beurre
+3/4 de cuillere a soupe de lait
+3g de sel
+1 pince de sucre
+1 petit oeuf
+
+fontaine sauf lait
++ lait
+1 heure frigo
+
+Categories	Bouffe_Sucre
+
+Souflés aux framboises
+(Pour 6)
+
+250 ml de lait
+250 ml d'eau
+25 g de farine
+3 jaune d'oeuf
+5 blanc d'oeuf
+350 g de framboise
+6 macarons vanille
+1 cuillere a soupe d'alcool de framboise
+
+Four a 220°C
+avec 65 g de sucre, faire la creme patissiere (ebulition 3 minutes)
+reserver 18 framboises avec 1/2 alcool.
+100g de sucre + 1/4 l d'eau + framboise 5 minutes d'ebulition.
+passer au tamis a cuire pour confiture.
+Blanc avec 12 g de sucre.
+Melanger creme + confiture.
+puis avec blanc.
+beurrer sucrer les moules.
+mettre macaron et franboise au milieu
+puis 8 a 10 minutes au four.
+
+Categories	Perso
+
+ Penser face a l'ocean. 
+En faite, pas besoin d'etre face a l'ocean, pour penser, il suffi juste de pas parler pendant quelque temps et on se met tres vite a penser.
+Et a penser a quoi? Ben bien sur a toi...
+A ce qui me manque le plus bien sur. En faite, a la seul chose qui me manque vraiment, une petite femme....
+A regarder la mer, je me laisse aller a rever, que tu vas sortir de l'ecume et venir me parler. Et oui le vraie probleme, c'est pas temps de te trouver, que de reussir a aller vers toi et te parler. 
+Pourquoi ai-je temps de mal a dire toute ces choses que je resent avant d'etre sur que c'est reciproque?
+Heureusement que je suis patient...
+C'est marant, alors que j'ecrit tout ca, une jeune femme s'est assise sur les gallets et me fait dos.
+Et le pire c'est que je suis incapable d'aller m'assoire a cote d'elle, alors que si ca se trouve, elle n'attend que ca elle aussi. Trop tard, il se met a pleuvoire. Il pleut meme a verse. Bon je vais m'abritter... 
+
+Categories	Divers
+
+Sites web 
+
+Adresse IP : 82.67.204.118
+e-conge : https://www.e-conges.thalesgroup.com
+
+Categories	Perso
+
+Il fait maintenant nuit. Le vent la pluie se sont tuent et le crecellement des cigalles les remplacent. Je te visualise devant les phares de la voiture tel un volute de fumee bleute. Tu te materialiserai la tel un genie sortie de la lampe, pour me prendre dans tes bras et m'emener voire morphe. Quoi de plus agreable que de partir dans le someil enlace dans des bras. C'est  bizarre de vouloire que tu apparaisse pour m'endormir juste apres ? Mais c'est tellement fort comme sensation, et tellement dur a decrire. Decidement plus j'y pense et plus je me dis que je suis vraiment quelqu'un de tactil dans ma relation a l'autre. 
+
+Categories	Bali
+
+Retour
+Enfin depart pour sanur et notre tri phala resort pour profiter d'une derniere heure de soleil pres de la piscine.
+Vendredi matin lever tot pour un depart en avion vers hong kong a 9h.
+Et la juste en quittant l'hotel coup de pas de bol, un flic $#£&@ nous reproche de ne pas etre sur la bonne file alors que l'on sort a peine d'un parking. Enfin on est touriste et y a rien a dire...
+Vol sans pb jusqu'a hong kong et balade dans la ville pendant 5h.
+Dejeuner dans un pur resto local pas top et belle vue depuis le haut de la colline.
+Retour a l'aeroport et depense des derniers $ en toblorone avant le vol de 13h vers paris.
+
+Categories	Bali
+
+Ubud
+Mardi, depart tot le matin de Candi dasa pour une journee bien remplie.
+Depart pour la source et le temple de tirta empul. Dans un bassin de l'eau noiratre sort depuis le fond, c'est impresionnant et derriere cette meme eau est rejetee claire par des gargouilles. En plus ici les gens sont redevenu gentil.
+Juste a cote, visite du temple de gunung kawi qui se trouve au fond d'une petite valle pleine de riziere. Le cadre est magique.
+Ensuite visite de la grotte de goa gajah et de l'hypothetique temple de yeh pulu que nous ne somme meme pas sur d'avoir visite.
+Enfin  arrivee a ubud, resto face aux rizieres, et visite de la  'monkey forest' ou pullullent les singes.
+Ouf on peut se poser dans un petit hotel avant de profiter de la piscine et de repartir faire du shoping...
+Apres direction le diner dans un resto plus que correct puis au lit.
+Car demain c'est le vrai shoping qui nous attend. ce soir ce n'etait qu'un avant gout.
+Mercredi, petit dej sur la terrasse, puis direction le musee blanco, un peintre megalo et legerement obsede, la peinture est bof mais les batiments et le jardin sont joli.
+Ensuite shoping et negociation de folie plus dans des boutique car le marche est pas top.
+Dejeuner au resto lotus devant un temple dans un tres beau cadre.
+Puis c'est parti pour mon cadeau, un superbe hotel de luxe au milieu des riziere. Chambre et sdb top, lit a baldaquin, piscine a 2 niveaux. Il ne manque que le soleil !
+Le soir diner en ville dans un grand resto super bon.
+Jeudi dernier jour a Bali, que c'est passe vite...
+Du coup lever au aurore pour une balade de 2 heures dans les rizieres gracieusement guide par un mec de l'hotel. Au retour petit dej top, bain frais a la piscine puis bain moussant chaud !!! Et non....
+Dernier moment sur la terasse pour profiter a fond de cet hotel a ecrire quelques cartes postales.
+Depart de l'hotel pour un musee de peintures moderne, le neka, bof.
+Reshoping dans ubud pour acheter d'autre robe car la premiere achete pour lilou etait top et il y en avait plein d'autre dans la boutique...
+
+Categories	Bali
+
+Candi dasa
+Tres joli route le long de la cote avec un arret a klung kung pour voire le palais flotant et palais de de justice .
+A kusamba belle plage de sable noire avec des pecheurs qui produisent du sel.
+Arrivee a Candi dasa et recherche d'un hotel. Apres d'apres nego on reussi a en trouver un de luxe pas trop chere.
+Puis direction besakih et le temple au pied du mont Agung. Hormis un guide long a semer, ces temples sont magnifique, et les nuages bloque par le mont Agung empechent de voir le sommet du cratere mais donnent une ambiance tres sympa.
+Retour a l'hotel par des petites routes de montagne de nuit et super resto "vincent".
+Dimanche, depart tot pour le grand palais sur l'eau de tirta ganga, puis tulamben pour de l'apnee sur l'epave le liberty. Tres belle flore et bcp de poissons. Dommage que lilou ait mal aux sinus car cadre ideal pour un bateme.
+retour par Amed et sa route mi plage mi coline.
+Par contre le resto le soir se la pete un peu avec ses 5 plats mais n'assure pas sur le gout.
+lundi, depart vers bangli et le temple de  kehen. Chouette temple mais a l'entree un chieur qui veux arnaquer le touriste et surtout qui est agressif.
+Ensuite belle route vers le lac batur. La vue depuis la crete de la caldera est belle meme si apres celle du rinjani elle semble fade. descente pres du lac pour le dejener. Tout ce que disent les guide sur la pietre qualite de l'accueil fait au touriste dans le coin plus ce que l'on a pu en voir nous incite a rentrer a l'hotel pour profiter de la piscine.
+puis a 17h, c'est partie pour 3 heures de spa en couple. 1ere heure de massage super. Ensuite, soin du corps a se faire tartiner de concombre sur tout le corps. Un peu bizzare mais marrant une foie histoire de voir ce que c'est.
+Apres un bain dans une bagnoire pleine de fleure nous retounons dans le resto du premier soir qui nous avais bien plus.
+Puis une magnifique nuit avec le corp tout doux :-)
+
+Categories	Bali
+
+Gilli
+depart le matin tot pour  guilli trawahan en mini bus puis pirogue local. Sur l'ile je laisse Elise dans un bar avec les affaires et je part regarder les hotels. Ici il y a beaucoup plus de touriste q'ailleur meme si cela reste raisonable.
+Apres midi piscine puis balade autour de l'ile sur la plage et baignade avec masque dans les coraux. Pas evident car c'est marre basse et qu'il faut passer sur les coraux. mais ca vaux le coup vu que je vois 2 tortues et 1 langouste. Magnifique meme si le corail est tout gris et a l'air d'etre en train de mourir...
+Diner dans un resto prometeur a poisson, mais finalement le poisson manque de gout.
+Retour dans notre chambre de luxe
+pour une bonne nuit.
+reveil pas trop tot le lendemain. Lilou fait ses premiers essai avec masque et tuba. Encore des tortue... decidement il y en a partout. Malheureusement ses sinus se font sentir. du coup l'apres midi je plonge tout seul avec des bouteillent.
+Petite frayeur car au debut ils veullent m'evalluer avant et il n'y a plus le temps. heureusement avec quelques explications ils    comprennent que je suis "moniteur CMAS" et s'en suit une belle plongee derivante dans un courant assez fort.
+C'est marrant de constater que  apres 3 ans sans plongee les reflexes sont toujours la.
+De retour, petite balade autour de l'ile et tres beau coucher de soleil sur les volcans de Bali.
+Ensuite resto romatique avec pour la premiere fois un poisson cuit entier et bon!
+Vendredi matin, reveil tot pour appeler la compagnie d'avion et essayer d'avoir une place dans le vol de 17h25. Mais pas de bol, plus de place. d'un autre cote, c'est un peu normal vu qu'on s'y prend au dernier moment...
+Du coup on prend un ticket pour le 19h30.
+On decide d'arriver pour le 17h25 au cas ou et coup de bol, apres un trajet luxe affrete par l'hotel, on reussi a prendre le vol de 17h25.
+Arrivee a sanur pour chercher un hotel vu que le Sri phala est plein.
+On fini par en trouver un correct et j'ai meme le temps de negocier une voiture.
+
+Categories	Bali
+
+Singuigui
+apres le rinjani on change de style.
+Detente et repos 1 jour entier dans un hotel lux vieux ou on est les seul client. Au programme, piscine soleil et massage.
+Puis balade dans la ''ville" une anciene station balneaire qui a peu etre vu du monde un jour?
+
+Categories	Bali
+
+Mont rinjani
+depart sembalung lawang a 7h 
+4 pauses de 5 minutes
+monte la premiere heure
+a flan de coteau 2h
+pas trop fatiguant. Il faut que je dise a Elise de pas alle trop vite pour garder des forces pour la suite.
+Plein soleil, au dessu de nous, le sommet du rinjani.
+monte la derniere heure dans les nuages qui se sont forme au desus de la mer et qui sont poussees par la brise.
+dejeuner de 11h a 13h.
+Notre guide et le porteur nous font une bouffe local avec un petit feu et 3 pierres.
+Seul point negatif, le camp est assez crade, et on voit toutes les ordures laisse par les expes precedentes.
+Meme les singes attendent le passage des expes pour grignotter les restes.
+depart 13h
+montee raide 3h (dont 2h30 dans les nuages.
+Le chemin tres raide epuise Elise. 
+4 pauses de 5 a 10 minutes
+l'arrivee sur la crete nous sort de la couche nuageuse.
+Face a nous, une mer de nuage recouvre le lac de la caldera.
+arrivee camp a 16h en dehors des nuages.
+Ce camp est tres bien situe. domage que ce soit si crade.
+Quelques heures de soleil nous permettent de bouquiner avant d'admirer un magnifique couche de soleil.
+Diner puis au lit
+depart camp sommet 3h.
+Lever un peu dur apres une nuit bien fraiche, environ 10 deg. Duvet un peu trop leger.
+1h de montee avec Elise. Le chemin est tres raide, et le sol volcauique se derobe sous les pieds.
+Le mal de bide, cumule avec peu de sommeil decide Elise a redescendre avec le guide. Fin de montee tout seul en speed. 
+20% tres raide jusqu'a la crete somitale
+30% pas raide sur la crete somitale
+30% un peu plus raide sur la crete somitale
+20% tres raide jusqu'au sommet.
+Les 4 autres expe sont rapidement depasse. Le chemin est tres bien trace jusqu'au sommet.
+arrivee sommet rinjani 5h50.
+20 minutes au sommet a attendre le lever du soleil enmitoufle dans la couverture de survie. Avec le vent, ca pele.
+10 minutes pour les photos du lever de soleil. Magnifique!
+depart sommet 6h20
+descente en courrant/glissades dans le chemin/eboulie volcanique de la monte.
+arrivee camp sommet 7h.
+Reveil Elise, petit dej bis
+depart camp sommet 8h45
+descente tres raide jusqu'au lac. chemin pas evident dans des rochers. Elise est tres fatigue, la progression est lente.
+arrivee lac 12h15, la encore c'est pas vraiement nickel.
+des bassins remplie par des sources chaudes nous attendent pour delasser nos muscles endoloris.
+Coup de chance aujourd'hui, pas de nuage sur le lac, et du coup une belle apres midi de repos.
+Apres une nuit froide (5 deg) depart du lac a 6h30.
+La fatigue d'hier se fait encore sentir et la montee au col vers senaru est raide.
+arrivee arrivee sur la crete qui conduit a senaru a 9h30.
+(2 pauses 5 minutes)
+pause sur la crete de 30 minutes pour preparer psychicologiquement Elise a la descente.
+depart 10h de la crete
+ail ail !!!! les cuisses.
+repas rapide 1h15 sans oeuf, c'est la fete :-)  
+et c'est reparti pour la descente...
+au total 5 pauses de 5 minutes
+arrivee a senaru a 16h15
+et on embraye sur une nego ardue pour tracer a singuigui dans un hotel avec piscine!
+
+Categories	Bali
+
+Sanur
+arrivee en tacos direct dans un hotel charmant a sanur. Suite royal a l'hotel car ils n'avaient plus de chambre avec lit double.
+Petit bain a 22h, apres 20h d'avion, ca fait du bien.
+le 2eme jour, location d'une mob et direction le temple d'uluwatu sur la falaise. plein de singe, site simpa mais temple pas marquant.
+Retour a sanur par les plages de padang padang et jinbarein. Nos premiers bain a bali.
+Le soir, balade dans sanur.
+le 3eme jour, location de voiture (4*4 pas tout neuf) et depart pour batubulan en theorie pour y voir des sculteurs et artisants de l'argent.
+En fait on n'y vera plutot que des boutiques. Par contre l'interieur de l'ile est interessant.
+Ensuite cap sur Kuta pour voire a quoi ca ressemble. Cote d'azure local avec neamoins une tres belle plage et des beau rouleaux et les surfeurs qui vont avec.
+Pour la premiere fois on voit un peu de touristes mais c'est pas vraiement la foule a laquelle on pourrait s'attendre au vu des infra structure hoteliere.
+Pour finir la journee, coucher de soleil magnifique sur Tanah lot.
+4eme jour theme transport. Avion vers lombok puis tacos vers sambalung lawang. Ca change de sanur. C'est un village paume au pied du rinjani.
+
+Categories	Bali
+
+Dico
+Ayo - en avant
+trimacasi - magno merci
+sama sama - de rien
+ya - oui
+tida - non
+payoung - nuage
+apa cabar - bonjour
+
+Categories	Vacance
+
+Sri phala resort
+JI. Hang Tuah III No 5,
+Sanur - Bali
+tel : 62 - 361 - 286479
+www.sriphala.com
+
+Categories	Perso
+
+Decidement prendre des ferry c'est pas mon truc !
+Deja a nice j'avait bien stresse avec une descente de gourdon dans les bouchons nicois, pour arriver juste une demi heure avant le depart, et la avec lq greve de la SNCM,je prend un billet d'ajaccio a 17h40 pour un embarquement a 20h a Bastia !
+En theorie le trajet en voiture doit prendre 2h30 a 3h.
+Petite route de montagne a fond et me voila a l'entree d'ajaccio apres seulement 2h !
+Mais la, catasthophe, un gros bouchon! Et me voila en train de stresser, et faire 2 km en 50 minutes...
+Heureusement, je suis pas le seul a avoir du retard :-)
+Et me voila sur le parking a attendre l'embarquement. Ce aui fait plaisir, apres avoir stresse, c'est de voire qu'il y en a des plus stresse que moi :-)
+alors que l'on a passe le control des billets, ils yen a encors beaucoup qui on l'air de stresser par ce qu'on avance plus. Moi, perso je suis plus presse vu qu'on est pas a Toulon avant demain 7h...
+Et puis la nuit est belle, on entend le clapotis de la mer.
+C'est marrant, j'ais commence a ecrire ce qui me passai par la tete pour m'entrainer a ecrire, et puis vu que l'ecriture est pas super rapide, je me suis mis a penser... et forcement a toi :-)
+Et donc je me suis mis a t'ecrire...
+Je te connais pas, (ou si peut etre, mais en tout cas je peux pas te donner de nom...) mais c'est tellement agreable de pouvoir se dire que ce que l'on vie est partage, meme si c'est dans le future...
+Bon des lumieres s'allument; non pas encore celles de tes yeux de braises...; mais celles des voitures devant moi!
+Faut que j'avance (aussi un peu plus vers toi)
+bonne nuit
+Ben finalement ca avance pas :-)
+c'est juste un mec qui verifie que sa voiture demarre toujours...
+En faite on est pas pres d'embarquer, vu que des marins de la SNCM bloquent l'entree du bateau.
+Il parait qu'ils attendent l'arrivee d'un autre bateau "Pirate" en provenance de Marseille, avec des syndicalistes qui ont pris le bateau en otage et qui doivent negocier, ici a Bastia.
+Une bonne nuit en perspective dans la voiture... Domage, a 2 dans une voiture, on peux faire plein de truc sympa :)
+Allez pour se changer les idees, un peu de Harry Potter...
+
+Categories	Resto
+
+Le 7 Cannelle  (Tuscania)
+Largo sette cannelle, 7
+01017 Tuscania
+tel : 0761.444635
+www.lesettecannelle.it
+
+Categories	Resto
+
+Al Vecchio Orologio (Viterbo)
+Via orologio vecchio 25
+Viterbo
+tel : 0761.305743
+
+Categories	Perso
+
+La nuit fut longue et mouvemente, entre les camions balance dans le port et les gaz lacrymogene. Au moins c'etait interessant de voire une manif autre qu'etudiante de l'interieur...
+1 - le gaz lacrymo ca fait pleurer et ca brulle
+2 - les CRS sont pas si bourin que ca quand c'est pas des etudiants en face...
+
+Apres 2 bonnes heures de confrontation, ils ont reussi a deloger les marins. Et la oh surprise, le camion bloquant etait toujours la!
+1 heure apres, le bateau a quai larguait les amares sans prendre les voitures.
+Resigne, je commence a dormir dans la voiture... et sur le coup de 3h du mat, un mec de la compagnie passe enfin pour donner des news.
+Et il nous dit que le bateau est partie a Ile Rousse (1h10 de conduite rallye en pleine nuit..) et qu'il embarquera les voitures pour "Nice" a 10h du mat.
+La suite de la nuit se passe bien... on embarque comme prevue, et je suis meme surclasse pour la cabine.
+Une cabine perso avec sdb + WC.
+Quel dommage d'etre seul et de ne pas pouvoir en proffiter vraiement.
+Bon allez, maintenant, une bonne route m'attend jusqu'a Pau...
+
+Categories	Divers
+
+Taille
+Calcon : M - 32
+Chemise : 40 - 41
+Veste : 48 - 50 
+        (Mexx EU : 50)
+Pantalon : 50 - 42 
+           Levis W 33 - L 34
+           Gap / Esprit  W 32 - L 32
+           (Mexx EU : 50)
+
+
+Categories	Taf
+
+Voyage des  dernieres années
+
+Ecosse - Aberdeen - 2009 - P
+Java - Itinerant -2009 -T
+Espagne - Madrid  - 2008 -T
+Argentine - Itinerant - 2009 - T
+Suisse - Lucerne - 2008 - P
+Malaisie - Itinerant -2008 -T
+Suisse - Bern - 2008 - P
+Espagne - Barcelone - 2008 -T
+Suisse - Zurich - 2007 - P
+Equateur - Itinerant -2007 -T
+USA - NewYork -2007 -T
+Bali - Itinerant -2006 -T
+Norvege - Montagne - 2006 - T
+Italie - Viterbo - 2006 - P
+Suisse - Montagne - 2006 - T
+Nepal - Montagne - 2005 - T
+Angleterre - Westland - 2005 - P
+Italie - Naples - 2004 - T
+Acores - Itinerant -2003 -T
+Pays Bas - Amsterdam - 2003- T
+Espagne - Ibiza - 2003- T
+Italie - Florence -2003 - T
+USA - New York - 2002 - T
+Italie - Sicile -2002 - T
+Angleterre - Londre - 2002- T
+Pays Bas - Amsterdam - 2001- T
+Italie - Rome - 2000- T
+Nepal - Montagne - 2000 - T
+
+Categories	Bouffe_Sucre
+
+Mousse au chocolat
+
+4  oeuf , 50 g de sucre en poudre, 250 g de chocolat, 50g de beurre
+
+Monter les blancs mi ferme, ajouter le sucre en poudre en continuant a battre les blancs. 
+Faire fondre le chocolat et le beurre. ajouter les jaunes.
+Melanger le tout
+
+Categories	Perso
+
+Le back avance tranquillement, la musique a fond sur les blues brothers et nous retournons tranquillement vers Oslo. 3 back dans la journee et une belle route a travers les fjords de norvege. La vie est quand meme belle....
+Super semaine de ski de rando avec des sommets magiques des paysages de folie et des nouveaux ski a apprendre a maitriser.
+Cote humain bien sympa meme si au court d'1 semaine comme celle la les defaut apparaissent forcement.
+Bon par contre ca manque de zouze carrement, et je parle pas forcement de toi.
+Mais bon les prochaines vacances y en aura plus et en plus y fera plus chaud !
+Bon le back accoste faut que je conduise...
+je t'embasse tout plein
+
+Categories	Perso
+
+Tout beau et tout propre !
+Enfin beau c'est une question de point de vue, que j'espere que tu partagera :-)
+finalement, ce soir nous avons abandoné la tente pour un petit cabanon avec tout le comfort et vue magnifique sur un fjord.
+Juste avant ca, beau petit sommet fait sous le soleil, avec decision au vu sur le bord de la route.
+La sensation avec les nouveaux ski arrive doucement. Je commence a bien me faire plaisir dans des pentes raid en neige crouté. Il reste plus qu'a bien sentir l'equilibre avant/arriere avec des ski plus souple et plus court.
+Au court de la derniere descente, on s'est fait une trace a 2 en // et etant juste un peu devant j'ai reve un instant que c'etait toi qui etait juste deriere moi. C'est fou comme le fait de partager les choses leur donnent de la valeur...
+La c'est deja bien sympa de partager ca avec jean et stephane, mais avec toi j'ai l'imprssion que ca donnerai a ces instants encore plus de valeur.
+Tout ca pour arriver a la meme conclusion, il faut absolument que je te rencontre.
+C'est bien la peine de faire tout ces km pour en arriver la...
+Remarque, qui sait tu est peux etre norvegienne ou suedoise, et peux etre même blonde :-))
+Allez minuit sandrillon va se barrer et demain grosse journée en perspective avec le debut d'une rando glaciere de 3 jours.
+Grosse poutou
+bonne nuit
+
+Categories	Perso
+
+Sous la tente, tout seul par 64° de latitude, alors que le blizard soufle dehors. Elle est pas belle la vie :-)
+surtout quand t'es dans un pur duvet avec un bon thermarest qui t'isole bien de la neige. 
+les 2 autres sont parti se promener sur le rognon d'a cote. C'est maran mais moi le lit je l'aprecie d'autan plus que les conditions sont dur dehors.
+En plus seulement 3h de sommeil la nuit derniere car jean arrivait plus a dormir....
+T'as vu, une page entiere avant de te dire que tu me manque!
+Mais bon rassure toi tu me manque toujours autant...
+Tiens au fait une nouvelle, tu ne t'appelle pas Aurelia mais peux etre elise :-) ou peux etre pas?
+Dans tout les cas c'est KT en ce momment qui me console, et a defaut de melanger sa chaleur a la mienne, elle me parle de cheveaux noire qui mangent des arbres a cerises.
+Sur ce je vais faire fondre de la neige pour mon the...
+Je t'embrasse partout mon amour.. A bientot
+
+Categories	Resto
+
+Domaine de Lintillac  (Paris)
+
+10 rue Saint Augustin
+75002 paris
+01 40 20 96 27
+www.domainedelintillac-paris.com
+
+ferme samedi midi et dimanche
+
+Categories	Bouffe_Sucre
+
+Gateau au noix de Yannick
+
+ 200g de noix, 190g de beurre, 190g de sucre, 90g de farine, 4 oeuf, 90g de sucre glace, 1 sachet de sucre vanillé.
+
+Hacher les noix et melanger a la farine. Faire fondre le beurre et ajouter le sucre. Battre les 4 blancs d'oeuf ferme.
+Ajouter au melange beurre/sucre, successivement par etapes les blancs et la farine/noix..
+Mettre le tout dans un moule beurré 45 minutes dans un four a 135°C.
+
+Glacage :
+2 jaunes + sucre glace + sucre vanillé. Laisser reposer.
+
+A la sortie du four, glacer et laisser refroidir a temperature ambiante
+
+Categories	Bouffe_Sucre
+
+Meringue francaise
+
+3 blancs d'oeuf (90 ml), 90 g de sucre en poudre, 90 g de sucre glace
+
+Monter les blancs mi ferme, ajouter le sucre en poudre en continuant a battre les blancs. Continuer a battre 10 minutes. Ajouter le sucre glace.
+
+1 h 45 a four 100°C
+
+Categories	Resto
+
+Baxxo urban  (Toulouse)
+
+43 rue de l'industrie
+31000 Toulouse
+tel : 05 61 62 87 76
+www.baxxo.com
+
+Categories	Resto
+
+Le 404  (Paris)
+(couscous, brunch Berbere)
+69 rue Gravilliers 75003 Paris
+tel : 01 42 74 57 81
+
+Categories	Parapente
+
+Laruns 64440
+Decolage : Grange des cinq monts
+Orientation NNE,NE,E
+Coord 43 00'17"N - 00 25'57''O
+Alt 980m
+Atterissage :  Montplaisir
+Orientation NNE,NE,E
+Coord 43 01'17"N - 00 25'04''O
+Alt 490m
+
+Categories	Bouffe_Sale
+
+Mousse de poireaux       
+
+700g de poireaux, 2g de curry, 2g de cumin, 1 pincée de sel, poivre, 1 cuil à soupe de crème épaisse, 3 oeufs, 1 cuil à soupe d'huile d'olive.
+
+Coupez les poireaux en fins morceaux et mettez-les à cuire dans une cocotte avec l'huile. Salez, poivrez et laissez cuire pendant 20 min. Ajoutez le curry et le cumin à mi-cuisson. Pendant ce temps séparez les jaunes des blancs d'oeufs et montez les blancs en neige. En fin de cuisson ajoutez la crème, les jaunes puis les blancs d'oeufs battus. Remettez à cuire à feux doux pendant une minute en remuant délicatement pour épaissir le tout.
+
+Categories	Resto
+
+Oh Bigre (Paris)
+
+bar a vin
+2 rue Lamande
+75017 paris
+01 44 90 05 04
+
+Categories	Bouffe_Sale
+
+Mousse de brocoli au basilic       
+
+Pour 4 personnes
+1-2 têtes de brocoli, 1/2 botte de basilic frais, 1 cuillère à soupe de crème épaisse,1 blanc d'oeuf, sel, poivre, 1 cuillère à soupe d'huile d'olive.
+
+Préchauffez le four sur th 7 (210°c). Lavez et cuisez le brocoli à la vapeur pendant 15 min. Ciselez les feuilles de basilic. Mixez le brocoli et ajoutez la crème, l'huile d'olive, le blanc d'oeuf, le sel et le poivre. Ajoutez le basilic. Mettez la préparation dans 1 moule a bords hauts et mettez au four pendant 10 min. Démouler et servez.
+
+Categories	Bouffe_Sale
+
+Mille feuilles de PDT à la crème de blettes       
+
+1 kg de PDT, 1 kg de blettes, 40 g de beurre, 100 g de crème fraîche, 1 pincée de noix de muscade, sel et poivre.
+
+Préchauffez le four sur th 7 (210°c). Pelez les PDT et taillez-les en rondelles puis essuyez-les. Beurrez une plaque à four et disposez les rondelles de PDT. Enfournez et laissez cuire pendant environ 15 min jusqu'à ce que les rondelles soient bien dorées. Nettoyez les blettes, séparez les verts des blancs. Découpez les blancs en tronçons et hachez les verts. Faites-les cuire à l'eau bouillante salée pendant 20 min puis égouttez-les. Passez les blettes au presse purée puis ajoutez la crème fraîche. Assaisonnez. Dans un plat, versez la crème de blettes puis disposez les rondelles croustillantes de PDT sur le dessus en rosaces. 
+
+Categories	Bouffe_Sale
+
+Lentilles saucisse
+
+300g de lentilles dupuy, 1 oignon
+2 carottes, 1 bouquet garni
+2 saucisses de montbeliard
+200g tranches de poitrine de porc 
+200g tranches d'echine de porc fume
+Persil
+
+Pre cuire les lentilles ds 1 cocotte - 1 volume 1/2 d'eau - 8 min ap pschit
+Egoutter les lentilles
+
+Faire revenir les oignons + lard, echine, carottes, saucisses  3 minutes
+ajouter 25 cl de vin blanc
+Ajouter les lentilles + eau jusqu'à 1/2 hauteur des lentilles
+Laisser a ebulliton
+Puis feu doux en remuant pdt 45 min
+
+Categories	Bouffe_Sale
+
+Lasagnes de chou vert frisé
+
+1 chou vert frisé, 1 boîte de tomates concassées, 500 g de boeuf, 1 barquette de champignons blancs, 1 petite boîte de concentré de tomates, 2 gousses d'ail, 1 oignon, 50 cl de lait, 6 cuil. à soupe de crème fraîche, 6 cuil. à
+soupe de fécule de maïs, 1 cuil. à café d'huile d'olive, 50 g de fromage
+rapé, cumin en poudre, curry en poudre, paprika, sel et poivre.
+
+Préparez une béchamel légère. Dans une casserole faites chauffer la crème fraîche. Versez ensuite la fécule de maïs et le lait puis salez et poivrez la sauce. Laissez épaissir en mélangeant puis ôtez du feu. Préparez la sauce tomate. Epluchez l'ail et l'oignon. Ecrasez l'ail et émincez l'oignon.
+Coupez le boeuf haché puis émincez les champignons. Dans une casserole
+faites chauffer l'huile d'olive puis faites revenir l'ail, l'oignon, le boeuf
+et les champignons. Saupoudrez de cumin, curry et paprika. Au bout de 5 min, versez les tomates concassées et le concentré de tomates. Versez un peu d'eau pour éviter que la préparation attache. Préchauffez le four sur th 8
+(240°c). Détachez les feuilles de chou puis passez-les rapidement sous l'eau
+avant de les égoutter. Dans un plat à gratin, disposez une couche de
+feuilles de chou puis la moitié de la préparation à la tomate puis 1/3 de
+sauce béchamel. Recommencez avec une couche de feuille puis le reste de
+sauce à la tomate puis la sauce béchamel. Terminez par une couche de feuille puis le reste de béchamel et parsemez de gruyère rapé. Enfournez pour 20 à
+25 min jusqu'à ce que le dessus soit bien doré.
+
+Categories	Bouffe_Sale
+
+Gratin de carottes au brocoli.       
+
+Pour 4 personnes
+4 carottes, 1 tête de brocoli, 20 cl de crème liquide, 50 g d'emmenthal rapé, 2 oeufs, sel et poivre epices.
+
+Chauffez le four  (180°c). 
+Epluchez et rapez les carottes. Faites-les cuire à la vapeur pendant quelques minutes. Détaillez le brocoli en bouquets puis faites-les blanchir 5 min dans une casserole d'eau bouillante salée. Mélangez les oeufs et la crème puis assaisonnez. Dans un plat déposez les carottes et les brocolis puis versez la préparation aux oeufs. Saupoudrez de fromage et enfournez pour 30 min. .
+     
+ 
+
+Categories	Bouffe_Sale
+
+Curry d'agneau au fenouil  
+
+3-4 bulbes de fenouil, 10 cl. de bouillon de boeuf (avec 1/4 de cube), 500 g d'épaule d'agneau, 1 gousse d'ail, 2 oignons, 1 cuil. à soupe d'huile, 1 cuil. à soupe de curry, sel, poivre.
+
+Epluchez la gousse d'ail puis écrasez-la. Epluchez le fenouil en éliminant les parties dures, mettez de côté les feuilles vertes; émincez le reste. Epluchez et taillez les oignons en lamelles. Coupez la viande en gros morceaux puis faites-les sauter durant quelques minutes dans une poêle à feu très vif avec l'huile chaude; réservez. Dans cette même poêle, faites revenir 1 min les lamelles d'oignon et l'ail haché. Saupoudrez-les de curry et cuisez 2 min en remuant souvent. Ajoutez le fenouil et remettez la viande dans la poêle. Mouillez le tout avec le bouillon, salez et poivrez. Portez à frémissements et poursuivez la cuisson pendant environ 15 min (le fenouil doit rester légèrement croquant). Présentez le curry dans un plat et parsemez-le avec les pluches vertes de fenouil. Servez bien chaud.
+
+Categories	Bouffe_Sale
+
+Cuisson viande
+
+griller :
+Bleu 1mn feu tres vif
+Saignant 1mn 30s feu  vif
+A point 2mn feu tres moyen
+Bien cuit 3mn feu doux
+
+Rotir : pour 500g (210°c)
+Saignant 10 a 15 mn
+A point 15 a 20 mn
+Bien cuit 20 a 25 mn
+
+A braiser :
+A feu doux par kg
+2h30 a 3h en faitout
+1h30 en autocuiseur
+
+A boullir :
+A feu doux par kg
+3h a 3h30 en faitout
+1h30 en autocuiseur
+
+Categories	Bouffe_Sale
+
+Cuisson Poissons
+
+Cuisson d'un Denti 
+900g au barbecue - 10 minutes par faces
+
+Cuisson d'un Corbs 
+700g au barbecue - 9 minutes par faces
+
+
+Categories	Bouffe_Sale
+
+Coulis de poivron 
+(pour 20 personnes):
+
+- 1000 g de poivron rouge
+- 100 g d'échalote
+- 10 cuillère à soupe de Noilly Prat
+- 250 ml de vin blanc
+- 750 ml de fumet de poisson en paquet
+- 500 ml de crème double
+- 150 g de beurre
+- 5 citron
+- sel, poivre
+
+Préparation :
+
+A l'aide d'un couteau économe, éplucher les 100 g de poivron rouge.
+Détailler en morceaux et cuire 10 min à l'eau bouillante salée.
+Rafraîchir, égoutter, puis passer au mixer, ou à défaut au moulin à légumes, pour obtenir une purée fine et lisse.
+Eplucher, hacher l'échalote et mettre dans une casserole, ajouter le vin blanc et le Noilly, puis faire réduire presque à sec.
+Incorporer le fumet de poisson, réduire de moitié, puis mouiller avec la crème.
+Porter à ébullition.
+Saler, poivrer.
+
+Incorporer au fouet, hors du feu, les 15 g de beurre et la purée de poivron rouge.
+Passer la sauce au chinois, rectifier l'assaisonnement, rajouter le jus de citron et réserver au chaud.
+
+Categories	Bouffe_Sale
+
+Choux farçis au riesling      
+ 
+Ingrédients (pour une dizaine de choux) :
+
+- 1 chou vert
+- 1 boîte de lardons nature
+- 5/6 tomates olivettes
+- huile d'olive
+- 2/3 petites carottes
+- thym séché
+- sel/poivre
+- 1 verre de Riesling
+
+* Pour la farce, 
+
+- 3 tranches de pain de mie à faire tremper dans une assiette de lait
+- 4 steacks hachés de boeuf
+- 2 petits steacks hachés de veau
+- 1 tranches de jambon
+- 1 gros oignons
+- 2 gousses d'ail
+- persil
+- sel, poivre
+- 1 jaunes d'oeuf (pour lier à la fin)
+- garder un peu de chair des légumes
+
+Préparation farce:
+
+Découper les bords des tranches de pain de mie.
+Les faire tremper dans du lait et les mettre dans le bol d'un robot.
+Ajouter la viande, les oignons grossièrement émincés, l'ail, le jambon, le sel, le poivre, le persil et un peu de chair des légumes.
+Fermer et bien mixer le tout.
+Ajouter 1 jaunes d'oeuf à la farce et repasser un coup au robot.
+
+Préparation :
+
+Défaire les feuilles de chou et dépaissir les côtes avant de les laver et de les faire blanchir 5 mn à l'eau bouillante salée.
+Bien égoutter.
+
+Préparer la farce.
+
+Placer une bonne boule de farce dans une feuille de chou et envelopper.
+Ajouter une seconde feuille pour bien entourer la boule.
+Ficeler (4 ou 6 tours pour que ca tienne).
+
+Pour la sauce, ébouillanter, peler et couper les tomates en 4.
+Les faire revenir dans de l'huile d'olive et incorporer les lardons et le thym.
+Verser le Riesling et les carottes en rondelles.
+
+Faire bouillir, réduire le feu, mettre les choux et laisser mijoter 1 h à feu moyen et à couvert en les retournant toutes les 15/20 mn.
+
+Categories	Bouffe_Sale
+
+Chou-fleur à la sauce moutarde       
+
+1 chou-fleur, 4 jaunes d'oeufs, 1 citron, 3 cuil. à café de moutarde, 50 g de beurre, 100 g de crème fraîche, sel et poivre.
+
+Détaillez le chou-fleur en bouquets. Pressez le citron pour récolter le jus. Faites-le cuire à l'eau bouillante salée ajoutée de quelques gouttes de citron pendant 20 min. Pendant ce temps, préparez la sauce à la moutarde. Coupez le beurre en petits morceaux. Dans une casserole, mélangez les jaunes d'oeufs avec 4 cuil. à soupe de jus de citron, la moutarde et l'assaisonnement. Placez la casserole au bain-marie et fouettez énergiquement en incorporant les morceaux de beurre. La sauce doit devenir mousseuse. Ajoutez la crème fraîche. Egouttez le chou-fleur, nappez de sauce et servez aussitôt.
+
+Categories	Bouffe_Sale
+
+Chou blanc aux lards et marrons  
+
+1 chou blanc, 2 oignons, 300 g de lard fumé, 2 cuil. à soupe d'huile, sel, poivre, 2 clous de girofle, thym, laurier, 2 dl de bouillon (eau et cube), 2 c à soupe de vinaigre, 1 kg de marrons frais.
+
+Nettoyez le chou puis coupez-le en lanières. D'autre part, pelez et émincez les oignons.
+Coupez le lard en cubes. Faites-les revenir avec l'huile, ajoutez les oignons puis le chou.
+Assaisonnez, mettez les clous de girofle, le thym et le laurier ; mouillez de bouillon et de vinaigre. Couvrez et laissez mijoter 20 min. Pendant ce temps, ébouillantez les marrons puis épluchez-les. Joignez-les au chou et poursuivez la cuisson pendant 15 min.
+
+Categories	Bouffe_Sale
+
+Chevreuil sauce grand veneur
+1.8 kg de roti de chevreuil
+100g de lard
+1 petit verre de cognac
+1 cuillere a soupe de persil
+6 cuillere a soupe d'huile
+
+mariner le lard 30 minute dans cognac + persil + sel et poivre
+four 200°C
+piquez le roti avec le lard, aroser avec le cogac
+au four 40 minutes en arrosant
+
+Sauce:
+1 branche de celeri
+40 g de beurre
+2 feuille de laurier
+4 pincée de poivre mignonette
+15 cl de vinaigre
+15 cl de vin
+roux brun (40g de farine + 40g de beurre 8 minutes)
+10 grains de poivre
+
+Petit dés avec carotte, oignon, lard et celeri.
+Dans casserolle feux tres doux avec vinaigre, vin, poivre mignonette, beurre, laurier et sel.
+Couvrez et etuvez 20 minutes.
+ajoutez roux + grain poivre ecrasé.
+Cuire 30 minutes.
+Filtrer avant de servir
+
+Categories	Bouffe_Sale
+
+Céleri branche à la basquaise       
+
+1 pied de céleri branche, 1 gousse d'ail, 1 oignon, 4 tomates, 1 poivron vert et un rouge, 5 cuil. à soupe d'huile d'olive, sel et poivre.
+     
+Epluchez et émincez l'ail et l'oignon. Retirez le coeur des poivrons puis coupez-les en lamelles. Coupez les tomates en rondelles, le céleri en tronçons. Mettez le tout dans un faitout avec un peu d'huile. Laissez mijoter à feu doux pendant 15 min. Rectifiez l'assaisonnement et servez.
+
+Categories	Bouffe_Sale
+
+Cannelloni de légumes.       
+
+Pour 4 personnes
+250 g de cannelloni, 2-3 carottes, 2-3 choux-raves, 1 oignon, quelques brins de persil, un peu de thym, 2 cuil. à soupe d'huile d'olive, 50 g de beurre, 10 cl de crème fraîche, 150 g de pecorino rapé (fromage italien), 10 cl de vin blanc sec, sel et poivre.
+
+Chauffez le four sur th 7 (210°c). Epluchez les carottes et l'oignon puis émincez-les finement. Ciselez le persil. Taillez les choux-raves en petits dés. Faites fondre l'oignon à la poêle dans l'huile puis versez les choux, les carottes, le persil et le thym. Mouillez avec le vin blanc et faites cuire 5 min à l'étouffée. Assaisonnez, laissez refroidir avant d'incorporer la crème fraîche et le fromage. Faites chauffer une grande casserole d'eau salée et faites cuire les cannelloni al dente (5 min dès l'ébullition) puis égouttez-les. Farcissez les cannelloni puis disposez-les dans un plat à gratin légèrement beurré. Saupoudrez du reste de fromage et parsemez de noisettes de beurre. Enfournez et laissez cuire 20 min environ. 
+
+Categories	Bouffe_Sale
+
+Boeuf Bourguignon 
+(8 pers)
+2kg de macreuse de boeuf
+150g de lardon
+20 petit oignon
+4 gousses d'ail
+15 champignons de paris
+40g de beurre
+2 cuilleres a soupe d'huile
+2 cuilleres a soupe de farine
+1btl de bourgogne
+
+Marinade
+2 oignons
+7 carottes
+bouquet garni (persil, laurier, thym)
+10 grains de poivres
+1 btl de bourgogne
+
+mariner 12h.
+Faire revenir beurre, huille, lard, et petit oignon.
+Retirer lard et petit oignon.
+Mettre viande a feux vif.
+Ajouter legume marinade 10 minutes puis tout mettre a cuire 3-4 h.
+
+faire rechaufer 10 minutes avec 3 pdt moyenne par personne cuite a l'eau 30 minutes
+
+Categories	Perso
+
+Allez encore une petite envolee literaire
+Cette fois ci, je ne suis pas seul !!
+Je suis avec Jean, mais il dort, voire meme ronfle ...
+On est parti depuis deja 2 jours depuis le col de puy morens en ski de rando.
+Super meteo et juste assez de neige pour les descentes.
+Et c'est bizard, mais depuis que je suis en montagne, je ne pense plus a toi.
+Faut croire que les grands espaces imacules me rendent egoiste...
+A la descente c'est un peu normal, faut etre concentre, mais a la montee t'as plein de temps pour penser, alors !!
+En fait face a un paysage aussi grandiose, je fais le vide dans ma tete et tout mon ame s'ouvre a la nature (c'est beau, non ? :-)
+Et puis hier soir la c'etait pour une autre raison, une petite cabane de berger de 2m x 3m sans lit...
+Arrivee au crepuscule apres une longue journee, zero degre a l'interieur et la neige a fondre pour boire et bouffer !
+Plus une nuit fraiche (un pur duvet sans isolation au sol ca sert a rien !!)
+Dans ces conditions, le cervo marche plus.
+Mais la ce soir, apres un bain de soleil en calceon :-) je me remet a penser a toi... 
+Seras tu sportive et sufisement maso pour profiter de ces instants de bonheurs avec moi ?
+Ou seras tu sufisement comprehensive pour comprendre que j'ai besoin de ces instants pour me retrouver ?
+J'en suis sur :)
+bon la soupe m'appelle.
+Je t'embrasse (ca fait d'ailleur trop lomgtemps que je l'ai pas vraiement fait, et ca me manque grave...)
+
+Categories	Vacance
+
+bateau nice - corse
+
+21/09 nice - ajaccio (7h45-12h15)
+pietton 47 euros
+voiture 109 euros
+
+28/09 ile rousse - toulon (15h - 20h45)
+voiture 84 euros
+
+28/09 ajaccio - nice (12h45 - 17h15)
+voiture 93 euros
+
+Categories	Perso
+
+Et oui, encore moi :-)
+est ce que je te soul?
+Bon je me demandais ce que c'etait que l'amour?
+Et oui ca peu faire sourir, mais je sais pas si j'ai deja eu un coup de foudre...
+J'ai l'impression que c'est vachement refflechit pour moi.
+Tu vois si ca se trouve je viens de te rencontrer et je ne le sais pas encore.
+On a pas mal converse par mail, je me disait que c'etait le debut d'une relation. Et puis on est alle au cine tout les 2 et je ne reussissait pas a savoir si je ressentait vraiement quelque chose pour toi ou si c'etait que j'avais envie de vivre avec quelqu'un.
+Enfin l'avenir le dira, vu qu'apparement je ne te suis pas indiferent...
+On va se refaire un cine et on vera... Je me dis qu'il faut que j'arrete d'y penser et que je laisse faire les choses. Mais j'espere que t'es un peu entreprenante, sinon c'est pas gagne :-)
+bon sinon, je te rassure si tu lis ces lignes c'est que d'une par, je ressent bcp de choses pour toi, et qu'en plus, je pense que tu dois commencer a comprendre comment je pense et surtout t'y habituer :-)
+
+bon allez une petite sieste avant d'aller sur mon simu....
+
+Bisoux pour peut etre tres bientot en vrai...
+
+Categories	Perso
+
+Encore un grand momment de solitude ce WE...
+Pourtant, il y avait de bonnes perspectives. Cela devait etre un WE parapente squat dans le nouveau studio d'aude!
+Et puis, no news d'aude depuis 1 semaine...
+je connais pas son adresse et j'ai meme pas son tel.
+Du coup, au lieu de partir vendredi soir, j'ai pris le vol du dimanche matin pour voler aujourd'hui.
+Mais le vent en a decide autrement...
+Et j'ai ete bon pour poursuivre ma visite de la cote d'azure.
+La journee avait bien commence avec la minette d'Avis :-) qui m'avait reconu et avec qui j'avais entame une discution.
+Et puis la toute cette apres midi tout seul. En fait, j'essai de me rassurer en me disant que au moins, tant que je souffre de la solitude, cela veux dire que je ne devient pas un hermite associale.
+Bon maintenant, ca suffit pas, faut que je me bouge pour te rencontrer.
+Allez je continue a bosser (et oui un dimanche soir!).
+Bisouxxx
+je t'aime
+
+Categories	Perso
+
+Encore une pur journee de ski. Apres un chouette sommet hier, pas trop technique, aujourd'hui c'est autre choses. Deja, a la montee, sur la fin, la trace etait pas top et la neige qui etait par plaque. Mais bon, en bourinant, ca passait quand meme :-)
+Et c'est au sommet que j'ai realise qu'il fallait redescendre par le meme itineraire. La, petit coup de flip...
+Et puis en faite, une fois lance dans la pente, c'est passe tout seul...
+Je dirais meme, que c'est ma plus belle descente depuis que j'ai appris le ski !!
+La neige etait pourtant pas nickel mais ca se passai tres bien. Sans doute par ce que c'etait bien raide...
+Enfin tout ca pour te dire qu'il va falloire que tu saches skier. Et si tu sais pas encore, pas de stress, je suis un pur prof :-)
+Bon ben a notre prochaine grande descente.
+Bisouxx
+
+Categories	Perso
+
+Le ski, encore!
+Et oui cette annee, ca va etre une annee sportive.
+Vu que pour la zouze, je suis pas fort, autan occuper efficacement les we!
+Du coup, vu que jean m'a propose un we de ski de rando dans les alpes bernoises, j'ai dit oui. 
+Bon, c'est pas tres malin, vu que j'ai depense plein de tune, et que c'est pas comme ca que je pourais prendre des cours de rock, mais c'est tellement cool le ski de rando.
+Et puis j'aurai surement passe une partie du we a mater des film sur le barco....
+Aujourd'hui, pur journee. Apres une courte nuit, depart de dijon a 5h du mat, et superbe sommet "majeur".
+La descente bien nickel, meme si sur la fin j'etait pas contemp de mon style dans la poudreuse lourde et legerement croute. Est ce moi ou les ski un peu long et pas parabolique ?
+Demain rebelotte et retour a Paris pour te rencontrer :-)
+bisoux
+
+Categories	Perso
+
+Petit resume de mon plouf au Nepal.
+4 premiers jours un peu dur. C'est clair, je suis encore trop timide pour voyager seul et rencontrer du monde...
+En 4 jours, j'ai vaguement fait connaissance avec une zouze plutot sympa, mais elle s'est maque avec un nepalais...
+Et j'ai croise une apres midi un groupe de 3 francais mais ca a pas plus accroche que ca!
+En fait ce que je trouve le plus dur, c'est de bouffer tout seul. Du coup, je mange moins :-)
+Heureusement le matin du 5eme jour, Aude & Kriss sont arrivee, et la, les vacances ont vraiement commence!
+Une superbe balade de 2 jours a Korchon, avec 1600 metres de denivele en 5h le dernier jour pour finir par un mega vol plouf de 2000 metres apres un deco un peu chaud.
+Quelques jours a Pok, ou l'on commence a se sentir chez soi et ou on fait de l'accro au dessus du lac.
+Resulta, un bain dans le lac suite a une manoeuvre fini trop tard...
+Bonne experience :-)
+Puis on laisse ma voile secher et on part 6 jours avec 2 voiles solo et 1 bi et un duvet vers Tamgas.
+La, la pure vie d'aventure commence. Voyage sur le toit du bus avec arret des que l'on voie un deco possible.
+Mon premier cross Gaudakot-Thamgas avec 1 heure de bus pour rentrer ...
+Tres bonne ambiance avec Aude & Kriss, et j'ai meme presque l'impression d'etre integre au trip Airborne. Je me demande souvent si je n'aurai pas du les rejoindre en juillet ?
+Mais bon, c'est le passe, ca sert a rien
+de revenir dessus.
+En tout cas, ils m'ont parle d'une suite	possible dans un an en Afrique, et j'en reve deja.
+J'espere que toi aussi tu seras acro aux voyages aventure et au parapente.
+Apres ces 6 jours, retours a pok pour travailler les thermiques et les sorties de spirales.
+Je reussi meme a socialiser avec d'autres parapentistes et du coup, quand Aude & Kriss se barrent, je passe une pure soiree avec Herve et Magalie a parler meditation, onde et enegie du corps.
+Domage que ce soit le dernier soir, car Magalie avait l'air un peu barge, mais bien cool.
+Et moi en une soiree, je fait rien :-)
+
+Categories	Vacance
+
+Nepal
+Couts divers : (Rs)
+Taxis aeroport - thamel = 100 
+Chambre moyenne KTM / Pok = 200
+Dal-bat local = 40
+Steak resto touristes = 200
+bouteille d'eau = 20
+100g Chips = 40
+ticket bus touriste Ktm-Pok = 300
+ticket bus local tansen-Pok = 200
+polaire windstopper = 850
+polaire fine = 250
+the au lait  = 10-20
+drapeau a priere (moyen) = 50
+encens = 15
+samosa = 2-5
+pliage aille = 10
+1 journee porteur = 400
+taxes aeroport depart = 1700
+sac a dos 30 litres = 400-800
+patisserie = 40 max
+taxis pok-sarangot (deco) = 500
+jeep sirckot (1h chemin) = 800
+pressing hotel = 50 / kg
+jus de fruit frais = 100 
+
+Categories	Perso
+
+Est ce du au superbe vol de cette journee ?
+La joie de pouvoir prendre des tof en plein vol, et le flip de se rendre compte que l'on a lache les commandes et que on oublie de regarder devant soit, obnubile par les photos.
+Toujours est il que ce soir, je me suis surpris moi meme!
+Bon ca va te faire rire, mais pour moi c'etait pas rien...
+Avant le vol, j'avais croise "ma petite francaise du bus'' et elle m'avait propose d'aller dejeuner...
+Pas de bol, je venais de finir mon petit dej, j'avais donc decline son offre (trop nul le mec...)
+Et donc ce soir, je passe a son hotel
+pour lui proposer de diner.
+je tombe sur un mec (nepalais) dans la cours de l'hotel qui me dit q'elle est la. 
+j'appelle, elle entrouve la porte et me dit de monter.
+On tchatche un peux et elle me dit qu'elle dine ce soir, avec son mec (le nepalais d'en bas!)
+bon tan pis... et puis le principal c'est d'avoir essaye :-)
+J'espere que j'ai amorce le mouvement car tu me manque, et j'ai hate de te rencontrer.....
+
+Categories	Perso
+
+Apres un vol magnifique, face a une pyramide parfaite, la nanda devi ? (et non en fait ils l'appellent le "macha puchre")
+Me voici dos a un chorten et face au lac de pokbara. Le soleil se couche, et la lumiere est magique!
+Dans ces conditions, comment ne pas penser a toi ?
+Il va encore faloire que je mange tout seul... Aude et kriss n'etant pas encore la. Je vais grignotter un truc a emporter, en esperant que mon bide se blinde rapidement ; a moins que je croise la petite francaise du bus, et dans ce cas, j'essairai de lui proposer a diner.
+Bon sur ce l'appel du ventre se fait sentir.
+bisouxx
