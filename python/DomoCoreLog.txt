@@ -1,0 +1,200 @@
+Arduino serial link started on ACM0 
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Salon : message = dht22 start condition 1 not met
+
+Arduino serial link Not started on ACM0 
+Arduino serial link Not started on ACM0 
+Arduino serial link Not started on ACM0 
+Arduino serial link started on ACM0 
+Arduino serial link started on ACM0 
+Arduino serial link started on ACM0 
+Arduino serial link started on ACM0 
+Arduino serial link started on ACM0 
+Arduino serial link started on ACM0 
+Arduino serial link started on ACM0 
+Arduino serial link started on ACM0 
+Arduino serial link started on ACM0 
+get oid 1.3.6.1.4.1.36582.40 from 192.168.0.70 errorIndication : No SNMP response received before timeoutget oid 1.3.6.1.4.1.36582.15 from 192.168.0.70 errorIndication : No SNMP response received before timeoutget oid 1.3.6.1.4.1.36582.16 from 192.168.0.70 errorIndication : No SNMP response received before timeoutget oid 1.3.6.1.4.1.36582.10 from 192.168.0.70 errorIndication : No SNMP response received before timeoutget oid 1.3.6.1.4.1.36582.11 from 192.168.0.70 errorIndication : No SNMP response received before timeoutget oid 1.3.6.1.4.1.36582.17 from 192.168.0.70 errorIndication : No SNMP response received before timeoutget oid 1.3.6.1.4.1.36582.40 from 192.168.0.70 errorIndication : No SNMP response received before timeoutget oid 1.3.6.1.4.1.36582.15 from 192.168.0.70 errorIndication : No SNMP response received before timeoutget oid 1.3.6.1.4.1.36582.16 from 192.168.0.70 errorIndication : No SNMP response received before timeoutget oid 1.3.6.1.4.1.36582.10 from 192.168.0.70 errorIndication : No SNMP response received before timeoutget oid 1.3.6.1.4.1.36582.11 from 192.168.0.70 errorIndication : No SNMP response received before timeoutget oid 1.3.6.1.4.1.36582.40 from 192.168.0.70 errorIndication : No SNMP response received before timeoutget oid 1.3.6.1.4.1.36582.15 from 192.168.0.70 errorIndication : No SNMP response received before timeoutget oid 1.3.6.1.4.1.36582.16 from 192.168.0.70 errorIndication : No SNMP response received before timeoutget oid 1.3.6.1.4.1.36582.10 from 192.168.0.70 errorIndication : No SNMP response received before timeoutget oid 1.3.6.1.4.1.36582.11 from 192.168.0.70 errorIndication : No SNMP response received before timeoutget oid 1.3.6.1.4.1.36582.32 from 192.168.0.70 errorIndication : No SNMP response received before timeoutget oid 1.3.6.1.4.1.36582.31 from 192.168.0.70 errorIndication : No SNMP response received before timeoutget oid 1.3.6.1.4.1.36582.33 from 192.168.0.70 errorIndication : No SNMP response received before timeoutget oid 1.3.6.1.4.1.36582.40 from 192.168.0.70 errorIndication : No SNMP response received before timeoutget oid 1.3.6.1.4.1.36582.15 from 192.168.0.70 errorIndication : No SNMP response received before timeoutget oid 1.3.6.1.4.1.36582.16 from 192.168.0.70 errorIndication : No SNMP response received before timeoutget oid 1.3.6.1.4.1.36582.10 from 192.168.0.70 errorIndication : No SNMP response received before timeoutget oid 1.3.6.1.4.1.36582.11 from 192.168.0.70 errorIndication : No SNMP response received before timeoutget oid 1.3.6.1.4.1.36582.32 from 192.168.0.70 errorIndication : No SNMP response received before timeoutget oid 1.3.6.1.4.1.36582.31 from 192.168.0.70 errorIndication : No SNMP response received before timeoutget oid 1.3.6.1.4.1.36582.33 from 192.168.0.70 errorIndication : No SNMP response received before timeoutget oid 1.3.6.1.4.1.36582.3 from 192.168.0.70 errorIndication : No SNMP response received before timeoutget oid 1.3.6.1.4.1.36582.15 from 192.168.0.70 errorIndication : No SNMP response received before timeout
