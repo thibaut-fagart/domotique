@@ -28,4 +28,7 @@ def setSnmp(host,oid,value):
       else:
           for name, val in varBinds:
               return True
+<<<<<<< HEAD
 
+=======
+>>>>>>> dcaf78ac9ef7feb55fad2e8d646d024ee83885e6

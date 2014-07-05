@@ -11,7 +11,11 @@ def getSnmp(host,oid):
       cmdgen.CommunityData('public', mpModel=0),
       cmdgen.UdpTransportTarget((host, 161)),
       oid
+<<<<<<< HEAD
   )
+=======
+  )   
+>>>>>>> dcaf78ac9ef7feb55fad2e8d646d024ee83885e6
   # Check for errors and print out results
   if errorIndication:
       print(errorIndication)
@@ -25,3 +29,7 @@ def getSnmp(host,oid):
       else:
           for name, val in varBinds:
               return name.prettyPrint(), val.prettyPrint()
+<<<<<<< HEAD
+=======
+
+>>>>>>> dcaf78ac9ef7feb55fad2e8d646d024ee83885e6
