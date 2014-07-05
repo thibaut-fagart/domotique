@@ -25,7 +25,7 @@ def init(shared,mymotor):
   shared.set('RpiPower', 0)
   shared.set('Turn', 0)
   shared.set('Random', 0)
-  shared.set('Way', 0)
+  shared.set('Way', 50)
   shared.set('accError',0)
   shared.set('srf02Error',0)
   shared.set('i2cPower',0)
