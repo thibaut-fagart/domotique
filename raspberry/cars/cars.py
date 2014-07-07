@@ -11,11 +11,11 @@ from pizypwm import *
 
 
 def init(shared,mymotor):
-  shared.set('RpiPower', 0)
-  shared.set('neutralESC', 35)
+  neutralESC = 35
+  shared.set('neutralESC', neutralESC)
   shared.set('Turn', 0)
   shared.set('Random', 0)
-  shared.set('Way', shared.get('neutralESC'))
+  shared.set('Way', neutralESC)
   shared.set('accError',0)
   shared.set('srf02Error',0)
   shared.set('i2cPower',1)
@@ -23,7 +23,7 @@ def init(shared,mymotor):
   mymotor.start()
   mymotor.setW(100)
   time.sleep(2)
-  mymotor.setW(shared.get('neutralESC'))
+  mymotor.setW(neutralESC)
 
   # Set Pin 11 as Output
   GPIO.setwarnings(False)
@@ -187,6 +187,9 @@ if __name__ == '__main__':
   shared = memcache.Client(['127.0.0.1:11211'], debug=0)
   mymotor = motor('m1', 24, simulation=False)
  
+  while shared.get('RpiPower') != 0:
+    shared.set('RpiPower', 0)
+
   init(shared,mymotor)
 
   while shared.get('RpiPower') == 0:
