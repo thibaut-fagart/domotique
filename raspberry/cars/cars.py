@@ -18,7 +18,8 @@ def init(shared,mymotor):
   shared.set('Way', neutralESC)
   shared.set('accError',0)
   shared.set('srf02Error',0)
-  shared.set('i2cPower',1)
+  shared.set('i2cSRF02Power',1)
+  shared.set('i2cAccPower',0)
 
   mymotor.start()
   mymotor.setW(100)
@@ -50,7 +51,7 @@ def running(shared,mymotor):
   speedValue = shared.get('Way')
   speedValue = max(speedValue,0)
   speedValue = min(speedValue,100)
-  mymotor.setW(speedValue)
+  mymotor.setW(speedValue) 
 
 
 def servoCtl(Servo,side,increment):
@@ -65,13 +66,9 @@ def servoCtl(Servo,side,increment):
 
 
 def i2csensor(shared):
-  i2c = smbus.SMBus(1)
-  adress = (0x71,0x72,0x73,0x75,0x76,0x77)
-  mode    = 81      # centimetres
-
   lsm = Adafruit_LSM303()
 
-  if shared.get('i2cPower'):
+  if shared.get('i2cAccPower'):
     try:
       accResult, magResult = lsm.read()
     except:
@@ -82,6 +79,12 @@ def i2csensor(shared):
     shared.set('accZ',accResult[2])
     shared.set('capMag',magResult[3])
 
+def i2csensor(shared):
+  i2c = smbus.SMBus(1)
+  adress = (0x71,0x72,0x73,0x75,0x76,0x77)
+  mode    = 81      # centimetres
+
+  if shared.get('i2cSRF02Power'):
     for srf02Adress in adress:
       try:
         i2c.write_byte_data(srf02Adress, 0, mode) # lance un "ping" en centimetre
@@ -90,7 +93,6 @@ def i2csensor(shared):
       except:
         shared.set('srf02Error',shared.get('srf02Error')+1)
       time.sleep(0.1)
-
 
 
 class Adafruit_LSM303(Adafruit_I2C):
@@ -189,6 +191,7 @@ if __name__ == '__main__':
  
   while shared.get('RpiPower') != 0:
     shared.set('RpiPower', 0)
+    time.sleep(1)
 
   init(shared,mymotor)
 
