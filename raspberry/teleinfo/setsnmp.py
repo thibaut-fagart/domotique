@@ -1,1 +1,0 @@
-../snmp/setsnmp.py

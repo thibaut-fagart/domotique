@@ -9,26 +9,26 @@ from motor import motor
 from Adafruit_I2C import Adafruit_I2C
 from pizypwm import *
 
-neutralESC = 50
 
 def init(shared,mymotor):
+  shared.set('RpiPower', 0)
+  shared.set('neutralESC', 35)
+  shared.set('Turn', 0)
+  shared.set('Random', 0)
+  shared.set('Way', shared.get('neutralESC'))
+  shared.set('accError',0)
+  shared.set('srf02Error',0)
+  shared.set('i2cPower',1)
+
   mymotor.start()
   mymotor.setW(100)
   time.sleep(2)
-  mymotor.setW(neutralESC)
+  mymotor.setW(shared.get('neutralESC'))
 
   # Set Pin 11 as Output
   GPIO.setwarnings(False)
   GPIO.setmode(GPIO.BOARD)
   GPIO.setup(11, GPIO.OUT)
-
-  shared.set('RpiPower', 0)
-  shared.set('Turn', 0)
-  shared.set('Random', 0)
-  shared.set('Way', 50)
-  shared.set('accError',0)
-  shared.set('srf02Error',0)
-  shared.set('i2cPower',0)
 
 
 def running(shared,mymotor):
@@ -47,7 +47,7 @@ def running(shared,mymotor):
     servoCtl(Servo,side,increment)
     shared.set('Turn', 0)
 
-  speedValue = (int(shared.get('Way')) + 100)/2
+  speedValue = shared.get('Way')
   speedValue = max(speedValue,0)
   speedValue = min(speedValue,100)
   mymotor.setW(speedValue)
