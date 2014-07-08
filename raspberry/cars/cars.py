@@ -5,6 +5,7 @@ import RPi.GPIO as GPIO
 import time
 import math
 import smbus
+import threading
 from motor import motor
 from Adafruit_I2C import Adafruit_I2C
 from pizypwm import PiZyPwm
@@ -89,7 +90,12 @@ class dirCtl(threading.Thread):
 class i2csensor(threading.Thread): 
     def __init__(self, shared): 
         threading.Thread.__init__(self) 
+        self.dst = 0
         self.shared = shared
+        self.minDst = 0
+        self.maxDst = 1000
+        self.minAcc = -10000
+        self.maxAcc =  10000
         self.shared.set('Random', 0)
         self.shared.set('accError',0)
         self.shared.set('i2cAccPower',0)
@@ -109,20 +115,26 @@ class i2csensor(threading.Thread):
 		except:
 		    self.shared.set('accError',self.shared.get('accError')+1)
 		time.sleep(0.07)
+		for i in (0,1,2):
+                    accResult[i] = max(accResult[i],self.minAcc)
+                    accResult[i] = min(accResult[i],self.maxAcc)
 		self.shared.set('accX',accResult[0])
 		self.shared.set('accY',accResult[1])
 		self.shared.set('accZ',accResult[2])
 		self.shared.set('capMag',magResult[3])
 
 	    if shared.get('i2cSRF02Power'):
-		for srf02Adress in adress:
+		for srf02Adress in self.adress:
 		    try:
 			self.i2c.write_byte_data(srf02Adress, 0, mode) # lance un "ping" en centimetre
-			dst = self.i2c.read_word_data(srf02Adress, 2) / 255
-			self.shared.set('%s'%hex(srf02Adress),dst)
+			self.dst = self.i2c.read_word_data(srf02Adress, 2) / 255
+                        self.dst = max(self.dst,self.minDst)
+                        self.dst = min(self.dst,self.maxDst)
+			self.shared.set('%s'%hex(srf02Adress),self.dst)
 		    except:
 			self.shared.set('srf02Error',self.shared.get('srf02Error')+1)
-		    time.sleep(0.07)
+                        print 'self.dst : ',self.dst,'  - int(self.dst) :',int(self.dst)
+		    time.sleep(0.5)
             self._stopevent.wait(0.01) 
 		  
     def stop(self): 
