@@ -61,7 +61,7 @@ class dirCtl(threading.Thread):
 	GPIO.setmode(GPIO.BOARD)
 	GPIO.setup(self.servoPin, GPIO.OUT)		
 	# Start PWM with 50Hz
-        Servo = PiZyPwm(50, self.servoPin, GPIO.BOARD)
+        self.Servo = PiZyPwm(50, self.servoPin, GPIO.BOARD)
 	self.oldDirValue = self.neutralServo
         self._stopevent = threading.Event( ) 
 		
@@ -71,20 +71,20 @@ class dirCtl(threading.Thread):
             dirDeltaValue = max(dirDeltaValue,self.minServo - self.oldDirValue)
             dirDeltaValue = min(dirDeltaValue,self.maxServo - self.oldDirValue)
 	    if dirDeltaValue != 0:
-                servoCtl(Servo,dirDeltaValue)
+                self.servoCtl(self.Servo,dirDeltaValue)
                 self.oldDirValue = self.oldDirValue + dirDeltaValue
-            self._stopevent.wait(0.01) 
+            self._stopevent.wait(1.01) 
 		  
-    def servoCtl(Servo,increment):
+    def servoCtl(self,Servo,increment):
 	# Generate PWM with 10% Dutycycle (2ms)
 	Servo.start(increment/abs(increment))
-	for Counter in range(int(increment)):
+	for Counter in range(int(abs(increment))):
             time.sleep(0.001)
-	    # PWM stop
-	    Servo.stop()
-	    GPIO.cleanup()
+	# PWM stop
+	Servo.stop()
 		
     def stop(self): 
+	GPIO.cleanup()
         self._stopevent.set( ) 
   
 class i2csensor(threading.Thread): 
@@ -126,7 +126,7 @@ class i2csensor(threading.Thread):
 	    if shared.get('i2cSRF02Power'):
 		for srf02Adress in self.adress:
 		    try:
-			self.i2c.write_byte_data(srf02Adress, 0, mode) # lance un "ping" en centimetre
+			self.i2c.write_byte_data(srf02Adress, 0, self.mode) # lance un "ping" en centimetre
 			self.dst = self.i2c.read_word_data(srf02Adress, 2) / 255
                         self.dst = max(self.dst,self.minDst)
                         self.dst = min(self.dst,self.maxDst)
@@ -134,7 +134,7 @@ class i2csensor(threading.Thread):
 		    except:
 			self.shared.set('srf02Error',self.shared.get('srf02Error')+1)
                         print 'self.dst : ',self.dst,'  - int(self.dst) :',int(self.dst)
-		    time.sleep(0.5)
+		    time.sleep(0.065)
             self._stopevent.wait(0.01) 
 		  
     def stop(self): 
