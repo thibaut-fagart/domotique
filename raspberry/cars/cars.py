@@ -70,19 +70,20 @@ class dirCtl(threading.Thread):
             dirDeltaValue = self.shared.get('heading') - self.oldDirValue
             dirDeltaValue = max(dirDeltaValue,self.minServo - self.oldDirValue)
             dirDeltaValue = min(dirDeltaValue,self.maxServo - self.oldDirValue)
-	    if dirDeltaValue != 0:
-                self.servoCtl(self.Servo,dirDeltaValue)
+	    if dirDeltaValue > 0:
+	        Servo.start(5)
+	        for Counter in range(int(abs(dirDeltaValue))):
+                    time.sleep(0.001)
+	        Servo.stop()
                 self.oldDirValue = self.oldDirValue + dirDeltaValue
-            self._stopevent.wait(1.01) 
+	    if dirDeltaValue < 0:
+	        Servo.start(10)
+	        for Counter in range(int(abs(dirDeltaValue))):
+                    time.sleep(0.001)
+	        Servo.stop()
+                self.oldDirValue = self.oldDirValue + dirDeltaValue
+            self._stopevent.wait(0.01) 
 		  
-    def servoCtl(self,Servo,increment):
-	# Generate PWM with 10% Dutycycle (2ms)
-	Servo.start(increment/abs(increment))
-	for Counter in range(int(abs(increment))):
-            time.sleep(0.001)
-	# PWM stop
-	Servo.stop()
-		
     def stop(self): 
 	GPIO.cleanup()
         self._stopevent.set( ) 
