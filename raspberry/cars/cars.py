@@ -7,92 +7,126 @@ import math
 import smbus
 from motor import motor
 from Adafruit_I2C import Adafruit_I2C
-from pizypwm import *
+from pizypwm import PiZyPwm
+#from pizypwm import *
 
+class rpmCtl(threading.Thread): 
+    def __init__(self, shared): 
+        threading.Thread.__init__(self) 
+        self.shared = shared
+	self.minESC = 0
+	self.neutralESC = 35
+	self.maxESC = 100
+	self.shared.set('neutralESC', self.neutralESC)
+	self.shared.set('rpm', self.neutralESC)
 
-def init(shared,mymotor):
-  neutralESC = 35
-  shared.set('neutralESC', neutralESC)
-  shared.set('Turn', 0)
-  shared.set('Random', 0)
-  shared.set('Way', neutralESC)
-  shared.set('accError',0)
-  shared.set('srf02Error',0)
-  shared.set('i2cSRF02Power',1)
-  shared.set('i2cAccPower',0)
+	# Set Pin 24 as ESC
+	self.servoPin = 24
+	self.mymotor = motor('m1', self.servoPin, simulation=False)
+        self.mymotor.start()
+	self.mymotor.setW(self.maxESC)
+	time.sleep(2)
+	self.mymotor.setW(self.neutralESC)
+        self.oldspeedValue = self.neutralESC
+        self._stopevent = threading.Event( ) 
+	  
+    def run(self): 
+        while not self._stopevent.isSet(): 
+            speedValue = self.shared.get('rpm')
+	    speedValue = max(speedValue,self.minESC)
+	    speedValue = min(speedValue,self.maxESC)
+	    if speedValue != self.oldspeedValue:
+	        self.mymotor.setW(speedValue) 
+	        self.oldspeedValue = speedValue
+            self._stopevent.wait(0.01) 
+		  
+    def stop(self): 
+        self._stopevent.set( ) 
+  
 
-  mymotor.start()
-  mymotor.setW(100)
-  time.sleep(2)
-  mymotor.setW(neutralESC)
-
-  # Set Pin 11 as Output
-  GPIO.setwarnings(False)
-  GPIO.setmode(GPIO.BOARD)
-  GPIO.setup(11, GPIO.OUT)
-
-
-def running(shared,mymotor):
-  # Start PWM with 50Hz on Pin 11
-  Servo = PiZyPwm(50, 11, GPIO.BOARD)
-
-  if shared.get('Turn') == 1:
-    side = 10
-    increment = 20
-    servoCtl(Servo,side,increment)
-    shared.set('Turn', 0)
-
-  if shared.get('Turn') == -1:
-    side = 5
-    increment = 20
-    servoCtl(Servo,side,increment)
-    shared.set('Turn', 0)
-
-  speedValue = shared.get('Way')
-  speedValue = max(speedValue,0)
-  speedValue = min(speedValue,100)
-  mymotor.setW(speedValue) 
-
-
-def servoCtl(Servo,side,increment):
-    # Generate PWM with 10% Dutycycle (2ms)
-    Servo.start(side)
-    for Counter in range(int(increment)):
+class dirCtl(threading.Thread): 
+    def __init__(self, shared): 
+        threading.Thread.__init__(self) 
+        self.shared = shared
+	self.minServo = -45
+	self.neutralServo = 0
+	self.maxServo = 45
+	self.shared.set('neutralServo', self.neutralServo)
+        self.shared.set('heading', self.neutralServo)
+		
+	# Set Pin 11 as Servo
+	self.servoPin = 11
+	GPIO.setwarnings(False)
+	GPIO.setmode(GPIO.BOARD)
+	GPIO.setup(self.servoPin, GPIO.OUT)		
+	# Start PWM with 50Hz
+        Servo = PiZyPwm(50, self.servoPin, GPIO.BOARD)
+	self.oldDirValue = self.neutralServo
+        self._stopevent = threading.Event( ) 
+		
+    def run(self): 
+        while not self._stopevent.isSet(): 
+            dirDeltaValue = self.shared.get('heading') - self.oldDirValue
+            dirDeltaValue = max(dirDeltaValue,self.minServo - self.oldDirValue)
+            dirDeltaValue = min(dirDeltaValue,self.maxServo - self.oldDirValue)
+	    if dirDeltaValue != 0:
+                servoCtl(Servo,dirDeltaValue)
+                self.oldDirValue = self.oldDirValue + dirDeltaValue
+            self._stopevent.wait(0.01) 
+		  
+    def servoCtl(Servo,increment):
+	# Generate PWM with 10% Dutycycle (2ms)
+	Servo.start(increment/abs(increment))
+	for Counter in range(int(increment)):
             time.sleep(0.001)
+	    # PWM stop
+	    Servo.stop()
+	    GPIO.cleanup()
+		
+    def stop(self): 
+        self._stopevent.set( ) 
+  
+class i2csensor(threading.Thread): 
+    def __init__(self, shared): 
+        threading.Thread.__init__(self) 
+        self.shared = shared
+        self.shared.set('Random', 0)
+        self.shared.set('accError',0)
+        self.shared.set('i2cAccPower',0)
+        self.shared.set('srf02Error',0)
+        self.shared.set('i2cSRF02Power',1)
+        self.lsm = Adafruit_LSM303()
+	self.i2c = smbus.SMBus(1)
+        self.adress = (0x71,0x72,0x73,0x75,0x76,0x77)
+        self.mode   = 81      # centimetres
+        self._stopevent = threading.Event( ) 
+	  
+    def run(self): 
+        while not self._stopevent.isSet(): 
+	    if shared.get('i2cAccPower'):
+		try:
+	            accResult, magResult = self.lsm.read()
+		except:
+		    self.shared.set('accError',self.shared.get('accError')+1)
+		time.sleep(0.07)
+		self.shared.set('accX',accResult[0])
+		self.shared.set('accY',accResult[1])
+		self.shared.set('accZ',accResult[2])
+		self.shared.set('capMag',magResult[3])
 
-    # PWM stop
-    Servo.stop()
-    GPIO.cleanup()
-
-
-def i2csensor(shared):
-  lsm = Adafruit_LSM303()
-
-  if shared.get('i2cAccPower'):
-    try:
-      accResult, magResult = lsm.read()
-    except:
-      shared.set('accError',shared.get('accError')+1)
-    time.sleep(0.1)
-    shared.set('accX',accResult[0])
-    shared.set('accY',accResult[1])
-    shared.set('accZ',accResult[2])
-    shared.set('capMag',magResult[3])
-
-def i2csensor(shared):
-  i2c = smbus.SMBus(1)
-  adress = (0x71,0x72,0x73,0x75,0x76,0x77)
-  mode    = 81      # centimetres
-
-  if shared.get('i2cSRF02Power'):
-    for srf02Adress in adress:
-      try:
-        i2c.write_byte_data(srf02Adress, 0, mode) # lance un "ping" en centimetre
-        dst = i2c.read_word_data(srf02Adress, 2) / 255
-        shared.set('%s'%hex(srf02Adress),dst)
-      except:
-        shared.set('srf02Error',shared.get('srf02Error')+1)
-      time.sleep(0.1)
+	    if shared.get('i2cSRF02Power'):
+		for srf02Adress in adress:
+		    try:
+			self.i2c.write_byte_data(srf02Adress, 0, mode) # lance un "ping" en centimetre
+			dst = self.i2c.read_word_data(srf02Adress, 2) / 255
+			self.shared.set('%s'%hex(srf02Adress),dst)
+		    except:
+			self.shared.set('srf02Error',self.shared.get('srf02Error')+1)
+		    time.sleep(0.07)
+            self._stopevent.wait(0.01) 
+		  
+    def stop(self): 
+        self._stopevent.set( ) 
 
 
 class Adafruit_LSM303(Adafruit_I2C):
@@ -187,15 +221,26 @@ class Adafruit_LSM303(Adafruit_I2C):
 
 if __name__ == '__main__':
   shared = memcache.Client(['127.0.0.1:11211'], debug=0)
-  mymotor = motor('m1', 24, simulation=False)
  
+ # Wait till memcache is started
   while shared.get('RpiPower') != 0:
     shared.set('RpiPower', 0)
     time.sleep(1)
 
-  init(shared,mymotor)
+# Start control of the different thread	
+  carsTimer = 0
+  carRpm = rpmCtl(shared) 
+  carDir = dirCtl(shared) 
+  carI2C = i2csensor(shared) 
+  carRpm.start() 
+  carDir.start() 
+  carI2C.start()
 
   while shared.get('RpiPower') == 0:
-    running(shared,mymotor)
-    i2csensor(shared)
+    carsTimer += 1
+    time.sleep(1)
+	
+  carRpm.stop()
+  carDir.stop()
+  carI2C.stop()
 
