@@ -17,8 +17,8 @@ class logicCtl(threading.Thread):
         while not self._stopevent.isSet(): 
             if self.shared.get('modeDrive') == 'avoid':
                 for intruder in [0, 45, 135, 180, 225, 315]:
-                    if shared.get('Srf-%s'%intruder) < self.distAvoid: 
-		        if shared.get('Srf-%s'%intruder+180) > self.distAvoid:
+                    if self.shared.get('Srf02-%s'%intruder) < self.distAvoid: 
+		        if self.shared.get('Srf02-%s'%intruder+180) > self.distAvoid:
 			    self.goDir('slow',intruder+180)
 			else:
 			    self.goDir('stop',intruder+180)
@@ -26,17 +26,18 @@ class logicCtl(threading.Thread):
 			self.goDir('stop',intruder+180)
 
             if self.shared.get('modeDrive') == 'alone':
+	        direction = self.shared.get('capMag')
                 for openField in [0, 45, 135, 180, 225, 315]:
-                    if shared.get('Srf-%s'%direction) < (shared.get('Srf-%s'%openField) - self.hysteresisOpenField):
+                    if self.shared.get('Srf02-%s'%direction) < (int(self.shared.get('Srf02-%s'%openField)) - self.hysteresisOpenField):
                         direction = openField
-                if shared.get('Srf-%s'%direction) > self.distAvoid: 
+                if self.shared.get('Srf02-%s'%direction) > self.distAvoid: 
 		    self.goDir('slow',direction)
 		else:
 		    self.goDir('stop',direction)
 					
             if self.shared.get('modeDrive') == 'random':
 		direction = random.randint(0, 360)
-		if shared.get('Srf-%s'%direction) > self.distAvoid: 
+		if self.shared.get('Srf02-%s'%direction) > self.distAvoid: 
 		    self.goDir('slow',direction)
 		else:
 		    self.goDir('stop',direction)
@@ -64,7 +65,7 @@ class logicCtl(threading.Thread):
 		
 class filterP(): 
     def __init__(self,value): 
-        slef.value = value
+        self.value = value
 	self.valueOld = value
 		
     def filt(self,value):

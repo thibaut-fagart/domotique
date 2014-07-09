@@ -16,7 +16,7 @@ class i2csensor(threading.Thread):
         self.maxAcc =  10000
         self.shared.set('Random', 0)
         self.shared.set('accError',0)
-        self.shared.set('i2cAccPower',0)
+        self.shared.set('i2cAccPower',1)
         self.shared.set('srf02Error',0)
         self.shared.set('i2cSRF02Power',1)
         self.lsm = Adafruit_LSM303()
@@ -27,7 +27,7 @@ class i2csensor(threading.Thread):
 	  
     def run(self): 
         while not self._stopevent.isSet(): 
-            if shared.get('i2cAccPower'):
+            if self.shared.get('i2cAccPower'):
                 try:
                     accResult, magResult = self.lsm.read()
                 except:
@@ -41,17 +41,16 @@ class i2csensor(threading.Thread):
                 self.shared.set('accZ',accResult[2])
                 self.shared.set('capMag',magResult[3])
 
-            if shared.get('i2cSRF02Power'):
-                for srf02Adress in self.adress.values():
+            if self.shared.get('i2cSRF02Power'):
+                for srf02Adress in self.adress.keys():
                     try:
-                        self.i2c.write_byte_data(srf02Adress, 0, self.mode) # lance un "ping" en centimetre
-                        self.dst = self.i2c.read_word_data(srf02Adress, 2) / 255
+                        self.i2c.write_byte_data(int(srf02Adress,16), 0, self.mode) # lance un "ping" en centimetre
+                        self.dst = self.i2c.read_word_data(int(srf02Adress,16), 2) / 255
                         self.dst = max(self.dst,self.minDst)
                         self.dst = min(self.dst,self.maxDst)
-                        self.shared.set('Srf02-%s'%dic(srf02Adress),self.dst)
+                        self.shared.set('Srf02-%s'%self.adress[srf02Adress],self.dst)
                     except:
                         self.shared.set('srf02Error',self.shared.get('srf02Error')+1)
-                        print 'self.dst : ',self.dst,'  - int(self.dst) :',int(self.dst)
                     time.sleep(0.065)
 					
             self._stopevent.wait(0.01) 
