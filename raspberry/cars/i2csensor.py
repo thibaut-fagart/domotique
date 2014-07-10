@@ -8,21 +8,26 @@ from Adafruit_I2C import Adafruit_I2C
 class i2csensor(threading.Thread): 
     def __init__(self, shared): 
         threading.Thread.__init__(self) 
-        self.dst = 0
         self.shared = shared
         self.minDst = 0
         self.maxDst = 1000
         self.minAcc = -10000
         self.maxAcc =  10000
+        self.adress = {'0x71':315,'0x72':0,'0x73':45,'0x75':135,'0x76':180,'0x77':225}
+        self.mode   = 81      # centimetres
         self.shared.set('Random', 0)
         self.shared.set('accError',0)
         self.shared.set('i2cAccPower',1)
         self.shared.set('srf02Error',0)
         self.shared.set('i2cSRF02Power',1)
-        self.lsm = Adafruit_LSM303()
+        self.shared.set('accX',0)
+        self.shared.set('accY',0)
+        self.shared.set('accZ',0)
+        self.shared.set('capMag',0)
         self.i2c = smbus.SMBus(1)
-        self.adress = {'0x71':315,'0x72':0,'0x73':45,'0x75':135,'0x76':180,'0x77':225}
-        self.mode   = 81      # centimetres
+        self.lsm = Adafruit_LSM303()
+        for srf02Adress in self.adress.keys():
+            self.shared.set('Srf02-%s'%self.adress[srf02Adress],0)
         self._stopevent = threading.Event( ) 
 	  
     def run(self): 
@@ -33,22 +38,25 @@ class i2csensor(threading.Thread):
                 except:
                     self.shared.set('accError',self.shared.get('accError')+1)
                 time.sleep(0.07)
-                for i in (0,1,2):
-                    accResult[i] = max(accResult[i],self.minAcc)
-                    accResult[i] = min(accResult[i],self.maxAcc)
-                self.shared.set('accX',accResult[0])
-                self.shared.set('accY',accResult[1])
-                self.shared.set('accZ',accResult[2])
-                self.shared.set('capMag',magResult[3])
+                if accResult != None:
+                    for i in (0,1,2):
+                        accResult[i] = max(accResult[i],self.minAcc)
+                        accResult[i] = min(accResult[i],self.maxAcc)
+                    self.shared.set('accX',accResult[0])
+                    self.shared.set('accY',accResult[1])
+                    self.shared.set('accZ',accResult[2])
+                if magResult != None:
+                    self.shared.set('capMag',magResult[3])
 
             if self.shared.get('i2cSRF02Power'):
                 for srf02Adress in self.adress.keys():
                     try:
                         self.i2c.write_byte_data(int(srf02Adress,16), 0, self.mode) # lance un "ping" en centimetre
-                        self.dst = self.i2c.read_word_data(int(srf02Adress,16), 2) / 255
-                        self.dst = max(self.dst,self.minDst)
-                        self.dst = min(self.dst,self.maxDst)
-                        self.shared.set('Srf02-%s'%self.adress[srf02Adress],self.dst)
+                        dst = self.i2c.read_word_data(int(srf02Adress,16), 2) / 255
+                        dst = max(dst,self.minDst)
+                        dst = min(dst,self.maxDst)
+                        if magResult != None:
+                            self.shared.set('Srf02-%s'%self.adress[srf02Adress],dst)
                     except:
                         self.shared.set('srf02Error',self.shared.get('srf02Error')+1)
                     time.sleep(0.065)
