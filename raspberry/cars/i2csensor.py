@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import time
+import time,math
 import smbus
 import threading
 from Adafruit_I2C import Adafruit_I2C
@@ -9,11 +9,13 @@ class i2csensor(threading.Thread):
     def __init__(self, shared): 
         threading.Thread.__init__(self) 
         self.shared = shared
+        self.accDelay = 0.2
+        self.srf02Delay = 0.2
         self.minDst = 0
         self.maxDst = 1000
         self.minAcc = -10000
         self.maxAcc =  10000
-        self.adress = {'0x71':315,'0x72':0,'0x73':45,'0x75':135,'0x76':180,'0x77':225}
+        self.adress = {'0x71':225,'0x72':180,'0x73':135,'0x75':45,'0x76':0,'0x77':315}
         self.mode   = 81      # centimetres
         self.shared.set('Random', 0)
         self.shared.set('accError',0)
@@ -26,6 +28,7 @@ class i2csensor(threading.Thread):
         self.shared.set('capMag',0)
         self.i2c = smbus.SMBus(1)
         self.lsm = Adafruit_LSM303()
+        self.filterP = filterP(0,5)
         for srf02Adress in self.adress.keys():
             self.shared.set('Srf02-%s'%self.adress[srf02Adress],0)
         self._stopevent = threading.Event( ) 
@@ -37,7 +40,8 @@ class i2csensor(threading.Thread):
                     accResult, magResult = self.lsm.read()
                 except:
                     self.shared.set('accError',self.shared.get('accError')+1)
-                time.sleep(0.07)
+                    accResult, magResult = None, None
+                time.sleep(self.accDelay)
                 if accResult != None:
                     for i in (0,1,2):
                         accResult[i] = max(accResult[i],self.minAcc)
@@ -51,21 +55,34 @@ class i2csensor(threading.Thread):
             if self.shared.get('i2cSRF02Power'):
                 for srf02Adress in self.adress.keys():
                     try:
-                        self.i2c.write_byte_data(int(srf02Adress,16), 0, self.mode) # lance un "ping" en centimetre
+                        self.i2c.write_byte_data(int(srf02Adress,16), 0, self.mode) 
                         dst = self.i2c.read_word_data(int(srf02Adress,16), 2) / 255
                         dst = max(dst,self.minDst)
                         dst = min(dst,self.maxDst)
-                        if magResult != None:
+                        dst = min(dst,self.maxDst)
+                        if dst != None:
+                            if srf02Adress == '0x76':
+                                dst = self.filterP.filt(dst)
                             self.shared.set('Srf02-%s'%self.adress[srf02Adress],dst)
                     except:
                         self.shared.set('srf02Error',self.shared.get('srf02Error')+1)
-                    time.sleep(0.065)
+                    time.sleep(self.srf02Delay)
 					
             self._stopevent.wait(0.01) 
 		  
     def stop(self): 
         self._stopevent.set( ) 
 
+class filterP():
+    def __init__(self,value,gain):
+        self.value = value
+        self.valueOld = value
+        self.gain = gain
+
+    def filt(self,value):
+        valueFiltered = self.valueOld + (value - self.valueOld)/self.gain
+        self.valueOld = valueFiltered
+        return valueFiltered
 
 class Adafruit_LSM303(Adafruit_I2C):
 

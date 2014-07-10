@@ -34,16 +34,16 @@ class dirCtl(threading.Thread):
             dirDeltaValue = max(dirDeltaValue,self.minServo - self.oldDirValue)
             dirDeltaValue = min(dirDeltaValue,self.maxServo - self.oldDirValue)
             if dirDeltaValue > 0:
-                Servo.start(self.leftDir)
+                self.Servo.start(self.leftDir)
                 for Counter in range(int(abs(dirDeltaValue))):
                     time.sleep(0.001)
-                Servo.stop()
+                self.Servo.stop()
                 self.oldDirValue = self.oldDirValue + dirDeltaValue
             if dirDeltaValue < 0:
-                Servo.start(self.rightDir)
+                self.Servo.start(self.rightDir)
                 for Counter in range(int(abs(dirDeltaValue))):
                     time.sleep(0.001)
-                Servo.stop()
+                self.Servo.stop()
                 self.oldDirValue = self.oldDirValue + dirDeltaValue
             self._stopevent.wait(0.01) 
 		  
