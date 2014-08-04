@@ -14,7 +14,7 @@ if __name__ == "__main__":
           if l2.split('.')[1] == 'jpg' or l2.split('.')[1] == 'JPG':
              os.popen( 'cp %s _altimage/' % l2 )
              print ("copy of %s in _altimage done" % (l2))
-             os.popen( 'convert %s -resize 1024x1024 -quality 100  %s' % (l2,l2) )
+             os.popen( 'convert %s -resize 1600x1600 -quality 98  %s' % (l2,l2) )
              print ("converting %s in current folder done" % (l2))
        except:
           continue

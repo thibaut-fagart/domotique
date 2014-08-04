@@ -52,6 +52,7 @@ dht22CuisineNew        OBJECT IDENTIFIER ::= { dht22 11 }
 dht22SdbOld            OBJECT IDENTIFIER ::= { dht22 12 }
 dht22SdbNew            OBJECT IDENTIFIER ::= { dht22 13 }
 edf                  OBJECT IDENTIFIER ::= { raspLeroux 2 }
+fuel                 OBJECT IDENTIFIER ::= { raspLeroux 3 }
 
 ------------------------------------------------------------------------
 -- Scalars
@@ -360,6 +361,78 @@ edfPapp OBJECT-TYPE
     DESCRIPTION
         "teleinfo label PAPP"
     ::= { edf 8 }
+
+edfIndexNormal OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "teleinfo label Index Normal"
+    ::= { edf 9 }
+
+edfIndexPointe OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "teleinfo label Index EJP"
+    ::= { edf 10 }
+
+edfIinst1 OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "teleinfo label IINST1"
+    ::= { edf 11 }
+
+edfIinst2 OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "teleinfo label IINST2"
+    ::= { edf 12 }
+
+edfIinst3 OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "teleinfo label IINST3"
+    ::= { edf 13 }
+
+edfPreavisEJP OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "teleinfo label Preavis EJP"
+    ::= { edf 14 }
+
+fuelBurningTime OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "fuel burning time"
+    ::= { fuel 1 }
+
+fuelBurnt OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "fuel burnt"
+    ::= { fuel 2 }
+
+fuelRemaining OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "fuel remaining"
+    ::= { fuel 3 }
 
 END
 
