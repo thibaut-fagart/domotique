@@ -80,11 +80,11 @@ if val == 1:
 else:
   setval = 1
 
-#errorIndication, errorStatus, errorIndex, varBinds = cmdGen.setCmd(
-#    cmdgen.CommunityData('private', mpModel=0),
-#    cmdgen.UdpTransportTarget(('192.168.0.70', 161)),
-###    ('1.3.6.1.4.1.36582.32', rfc1902.Integer(setval)),
-#)
+errorIndication, errorStatus, errorIndex, varBinds = cmdGen.setCmd(
+    cmdgen.CommunityData('private', mpModel=0),
+    cmdgen.UdpTransportTarget(('192.168.0.70', 161)),
+    ('1.3.6.1.4.1.36582.32', rfc1902.Integer(setval)),
+)
 
 # Check for errors and print out results
 if errorIndication:
@@ -127,11 +127,11 @@ if val == 1:
 else:
   setval = 1
 
-#errorIndication, errorStatus, errorIndex, varBinds = cmdGen.setCmd(
-#    cmdgen.CommunityData('private', mpModel=0),
-#    cmdgen.UdpTransportTarget(('192.168.0.70', 161)),
-#    ('1.3.6.1.4.1.36582.33', rfc1902.Integer(setval)),
-#)
+errorIndication, errorStatus, errorIndex, varBinds = cmdGen.setCmd(
+    cmdgen.CommunityData('private', mpModel=0),
+    cmdgen.UdpTransportTarget(('192.168.0.70', 161)),
+    ('1.3.6.1.4.1.36582.33', rfc1902.Integer(setval)),
+)
 
 # Check for errors and print out results
 if errorIndication:

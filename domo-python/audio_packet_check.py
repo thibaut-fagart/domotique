@@ -33,6 +33,34 @@ def printlog(text):
   fichierWrite.close()  
 
 def set_ArduinoValue(Oid,ipHostSnmp,value):
+  cmdGen = cmdgen.CommandGenerator()
+  errorIndication, errorStatus, errorIndex, varBinds = cmdgen.setCmd(
+        cmdgen.CommunityData('private',mpModel=0),
+        cmdgen.UdpTransportTarget((ipHostSnmp, 161)),
+        ('1.3.6.1.4.1.36582.32', rfc1902.Integer(1)))
+#        (Oid, rfc1902.Integer(value)))
+
+  # Check for errors and print out results
+  if errorIndication:
+     DomoUtils().printlog('get oid %s from %s errorIndication : %s'%(Oid,ipHostSnmp,errorIndication))
+  else:
+      if errorStatus:
+          DomoUtils().printlog('get oid %s from %s errorStatus : %s at %s'%(Oid,ipHostSnmp,errorStatus.prettyPrint(),errorIndex and varBinds[int(errorIndex)-1] or '?'))
+      else:
+          for name, val in varBinds:
+              # DomoUtils().printlog('get oid %s from %s : %s = %s'%(Oid,ipHostSnmp,name.prettyPrint(), val.prettyPrint())
+              # return val
+              test = 1
+
+audioMaxDelay = 240
+audioCurrentDelay = 0
+lastTime = 0
+deltaTime = 2
+audioChambrePower = 0
+audioSdBPower = 0
+audioCuisinePower = 0
+
+def set_ArduinoValue(Oid,ipHostSnmp,value):
     errorIndication, errorStatus, errorIndex, varBinds = cmdgen.CommandGenerator().setCmd(
           cmdgen.CommunityData('private',mpModel=0),
           cmdgen.UdpTransportTarget((ipHostSnmp, 161)),
@@ -40,13 +68,13 @@ def set_ArduinoValue(Oid,ipHostSnmp,value):
 
     # Check for errors and print out results
     if errorIndication:
-       printlog('get oid %s from %s errorIndication : %s'%(Oid,ipHostSnmp,errorIndication))
+       DomoUtils().printlog('get oid %s from %s errorIndication : %s'%(Oid,ipHostSnmp,errorIndication))
     else:
         if errorStatus:
-            printlog('get oid %s from %s errorStatus : %s at %s'%(Oid,ipHostSnmp,errorStatus.prettyPrint(),errorIndex and varBinds[int(errorIndex)-1] or '?'))
+            DomoUtils().printlog('get oid %s from %s errorStatus : %s at %s'%(Oid,ipHostSnmp,errorStatus.prettyPrint(),errorIndex and varBinds[int(errorIndex)-1] or '?'))
         else:
             for name, val in varBinds:
-                #printlog('get oid %s from %s : %s = %s'%(Oid,ipHostSnmp,name.prettyPrint(), val.prettyPrint()))
+                # DomoUtils().printlog('get oid %s from %s : %s = %s'%(Oid,ipHostSnmp,name.prettyPrint(), val.prettyPrint())
                 return val
 				
 def main(argv):
@@ -67,7 +95,6 @@ def main(argv):
   lastPacketCuisine = int(time.time()) - audioMaxDelay
   lastPacketChambre = int(time.time()) - audioMaxDelay
   lastPacketSdb     = int(time.time()) - audioMaxDelay
-  lastPacketSalon   = int(time.time()) - audioMaxDelay
 
   print 'Opening %s' % FLAGS.i
 
@@ -99,8 +126,6 @@ def main(argv):
           lastPacketChambre = int(time.time())
         if (ip_src == ipSqueezCenter and ip_dst == ipSqueezSdb):
           lastPacketSdb = int(time.time())
-        if (ip_src == ipSqueezCenter and ip_dst == ipSqueezSalon):
-          lastPacketSalon = int(time.time())
 
 	if ((int(time.time()) - lastTime) > deltaTime):
 	# audioCurrentDelay indicate the time since the last packet received
@@ -122,8 +147,6 @@ def main(argv):
                 set_ArduinoValue(oidAmpliSdBState,ipHostSnmp,audioSdbPower)
 	    if lastAudioChambrePower != audioChambrePower:
                 set_ArduinoValue(oidAmpliChambreState,ipHostSnmp,audioChambrePower)
-         # Le flux reseau n'est pas detecte entre la squeezebox et la sdb ???? -> couplage avec le salon
-                set_ArduinoValue(oidAmpliSdBState,ipHostSnmp,audioSdbPower)
 		
             lastTime = int(time.time())
 	

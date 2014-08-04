@@ -16,7 +16,6 @@ reserved pins
 #include <MemoryFree.h>
 #include <Flash.h>
 #include <SoftwareSerial.h>
-
 #include <Agentuino.h> 
 #include <snmp_utils.h>
 
@@ -236,7 +235,6 @@ void setup()
 {
   Serial.begin(9600);
   Serial << F("setup") << endl;
-  
   delay(1000); 
   dht_Edf.begin();
 
