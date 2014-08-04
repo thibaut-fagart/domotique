@@ -13,7 +13,7 @@ IMPORTS
     agentxObjects
         FROM AGENTX-MIB;
 
--- Description and update information                                                                                                            
+-- Description and update information                                                                                   
 schugart MODULE-IDENTITY
     LAST-UPDATED "201405040000Z"
     ORGANIZATION "N/A"
@@ -24,7 +24,7 @@ schugart MODULE-IDENTITY
     DESCRIPTION
         "schugart MIB for python-netsnmpagent"
 
-    ::= { agentxObjects 99999 }
+    ::= { enterprises 43689  }
 
 -- Definition of MIB's root nodes
 
@@ -33,12 +33,22 @@ raspHome           OBJECT IDENTIFIER ::= { raspberry 1 }
 ampliPower           OBJECT IDENTIFIER ::= { raspHome 1 }
 dht22                OBJECT IDENTIFIER ::= { raspHome 2 }
 dht22Ext               OBJECT IDENTIFIER ::= { dht22 1 }
-dht22Sdb               OBJECT IDENTIFIER ::= { dht22 2 }
-dht22Salon             OBJECT IDENTIFIER ::= { dht22 3 }
-dht22Pc                OBJECT IDENTIFIER ::= { dht22 4 }
-raspCars           OBJECT IDENTIFIER ::= { raspberry 1 }
-raspEdf            OBJECT IDENTIFIER ::= { raspberry 1 }
-raspLeroux         OBJECT IDENTIFIER ::= { raspberry 1 }
+dht22Cuisine           OBJECT IDENTIFIER ::= { dht22 2 }
+dht22Sdb               OBJECT IDENTIFIER ::= { dht22 3 }
+dht22Salon             OBJECT IDENTIFIER ::= { dht22 4 }
+dht22Pc                OBJECT IDENTIFIER ::= { dht22 5 }
+dht22Chambre           OBJECT IDENTIFIER ::= { dht22 6 }
+dht22ChambreEnfant     OBJECT IDENTIFIER ::= { dht22 7 }
+dht22Cave              OBJECT IDENTIFIER ::= { dht22 8 }
+dht22ThermoOld         OBJECT IDENTIFIER ::= { dht22 9 }
+dht22ThermoNew         OBJECT IDENTIFIER ::= { dht22 10 }
+dht22CuisineNew        OBJECT IDENTIFIER ::= { dht22 11 }
+dht22SdbOld            OBJECT IDENTIFIER ::= { dht22 12 }
+dht22SdbNew            OBJECT IDENTIFIER ::= { dht22 13 }
+raspCars           OBJECT IDENTIFIER ::= { raspberry 2 }
+raspEdf            OBJECT IDENTIFIER ::= { raspberry 3 }
+edf                  OBJECT IDENTIFIER ::= { raspEdf 1 }
+raspLeroux         OBJECT IDENTIFIER ::= { raspberry 4 }
 
 ------------------------------------------------------------------------
 -- Scalars
@@ -92,6 +102,22 @@ dht22ExtHum OBJECT-TYPE
         "sensor dht22 humidity"
     ::= { dht22Ext 2 }
 
+dht22CuisineTemp OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 temperature"
+    ::= { dht22Cuisine 1 }
+
+dht22CuisineHum OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 humidity"
+    ::= { dht22Cuisine 2 }
+
 dht22SdbTemp OBJECT-TYPE
     SYNTAX      Integer32
     MAX-ACCESS  read-only
@@ -140,4 +166,197 @@ dht22PcHum OBJECT-TYPE
         "sensor dht22 humidity"
     ::= { dht22Pc 2 }
 
+dht22ChambreTemp OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 temperature"
+    ::= { dht22Chambre 1 }
+
+dht22ChambreHum OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 humidity"
+    ::= { dht22Chambre 2 }
+
+dht22ChambreEnfantTemp OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 temperature"
+    ::= { dht22ChambreEnfant 1 }
+
+dht22ChambreEnfantHum OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 humidity"
+    ::= { dht22ChambreEnfant 2 }
+
+dht22CaveTemp OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 temperature"
+    ::= { dht22Cave 1 }
+
+dht22CaveHum OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 humidity"
+    ::= { dht22Cave 2 }
+
+dht22ThermoOldTemp OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 temperature"
+    ::= { dht22ThermoOld 1 }
+
+dht22ThermoOldHum OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 humidity"
+    ::= { dht22ThermoOld 2 }
+
+dht22ThermoNewTemp OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 temperature"
+    ::= { dht22ThermoNew 1 }
+
+dht22ThermoNewHum OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 humidity"
+    ::= { dht22ThermoNew 2 }
+
+dht22CuisineNewTemp OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 temperature"
+    ::= { dht22CuisineNew 1 }
+
+dht22CuisineNewHum OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 humidity"
+    ::= { dht22CuisineNew 2 }
+
+dht22SdbOldTemp OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 temperature"
+    ::= { dht22SdbOld 1 }
+
+dht22SdbOldHum OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 humidity"
+    ::= { dht22SdbOld 2 }
+
+dht22SdbNewTemp OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 temperature"
+    ::= { dht22SdbNew 1 }
+
+dht22SdbNewHum OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 humidity"
+    ::= { dht22SdbNew 2 }
+
+edfAdco OBJECT-TYPE
+    SYNTAX      Counter64
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "teleinfo label ADCO"
+    ::= { edf 1 }
+
+edfOptarif OBJECT-TYPE
+    SYNTAX      DisplayString
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "teleinfo label OPTARIF"
+    ::= { edf 2 }
+
+edfIsousc OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "teleinfo label ISOUSC"
+    ::= { edf 3 }
+
+edfBase OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "teleinfo label BASE"
+    ::= { edf 4 }
+
+edfPtec OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "teleinfo label PTEC"
+    ::= { edf 5 }
+
+edfIinst OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "teleinfo label IINST"
+    ::= { edf 6 }
+
+edfImax OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "teleinfo label IMAX"
+    ::= { edf 7 }
+
+edfPapp OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "teleinfo label PAPP"
+    ::= { edf 8 }
+
 END
+
