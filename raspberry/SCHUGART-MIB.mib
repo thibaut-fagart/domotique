@@ -46,11 +46,11 @@ edf                  OBJECT IDENTIFIER ::= { raspEdf 1 }
 raspLeroux         OBJECT IDENTIFIER ::= { raspberry 4 }
 dht22                OBJECT IDENTIFIER ::= { raspLeroux 1 }
 dht22Ext               OBJECT IDENTIFIER ::= { dht22 1 }
-dht22ThermoOld         OBJECT IDENTIFIER ::= { dht22 2 }
-dht22ThermoNew         OBJECT IDENTIFIER ::= { dht22 3 }
-dht22CuisineNew        OBJECT IDENTIFIER ::= { dht22 4 }
-dht22SdbOld            OBJECT IDENTIFIER ::= { dht22 5 }
-dht22SdbNew            OBJECT IDENTIFIER ::= { dht22 6 }
+dht22ThermoOld         OBJECT IDENTIFIER ::= { dht22 9 }
+dht22ThermoNew         OBJECT IDENTIFIER ::= { dht22 10 }
+dht22CuisineNew        OBJECT IDENTIFIER ::= { dht22 11 }
+dht22SdbOld            OBJECT IDENTIFIER ::= { dht22 12 }
+dht22SdbNew            OBJECT IDENTIFIER ::= { dht22 13 }
 edf                  OBJECT IDENTIFIER ::= { raspLeroux 2 }
 
 ------------------------------------------------------------------------
