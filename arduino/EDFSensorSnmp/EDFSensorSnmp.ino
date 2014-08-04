@@ -16,17 +16,24 @@ reserved pins
 #include <MemoryFree.h>
 #include <Flash.h>
 #include <SoftwareSerial.h>
-#include <WiFly.h>
-
 #include <Agentuino.h> 
 #include <snmp_utils.h>
 
+static byte mac[] = { 0x00, 0x06, 0x66, 0x50, 0xA4, 0x29 };
+static byte ip[] = { 192, 168, 0, 75 };
+static byte gateway[] = { 192, 168, 0, 254 };
+static byte subnet[] = { 255, 255, 255, 0 };
+static byte edf_dns[] = { 192, 168, 0, 254 };
 
 #define DHTTYPE DHT22 // DHT 22 (AM2302)
 
 int dhtEdfPin   = 4;  // DHT22 EDF
 int EDFRxPin    = 9;
 int EDFTxPin    = 8;
+
+int ETHERNET_RESERVED_PIN2 = 10;
+int ETHERNET_RESERVED_PIN3 = 11;
+int ETHERNET_RESERVED_PIN4 = 12;
 
 #ifdef EDF
 #include <edf.h>
@@ -228,14 +235,12 @@ void setup()
 {
   Serial.begin(9600);
   Serial << F("setup") << endl;
-  WiFly.setUart(&Serial);
- 
-  WiFly.begin();
-  Serial << F("WiFly begin") << endl;
   delay(1000); 
-  
   dht_Edf.begin();
 
+  Serial << F("ethernet begin") << endl;
+//  Ethernet.begin(mac, ip, edf_dns, gateway, subnet);
+  delay(1000); // donne le temps à la carte Ethernet de s'initialiser
   //
 #ifdef SNMP
   Serial << ("agentuino begin") << endl;
@@ -277,18 +282,15 @@ void loop()
     //
     // increment up-time counter
     locUpTime += 100;
-    Serial.print("IP: ");
-    Serial.println(WiFly.ip());
-
 #ifndef SNMP
-//    Serial << "getTeleinfos begin " << endl;
-//    int ok  = teleinfos.read(edfSerial, Serial);
-//    if (!ok)  {
-//      Serial << "getTeleinfo timedout" << endl;
-//    } 
-//    else {
-//      Serial << "getTeleinfo complete in " << ok << endl;
-//    }
+    Serial << "getTeleinfos begin " << endl;
+    int ok  = teleinfos.read(edfSerial, Serial);
+    if (!ok)  {
+      Serial << "getTeleinfo timedout" << endl;
+    } 
+    else {
+      Serial << "getTeleinfo complete in " << ok << endl;
+    }
 #endif
   }
 }
