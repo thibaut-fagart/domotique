@@ -36,9 +36,17 @@ dht22Ext               OBJECT IDENTIFIER ::= { dht22 1 }
 dht22Sdb               OBJECT IDENTIFIER ::= { dht22 2 }
 dht22Salon             OBJECT IDENTIFIER ::= { dht22 3 }
 dht22Pc                OBJECT IDENTIFIER ::= { dht22 4 }
-raspCars           OBJECT IDENTIFIER ::= { raspberry 1 }
-raspEdf            OBJECT IDENTIFIER ::= { raspberry 1 }
-raspLeroux         OBJECT IDENTIFIER ::= { raspberry 1 }
+raspCars           OBJECT IDENTIFIER ::= { raspberry 2 }
+raspEdf            OBJECT IDENTIFIER ::= { raspberry 3 }
+raspLeroux         OBJECT IDENTIFIER ::= { raspberry 4 }
+dht22                OBJECT IDENTIFIER ::= { raspLeroux 1 }
+dht22Ext               OBJECT IDENTIFIER ::= { dht22 1 }
+dht22ThermoOld         OBJECT IDENTIFIER ::= { dht22 2 }
+dht22ThermoNew         OBJECT IDENTIFIER ::= { dht22 3 }
+dht22CuisineNew        OBJECT IDENTIFIER ::= { dht22 4 }
+dht22SdbOld            OBJECT IDENTIFIER ::= { dht22 5 }
+dht22SdbNew            OBJECT IDENTIFIER ::= { dht22 6 }
+edf                OBJECT IDENTIFIER ::= { raspLeroux 1 }
 
 ------------------------------------------------------------------------
 -- Scalars
@@ -123,6 +131,102 @@ dht22SalonHum OBJECT-TYPE
     DESCRIPTION
         "sensor dht22 humidity"
     ::= { dht22Salon 2 }
+
+dht22PcTemp OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 temperature"
+    ::= { dht22Pc 1 }
+
+dht22PcHum OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 humidity"
+    ::= { dht22Pc 2 }
+
+dht22OldTemp OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 temperature"
+    ::= { dht22Pc 1 }
+
+dht22PcHum OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 humidity"
+    ::= { dht22Pc 2 }
+
+dht22PcTemp OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 temperature"
+    ::= { dht22Pc 1 }
+
+dht22PcHum OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 humidity"
+    ::= { dht22Pc 2 }
+
+dht22PcTemp OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 temperature"
+    ::= { dht22Pc 1 }
+
+dht22PcHum OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 humidity"
+    ::= { dht22Pc 2 }
+
+dht22PcTemp OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 temperature"
+    ::= { dht22Pc 1 }
+
+dht22PcHum OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 humidity"
+    ::= { dht22Pc 2 }
+
+dht22PcTemp OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 temperature"
+    ::= { dht22Pc 1 }
+
+dht22PcHum OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 humidity"
+    ::= { dht22Pc 2 }
 
 dht22PcTemp OBJECT-TYPE
     SYNTAX      Integer32

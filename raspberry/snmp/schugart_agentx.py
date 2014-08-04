@@ -145,17 +145,44 @@ edfIsousc = agent.Integer32(
 edfBase = agent.Integer32(
         oidstr   = "SCHUGART-MIB::edfBase",
 )
+edfIndexNormal = agent.Integer32(
+        oidstr   = "SCHUGART-MIB::edfIndexNormal",
+)
+edfIndexPointe = agent.Integer32(
+        oidstr   = "SCHUGART-MIB::edfIndexPointe",
+)
 edfPtec = agent.Integer32(
         oidstr   = "SCHUGART-MIB::edfPtec",
 )
 edfIinst = agent.Integer32(
         oidstr   = "SCHUGART-MIB::edfIinst",
 )
+edfIinst1 = agent.Integer32(
+        oidstr   = "SCHUGART-MIB::edfIinst1",
+)
+edfIinst2 = agent.Integer32(
+        oidstr   = "SCHUGART-MIB::edfIinst2",
+)
+edfIinst3 = agent.Integer32(
+        oidstr   = "SCHUGART-MIB::edfIinst3",
+)
 edfImax = agent.Integer32(
         oidstr   = "SCHUGART-MIB::edfImax",
 )
 edfPapp = agent.Integer32(
         oidstr   = "SCHUGART-MIB::edfPapp",
+)
+edfPreavisEJP = agent.Integer32(
+        oidstr   = "SCHUGART-MIB::edfPreavisEJP",
+)
+fuelBurningTime = agent.Integer32(
+        oidstr   = "SCHUGART-MIB::fuelBurningTime",
+)
+fuelBurnt = agent.Integer32(
+        oidstr   = "SCHUGART-MIB::fuelBurnt",
+)
+fuelRemaining = agent.Integer32(
+        oidstr   = "SCHUGART-MIB::fuelRemaining",
 )
 # Finally, we tell the agent to "start". This actually connects the
 # agent to the master agent.
