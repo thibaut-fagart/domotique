@@ -31,27 +31,27 @@ schugart MODULE-IDENTITY
 raspberry         OBJECT IDENTIFIER ::= { schugart 1 }
 raspHome           OBJECT IDENTIFIER ::= { raspberry 1 }
 ampliPower           OBJECT IDENTIFIER ::= { raspHome 1 }
-dht22                OBJECT IDENTIFIER ::= { raspHome 2 }
-dht22Ext               OBJECT IDENTIFIER ::= { dht22 1 }
-dht22Cuisine           OBJECT IDENTIFIER ::= { dht22 2 }
-dht22Sdb               OBJECT IDENTIFIER ::= { dht22 3 }
-dht22Salon             OBJECT IDENTIFIER ::= { dht22 4 }
-dht22Pc                OBJECT IDENTIFIER ::= { dht22 5 }
-dht22Chambre           OBJECT IDENTIFIER ::= { dht22 6 }
-dht22ChambreEnfant     OBJECT IDENTIFIER ::= { dht22 7 }
-dht22Cave              OBJECT IDENTIFIER ::= { dht22 8 }
+dht22Home            OBJECT IDENTIFIER ::= { raspHome 2 }
+dht22Ext               OBJECT IDENTIFIER ::= { dht22Home 1 }
+dht22Cuisine           OBJECT IDENTIFIER ::= { dht22Home 2 }
+dht22Sdb               OBJECT IDENTIFIER ::= { dht22Home 3 }
+dht22Salon             OBJECT IDENTIFIER ::= { dht22Home 4 }
+dht22Pc                OBJECT IDENTIFIER ::= { dht22Home 5 }
+dht22Chambre           OBJECT IDENTIFIER ::= { dht22Home 6 }
+dht22ChambreEnfant     OBJECT IDENTIFIER ::= { dht22Home 7 }
+dht22Cave              OBJECT IDENTIFIER ::= { dht22Home 8 }
 raspCars           OBJECT IDENTIFIER ::= { raspberry 2 }
 raspEdf            OBJECT IDENTIFIER ::= { raspberry 3 }
-edf                  OBJECT IDENTIFIER ::= { raspEdf 1 }
+edfHome              OBJECT IDENTIFIER ::= { raspEdf 1 }
 raspLeroux         OBJECT IDENTIFIER ::= { raspberry 4 }
-dht22                OBJECT IDENTIFIER ::= { raspLeroux 1 }
-dht22Ext               OBJECT IDENTIFIER ::= { dht22 1 }
-dht22ThermoOld         OBJECT IDENTIFIER ::= { dht22 9 }
-dht22ThermoNew         OBJECT IDENTIFIER ::= { dht22 10 }
-dht22CuisineNew        OBJECT IDENTIFIER ::= { dht22 11 }
-dht22SdbOld            OBJECT IDENTIFIER ::= { dht22 12 }
-dht22SdbNew            OBJECT IDENTIFIER ::= { dht22 13 }
-edf                  OBJECT IDENTIFIER ::= { raspLeroux 2 }
+dht22Leroux          OBJECT IDENTIFIER ::= { raspLeroux 1 }
+dht22Ext               OBJECT IDENTIFIER ::= { dht22Leroux 1 }
+dht22ThermoOld         OBJECT IDENTIFIER ::= { dht22Leroux 9 }
+dht22ThermoNew         OBJECT IDENTIFIER ::= { dht22Leroux 10 }
+dht22CuisineNew        OBJECT IDENTIFIER ::= { dht22Leroux 11 }
+dht22SdbOld            OBJECT IDENTIFIER ::= { dht22Leroux 12 }
+dht22SdbNew            OBJECT IDENTIFIER ::= { dht22Leroux 13 }
+edfLeroux            OBJECT IDENTIFIER ::= { raspLeroux 2 }
 fuel                 OBJECT IDENTIFIER ::= { raspLeroux 3 }
 
 ------------------------------------------------------------------------
@@ -304,7 +304,7 @@ edfAdco OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "teleinfo label ADCO"
-    ::= { edf 1 }
+    ::= { edfHome 1 }
 
 edfOptarif OBJECT-TYPE
     SYNTAX      DisplayString
@@ -312,7 +312,7 @@ edfOptarif OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "teleinfo label OPTARIF"
-    ::= { edf 2 }
+    ::= { edfHome 2 }
 
 edfIsousc OBJECT-TYPE
     SYNTAX      Integer32
@@ -320,7 +320,7 @@ edfIsousc OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "teleinfo label ISOUSC"
-    ::= { edf 3 }
+    ::= { edfHome 3 }
 
 edfBase OBJECT-TYPE
     SYNTAX      Integer32
@@ -328,7 +328,7 @@ edfBase OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "teleinfo label BASE"
-    ::= { edf 4 }
+    ::= { edfHome 4 }
 
 edfPtec OBJECT-TYPE
     SYNTAX      Integer32
@@ -336,7 +336,7 @@ edfPtec OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "teleinfo label PTEC"
-    ::= { edf 5 }
+    ::= { edfHome 5 }
 
 edfIinst OBJECT-TYPE
     SYNTAX      Integer32
@@ -344,7 +344,7 @@ edfIinst OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "teleinfo label IINST"
-    ::= { edf 6 }
+    ::= { edfHome 6 }
 
 edfImax OBJECT-TYPE
     SYNTAX      Integer32
@@ -352,7 +352,7 @@ edfImax OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "teleinfo label IMAX"
-    ::= { edf 7 }
+    ::= { edfHome 7 }
 
 edfPapp OBJECT-TYPE
     SYNTAX      Integer32
@@ -360,7 +360,7 @@ edfPapp OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "teleinfo label PAPP"
-    ::= { edf 8 }
+    ::= { edfHome 8 }
 
 edfIndexNormal OBJECT-TYPE
     SYNTAX      Integer32
@@ -368,7 +368,7 @@ edfIndexNormal OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "teleinfo label Index Normal"
-    ::= { edf 9 }
+    ::= { edfLeroux 9 }
 
 edfIndexPointe OBJECT-TYPE
     SYNTAX      Integer32
@@ -376,7 +376,7 @@ edfIndexPointe OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "teleinfo label Index EJP"
-    ::= { edf 10 }
+    ::= { edfLeroux 10 }
 
 edfIinst1 OBJECT-TYPE
     SYNTAX      Integer32
@@ -384,7 +384,7 @@ edfIinst1 OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "teleinfo label IINST1"
-    ::= { edf 11 }
+    ::= { edfLeroux 11 }
 
 edfIinst2 OBJECT-TYPE
     SYNTAX      Integer32
@@ -392,7 +392,7 @@ edfIinst2 OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "teleinfo label IINST2"
-    ::= { edf 12 }
+    ::= { edfLeroux 12 }
 
 edfIinst3 OBJECT-TYPE
     SYNTAX      Integer32
@@ -400,7 +400,7 @@ edfIinst3 OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "teleinfo label IINST3"
-    ::= { edf 13 }
+    ::= { edfLeroux 13 }
 
 edfPreavisEJP OBJECT-TYPE
     SYNTAX      Integer32
@@ -408,7 +408,7 @@ edfPreavisEJP OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "teleinfo label Preavis EJP"
-    ::= { edf 14 }
+    ::= { edfLeroux 14 }
 
 fuelBurningTime OBJECT-TYPE
     SYNTAX      Integer32
