@@ -5,7 +5,6 @@ apt-get install python-pynetsnmp
 apt-get install libsnmp-python
 editer /etc/snmp/snmpd.conf
 apt-get install snmp-mibs-downloader
-
-? apt-get install python-pysnmp4
+apt-get install python-pysnmp4
 
 mkdir /usr/share/snmp/mibs/
