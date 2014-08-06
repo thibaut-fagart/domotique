@@ -5,14 +5,14 @@ import serial
 from setsnmp import setSnmp
 from getsnmp import getSnmp
 
-oidEdfAdco    = "1.3.6.1.4.1.43689.1.3.1.1.0"
-oidEdfOptarif = "1.3.6.1.4.1.43689.1.3.1.2.0"
-oidEdfIsousc  = "1.3.6.1.4.1.43689.1.3.1.3.0"
-oidEdfBase    = "1.3.6.1.4.1.43689.1.3.1.4.0"
-oidEdfPtec    = "1.3.6.1.4.1.43689.1.3.1.5.0"
-oidEdfIinst   = "1.3.6.1.4.1.43689.1.3.1.6.0"
-oidEdfImax    = "1.3.6.1.4.1.43689.1.3.1.7.0"
-oidEdfPapp    = "1.3.6.1.4.1.43689.1.3.1.8.0"
+oidEdfAdco    = "1.3.6.1.4.1.43689.1.4.1.0"
+oidEdfOptarif = "1.3.6.1.4.1.43689.1.4.2.0"
+oidEdfIsousc  = "1.3.6.1.4.1.43689.1.4.3.0"
+oidEdfBase    = "1.3.6.1.4.1.43689.1.4.4.0"
+oidEdfPtec    = "1.3.6.1.4.1.43689.1.4.5.0"
+oidEdfIinst   = "1.3.6.1.4.1.43689.1.4.6.0"
+oidEdfImax    = "1.3.6.1.4.1.43689.1.4.7.0"
+oidEdfPapp    = "1.3.6.1.4.1.43689.1.4.8.0"
 ipHostSnmp    = "192.168.0.211"
 
 ser = serial.Serial(

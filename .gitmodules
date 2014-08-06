@@ -1,0 +1,3 @@
+[submodule "arduino/libraries/Flash"]
+	path = arduino/libraries/Flash
+	url = https://github.com/mikalhart/Flash.git
