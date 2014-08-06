@@ -115,12 +115,6 @@ dht22ThermoNewTemp = agent.Integer32(
 dht22ThermoNewHum = agent.Integer32(
         oidstr   = "SCHUGART-MIB::dht22ThermoNewHum",
 )
-dht22CuisineNewTemp = agent.Integer32(
-        oidstr   = "SCHUGART-MIB::dht22CuisineNewTemp",
-)
-dht22CuisineNewHum = agent.Integer32(
-        oidstr   = "SCHUGART-MIB::dht22CuisineNewHum",
-)
 dht22SdbOldTemp = agent.Integer32(
         oidstr   = "SCHUGART-MIB::dht22SdbOldTemp",
 )
