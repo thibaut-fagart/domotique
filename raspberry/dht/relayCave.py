@@ -7,8 +7,8 @@ from getsnmp import getSnmp
 
 oidArduinoCaveTemp = "1.3.6.1.4.1.36582.1"
 oidArduinoCaveHum  = "1.3.6.1.4.1.36582.2"
-oidDht22CaveTemp   = "1.3.6.1.4.1.43689.1.1.2.8.1.0"
-oidDht22CaveHum    = "1.3.6.1.4.1.43689.1.1.2.8.2.0"
+oidDht22CaveTemp   = "1.3.6.1.4.1.43689.1.2.8.1.0"
+oidDht22CaveHum    = "1.3.6.1.4.1.43689.1.2.8.2.0"
 ipHostCave        = "192.168.0.71"
 ipHostSnmp        = "192.168.0.110"
 

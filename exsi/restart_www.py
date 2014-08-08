@@ -15,6 +15,7 @@ def printlog(text):
   fileToBeWriten = "/home/dimi/prog/exsi/exsi_reboot.txt"
   fichierWrite = open(fileToBeWriten,'a')
   fichierWrite.write(text)
+  fichierWrite.write('\n')
   fichierWrite.close()
 
 server = VIServer()
@@ -24,10 +25,9 @@ vms = server.get_registered_vms()
 
 vm = server.get_vm_by_path(vms[0])
 
-printlog('vm status')
+printlog('----------------------------')
 printlog(vm.get_property('name',from_cache=False))
 printlog(vm.get_status())
-printlog('----------------------------')
 
 ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -37,8 +37,8 @@ try:
   printlog('ssh alive')
 except:
   printlog('ssh down, trying to reboot')
-  vm.power_on()
-  vm.power_off()
+  #vm.power_on()
+  #vm.power_off()
 
 server.disconnect()
 
