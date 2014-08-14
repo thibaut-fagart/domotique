@@ -127,6 +127,12 @@ dht22SdbNewTemp = agent.Integer32(
 dht22SdbNewHum = agent.Integer32(
         oidstr   = "SCHUGART-MIB::dht22SdbNewHum",
 )
+dht22RaspTemp = agent.Integer32(
+        oidstr   = "SCHUGART-MIB::dht22RaspTemp",
+)
+dht22RaspHum = agent.Integer32(
+        oidstr   = "SCHUGART-MIB::dht22RaspHum",
+)
 edfAdco = agent.Integer32(
         oidstr   = "SCHUGART-MIB::edfAdco",
 )

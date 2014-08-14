@@ -43,6 +43,7 @@ dht22ThermoOld      OBJECT IDENTIFIER ::= { dht22 9 }
 dht22ThermoNew      OBJECT IDENTIFIER ::= { dht22 10 }
 dht22SdbOld         OBJECT IDENTIFIER ::= { dht22 11 }
 dht22SdbNew         OBJECT IDENTIFIER ::= { dht22 12 }
+dht22Rasp           OBJECT IDENTIFIER ::= { dht22 13 }
 cars               OBJECT IDENTIFIER ::= { raspberry 3 }
 edf                OBJECT IDENTIFIER ::= { raspberry 4 }
 fuel               OBJECT IDENTIFIER ::= { raspberry 5 }
@@ -274,6 +275,22 @@ dht22SdbNewHum OBJECT-TYPE
     DESCRIPTION
         "sensor dht22 humidity"
     ::= { dht22SdbNew 2 }
+
+dht22RaspTemp OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 temperature"
+    ::= { dht22Rasp 1 }
+
+dht22RaspHum OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "sensor dht22 humidity"
+    ::= { dht22Rasp 2 }
 
 edfAdco OBJECT-TYPE
     SYNTAX      Counter64
