@@ -64,32 +64,35 @@ def LireTeleinfo ():
                         
                 return tramesValides
 
-if __name__ == "__main__":
-
+def teleinfoEJP():
   ser.flushInput()
   tramesOk = LireTeleinfo()
+  #print tramesOk
   for etiquette in tramesOk:
-	  if etiquette ==  'ADCO':
-                  result = setSnmp(ipHostSnmp,oidEdfAdco,int(0))
+	  #if etiquette ==  'ADCO':
                   #result = setSnmp(ipHostSnmp,oidEdfAdco,int(tramesOk[etiquette]))
-	  if etiquette ==  'OPTARIF':
-                  result = setSnmp(ipHostSnmp,oidEdfOptarif,int(0))
+	  #if etiquette ==  'OPTARIF':
                   #result = setSnmp(ipHostSnmp,oidEdfOptarif,int(tramesOk[etiquette]))
 	  if etiquette ==  'ISOUSC':
         	  result = setSnmp(ipHostSnmp,oidEdfIsousc,int(tramesOk[etiquette]))
+                  #print 'ISOUSC ',tramesOk[etiquette]
 	  if etiquette ==  'EJPHN':
         	  result = setSnmp(ipHostSnmp,oidEdfEjphn,int(tramesOk[etiquette]))
+                  #print 'EJPHN ',tramesOk[etiquette]
 	  if etiquette ==  'EJPHPM':
         	  result = setSnmp(ipHostSnmp,oidEdfEjphpm,int(tramesOk[etiquette]))
-	  if etiquette ==  'PTEC':
-        	  result = setSnmp(ipHostSnmp,oidEdfPtec,int(0))
+                  #print 'EJPHPM ',tramesOk[etiquette]
+	  #if etiquette ==  'PTEC':
         	  #result = setSnmp(ipHostSnmp,oidEdfPtec,int(tramesOk[etiquette]))
     	  if etiquette == 'IINST1':
         	  result = setSnmp(ipHostSnmp,oidEdfIinst1,int(tramesOk[etiquette]))
+                  #print 'IINST1 ',tramesOk[etiquette]
     	  if etiquette == 'IINST2':
         	  result = setSnmp(ipHostSnmp,oidEdfIinst2,int(tramesOk[etiquette]))
+                  #print 'IINST2 ',tramesOk[etiquette]
     	  if etiquette == 'IINST3':
         	  result = setSnmp(ipHostSnmp,oidEdfIinst3,int(tramesOk[etiquette]))
+                  #print 'IINST3 ',tramesOk[etiquette]
 	  #if etiquette ==  'IMAX1':
         	  #result = setSnmp(ipHostSnmp,oidEdfImax1,int(tramesOk[etiquette]))
 	  #if etiquette ==  'IMAX2':
@@ -99,5 +102,10 @@ if __name__ == "__main__":
 	  #if etiquette ==  'PMAX':
         	  #result = setSnmp(ipHostSnmp,oidEdfPmax,int(tramesOk[etiquette]))
 	  if etiquette ==  'PAPP':
+                  #print 'PAPP ',tramesOk[etiquette]
         	  result = setSnmp(ipHostSnmp,oidEdfPapp,int(tramesOk[etiquette]))
   ser.close()
+
+
+if __name__ == "__main__":
+  teleinfoEJP()
