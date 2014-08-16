@@ -8,7 +8,7 @@ def getSnmp(host,oid):
   cmdGen = cmdgen.CommandGenerator()
 
   errorIndication, errorStatus, errorIndex, varBinds = cmdGen.getCmd(
-      cmdgen.CommunityData('public', mpModel=0),
+      cmdgen.CommunityData('private', mpModel=0),
       cmdgen.UdpTransportTarget((host, 161)),
       oid
       )
