@@ -1,0 +1,2 @@
+sudo mount -o bind /home/data/video/xxxx /home/ftpuser/yyyy/video/xxxx
+
