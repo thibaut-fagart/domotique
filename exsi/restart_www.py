@@ -25,20 +25,19 @@ vms = server.get_registered_vms()
 
 vm = server.get_vm_by_path(vms[0])
 
-printlog('----------------------------')
-printlog(vm.get_property('name',from_cache=False))
-printlog(vm.get_status())
-
 ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-printlog(time.asctime())
 try:
-  ssh.connect(www_ip, www_user, www_pass)
-  printlog('ssh alive')
+  ssh.connect(www_ip, username=www_user, password=www_pass)
 except:
-  printlog('ssh down, trying to reboot')
-  #vm.power_on()
-  #vm.power_off()
+  printlog(time.asctime())
+  printlog('----------------------------')
+  printlog('ssh down, trying to reboot www vm')
+  vm.power_off()
+  vm.power_on()
+  printlog(vm.get_property('name',from_cache=False))
+  printlog(vm.get_status())
+
 
 server.disconnect()
 
