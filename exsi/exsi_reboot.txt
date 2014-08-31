@@ -3,16 +3,3 @@ Sun Aug 31 08:16:00 2014
 ssh down, trying to reboot www vm
 vm-www
 POWERED ON
-closing ssh
-closing ssh
-closing ssh
-closing ssh
-closing ssh
-closing ssh
-closing ssh
-closing ssh
-closing ssh
-closing ssh
-closing ssh
-closing ssh
-closing ssh

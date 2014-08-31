@@ -42,5 +42,4 @@ except:
 server.disconnect()
 
 if ssh:
-  printlog('closing ssh')
   ssh.close()
