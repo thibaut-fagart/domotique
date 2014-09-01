@@ -47,6 +47,7 @@ dht22Rasp           OBJECT IDENTIFIER ::= { dht22 13 }
 cars               OBJECT IDENTIFIER ::= { raspberry 3 }
 edf                OBJECT IDENTIFIER ::= { raspberry 4 }
 fuel               OBJECT IDENTIFIER ::= { raspberry 5 }
+www               OBJECT IDENTIFIER ::= { schugart 2 }
 
 ------------------------------------------------------------------------
 -- Scalars
@@ -427,6 +428,54 @@ fuelRemaining OBJECT-TYPE
     DESCRIPTION
         "fuel remaining"
     ::= { fuel 3 }
+
+ftpUser1 OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "Upload / Download speed from user 1"
+    ::= { www 1 }
+
+ftpUser2 OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "Upload / Download speed from user 2"
+    ::= { www 2 }
+
+ftpUser3 OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "Upload / Download speed from user 3"
+    ::= { www 3 }
+
+ftpUser4 OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "Upload / Download speed from user 4"
+    ::= { www 4 }
+
+ftpUser5 OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "Upload / Download speed from user 5"
+    ::= { www 5 }
+
+ftpUser6 OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "Upload / Download speed from user 6"
+    ::= { www 6 }
 
 END
 

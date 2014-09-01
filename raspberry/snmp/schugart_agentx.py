@@ -184,6 +184,24 @@ fuelBurnt = agent.Integer32(
 fuelRemaining = agent.Integer32(
         oidstr   = "SCHUGART-MIB::fuelRemaining",
 )
+ftpUser1 = agent.Integer32(
+        oidstr   = "SCHUGART-MIB::ftpUser1",
+)
+ftpUser2 = agent.Integer32(
+        oidstr   = "SCHUGART-MIB::ftpUser2",
+)
+ftpUser3 = agent.Integer32(
+        oidstr   = "SCHUGART-MIB::ftpUser3",
+)
+ftpUser4 = agent.Integer32(
+        oidstr   = "SCHUGART-MIB::ftpUser4",
+)
+ftpUser5 = agent.Integer32(
+        oidstr   = "SCHUGART-MIB::ftpUser5",
+)
+ftpUser6 = agent.Integer32(
+        oidstr   = "SCHUGART-MIB::ftpUser6",
+)
 # Finally, we tell the agent to "start". This actually connects the
 # agent to the master agent.
 try:
