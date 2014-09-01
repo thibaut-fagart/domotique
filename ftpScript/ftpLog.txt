@@ -1,0 +1,8 @@
+Mon Sep  1 22:40:01 2014
+step IDLE  from fac34-5-82-239-138-131.fbx.proxad.net at speed 0 K/s : 0 percent done
+Mon Sep  1 22:45:01 2014
+step IDLE  from fac34-5-82-239-138-131.fbx.proxad.net at speed 0 K/s : 0 percent done
+Mon Sep  1 22:50:01 2014
+step IDLE  from fac34-5-82-239-138-131.fbx.proxad.net at speed 0 K/s : 0 percent done
+Mon Sep  1 22:55:01 2014
+step IDLE  from fac34-5-82-239-138-131.fbx.proxad.net at speed 0 K/s : 0 percent done

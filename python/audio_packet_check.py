@@ -33,22 +33,22 @@ def printlog(text):
   fichierWrite.close()  
 
 def set_ArduinoValue(Oid,ipHostSnmp,value):
-    errorIndication, errorStatus, errorIndex, varBinds = cmdgen.CommandGenerator().setCmd(
-          cmdgen.CommunityData('private',mpModel=0),
-          cmdgen.UdpTransportTarget((ipHostSnmp, 161)),
-          (Oid, rfc1902.Integer(value)))
+  errorIndication, errorStatus, errorIndex, varBinds = cmdgen.CommandGenerator().setCmd(
+      cmdgen.CommunityData('private',mpModel=0),
+      cmdgen.UdpTransportTarget((ipHostSnmp, 161)),
+      (Oid, rfc1902.Integer(value)))
 
-    # Check for errors and print out results
-    if errorIndication:
-       printlog('get oid %s from %s errorIndication : %s'%(Oid,ipHostSnmp,errorIndication))
+  # Check for errors and print out results
+  if errorIndication:
+    printlog('get oid %s from %s errorIndication : %s'%(Oid,ipHostSnmp,errorIndication))
+  else:
+    if errorStatus:
+      printlog('get oid %s from %s errorStatus : %s at %s'%(Oid,ipHostSnmp,errorStatus.prettyPrint(),errorIndex and varBinds[int(errorIndex)-1] or '?'))
     else:
-        if errorStatus:
-            printlog('get oid %s from %s errorStatus : %s at %s'%(Oid,ipHostSnmp,errorStatus.prettyPrint(),errorIndex and varBinds[int(errorIndex)-1] or '?'))
-        else:
-            for name, val in varBinds:
-                #printlog('get oid %s from %s : %s = %s'%(Oid,ipHostSnmp,name.prettyPrint(), val.prettyPrint()))
-                return val
-				
+      for name, val in varBinds:
+        #printlog('get oid %s from %s : %s = %s'%(Oid,ipHostSnmp,name.prettyPrint(), val.prettyPrint()))
+        return val
+
 def main(argv):
   # Parse flags
   try:
