@@ -41,11 +41,10 @@ if __name__ == "__main__":
     counter = counter + 1
     if GPIO.input(pinFuel):
       deltaBurningTime = time.time() - previousTime
-      previousTime = time.time()
       burningTime   = burningTime + deltaBurningTime
-      print burningTime
       fuelBurnt     = fuelBurnt + deltaBurningTime * literPerSecond
       fuelRemaining = fuelRemaining - deltaBurningTime * literPerSecond
+    previousTime = time.time()
     if counter > 60:
       counter = 0
       fileReadWrite = open(fuelFileData,'w')
