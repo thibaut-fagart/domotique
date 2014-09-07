@@ -1,3 +1,4 @@
 *.pyc
 *~
 log
+raspberry/snmp/netsnmpagent-0.5.0/*

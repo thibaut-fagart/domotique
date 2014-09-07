@@ -1,0 +1,1 @@
+../raspberry/snmp/setsnmp.py
