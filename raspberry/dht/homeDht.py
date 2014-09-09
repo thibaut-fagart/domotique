@@ -5,22 +5,22 @@ import sys,time
 import RPi.GPIO as GPIO
 from readDht import readDht
 
-gpioBCMPrise1   = [ 4, 0]
-gpioHeadPrise1  = [ 7, 0]
-gpioBCMPrise2   = [17, 0]
-gpioHeadPrise2  = [11, 0]
-gpioBCMPrise3   = [27, 0]
-gpioHeadPrise3  = [13, 0]
-gpioBCMPrise4   = [22, 0]
-gpioHeadPrise4  = [15, 0]
-gpioBCMPrise5   = [10, 0]
-gpioHeadPrise5  = [19, 0]
+gpioBCMPrise1   = [ 4]
+gpioHeadPrise1  = [ 7]
+gpioBCMPrise2   = [17]
+gpioHeadPrise2  = [11]
+gpioBCMPrise3   = [27]
+gpioHeadPrise3  = [13]
+gpioBCMPrise4   = [ 9]
+gpioHeadPrise4  = [21]
+gpioBCMPrise5   = [11]
+gpioHeadPrise5  = [23]
 
-pinCave      = gpioBCMPrise1[0]
-pinExt       = gpioBCMPrise2[0]
-pinRasp      = gpioBCMPrise3[0]
-pinSalon     = gpioBCMPrise4[0]
-pinSdb       = gpioBCMPrise5[0]
+pinSdb       = gpioBCMPrise1[0]
+pinSalon     = gpioBCMPrise2[0]
+pinExt       = gpioBCMPrise3[0]
+pinRasp      = gpioBCMPrise4[0]
+pinCave      = gpioBCMPrise5[0]
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
@@ -37,8 +37,8 @@ for pin in gpioBCMPrise5:
 
 oidDht22ExtTemp       = "1.3.6.1.4.1.43689.1.2.1.1.0"
 oidDht22ExtHum        = "1.3.6.1.4.1.43689.1.2.1.2.0"
-oidDht22CuisineTemp   = "1.3.6.1.4.1.43689.1.2.2.1.0"
-oidDht22CuisineHum    = "1.3.6.1.4.1.43689.1.2.2.2.0"
+oidDht22SalonTemp     = "1.3.6.1.4.1.43689.1.2.4.1.0"
+oidDht22SalonHum      = "1.3.6.1.4.1.43689.1.2.4.2.0"
 oidDht22SdbTemp       = "1.3.6.1.4.1.43689.1.2.3.1.0"
 oidDht22SdbHum        = "1.3.6.1.4.1.43689.1.2.3.2.0"
 oidDht22CaveTemp      = "1.3.6.1.4.1.43689.1.2.8.1.0"
@@ -56,14 +56,27 @@ def printlog(datelog,text):
   fichierWrite.close()   
 
 if __name__ == "__main__":
-    print 'Start'
-    #readDht(ipHostSnmp,oidDht22ExtTemp,oidDht22ExtHum,pinExt)
-    #print 'Ext'
-    readDht(ipHostSnmp,oidDht22SdbTemp,oidDht22SdbHum,pinSdb)
-    print 'Sdb'
-    readDht(ipHostSnmp,oidDht22CuisineTemp,oidDht22CuisineHum,pinCuisine)
-    print 'Cuisine'
+  #try:
+    #readDht(ipHostSnmp,oidDht22CaveTemp,oidDht22CaveHum,pinCave)
+  #except:
+    #printlog(time.asctime(),' : no dht22 answer from pin %s sensor'%pinCave)
+
+  try:
     readDht(ipHostSnmp,oidDht22SalonTemp,oidDht22SalonHum,pinSalon)
-    print 'Salon'
+  except:
+    printlog(time.asctime(),' : no dht22 answer from pin %s sensor'%pinSalon)
+
+  try:
+    readDht(ipHostSnmp,oidDht22ExtTemp,oidDht22ExtHum,pinExt)
+  except:
+    printlog(time.asctime(),' : no dht22 answer from pin %s sensor'%pinExt)
+
+  try:
     readDht(ipHostSnmp,oidDht22RaspTemp,oidDht22RaspHum,pinRasp)
-    print 'Rasp'
+  except:
+    printlog(time.asctime(),' : no dht22 answer from pin %s sensor'%pinRasp)
+
+  try:
+    readDht(ipHostSnmp,oidDht22SdbTemp,oidDht22SdbHum,pinSdb)
+  except:
+    printlog(time.asctime(),' : no dht22 answer from pin %s sensor'%pinSdb)
