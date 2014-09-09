@@ -20,12 +20,12 @@ def readDht(host,oidT,oidH,pin):
       if -40 < temperature < 60:
         resultT = setSnmp(host,oidT,int(10*temperature))
       else:
-        printlog(time.asctime(), "temperature out of range" )
+        printlog(time.asctime(), "temperature out of range for pin : %s on host %s"%(pin,host) )
       if 0 < humidity < 100:
         resultH = setSnmp(host,oidH,int(10*humidity))
       else:
-        printlog(time.asctime(), "humidity out of range" )
+        printlog(time.asctime(), "humidity out of range for pin : %s on host %s"%(pin,host) )
       return temperature, humidity, resultT, resultH
   else:
-      printlog(time.asctime(), "Failed to read from sensor on pin : %s"%pin )
+      printlog(time.asctime(), "Failed to read from sensor on pin : %s on host %s"%(pin,host) )
 
