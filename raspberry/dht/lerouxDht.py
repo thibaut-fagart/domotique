@@ -48,7 +48,7 @@ oidDht22RaspHum       = "1.3.6.1.4.1.43689.1.2.13.2.0"
 ipHostSnmp            = "192.168.0.199"
 
 def printlog(datelog,text):
-  fileToBeWriten = "/home/dimi/prog/raspberry/leroux/lerouxDhtLog.txt"
+  fileToBeWriten = "/home/dimi/prog/raspberry/leroux/lerouxDhtLog.log"
   fichierWrite = open(fileToBeWriten,'a')
   fichierWrite.write(datelog)
   fichierWrite.write(text)
@@ -59,20 +59,20 @@ if __name__ == "__main__":
   try:
     readDht(ipHostSnmp,oidDht22ExtTemp,oidDht22ExtHum,pinExt)
   except:
-    printlog(time.asctime(),' : no dht22 answer from Ext sensor')
+    printlog(time.asctime(),' : no dht22 answer from pin %s sensor'%pinExt)
   try:
     readDht(ipHostSnmp,oidDht22ThermoOldTemp,oidDht22ThermoOldHum,pinThermoOld)
   except:
-    printlog(time.asctime(),' : no dht22 answer from ThermoOld sensor')
+    printlog(time.asctime(),' : no dht22 answer from pin %s sensor'%pinThermoOld)
   try:
     readDht(ipHostSnmp,oidDht22ThermoNewTemp,oidDht22ThermoNewHum,pinThermoNew)
   except:
-    printlog(time.asctime(),' : no dht22 answer from ThermoNew sensor')
+    printlog(time.asctime(),' : no dht22 answer from pin %s sensor'%pinThermoNew)
   try:
     readDht(ipHostSnmp,oidDht22CuisineTemp,oidDht22CuisineHum,pinCuisine)
   except:
-    printlog(time.asctime(),' : no dht22 answer from Cuisine sensor')
+    printlog(time.asctime(),' : no dht22 answer from pin %s sensor'%pinCuisine)
   try:
     readDht(ipHostSnmp,oidDht22RaspTemp,oidDht22RaspHum,pinRasp)
   except:
-    printlog(time.asctime(),' : no dht22 answer from Rasp sensor')
+    printlog(time.asctime(),' : no dht22 answer from pin %s sensor'%pinRasp)

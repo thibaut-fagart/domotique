@@ -23,7 +23,7 @@ for pin in gpioBCMPrise2:
 
 
 if __name__ == "__main__":
-  fuelFileData = "/home/dimi/prog/raspberry/leroux/fuelFileData.txt"
+  fuelFileData = "/home/dimi/prog/raspberry/leroux/fuelFileData.log"
   time.sleep(20)
   fileReadWrite = open(fuelFileData,'r')
   fuelData = fileReadWrite.read().split()

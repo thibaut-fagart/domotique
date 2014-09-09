@@ -10,7 +10,7 @@ oidFuelRemaining    = "1.3.6.1.4.1.43689.1.5.3.0"
 ipHostSnmp          = "192.168.0.199"
 
 if __name__ == "__main__":
-  fuelFileData = "/home/dimi/prog/raspberry/leroux/fuelFileData.txt"
+  fuelFileData = "/home/dimi/prog/raspberry/leroux/fuelFileData.log"
   fileReadWrite = open(fuelFileData,'r')
   fuelData = fileReadWrite.read().split()
   burningTime   = float(fuelData[0])

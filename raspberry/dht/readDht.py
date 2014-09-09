@@ -4,10 +4,9 @@
 import sys,time
 import Adafruit_DHT
 from setsnmp import setSnmp
-from timeout import timeout
 
 def printlog(datelog,text):
-  fileToBeWriten = "/home/dimi/prog/raspberry/dht/readDhtLog.txt"
+  fileToBeWriten = "/home/dimi/prog/raspberry/dht/readDhtLog.log"
   fichierWrite = open(fileToBeWriten,'a')
   fichierWrite.write(datelog)
   fichierWrite.write(text)
