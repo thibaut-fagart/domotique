@@ -48,7 +48,7 @@ oidDht22RaspHum       = "1.3.6.1.4.1.43689.1.2.13.2.0"
 ipHostSnmp            = "192.168.0.110"
 
 def printlog(datelog,text):
-  fileToBeWriten = "/home/dimi/prog/raspberry/home/homeDhtLog.txt"
+  fileToBeWriten = "/home/dimi/prog/raspberry/homeLog/homeDhtLog.txt"
   fichierWrite = open(fileToBeWriten,'a')
   fichierWrite.write(datelog)
   fichierWrite.write(text)
