@@ -1,4 +1,5 @@
 *.pyc
+*.log
 *~
 log
 raspberry/snmp/netsnmpagent-0.5.0/*
