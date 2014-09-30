@@ -2,11 +2,11 @@
 # -*- coding:utf-8 -*-
 
 import sys,time
-import dhtreader
+import Adafruit_DHT
 from setsnmp import setSnmp
 
 def printlog(datelog,text):
-  fileToBeWriten = "/home/dimi/prog/raspberry/leroux/readDhtLog.txt"
+  fileToBeWriten = "/home/dimi/prog/raspberry/dht/readDhtLog.log"
   fichierWrite = open(fileToBeWriten,'a')
   fichierWrite.write(datelog)
   fichierWrite.write(text)
@@ -14,18 +14,17 @@ def printlog(datelog,text):
   fichierWrite.close()
 
 def readDht(host,oidT,oidH,pin):
-  dhtreader.init()
-  t, h = dhtreader.read(22, pin)
-  if t and h:
-      if -40 < t < 60:
-        resultT = setSnmp(host,oidT,int(10*t))
+  humidity, temperature = Adafruit_DHT.read_retry(Adafruit_DHT.DHT22, pin)
+  if humidity is not None and temperature is not None:
+      if -40 < temperature < 60:
+        resultT = setSnmp(host,oidT,int(10*temperature))
       else:
-        printlog(time.asctime(), "temperature out of range" )
-      if 0 < h < 100:
-        resultH = setSnmp(host,oidH,int(10*h))
+        printlog(time.asctime(), "temperature out of range for pin : %s on host %s"%(pin,host) )
+      if 0 < humidity < 100:
+        resultH = setSnmp(host,oidH,int(10*humidity))
       else:
-        printlog(time.asctime(), "humidity out of range" )
+        printlog(time.asctime(), "humidity out of range for pin : %s on host %s"%(pin,host) )
+      return temperature, humidity, resultT, resultH
   else:
-      printlog(time.asctime(), "Failed to read from sensor, maybe try again?" )
-  return t, h, resultT, resultH
+      printlog(time.asctime(), "Failed to read from sensor on pin : %s on host %s"%(pin,host) )
 

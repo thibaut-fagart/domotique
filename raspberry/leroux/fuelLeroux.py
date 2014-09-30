@@ -23,7 +23,7 @@ for pin in gpioBCMPrise2:
 
 
 if __name__ == "__main__":
-  fuelFileData = "/home/dimi/prog/raspberry/leroux/fuelFileData.txt"
+  fuelFileData = "/home/dimi/prog/raspberry/leroux/fuelFileData.log"
   time.sleep(20)
   fileReadWrite = open(fuelFileData,'r')
   fuelData = fileReadWrite.read().split()
@@ -41,11 +41,10 @@ if __name__ == "__main__":
     counter = counter + 1
     if GPIO.input(pinFuel):
       deltaBurningTime = time.time() - previousTime
-      previousTime = time.time()
       burningTime   = burningTime + deltaBurningTime
-      print burningTime
       fuelBurnt     = fuelBurnt + deltaBurningTime * literPerSecond
       fuelRemaining = fuelRemaining - deltaBurningTime * literPerSecond
+    previousTime = time.time()
     if counter > 60:
       counter = 0
       fileReadWrite = open(fuelFileData,'w')
