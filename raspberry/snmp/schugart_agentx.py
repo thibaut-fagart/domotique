@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #
 import sys, os, signal
-import optparse
+import optparse, time
 
 # Make sure we use the local copy, not a system-wide one
 sys.path.insert(0, os.path.dirname(os.getcwd()))
@@ -27,6 +27,8 @@ parser.add_option(
 	default="/var/agentx/master"
 )
 (options, args) = parser.parse_args()
+
+time.sleep(30)
 
 # First, create an instance of the netsnmpAgent class. We specify the
 # fully-qualified path to SCHUGART-MIB.txt ourselves here, so that you

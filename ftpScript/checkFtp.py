@@ -31,6 +31,13 @@ def readlog():
 
 if __name__ == "__main__":
   ftpState = os.popen('/usr/sbin/pure-ftpwho -s')
+
+  resultSetUser = setSnmp(ipHostSnmp,oidUser1,0)
+  resultSetUser = setSnmp(ipHostSnmp,oidUser2,0)
+  resultSetUser = setSnmp(ipHostSnmp,oidUser3,0)
+  resultSetUser = setSnmp(ipHostSnmp,oidUser4,0)
+  resultSetUser = setSnmp(ipHostSnmp,oidUser5,0)
+
   while 1:
     loggedFtp = ftpState.readline()
     if not loggedFtp: 
@@ -49,17 +56,17 @@ if __name__ == "__main__":
       percentFtp  = loggedFtp[10]
       speedFtp    = loggedFtp[11].split()[0]
 
-      printlog(time.asctime())
-      printlog('%s %s %s from %s at speed %s K/s : %s percent done'%(userFtp, actionFtp, fileFtp, ipFtp, speedFtp, percentFtp))
-
-      if userFtp == user1:
-        resultSetUser = setSnmp(ipHostSnmp,oidUser1,int(speedFtp))
-      if userFtp == user2:
-        resultSetUser = setSnmp(ipHostSnmp,oidUser2,int(speedFtp))
-      if userFtp == user3:
-        resultSetUser = setSnmp(ipHostSnmp,oidUser3,int(speedFtp))
-      if userFtp == user4:
-        resultSetUser = setSnmp(ipHostSnmp,oidUser4,int(speedFtp))
-      if userFtp == user5:
-        resultSetUser = setSnmp(ipHostSnmp,oidUser5,int(speedFtp))
+      if actionFtp != 'IDLE':
+        printlog(time.asctime())
+        printlog('%s %s %s from %s at speed %s K/s : %s percent done'%(userFtp, actionFtp, fileFtp, ipFtp, speedFtp, percentFtp))
+        if userFtp == user1:
+          resultSetUser = setSnmp(ipHostSnmp,oidUser1,int(speedFtp))
+        if userFtp == user2:
+          resultSetUser = setSnmp(ipHostSnmp,oidUser2,int(speedFtp))
+        if userFtp == user3:
+          resultSetUser = setSnmp(ipHostSnmp,oidUser3,int(speedFtp))
+        if userFtp == user4:
+          resultSetUser = setSnmp(ipHostSnmp,oidUser4,int(speedFtp))
+        if userFtp == user5:
+          resultSetUser = setSnmp(ipHostSnmp,oidUser5,int(speedFtp))
  
