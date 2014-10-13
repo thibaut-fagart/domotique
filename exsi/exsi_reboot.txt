@@ -1,0 +1,10 @@
+Thu Oct  9 23:00:29 2014
+----------------------------
+ssh down, trying to reboot www vm
+vm-www
+POWERED ON
+Sun Oct 12 18:50:29 2014
+----------------------------
+ssh down, trying to reboot www vm
+vm-www
+POWERED ON
