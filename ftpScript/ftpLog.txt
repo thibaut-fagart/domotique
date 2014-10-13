@@ -1,0 +1,20 @@
+Tue Sep  2 11:00:01 2014
+step  DL  The.Hobbit.An.Unexpected.Journey.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 552 K/s : 4 percent done
+Tue Sep  2 13:25:01 2014
+step  DL  The.Hobbit.An.Unexpected.Journey.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 583 K/s : 96 percent done
+Wed Sep 17 17:25:01 2014
+step  DL  The.Hobbit.The.Desolation.Of.Smaug.small.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 499 K/s : 0 percent done
+Wed Sep 17 21:05:01 2014
+step  DL  The.Hobbit.The.Desolation.Of.Smaug.small.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 466 K/s : 99 percent done
+Fri Sep 19 16:45:01 2014
+step  DL  Divergent.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 492 K/s : 7 percent done
+Fri Sep 19 17:50:01 2014
+step  DL  Divergent.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 496 K/s : 97 percent done
+Sun Sep 21 18:20:01 2014
+step  DL  Edge.of.Tomorrow.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 497 K/s : 4 percent done
+Sun Sep 21 20:20:01 2014
+step  DL  Edge.of.Tomorrow.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 485 K/s : 98 percent done
+Tue Sep 30 18:20:01 2014
+step  DL  Elysium.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 622 K/s : 9 percent done
+Tue Sep 30 19:00:01 2014
+step  DL  Elysium.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 637 K/s : 98 percent done
