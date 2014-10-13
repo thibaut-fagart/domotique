@@ -18,3 +18,19 @@ Tue Sep 30 18:20:01 2014
 step  DL  Elysium.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 622 K/s : 9 percent done
 Tue Sep 30 19:00:01 2014
 step  DL  Elysium.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 637 K/s : 98 percent done
+Mon Oct  6 21:50:02 2014
+step  DL  The Beatles - 16 - The End.mp3 from fac34-5-82-239-138-131.fbx.proxad.net at speed 0 K/s : 0 percent done
+Tue Oct  7 14:55:02 2014
+step  DL  The Beatles - 06 - All You Need Is Love.mp3 from fac34-5-82-239-138-131.fbx.proxad.net at speed 75 K/s : 22 percent done
+Mon Oct 13 20:30:02 2014
+step  DL  The.Walking.Dead.S01.E01.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 80 K/s : 0 percent done
+Mon Oct 13 20:30:02 2014
+step  DL  The.Walking.Dead.S01.E02.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 87 K/s : 0 percent done
+Mon Oct 13 20:30:02 2014
+step  DL  The.Walking.Dead.S01.E03.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 74 K/s : 0 percent done
+Mon Oct 13 20:30:02 2014
+step  DL  The.Walking.Dead.S01.E06.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 107 K/s : 1 percent done
+Mon Oct 13 20:30:02 2014
+step  DL  The.Walking.Dead.S01.E05.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 101 K/s : 1 percent done
+Mon Oct 13 20:30:02 2014
+step  DL  The.Walking.Dead.S01.E04.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 141 K/s : 1 percent done
