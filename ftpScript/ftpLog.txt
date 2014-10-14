@@ -34,3 +34,161 @@ Mon Oct 13 20:30:02 2014
 step  DL  The.Walking.Dead.S01.E05.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 101 K/s : 1 percent done
 Mon Oct 13 20:30:02 2014
 step  DL  The.Walking.Dead.S01.E04.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 141 K/s : 1 percent done
+Tue Oct 14 09:20:01 2014
+step  DL  The.Walking.Dead.S01.E01.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 104 K/s : 3 percent done
+Tue Oct 14 09:20:02 2014
+step  DL  The.Walking.Dead.S01.E03.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 84 K/s : 4 percent done
+Tue Oct 14 09:20:02 2014
+step  DL  The.Walking.Dead.S01.E05.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 96 K/s : 5 percent done
+Tue Oct 14 09:20:02 2014
+step  DL  The.Walking.Dead.S01.E04.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 84 K/s : 4 percent done
+Tue Oct 14 09:20:02 2014
+step  DL  The.Walking.Dead.S01.E06.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 107 K/s : 5 percent done
+Tue Oct 14 09:20:02 2014
+step  DL  The.Walking.Dead.S01.E02.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 96 K/s : 5 percent done
+Tue Oct 14 09:25:01 2014
+step  DL  The.Walking.Dead.S01.E01.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 98 K/s : 8 percent done
+Tue Oct 14 09:25:01 2014
+step  DL  The.Walking.Dead.S01.E03.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 100 K/s : 13 percent done
+Tue Oct 14 09:25:01 2014
+step  DL  The.Walking.Dead.S01.E05.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 96 K/s : 13 percent done
+Tue Oct 14 09:25:01 2014
+step  DL  The.Walking.Dead.S01.E04.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 94 K/s : 12 percent done
+Tue Oct 14 09:25:01 2014
+step  DL  The.Walking.Dead.S01.E06.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 94 K/s : 12 percent done
+Tue Oct 14 09:25:02 2014
+step  DL  The.Walking.Dead.S01.E02.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 93 K/s : 12 percent done
+Tue Oct 14 09:30:01 2014
+step  DL  The.Walking.Dead.S01.E01.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 96 K/s : 14 percent done
+Tue Oct 14 09:30:01 2014
+step  DL  The.Walking.Dead.S01.E03.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 101 K/s : 21 percent done
+Tue Oct 14 09:30:01 2014
+step  DL  The.Walking.Dead.S01.E05.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 99 K/s : 21 percent done
+Tue Oct 14 09:30:01 2014
+step  DL  The.Walking.Dead.S01.E04.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 92 K/s : 20 percent done
+Tue Oct 14 09:30:01 2014
+step  DL  The.Walking.Dead.S01.E06.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 94 K/s : 20 percent done
+Tue Oct 14 09:30:01 2014
+step  DL  The.Walking.Dead.S01.E02.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 95 K/s : 20 percent done
+Tue Oct 14 09:35:01 2014
+step  DL  The.Walking.Dead.S01.E01.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 95 K/s : 19 percent done
+Tue Oct 14 09:35:01 2014
+step  DL  The.Walking.Dead.S01.E03.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 102 K/s : 30 percent done
+Tue Oct 14 09:35:01 2014
+step  DL  The.Walking.Dead.S01.E05.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 100 K/s : 30 percent done
+Tue Oct 14 09:35:01 2014
+step  DL  The.Walking.Dead.S01.E04.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 93 K/s : 28 percent done
+Tue Oct 14 09:35:01 2014
+step  DL  The.Walking.Dead.S01.E06.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 97 K/s : 28 percent done
+Tue Oct 14 09:35:01 2014
+step  DL  The.Walking.Dead.S01.E02.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 92 K/s : 28 percent done
+Tue Oct 14 09:40:01 2014
+step  DL  The.Walking.Dead.S01.E01.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 98 K/s : 25 percent done
+Tue Oct 14 09:40:01 2014
+step  DL  The.Walking.Dead.S01.E03.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 102 K/s : 38 percent done
+Tue Oct 14 09:40:01 2014
+step  DL  The.Walking.Dead.S01.E05.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 102 K/s : 39 percent done
+Tue Oct 14 09:40:01 2014
+step  DL  The.Walking.Dead.S01.E04.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 91 K/s : 34 percent done
+Tue Oct 14 09:40:01 2014
+step  DL  The.Walking.Dead.S01.E06.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 95 K/s : 35 percent done
+Tue Oct 14 09:40:01 2014
+step  DL  The.Walking.Dead.S01.E02.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 91 K/s : 35 percent done
+Tue Oct 14 09:45:02 2014
+step  DL  The.Walking.Dead.S01.E01.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 98 K/s : 30 percent done
+Tue Oct 14 09:45:02 2014
+step  DL  The.Walking.Dead.S01.E03.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 103 K/s : 47 percent done
+Tue Oct 14 09:45:02 2014
+step  DL  The.Walking.Dead.S01.E05.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 101 K/s : 46 percent done
+Tue Oct 14 09:45:02 2014
+step  DL  The.Walking.Dead.S01.E04.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 91 K/s : 42 percent done
+Tue Oct 14 09:45:02 2014
+step  DL  The.Walking.Dead.S01.E06.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 95 K/s : 43 percent done
+Tue Oct 14 09:45:02 2014
+step  DL  The.Walking.Dead.S01.E02.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 92 K/s : 43 percent done
+Tue Oct 14 09:50:01 2014
+step  DL  The.Walking.Dead.S01.E01.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 98 K/s : 36 percent done
+Tue Oct 14 09:50:01 2014
+step  DL  The.Walking.Dead.S01.E03.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 102 K/s : 55 percent done
+Tue Oct 14 09:50:01 2014
+step  DL  The.Walking.Dead.S01.E05.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 100 K/s : 54 percent done
+Tue Oct 14 09:50:02 2014
+step  DL  The.Walking.Dead.S01.E04.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 91 K/s : 49 percent done
+Tue Oct 14 09:50:02 2014
+step  DL  The.Walking.Dead.S01.E06.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 95 K/s : 51 percent done
+Tue Oct 14 09:50:02 2014
+step  DL  The.Walking.Dead.S01.E02.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 92 K/s : 50 percent done
+Tue Oct 14 09:55:01 2014
+step  DL  The.Walking.Dead.S01.E01.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 98 K/s : 41 percent done
+Tue Oct 14 09:55:01 2014
+step  DL  The.Walking.Dead.S01.E03.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 102 K/s : 63 percent done
+Tue Oct 14 09:55:01 2014
+step  DL  The.Walking.Dead.S01.E05.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 99 K/s : 62 percent done
+Tue Oct 14 09:55:01 2014
+step  DL  The.Walking.Dead.S01.E04.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 90 K/s : 57 percent done
+Tue Oct 14 09:55:01 2014
+step  DL  The.Walking.Dead.S01.E06.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 95 K/s : 59 percent done
+Tue Oct 14 09:55:02 2014
+step  DL  The.Walking.Dead.S01.E02.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 91 K/s : 57 percent done
+Tue Oct 14 10:00:01 2014
+step  DL  The.Walking.Dead.S01.E01.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 96 K/s : 46 percent done
+Tue Oct 14 10:00:01 2014
+step  DL  The.Walking.Dead.S01.E03.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 100 K/s : 70 percent done
+Tue Oct 14 10:00:01 2014
+step  DL  The.Walking.Dead.S01.E05.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 99 K/s : 70 percent done
+Tue Oct 14 10:00:01 2014
+step  DL  The.Walking.Dead.S01.E04.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 92 K/s : 65 percent done
+Tue Oct 14 10:00:01 2014
+step  DL  The.Walking.Dead.S01.E06.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 96 K/s : 67 percent done
+Tue Oct 14 10:00:01 2014
+step  DL  The.Walking.Dead.S01.E02.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 91 K/s : 65 percent done
+Tue Oct 14 10:05:01 2014
+step  DL  The.Walking.Dead.S01.E01.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 96 K/s : 51 percent done
+Tue Oct 14 10:05:01 2014
+step  DL  The.Walking.Dead.S01.E03.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 100 K/s : 78 percent done
+Tue Oct 14 10:05:01 2014
+step  DL  The.Walking.Dead.S01.E05.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 99 K/s : 78 percent done
+Tue Oct 14 10:05:01 2014
+step  DL  The.Walking.Dead.S01.E04.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 92 K/s : 73 percent done
+Tue Oct 14 10:05:01 2014
+step  DL  The.Walking.Dead.S01.E06.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 97 K/s : 76 percent done
+Tue Oct 14 10:05:01 2014
+step  DL  The.Walking.Dead.S01.E02.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 92 K/s : 73 percent done
+Tue Oct 14 10:10:01 2014
+step  DL  The.Walking.Dead.S01.E01.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 97 K/s : 57 percent done
+Tue Oct 14 10:10:01 2014
+step  DL  The.Walking.Dead.S01.E03.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 99 K/s : 86 percent done
+Tue Oct 14 10:10:01 2014
+step  DL  The.Walking.Dead.S01.E05.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 98 K/s : 86 percent done
+Tue Oct 14 10:10:01 2014
+step  DL  The.Walking.Dead.S01.E04.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 93 K/s : 81 percent done
+Tue Oct 14 10:10:01 2014
+step  DL  The.Walking.Dead.S01.E06.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 96 K/s : 83 percent done
+Tue Oct 14 10:10:01 2014
+step  DL  The.Walking.Dead.S01.E02.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 92 K/s : 81 percent done
+Tue Oct 14 10:15:02 2014
+step  DL  The.Walking.Dead.S01.E01.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 95 K/s : 61 percent done
+Tue Oct 14 10:15:02 2014
+step  DL  The.Walking.Dead.S01.E03.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 96 K/s : 91 percent done
+Tue Oct 14 10:15:02 2014
+step  DL  The.Walking.Dead.S01.E05.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 96 K/s : 91 percent done
+Tue Oct 14 10:15:02 2014
+step  DL  The.Walking.Dead.S01.E04.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 91 K/s : 87 percent done
+Tue Oct 14 10:15:02 2014
+step  DL  The.Walking.Dead.S01.E06.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 94 K/s : 89 percent done
+Tue Oct 14 10:15:02 2014
+step  DL  The.Walking.Dead.S01.E02.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 90 K/s : 87 percent done
+Tue Oct 14 10:20:02 2014
+step  DL  The.Walking.Dead.S01.E01.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 93 K/s : 65 percent done
+Tue Oct 14 10:20:02 2014
+step  DL  The.Walking.Dead.S01.E03.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 96 K/s : 99 percent done
+Tue Oct 14 10:20:02 2014
+step  DL  The.Walking.Dead.S01.E05.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 96 K/s : 99 percent done
+Tue Oct 14 10:20:02 2014
+step  DL  The.Walking.Dead.S01.E04.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 91 K/s : 95 percent done
+Tue Oct 14 10:20:02 2014
+step  DL  The.Walking.Dead.S01.E06.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 94 K/s : 97 percent done
+Tue Oct 14 10:20:02 2014
+step  DL  The.Walking.Dead.S01.E02.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 90 K/s : 94 percent done
+Tue Oct 14 10:25:01 2014
+step  DL  The.Walking.Dead.S01.E01.mkv from fac34-5-82-239-138-131.fbx.proxad.net at speed 115 K/s : 86 percent done
