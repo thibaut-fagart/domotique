@@ -3,4 +3,4 @@ mount -o bind /home/data/video/Dessin-annimee /home/ftpuser/step/video/Dessin-an
 mount -o bind /home/data/video/Divers /home/ftpuser/step/video/Divers
 mount -o bind /home/data/video/Film /home/ftpuser/step/video/Film
 mount -o bind /home/data/video/Series /home/ftpuser/step/video/Series
-
+mount -o bind /home/musique /home/ftpuser/step/musique
