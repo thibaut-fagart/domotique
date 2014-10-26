@@ -47,6 +47,7 @@ dht22Rasp           OBJECT IDENTIFIER ::= { dht22 13 }
 cars               OBJECT IDENTIFIER ::= { raspberry 3 }
 edf                OBJECT IDENTIFIER ::= { raspberry 4 }
 fuel               OBJECT IDENTIFIER ::= { raspberry 5 }
+discret            OBJECT IDENTIFIER ::= { raspberry 6 }
 www               OBJECT IDENTIFIER ::= { schugart 2 }
 
 ------------------------------------------------------------------------
@@ -428,6 +429,46 @@ fuelRemaining OBJECT-TYPE
     DESCRIPTION
         "fuel remaining"
     ::= { fuel 3 }
+
+powerVMC OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "VMC power state 0:Off  1:On"
+    ::= { discret 1 }
+
+powerVentilo OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "Ventilo power state 0:Off  1:On"
+    ::= { discret 2 }
+
+contactThermo OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "Thermo contact state 0:Off  1:On"
+    ::= { discret 3 }
+
+logicalSpare1 OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "logical state 0:Off  1:On"
+    ::= { discret 4 }
+
+logicalSpare2 OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "logical state 0:Off  1:On"
+    ::= { discret 5 }
 
 ftpUser1 OBJECT-TYPE
     SYNTAX      Integer32

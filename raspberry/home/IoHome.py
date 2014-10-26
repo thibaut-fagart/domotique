@@ -9,6 +9,18 @@ oidAmpliSdbState     = "1.3.6.1.4.1.43689.1.1.2.0"
 oidAmpliCuisineState = "1.3.6.1.4.1.43689.1.1.3.0"
 oidAmpliChambreState = "1.3.6.1.4.1.43689.1.1.4.0"
 
+pinCuisine = 1
+pinChambre = 3
+pinVentilo = 6
+pinSdb     = 7
+pinVMC     = 8
+
+pinxx1     = 2
+pinxx2     = 4
+pinxx3     = 5
+
+valVMC = 1
+
 def main():
   bus1 = IOPI(0x20)
   bus2 = IOPI(0x21)
@@ -20,7 +32,6 @@ def main():
 
   bus1.writePin(2, 0)
   bus1.writePin(4, 0)
-  bus1.writePin(6, 0)
   bus1.writePin(8, 0)
 
   while(True):
@@ -28,14 +39,18 @@ def main():
     nameCuisine, valCuisine = getSnmp(ipHostSnmp,oidAmpliCuisineState)
     nameSdb,     valSdb     = getSnmp(ipHostSnmp,oidAmpliSdbState)
     nameChambre, valChambre = getSnmp(ipHostSnmp,oidAmpliChambreState)
+    #nameVMC,     valVMC     = getSnmp(ipHostSnmp,oidVMCState)
+    #nameVentilo, valVentilo = getSnmp(ipHostSnmp,oidVentiloState)
 
-    bus1.writePin(1, int(valCuisine))
-    bus1.writePin(3, int(valChambre))
-    bus1.writePin(5, 1)  # vmc
-    bus1.writePin(7, int(valSdb))
+    bus1.writePin(pinCuisine, int(valCuisine))
+    bus1.writePin(pinChambre, int(valChambre))
+    bus1.writePin(pinSdb, int(valChambre))
+    #bus1.writePin(pinSdb, int(valSdb))
+    bus1.writePin(pinVMC, int(valVMC)
+    #bus1.writePin(2, int(valVentilo)
   
     time.sleep(5)
 
 if __name__ == "__main__":
-  time.sleep(30)
+  time.sleep(3)
   main()

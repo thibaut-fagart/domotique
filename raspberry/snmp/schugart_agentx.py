@@ -186,6 +186,21 @@ fuelBurnt = agent.Integer32(
 fuelRemaining = agent.Integer32(
         oidstr   = "SCHUGART-MIB::fuelRemaining",
 )
+powerVMC = agent.Integer32(
+        oidstr   = "SCHUGART-MIB::powerVMC",
+)
+powerVentilo = agent.Integer32(
+        oidstr   = "SCHUGART-MIB::powerVentilo",
+)
+contactThermo = agent.Integer32(
+        oidstr   = "SCHUGART-MIB::contactThermo",
+)
+logicalSpare1 = agent.Integer32(
+        oidstr   = "SCHUGART-MIB::logicalSpare1",
+)
+logicalSpare2 = agent.Integer32(
+        oidstr   = "SCHUGART-MIB::logicalSpare2",
+)
 ftpUser1 = agent.Integer32(
         oidstr   = "SCHUGART-MIB::ftpUser1",
 )
