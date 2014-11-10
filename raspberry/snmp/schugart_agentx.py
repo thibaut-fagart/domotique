@@ -201,6 +201,9 @@ logicalSpare1 = agent.Integer32(
 logicalSpare2 = agent.Integer32(
         oidstr   = "SCHUGART-MIB::logicalSpare2",
 )
+discretState = agent.Integer32(
+        oidstr   = "SCHUGART-MIB::discretState",
+)
 ftpUser1 = agent.Integer32(
         oidstr   = "SCHUGART-MIB::ftpUser1",
 )

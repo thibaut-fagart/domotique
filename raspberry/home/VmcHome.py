@@ -1,58 +1,42 @@
 #!/usr/bin/python 
 import time,sys
-import RPi.GPIO as GPIO
 from getsnmp import getSnmp
+from setsnmp import setSnmp
 
-VentiloSdbPin     = 23
-VentiloCouloirPin = 24
-FreqPWM = 25        
-
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(VentiloSdbPin, GPIO.OUT)
-GPIO.setup(VentiloCouloirPin, GPIO.OUT)
-
-VentiloSdbPWM = GPIO.PWM(VentiloSdbPin, FreqPWM)  
-VentiloCouloirPWM = GPIO.PWM(VentiloCouloirPin, FreqPWM)  
-
-VentiloSdbPWM.start(50)
-VentiloCouloirPWM.start(50)
-
-ValPWM = 0
-
-try:
-  while 1: 
-    ValPWM = ValPWM + 5
-    VentiloSdbPWM.ChangeDutyCycle(ValPWM)
-    VentiloCouloirPWM.ChangeDutyCycle(ValPWM)
-    print 'PWM speed : %i'%ValPWM
-    if ValPWM > 95:
-      ValPWM = 0
-    time.sleep(5)
-except KeyboardInterrupt:
-    pass
-
-VentiloSdbPWM.stop()
-VentiloCouloirPWM.stop()
-GPIO.cleanup()
+ipHostSnmp           = "192.168.0.110"
+oidVmcPowerState     = "1.3.6.1.4.1.43689.1.6.1.0"
+oidVentiloPowerState = "1.3.6.1.4.1.43689.1.6.2.0"
+oidDht22ExtTemp      = "1.3.6.1.4.1.43689.1.2.1.1.0"
+oidDht22ExtHum       = "1.3.6.1.4.1.43689.1.2.1.2.0"
+oidDht22SalonHum     = "1.3.6.1.4.1.43689.1.2.4.2.0"
+oidDht22SdbHum       = "1.3.6.1.4.1.43689.1.2.3.2.0"
 
 
-ipHostSnmp      = "192.168.0.110"
-oidAmpliSalonState   = "1.3.6.1.4.1.43689.1.1.1.0"
-oidAmpliSdbState     = "1.3.6.1.4.1.43689.1.1.2.0"
-oidAmpliCuisineState = "1.3.6.1.4.1.43689.1.1.3.0"
-oidAmpliChambreState = "1.3.6.1.4.1.43689.1.1.4.0"
+def logic_VMC():
+  tempExtEte = 180
 
-def main():
-  while(True):
-    #nameSalon,   valSalon   = getSnmp(ipHostSnmp,oidAmpliSalonState)
-    #nameCuisine, valCuisine = getSnmp(ipHostSnmp,oidAmpliCuisineState)
-    #nameSdb,     valSdb     = getSnmp(ipHostSnmp,oidAmpliSdbState)
-    #nameChambre, valChambre = getSnmp(ipHostSnmp,oidAmpliChambreState)
-    #nameVMC,     valVMC     = getSnmp(ipHostSnmp,oidVMCState)
-    #nameVentilo, valVentilo = getSnmp(ipHostSnmp,oidVentiloState)
+  nameTempExt,  valTempExt  = getSnmp(ipHostSnmp,oidDht22ExtTemp)
+  nameHumExt,   valHumExt   = getSnmp(ipHostSnmp,oidDht22ExtHum)
+  nameHumSalon, valHumSalon = getSnmp(ipHostSnmp,oidDht22SalonHum)
+  nameHumSdb,   valHumSdb   = getSnmp(ipHostSnmp,oidDht22SdbHum)
 
-    time.sleep(5)
+  valTempExt = int(valTempExt)
+  valHumExt = int(valHumExt)
+  valHumSalon = int(valHumSalon)
+  valHumSdb = int(valHumSdb)
+
+  valHumMed = max(valHumSalon,valHumExt)
+
+  if (valTempExt > tempExtEte + 5.):
+    setSnmp(ipHostSnmp,oidVmcPowerState,1)
+    setSnmp(ipHostSnmp,oidVentiloPowerState,0)
+  else:
+    if (valHumSdb > valHumMed + 200.):
+      setSnmp(ipHostSnmp,oidVmcPowerState,1)
+      setSnmp(ipHostSnmp,oidVentiloPowerState,0)
+    if ((valHumSdb < valHumMed + 100.) and (valTempExt < tempExtEte - 5.)):
+      setSnmp(ipHostSnmp,oidVmcPowerState,0)
+      setSnmp(ipHostSnmp,oidVentiloPowerState,1)
 
 if __name__ == "__main__":
-  time.sleep(3)
-  main()
+  logic_VMC()

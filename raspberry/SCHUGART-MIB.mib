@@ -470,6 +470,14 @@ logicalSpare2 OBJECT-TYPE
         "logical state 0:Off  1:On"
     ::= { discret 5 }
 
+discretState OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+        "logical state bit status"
+    ::= { discret 6 }
+
 ftpUser1 OBJECT-TYPE
     SYNTAX      Integer32
     MAX-ACCESS  read-write

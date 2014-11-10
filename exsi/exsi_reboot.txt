@@ -8,3 +8,18 @@ Sun Oct 12 18:50:29 2014
 ssh down, trying to reboot www vm
 vm-www
 POWERED ON
+Tue Oct 28 23:51:16 2014
+----------------------------
+ssh down, trying to reboot www vm
+vm-www
+POWERED ON
+Wed Oct 29 14:11:16 2014
+----------------------------
+ssh down, trying to reboot www vm
+vm-www
+POWERED ON
+Thu Nov  6 15:51:17 2014
+----------------------------
+ssh down, trying to reboot www vm
+vm-www
+POWERED ON
