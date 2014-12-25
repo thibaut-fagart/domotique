@@ -51,7 +51,40 @@ oidDht22RaspTemp      = "1.3.6.1.4.1.43689.1.2.13.1.0"
 oidDht22RaspHum       = "1.3.6.1.4.1.43689.1.2.13.2.0"
 ipHostSnmp            = "192.168.0.199"
 
-if __name__ == "__main__":
+
+
+class SenseurDHT :
+  label
+  oidTemp
+  oidHum
+  pin
+  valTemp
+  valHum
+  def __init__(self, aLabel, anOidTemp, andOidHum, aPinBCM):
+	# Validate pin is a valid GPIO.
+	if self.pin is None or int(pin) < 0 or int(pin) > 31:
+                raise ValueError('Pin must be a valid GPIO number 0 to 31.')
+    self.label =  aLabel
+	self.oidTemp = anOidTemp
+	self.oidHum = andOidHum
+    self.pin = aPinBCM
+  def fetchValues()
+        # Get a reading from C driver code.
+        result, humidity, temp = driver.read(sensor, int(pin))
+        if result in TRANSIENT_ERRORS:
+                # Signal no result could be obtained, but the caller can retry.
+                return (None, None)
+        elif result == DHT_ERROR_GPIO:
+                raise RuntimeError('Error accessing GPIO. Make sure program is run as root with sudo!')
+        elif result != DHT_SUCCESS:
+                # Some kind of error occured.
+                raise RuntimeError('Error calling DHT test driver read: {0}'.format(result))
+        self.valTemp = temp
+		self.valHum = humidity
+    
+ext = SenseurDHT('ext',oidDht22ExtTemp, oidDht22ExtHum, pinExt[0])
+
+def oldMain():
   try:
     readDHTSnmp(ipHostSnmp,oidDht22ExtTemp,oidDht22ExtHum,pinExt)
   except:
@@ -82,3 +115,8 @@ if __name__ == "__main__":
   except:
     print "fail"
 
+
+
+if __name__ == "__main__":
+  ext.fetchValues()
+  print("hium : %s , temp: %s " % (ext.valHum,ext.valTemp))
