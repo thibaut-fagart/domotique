@@ -22,7 +22,7 @@ gpioTagPrise3   = [ 'Ext']
 pinExt       = [gpioBCMPrise3[0], gpioTagPrise3[0]]
 pinThermoOld = [gpioBCMPrise1[3], gpioTagPrise1[3]]
 pinThermoNew = [gpioBCMPrise1[2], gpioTagPrise1[2]]
-pinSdb       = [gpioBCMPrise1[4], gpioTagPrise1[4]]
+pinSdbNew    = [gpioBCMPrise1[4], gpioTagPrise1[4]]
 pinCuisine   = [gpioBCMPrise2[2], gpioTagPrise2[2]]
 pinRasp      = [gpioBCMPrise2[1], gpioTagPrise2[1]]
 
@@ -49,8 +49,6 @@ oidDht22SdbNewTemp    = "1.3.6.1.4.1.43689.1.2.12.1.0"
 oidDht22SdbNewHum     = "1.3.6.1.4.1.43689.1.2.12.2.0"
 oidDht22RaspTemp      = "1.3.6.1.4.1.43689.1.2.13.1.0"
 oidDht22RaspHum       = "1.3.6.1.4.1.43689.1.2.13.2.0"
-oidDht22SdbTemp       = "1.3.6.1.4.1.43689.1.2.3.1.0"
-oidDht22SdbHum        = "1.3.6.1.4.1.43689.1.2.3.2.0"
 ipHostSnmp            = "192.168.0.199"
 
 if __name__ == "__main__":
@@ -60,7 +58,7 @@ if __name__ == "__main__":
     print "fail"
 
   try:
-    readDHTSnmp(ipHostSnmp,oidDht22SdbTemp,oidDht22SdbHum,pinSdb)
+    readDHTSnmp(ipHostSnmp,oidDht22SdbNewTemp,oidDht22SdbNewHum,pinSdbNew)
   except:
     print "fail"
 
