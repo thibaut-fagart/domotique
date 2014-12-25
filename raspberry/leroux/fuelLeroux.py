@@ -5,6 +5,8 @@ import sys,time
 import RPi.GPIO as GPIO
 from setsnmp import setSnmp
 
+RaspberryPath = "/home/prog/raspberry"
+
 gpioBCMPrise2   = [ 23, 24]
 gpioHeadPrise2  = [ 16, 18]
 
@@ -23,7 +25,7 @@ for pin in gpioBCMPrise2:
 
 
 if __name__ == "__main__":
-  fuelFileData = "/home/dimi/prog/raspberry/leroux/fuelFileData.log"
+  fuelFileData = RaspberryPath + "/leroux/fuelFileData.log"
   time.sleep(20)
   fileReadWrite = open(fuelFileData,'r')
   fuelData = fileReadWrite.read().split()

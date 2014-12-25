@@ -5,6 +5,8 @@ import sys,time
 import RPi.GPIO as GPIO
 from readDht import readDht
 
+RaspberryPath = "/home/prog/raspberry"
+
 gpioBCMPrise1   = [ 4]
 gpioHeadPrise1  = [ 7]
 gpioBCMPrise2   = [17]
@@ -48,7 +50,7 @@ oidDht22RaspHum       = "1.3.6.1.4.1.43689.1.2.13.2.0"
 ipHostSnmp            = "192.168.0.110"
 
 def printlog(datelog,text):
-  fileToBeWriten = "/home/dimi/prog/raspberry/home/homeDhtLog.log"
+  fileToBeWriten = RaspberryPath + "/home/homeDhtLog.log"
   fichierWrite = open(fileToBeWriten,'a')
   fichierWrite.write(datelog)
   fichierWrite.write(text)

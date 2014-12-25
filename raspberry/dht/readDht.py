@@ -5,8 +5,10 @@ import sys,time
 import Adafruit_DHT
 from setsnmp import setSnmp
 
+RaspberryPath = "/home/prog/raspberry"
+
 def printlog(datelog,text):
-  fileToBeWriten = "/home/dimi/prog/raspberry/dht/readDhtLog.log"
+  fileToBeWriten = RaspberryPath + "/dht/LogReadDht.log"
   fichierWrite = open(fileToBeWriten,'a')
   fichierWrite.write(datelog)
   fichierWrite.write(text)

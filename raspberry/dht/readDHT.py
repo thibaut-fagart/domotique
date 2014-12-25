@@ -5,6 +5,8 @@ import time
 import Raspberry_Pi_Driver as driver
 from setsnmp import setSnmp
 
+RaspberryPath = "/home/prog/raspberry"
+
 # Define error constants.
 DHT_SUCCESS        =  0
 DHT_ERROR_TIMEOUT  = -1
@@ -15,7 +17,7 @@ TRANSIENT_ERRORS = [DHT_ERROR_CHECKSUM, DHT_ERROR_TIMEOUT]
 
 
 def printlog(datelog,text):
-  fileToBeWriten = "/home/dimi/prog/raspberry/dht/readDhtLog.log"
+  fileToBeWriten = RaspberryPath + "/dht/LogReadDht.log"
   fichierWrite = open(fileToBeWriten,'a')
   fichierWrite.write(datelog)
   fichierWrite.write(text)
