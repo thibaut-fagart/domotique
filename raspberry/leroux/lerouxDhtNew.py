@@ -3,21 +3,16 @@
 
 import sys,time
 import RPi.GPIO as GPIO
-from readDHT import readDHTSnmp
+import Raspberry_Pi_Driver as driver
+from pysnmp.entity.rfc3413.oneliner import cmdgen
+from pysnmp.proto import rfc1902
+from readDHT import readDHT
 
 gpioBCMPrise1   = [ 27, 22, 10,  9, 11]
-gpioHeadPrise1  = [ 13, 15, 19, 21, 23]
-gpioTagPrise1   = [ 'Prise1-0', 'Prise1-1', 'ThermoNew', 'ThermoOld', 'Sdb']
 gpioBCMPrise2   = [ 24, 25,  8,  7]
-gpioHeadPrise2  = [ 18, 22, 24, 26]
-gpioTagPrise2   = [ 'Prise2-0', 'Rasp', 'Cuisine', 'Prise2-3']
 gpioBCMPrise3   = [ 23]
-gpioHeadPrise3  = [ 16]
-gpioTagPrise3   = [ 'Ext']
 #gpioBCMPrise4   = [ 14, 15, 18]
-#gpioHeadPrise4  = [  8, 10, 12]
 #gpioListBCMWhite    = [  4, 17]
-#gpioListHeadWhite   = [  7, 11]
 
 pinExt       = [gpioBCMPrise3[0], gpioTagPrise3[0]]
 pinThermoOld = [gpioBCMPrise1[3], gpioTagPrise1[3]]
@@ -35,8 +30,10 @@ for pin in gpioBCMPrise2:
 for pin in gpioBCMPrise3:
   GPIO.setup(pin, GPIO.IN)
 
-oidDht22ExtTemp       = "1.3.6.1.4.1.43689.1.2.1.1.0"
-oidDht22ExtHum        = "1.3.6.1.4.1.43689.1.2.1.2.0"
+#oidDht22ExtTemp       = "1.3.6.1.4.1.43689.1.2.1.1.0"
+oidDht22ExtTemp       = "1.3.6.1.4.1.43689.1.2.4.1.0"
+#oidDht22ExtHum        = "1.3.6.1.4.1.43689.1.2.1.2.0"
+oidDht22ExtHum        = "1.3.6.1.4.1.43689.1.2.4.2.0"
 oidDht22CuisineTemp   = "1.3.6.1.4.1.43689.1.2.2.1.0"
 oidDht22CuisineHum    = "1.3.6.1.4.1.43689.1.2.2.2.0"
 oidDht22ThermoOldTemp = "1.3.6.1.4.1.43689.1.2.9.1.0"
@@ -52,71 +49,58 @@ oidDht22RaspHum       = "1.3.6.1.4.1.43689.1.2.13.2.0"
 ipHostSnmp            = "192.168.0.199"
 
 
-
 class SenseurDHT :
-  label
-  oidTemp
-  oidHum
-  pin
-  valTemp
-  valHum
   def __init__(self, aLabel, anOidTemp, andOidHum, aPinBCM):
-	# Validate pin is a valid GPIO.
-	if self.pin is None or int(pin) < 0 or int(pin) > 31:
-                raise ValueError('Pin must be a valid GPIO number 0 to 31.')
     self.label =  aLabel
-	self.oidTemp = anOidTemp
-	self.oidHum = andOidHum
+    self.oidTemp = anOidTemp
+    self.oidHum = andOidHum
     self.pin = aPinBCM
-  def fetchValues()
-        # Get a reading from C driver code.
-        result, humidity, temp = driver.read(sensor, int(pin))
-        if result in TRANSIENT_ERRORS:
-                # Signal no result could be obtained, but the caller can retry.
-                return (None, None)
-        elif result == DHT_ERROR_GPIO:
-                raise RuntimeError('Error accessing GPIO. Make sure program is run as root with sudo!')
-        elif result != DHT_SUCCESS:
-                # Some kind of error occured.
-                raise RuntimeError('Error calling DHT test driver read: {0}'.format(result))
-        self.valTemp = temp
-		self.valHum = humidity
-    
-ext = SenseurDHT('ext',oidDht22ExtTemp, oidDht22ExtHum, pinExt[0])
-
-def oldMain():
-  try:
-    readDHTSnmp(ipHostSnmp,oidDht22ExtTemp,oidDht22ExtHum,pinExt)
-  except:
-    print "fail"
-
-  try:
-    readDHTSnmp(ipHostSnmp,oidDht22SdbNewTemp,oidDht22SdbNewHum,pinSdbNew)
-  except:
-    print "fail"
-
-  try:
-    readDHTSnmp(ipHostSnmp,oidDht22ThermoOldTemp,oidDht22ThermoOldHum,pinThermoOld)
-  except:
-    print "fail"
-
-  try:
-    readDHTSnmp(ipHostSnmp,oidDht22ThermoNewTemp,oidDht22ThermoNewHum,pinThermoNew)
-  except:
-    print "fail"
-
-  try:
-    readDHTSnmp(ipHostSnmp,oidDht22CuisineTemp,oidDht22CuisineHum,pinCuisine)
-  except:
-    print "fail"
-
-  try:
-    readDHTSnmp(ipHostSnmp,oidDht22RaspTemp,oidDht22RaspHum,pinRasp)
-  except:
-    print "fail"
-
+  def fetchValues(self):
+    self.valHum , self.valTemp = readDHT(self.pin)
+  def toSnmpSetTemp(self):
+    return (self.oidTemp, rfc1902.Integer(self.valTemp*10))
+  def toSnmpSetHum(self):
+    return (self.oidHum, rfc1902.Integer(self.valHum*10))
 
 
 if __name__ == "__main__":
-  ext.fetchValues()
-  print("hium : %s , temp: %s " % (ext.valHum,ext.valTemp))
+  allSenseurs = [ 
+    SenseurDHT('Ext'      ,oidDht22ExtTemp    , oidDht22ExtHum    , pinExt[0]),
+    SenseurDHT('Cuisine'  ,oidDht22CuisineTemp, oidDht22CuisineHum, pinCuisine[0]),
+    SenseurDHT('ThermoOld',oidDht22ThermoOldTemp, oidDht22ThermoOldHum, pinThermoOld[0]),
+    SenseurDHT('ThermoNew',oidDht22ThermoNewCuisineTemp, oidDht22ThermoNewCuisineHum, pinThermoNewCuisine[0]),
+    SenseurDHT('SdbNew'   ,oidDht22SdbNewCuisineTemp, oidDht22SdbNewCuisineHum, pinSdbNewCuisine[0]),
+    SenseurDHT('Rasp'     ,oidDht22CuisineTemp, oidDht22CuisineHum, pinCuisine[0]),
+    #SenseurDHT('SdbNew'   ,oidDht22CuisineTemp, oidDht22CuisineHum, pinCuisine[0]),
+  ]
+  dic = {} 
+  for senseur in allSenseurs :
+    senseur.fetchValues()
+    dic[senseur.label] = senseur
+    print(" %s , hum %s , temp: %s " % (senseur.label, senseur.valHum,senseur.valTemp))
+
+  cmdGen = cmdgen.CommandGenerator()
+
+  errorIndication, errorStatus, errorIndex, varBinds = cmdGen.setCmd(
+    cmdgen.CommunityData('private', mpModel=0),
+    cmdgen.UdpTransportTarget((ipHostSnmp, 161)),
+    dic['ext'].toSnmpSetHum(),
+    dic['ext'].toSnmpSetTemp()
+    dic['ext'].toSnmpSetHum(),
+    dic['ext'].toSnmpSetTemp()
+    dic['ext'].toSnmpSetHum(),
+    dic['ext'].toSnmpSetTemp()
+    dic['ext'].toSnmpSetHum(),
+    dic['ext'].toSnmpSetTemp()
+  )
+  # Check for errors and print out results
+  if errorIndication:
+      print(errorIndication)
+  else:
+      if errorStatus:
+          print('%s at %s' % (
+              errorStatus.prettyPrint(),
+              errorIndex and varBinds[int(errorIndex)-1] or '?'
+               )
+          )
+
