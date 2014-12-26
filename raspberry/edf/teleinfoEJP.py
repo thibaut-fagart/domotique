@@ -4,21 +4,60 @@
 import serial
 from setsnmp import setSnmp
 from getsnmp import getSnmp
+from pysnmp.proto import rfc1902
 
-oidEdfAdco    = "1.3.6.1.4.1.43689.1.4.1.0"
-oidEdfOptarif = "1.3.6.1.4.1.43689.1.4.2.0"
-oidEdfIsousc  = "1.3.6.1.4.1.43689.1.4.3.0"
-oidEdfEjphn   = "1.3.6.1.4.1.43689.1.4.9.0"
-oidEdfEjphpm  = "1.3.6.1.4.1.43689.1.4.10.0"
-oidEdfPtec    = "1.3.6.1.4.1.43689.1.4.5.0"
-oidEdfIinst1  = "1.3.6.1.4.1.43689.1.4.11.0"
-oidEdfIinst2  = "1.3.6.1.4.1.43689.1.4.12.0"
-oidEdfIinst3  = "1.3.6.1.4.1.43689.1.4.13.0"
-oidEdfImax1   = "1.3.6.1.4.1.43689.1.4.14.0"
-oidEdfImax2   = "1.3.6.1.4.1.43689.1.4.15.0"
-oidEdfImax3   = "1.3.6.1.4.1.43689.1.4.16.0"
-oidEdfPmax    = "1.3.6.1.4.1.43689.1.4.17.0"
-oidEdfPapp    = "1.3.6.1.4.1.43689.1.4.8.0"
+class Edf:
+    oidEdfAdco    = "1.3.6.1.4.1.43689.1.4.1.0"
+    oidEdfOptarif = "1.3.6.1.4.1.43689.1.4.2.0"
+    oidEdfIsousc  = "1.3.6.1.4.1.43689.1.4.3.0"
+    oidEdfEjphn   = "1.3.6.1.4.1.43689.1.4.9.0"
+    oidEdfEjphpm  = "1.3.6.1.4.1.43689.1.4.10.0"
+    oidEdfPtec    = "1.3.6.1.4.1.43689.1.4.5.0"
+    oidEdfIinst1  = "1.3.6.1.4.1.43689.1.4.11.0"
+    oidEdfIinst2  = "1.3.6.1.4.1.43689.1.4.12.0"
+    oidEdfIinst3  = "1.3.6.1.4.1.43689.1.4.13.0"
+    oidEdfImax1   = "1.3.6.1.4.1.43689.1.4.14.0"
+    oidEdfImax2   = "1.3.6.1.4.1.43689.1.4.15.0"
+    oidEdfImax3   = "1.3.6.1.4.1.43689.1.4.16.0"
+    oidEdfPmax    = "1.3.6.1.4.1.43689.1.4.17.0"
+    oidEdfPapp    = "1.3.6.1.4.1.43689.1.4.8.0"
+    
+    def __init__(self):
+      self.Isousc =None
+      self.Ejphn  =None
+      self.Ejphpm =None
+      self.Ptec   =None
+      self.Iinst1 =None
+      self.Iinst2 =None
+      self.Iinst3 =None
+      self.Imax1  =None
+      self.Imax2  =None
+      self.Imax3  =None
+      self.Pmax   =None
+      self.Papp   =None
+
+    def toSnmpIsousc(self):
+        return (self.oidEdfIsousc, rfc1902.Integer(self.Isousc))
+
+    def toSnmpEjpHpm(self):
+        return (self.oidEdfEjphpm, rfc1902.Integer(self.Ejphpm))
+
+    def toSnmpEjpHn(self):
+        return (self.oidEdfEjphn, rfc1902.Integer(self.Ejphn))
+
+    def toSnmpIInst1(self):
+        return (self.oidEdfIinst1, rfc1902.Integer(self.Iinst1))
+
+    def toSnmpIInst2(self):
+        return (self.oidEdfIinst2, rfc1902.Integer(self.Iinst2))
+
+    def toSnmpIInst3(self):
+        return (self.oidEdfIinst3, rfc1902.Integer(self.Iinst3))
+
+    def toSnmpPApp(self):
+        return (self.oidEdfPapp, rfc1902.Integer(self.Papp))
+
+
 ipHostSnmp    = "192.168.0.199"
 
 ser = serial.Serial(
@@ -55,6 +94,7 @@ def LireTeleinfo ():
                         trame.split(" ")
                         for trame in message.strip("\r\n\x03").split("\r\n")
                         ]
+                print trames
                         
                 tramesValides = dict([
                         [trame[0],trame[1]]
@@ -68,30 +108,31 @@ def teleinfoEJP():
   ser.flushInput()
   tramesOk = LireTeleinfo()
   #print tramesOk
+  edf = Edf()
   for etiquette in tramesOk:
 	  #if etiquette ==  'ADCO':
                   #result = setSnmp(ipHostSnmp,oidEdfAdco,int(tramesOk[etiquette]))
 	  #if etiquette ==  'OPTARIF':
                   #result = setSnmp(ipHostSnmp,oidEdfOptarif,int(tramesOk[etiquette]))
 	  if etiquette ==  'ISOUSC':
-        	  result = setSnmp(ipHostSnmp,oidEdfIsousc,int(tramesOk[etiquette]))
+        	  edf.Isousc = int (tramesOk[etiquette])
                   #print 'ISOUSC ',tramesOk[etiquette]
 	  if etiquette ==  'EJPHN':
-        	  result = setSnmp(ipHostSnmp,oidEdfEjphn,int(tramesOk[etiquette]))
+        	  edf.Ejphn = int (tramesOk[etiquette])
                   #print 'EJPHN ',tramesOk[etiquette]
 	  if etiquette ==  'EJPHPM':
-        	  result = setSnmp(ipHostSnmp,oidEdfEjphpm,int(tramesOk[etiquette]))
+        	  edf.Ejphpm = int (tramesOk[etiquette])
                   #print 'EJPHPM ',tramesOk[etiquette]
 	  #if etiquette ==  'PTEC':
         	  #result = setSnmp(ipHostSnmp,oidEdfPtec,int(tramesOk[etiquette]))
     	  if etiquette == 'IINST1':
-        	  result = setSnmp(ipHostSnmp,oidEdfIinst1,int(tramesOk[etiquette]))
+        	  edf.Iinst1 = int(tramesOk[etiquette])
                   #print 'IINST1 ',tramesOk[etiquette]
     	  if etiquette == 'IINST2':
-        	  result = setSnmp(ipHostSnmp,oidEdfIinst2,int(tramesOk[etiquette]))
+        	  edf.Iinst2 = int(tramesOk[etiquette])
                   #print 'IINST2 ',tramesOk[etiquette]
     	  if etiquette == 'IINST3':
-        	  result = setSnmp(ipHostSnmp,oidEdfIinst3,int(tramesOk[etiquette]))
+        	  edf.Iinst3 = int(tramesOk[etiquette])
                   #print 'IINST3 ',tramesOk[etiquette]
 	  #if etiquette ==  'IMAX1':
         	  #result = setSnmp(ipHostSnmp,oidEdfImax1,int(tramesOk[etiquette]))
@@ -102,9 +143,10 @@ def teleinfoEJP():
 	  #if etiquette ==  'PMAX':
         	  #result = setSnmp(ipHostSnmp,oidEdfPmax,int(tramesOk[etiquette]))
 	  if etiquette ==  'PAPP':
+        	  edf.Papp = int(tramesOk[etiquette])
                   #print 'PAPP ',tramesOk[etiquette]
-        	  result = setSnmp(ipHostSnmp,oidEdfPapp,int(tramesOk[etiquette]))
   ser.close()
+  return edf
 
 
 if __name__ == "__main__":
