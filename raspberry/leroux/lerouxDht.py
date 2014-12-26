@@ -3,10 +3,9 @@
 
 import sys,time
 import RPi.GPIO as GPIO
-import Raspberry_Pi_Driver as driver
 from pysnmp.entity.rfc3413.oneliner import cmdgen
 from pysnmp.proto import rfc1902
-from readDHT import readDHT
+from readDHT import SenseurDHT
 from teleinfoEJP import Edf as Edf
 from teleinfoEJP import teleinfoEJP as teleinfoEJP
 
@@ -27,19 +26,6 @@ for pin in gpioBCMPrise3:
   GPIO.setup(pin, GPIO.IN)
 
 ipHostSnmp            = "192.168.0.199"
-
-class SenseurDHT :
-  def __init__(self, aLabel, anOidTemp, andOidHum, aPinBCM):
-    self.label =  aLabel
-    self.oidTemp = anOidTemp
-    self.oidHum = andOidHum
-    self.pin = aPinBCM
-  def getDhtValues(self):
-    self.hum , self.temp = readDHT(self.pin)
-  def toSnmpSetTemp(self):
-    return (self.oidTemp, rfc1902.Integer(self.temp*10))
-  def toSnmpSetHum(self):
-    return (self.oidHum, rfc1902.Integer(self.hum*10))
 
 class Fuel :
   def __init__(self):
