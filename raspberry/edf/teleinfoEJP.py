@@ -3,6 +3,26 @@
 
 import serial
 from pysnmp.proto import rfc1902
+from edf.teleinfo import oidEdfIsousc, oidEdfIinst
+
+
+class Etiquette:
+    def __init__(self, oid):
+        self.value = None
+        self.oid = oid
+
+
+class EtiquetteInt (Etiquette) :
+    def fromTrame(self, str):
+        self.value = int(str)
+    def toSnmp(self):
+        return (self.oid, rfc1902.Integer(self.value))
+
+class EtiquetteStr (Etiquette) :
+    def fromTrame(self, str):
+        self.value = str
+    def toSnmp(self):
+        return (self.oid, rfc1902.Integer(self.value))
 
 class Edf:
     oidEdfAdco    = "1.3.6.1.4.1.43689.1.4.1.0"
@@ -21,40 +41,14 @@ class Edf:
     oidEdfPapp    = "1.3.6.1.4.1.43689.1.4.8.0"
 
     def __init__(self):
-        self.Isousc = None
-        self.Ejphn  = None
-        self.Ejphpm = None
-        self.Ptec   = None
-        self.Iinst1 = None
-        self.Iinst2 = None
-        self.Iinst3 = None
-        self.Imax1  = None
-        self.Imax2  = None
-        self.Imax3  = None
-        self.Pmax   = None
-        self.Papp   = None
-
-    def toSnmpIsousc(self):
-        return (self.oidEdfIsousc, rfc1902.Integer(self.Isousc))
-
-    def toSnmpEjpHpm(self):
-        return (self.oidEdfEjphpm, rfc1902.Integer(self.Ejphpm))
-
-    def toSnmpEjpHn(self):
-        return (self.oidEdfEjphn, rfc1902.Integer(self.Ejphn))
-
-    def toSnmpIInst1(self):
-        return (self.oidEdfIinst1, rfc1902.Integer(self.Iinst1))
-
-    def toSnmpIInst2(self):
-        return (self.oidEdfIinst2, rfc1902.Integer(self.Iinst2))
-
-    def toSnmpIInst3(self):
-        return (self.oidEdfIinst3, rfc1902.Integer(self.Iinst3))
-
-    def toSnmpPApp(self):
-        return (self.oidEdfPapp, rfc1902.Integer(self.Papp))
-
+        self.etiquettes = {}
+        self.etiquettes['ISOUSC'] = Etiquette(Edf.oidEdfIsousc)
+        self.etiquettes['IINST1'] = Etiquette(Edf.oidEdfIinst1)
+        self.etiquettes['IINST2'] = Etiquette(Edf.oidEdfIinst2)
+        self.etiquettes['IINST3'] = Etiquette(Edf.oidEdfIinst3)
+        self.etiquettes['PAPP'] = Etiquette(Edf.oidEdfPapp)
+        self.etiquettes['EJPHN'] = Etiquette(Edf.oidEdfIsousc)
+        self.etiquettes['EJPHPM'] = Etiquette(Edf.oidEdfIsousc)
 
 ser = serial.Serial(
     port='/dev/ttyAMA0',
@@ -107,41 +101,11 @@ def teleinfoEJP():
     # print tramesOk
     edf = Edf()
     for etiquette in tramesOk:
-        #if etiquette ==  'ADCO':
-        #  edf.Adco = int(tramesOk[etiquette])
-        #if etiquette ==  'OPTARIF':
-        #  edf.Optarif = int(tramesOk[etiquette])
-        if etiquette == 'ISOUSC':
-            edf.Isousc = int(tramesOk[etiquette])
-            #print 'ISOUSC ',tramesOk[etiquette]
-        if etiquette == 'EJPHN':
-            edf.Ejphn = int(tramesOk[etiquette])
-            #print 'EJPHN ',tramesOk[etiquette]
-        if etiquette == 'EJPHPM':
-            edf.Ejphpm = int(tramesOk[etiquette])
-            #print 'EJPHPM ',tramesOk[etiquette]
-        #if etiquette ==  'PTEC':
-            #edf.Ptec = int(tramesOk[etiquette])
-        if etiquette == 'IINST1':
-            edf.Iinst1 = int(tramesOk[etiquette])
-            #print 'IINST1 ',tramesOk[etiquette]
-        if etiquette == 'IINST2':
-            edf.Iinst2 = int(tramesOk[etiquette])
-            #print 'IINST2 ',tramesOk[etiquette]
-        if etiquette == 'IINST3':
-            edf.Iinst3 = int(tramesOk[etiquette])
-            #print 'IINST3 ',tramesOk[etiquette]
-        #if etiquette ==  'IMAX1':
-            #  edf.Imax1 = int(tramesOk[etiquette])
-        #if etiquette ==  'IMAX2':
-            #edf.Imax2 = int(tramesOk[etiquette])
-        #if etiquette ==  'IMAX3':
-            #edf.Imax3 = int(tramesOk[etiquette])
-        #if etiquette ==  'PMAX':
-            #edf.Pmax = int(tramesOk[etiquette])
-        if etiquette == 'PAPP':
-            edf.Papp = int(tramesOk[etiquette])
-            #print 'PAPP ',tramesOk[etiquette]
+        print "etiquette" % etiquette
+        if edf.etiquettes[etiquette]:
+            edf.etiquettes[etiquette].value= int(tramesOk[etiquette])
+        else:
+            print "etiquette non supportee"
     ser.close()
     return edf
 
