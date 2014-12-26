@@ -3,6 +3,7 @@
 
 import time
 import Raspberry_Pi_Driver as driver
+from pysnmp.proto import rfc1902
 
 RaspberryPath = "/home/prog/raspberry"
 

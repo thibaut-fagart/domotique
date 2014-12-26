@@ -90,7 +90,7 @@ def LireTeleinfo():
         trame.split(" ")
         for trame in message.strip("\r\n\x03").split("\r\n")
     ]
-    print trames
+    #print trames
 
     tramesValides = dict([
         [trame[0], trame[1]]
