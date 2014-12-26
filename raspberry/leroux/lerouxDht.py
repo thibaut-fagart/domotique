@@ -88,13 +88,13 @@ if __name__ == "__main__":
     fuel.toSnmpBurningTime(),
     fuel.toSnmpFuelBurnt(),
     fuel.toSnmpFuelRemaining(),
-    edf.toSnmpEjpHn(),
-    edf.toSnmpEjpHpm(),
-    edf.toSnmpIInst1(),
-    edf.toSnmpIInst2(),
-    edf.toSnmpIInst3(),
-    edf.toSnmpIsousc(),
-    edf.toSnmpPApp()
+    edf.etiquettes['EJPHN'].toSnmp(),
+    edf.etiquettes['EJPHPM'].toSnmp(),
+    edf.etiquettes['IINST1'].toSnmp(),
+    edf.etiquettes['IINST2'].toSnmp(),
+    edf.etiquettes['IINST3'].toSnmp(),
+    edf.etiquettes['ISOUSC'].toSnmp(),
+    edf.etiquettes['PAPP'].toSnmp(),
   )
   # Check for errors and print out results
   if errorIndication:
