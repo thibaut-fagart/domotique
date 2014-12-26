@@ -8,7 +8,6 @@ from pysnmp.entity.rfc3413.oneliner import cmdgen
 from pysnmp.proto import rfc1902
 from readDHT import readDHT
 import serial
-from teleinfoEJP import Edf
 
 RaspberryPath = "/home/prog/raspberry"
 gpioBCMPrise1   = [ 27, 22, 10,  9, 11]
@@ -28,77 +27,72 @@ for pin in gpioBCMPrise3:
 
 ipHostSnmp            = "192.168.0.199"
 
-class Edf :
-    oidEdfAdco    = "1.3.6.1.4.1.43689.1.4.1.0"
-    oidEdfOptarif = "1.3.6.1.4.1.43689.1.4.2.0"
-    oidEdfIsousc  = "1.3.6.1.4.1.43689.1.4.3.0"
-    oidEdfEjphn   = "1.3.6.1.4.1.43689.1.4.9.0"
-    oidEdfEjphpm  = "1.3.6.1.4.1.43689.1.4.10.0"
-    oidEdfPtec    = "1.3.6.1.4.1.43689.1.4.5.0"
-    oidEdfIinst1  = "1.3.6.1.4.1.43689.1.4.11.0"
-    oidEdfIinst2  = "1.3.6.1.4.1.43689.1.4.12.0"
-    oidEdfIinst3  = "1.3.6.1.4.1.43689.1.4.13.0"
-    oidEdfImax1   = "1.3.6.1.4.1.43689.1.4.14.0"
-    oidEdfImax2   = "1.3.6.1.4.1.43689.1.4.15.0"
-    oidEdfImax3   = "1.3.6.1.4.1.43689.1.4.16.0"
-    oidEdfPmax    = "1.3.6.1.4.1.43689.1.4.17.0"
-    oidEdfPapp    = "1.3.6.1.4.1.43689.1.4.8.0"
+oidEdfAdco    = "1.3.6.1.4.1.43689.1.4.1.0"
+oidEdfOptarif = "1.3.6.1.4.1.43689.1.4.2.0"
+oidEdfIsousc  = "1.3.6.1.4.1.43689.1.4.3.0"
+oidEdfEjphn   = "1.3.6.1.4.1.43689.1.4.9.0"
+oidEdfEjphpm  = "1.3.6.1.4.1.43689.1.4.10.0"
+oidEdfPtec    = "1.3.6.1.4.1.43689.1.4.5.0"
+oidEdfIinst1  = "1.3.6.1.4.1.43689.1.4.11.0"
+oidEdfIinst2  = "1.3.6.1.4.1.43689.1.4.12.0"
+oidEdfIinst3  = "1.3.6.1.4.1.43689.1.4.13.0"
+oidEdfImax1   = "1.3.6.1.4.1.43689.1.4.14.0"
+oidEdfImax2   = "1.3.6.1.4.1.43689.1.4.15.0"
+oidEdfImax3   = "1.3.6.1.4.1.43689.1.4.16.0"
+oidEdfPmax    = "1.3.6.1.4.1.43689.1.4.17.0"
+oidEdfPapp    = "1.3.6.1.4.1.43689.1.4.8.0"
+ipHostSnmp    = "192.168.0.199"
 
-    def readTeleinfo(self):
-      ser.flushInput()
-      tramesOk = LireTeleinfo()
-      ser.close()
-      #print tramesOk
-      for etiquette in tramesOk:
-          #if etiquette ==  'ADCO':
-                      #result = setSnmp(ipHostSnmp,oidEdfAdco,int(tramesOk[etiquette]))
-          #if etiquette ==  'OPTARIF':
-                      #result = setSnmp(ipHostSnmp,oidEdfOptarif,int(tramesOk[etiquette]))
-          if etiquette ==  'ISOUSC':
-              self.ISOUSC = tramesOk[etiquette]
-                      #print 'ISOUSC ',tramesOk[etiquette]
-          if etiquette ==  'EJPHN':
-              self.EJPHN = tramesOk[etiquette]
-                      #print 'EJPHN ',tramesOk[etiquette]
-          if etiquette ==  'EJPHPM':
-              self.EJPHPM = tramesOk[etiquette]
-                      #print 'EJPHPM ',tramesOk[etiquette]
-          #if etiquette ==  'PTEC':
-                  #result = setSnmp(ipHostSnmp,oidEdfPtec,int(tramesOk[etiquette]))
-          if etiquette == 'IINST1':
-              self.IINST1 = tramesOk[etiquette]
-                  #print 'IINST1 ',tramesOk[etiquette]
-          if etiquette == 'IINST2':
-              self.IINST2=tramesOk[etiquette]
-                  #print 'IINST2 ',tramesOk[etiquette]
-          if etiquette == 'IINST3':
-              self.IINST3 = tramesOk[etiquette]
-                  #print 'IINST3 ',tramesOk[etiquette]
-          #if etiquette ==  'IMAX1':
-                  #result = setSnmp(ipHostSnmp,oidEdfImax1,int(tramesOk[etiquette]))
-          #if etiquette ==  'IMAX2':
-                  #result = setSnmp(ipHostSnmp,oidEdfImax2,int(tramesOk[etiquette]))
-          #if etiquette ==  'IMAX3':
-                  #result = setSnmp(ipHostSnmp,oidEdfImax3,int(tramesOk[etiquette]))
-          #if etiquette ==  'PMAX':
-                  #result = setSnmp(ipHostSnmp,oidEdfPmax,int(tramesOk[etiquette]))
-          if etiquette ==  'PAPP':
-              self.PAPP = tramesOk[etiquette]
-                      #print 'PAPP ',tramesOk[etiquette]
-    def toSnmpIsousc(self):
-        return (self.oidEdfIsousc, int(self.ISOUSC))
-    def toSnmpEjpHpm(self):
-        return (self.oidEdfEjphpm, int(self.EJPHPM))
-    def toSnmpEjpHn(self):
-        return (self.oidEdfEjphn, int(self.EJPHN))
-    def toSnmpIInst1(self):
-        return (self.oidEdfIinst1, int(self.IINST1))
-    def toSnmpIInst2(self):
-        return (self.oidEdfIinst2, int(self.IINST2))
-    def toSnmpIInst3(self):
-        return (self.oidEdfIinst3, int(self.IINST3))
-    def toSnmpPApp(self):
-        return (self.oidEdfPapp, int(self.PAPP))
+ser = serial.Serial(
+        port='/dev/ttyAMA0',
+        baudrate=1200,
+        parity=serial.PARITY_EVEN,
+        stopbits=serial.STOPBITS_ONE,
+        bytesize=serial.SEVENBITS )
+
+
+def checksum (etiquette, valeur):
+                sum = 32
+                for c in etiquette: sum = sum + ord(c)
+                for c in valeur:        sum = sum + ord(c)
+                sum = (sum & 63) + 32
+                return chr(sum)
+
+
+def LireTeleinfo ():
+                # Attendre le debut du message
+                while ser.read(1) != chr(2): pass
+
+                message = ""
+                fin = False
+
+                while not fin:
+                        char = ser.read(1)
+                        if char != chr(2):
+                                message = message + char
+                        else:
+                                fin = True
+
+                trames = [
+                        trame.split(" ")
+                        for trame in message.strip("\r\n\x03").split("\r\n")
+                        ]
+                print trames
+
+                tramesValides = dict([
+                        [trame[0],trame[1]]
+                        for trame in trames
+                        if (len(trame) == 3) and (checksum(trame[0],trame[1]) == trame[2])
+                        ])
+
+                return tramesValides
+
+
+def teleinfoEJP():
+  ser.flushInput()
+  tramesOk = LireTeleinfo()
+  print tramesOk
+  ser.close()
 
 
 class SenseurDHT :
@@ -115,9 +109,11 @@ class SenseurDHT :
     return (self.oidHum, rfc1902.Integer(self.hum*10))
 
 class Fuel :
-  oidFuelBurningTime  = "1.3.6.1.4.1.43689.1.5.1.0"
-  oidFuelBurnt        = "1.3.6.1.4.1.43689.1.5.2.0"
-  oidFuelRemaining    = "1.3.6.1.4.1.43689.1.5.3.0"
+  def __init__(self):
+    self.oidFuelBurningTime  = "1.3.6.1.4.1.43689.1.5.1.0"
+    self.oidFuelBurnt        = "1.3.6.1.4.1.43689.1.5.2.0"
+    self.oidFuelRemaining    = "1.3.6.1.4.1.43689.1.5.3.0"
+  
   def readFuelData(self):
     fuelFileData = RaspberryPath + "/leroux/fuelFileData.log"
     fileReadWrite = open(fuelFileData, 'r')
@@ -127,11 +123,11 @@ class Fuel :
     self.fuelRemaining = float(fuelData[2])
     fileReadWrite.close()
   def toSnmpBurningTime(self):
-    return (self.oidFuelBurningTime, int(self.burningTime))
+    return (self.oidFuelBurningTime, rfc1902.Integer(self.burningTime))
   def toSnmpFuelBurnt(self):
-    return (self.oidFuelBurnt, int(self.oidFuelBurnt))
+    return (self.oidFuelBurnt, rfc1902.Integer(self.fuelBurnt))
   def toSnmpFuelRemaining(self):
-    return (self.oidFuelRemaining, int(self.oidFuelRemaining))
+    return (self.oidFuelRemaining, rfc1902.Integer(self.fuelRemaining))
 
 if __name__ == "__main__":
   allSenseurs = [
@@ -151,8 +147,10 @@ if __name__ == "__main__":
 
   fuel = Fuel()
   fuel.readFuelData()
-  edf = Edf()
-  edf.readTeleinfo()
+  print("fuel remaining %s burnt %s" % (fuel.fuelRemaining, fuel.fuelBurnt))
+  print ("fuel tuple oid %s, val %s" %(fuel.toSnmpBurningTime()))
+  print ("dht tuple oid %s, val %s" %(dic['Rasp'].toSnmpSetTemp()))
+  teleinfoEJP()
   cmdGen = cmdgen.CommandGenerator()
 
   errorIndication, errorStatus, errorIndex, varBinds = cmdGen.setCmd(
