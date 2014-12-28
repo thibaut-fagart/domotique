@@ -35,12 +35,11 @@ class Fuel :
   
   def readFuelData(self):
     fuelFileData = RaspberryPath + "/leroux/fuelFileData.log"
-    fileReadWrite = open(fuelFileData, 'r')
-    fuelData = fileReadWrite.read().split()
+    with open(fuelFileData, 'r') as fileReadWrite:
+      fuelData = fileReadWrite.read().split()
     self.burningTime = float(fuelData[0])
     self.fuelBurnt = float(fuelData[1])
     self.fuelRemaining = float(fuelData[2])
-    fileReadWrite.close()
   def toSnmpBurningTime(self):
     return (self.oidFuelBurningTime, rfc1902.Integer(self.burningTime))
   def toSnmpFuelBurnt(self):
@@ -67,11 +66,10 @@ if __name__ == "__main__":
   fuel = Fuel()
   fuel.readFuelData()
   edf=teleinfoEJP()
-
-  cmdGen = cmdgen.CommandGenerator()
   edfFilePath = RaspberryPath + "/leroux/edf.log"
   edf.saveStats(edfFilePath)
 
+  cmdGen = cmdgen.CommandGenerator()
   errorIndication, errorStatus, errorIndex, varBinds = cmdGen.setCmd(
     cmdgen.CommunityData('private', mpModel=0),
     cmdgen.UdpTransportTarget((ipHostSnmp, 161)),

@@ -11,6 +11,7 @@ debugFile = '/home/prog/raspberry/leroux/edf_debug.log'
 def debug(str):
     with open(debugFile, "a") as myfile:
         myfile.write(str)
+    pass
 
 class Etiquette:
     def __init__(self, oid, label):
@@ -18,21 +19,21 @@ class Etiquette:
         self.value = None
         self.oid = oid
     def toSnmp(self):
-        debug("Etiquette.toSnmp (%s, %s, %s, %s)\n" % (self.label, str(self.value), self.oid, None))
+        # debug("Etiquette.toSnmp (%s, %s, %s, %s)\n" % (self.label, str(self.value), self.oid, None))
         return None
 
 class EtiquetteInt (Etiquette):
     def fromTrame(self, str):
         self.value = int(str)
     def toSnmp(self):
-        debug("Etiquette.toSnmp (%s, %s, %s, %s)\n" % (self.label, str(self.value), self.oid, rfc1902.Integer(self.value)))
+        # debug("Etiquette.toSnmp (%s, %s, %s, %s)\n" % (self.label, str(self.value), self.oid, rfc1902.Integer(self.value)))
         return (self.oid, rfc1902.Integer(self.value))
 
 class EtiquetteStr (Etiquette):
     def fromTrame(self, str):
         self.value = str
     def toSnmp(self):
-        debug("Etiquette.toSnmp (%s, %s, %s, %s)\n" % (self.label, self.value, self.oid, self.value))
+        # debug("Etiquette.toSnmp (%s, %s, %s, %s)\n" % (self.label, self.value, self.oid, self.value))
         return (self.oid, self.value)
 
 class Edf:
@@ -65,12 +66,11 @@ class Edf:
         ts = time.time()
         st = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
         edfFileData =filepath
-        fileReadWrite = open(edfFileData, 'w')
-        fileReadWrite.write(st)
-        for etiquetteLabel in self.etiquettes:
-            etiquette = self.etiquettes[etiquetteLabel]
-            fileReadWrite.write('\n' + etiquette.label + ' : '+ str(etiquette.value))
-        fileReadWrite.close()
+        with open(edfFileData, 'w') as fileReadWrite:
+            fileReadWrite.write(st)
+            for etiquetteLabel in self.etiquettes:
+                etiquette = self.etiquettes[etiquetteLabel]
+                fileReadWrite.write('\n' + etiquette.label + ' : '+ str(etiquette.value))
 
 ser = serial.Serial(
     port='/dev/ttyAMA0',
