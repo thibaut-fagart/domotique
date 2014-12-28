@@ -63,7 +63,7 @@ class Edf:
         fileReadWrite.write(st)
         for etiquetteLabel in self.etiquettes:
             etiquette = self.etiquettes[etiquetteLabel]
-            fileReadWrite.write(etiquette.label + ' : '+ etiquette.value)
+            fileReadWrite.write('\n' + etiquette.label + ' : '+ str(etiquette.value))
         fileReadWrite.close()
 
 ser = serial.Serial(
