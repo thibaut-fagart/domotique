@@ -18,22 +18,22 @@ class Etiquette:
         self.value = None
         self.oid = oid
     def toSnmp(self):
-        debug("Etiquette.toSnmp (%s, %s)\n" % (self.label, str(self.value)))
+        debug("Etiquette.toSnmp (%s, %s, %s, %s)\n" % (self.label, str(self.value), self.oid, None))
         return None
 
 class EtiquetteInt (Etiquette):
     def fromTrame(self, str):
         self.value = int(str)
     def toSnmp(self):
-        debug("EtiquetteInt.toSnmp (%s, %s)\n" % (self.label, str(self.value)))
+        debug("Etiquette.toSnmp (%s, %s, %s, %s)\n" % (self.label, str(self.value), self.oid, rfc1902.Integer(self.value)))
         return (self.oid, rfc1902.Integer(self.value))
 
 class EtiquetteStr (Etiquette):
     def fromTrame(self, str):
         self.value = str
     def toSnmp(self):
-        debug("EtiquetteStr.toSnmp (%s, %s)\n" % (self.label, self.value))
-        return (self.oid, rfc1902.Integer(self.value))
+        debug("Etiquette.toSnmp (%s, %s, %s, %s)\n" % (self.label, self.value, self.oid, self.value))
+        return (self.oid, self.value)
 
 class Edf:
     oidEdfAdco    = "1.3.6.1.4.1.43689.1.4.1.0"
