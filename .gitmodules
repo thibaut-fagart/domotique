@@ -1,3 +1,6 @@
 [submodule "arduino/libraries/Flash"]
 	path = arduino/libraries/Flash
 	url = https://github.com/mikalhart/Flash.git
+[submodule "raspberry/lib/Adafruit_Python_DHT.git"]
+	path = raspberry/lib/Adafruit_Python_DHT.git
+	url = https://github.com/thibaut-fagart/Adafruit_Python_DHT.git
