@@ -3,7 +3,6 @@
 
 import serial
 from setsnmp import setSnmp
-from getsnmp import getSnmp
 
 oidEdfAdco    = "1.3.6.1.4.1.43689.1.4.1.0"
 oidEdfOptarif = "1.3.6.1.4.1.43689.1.4.2.0"

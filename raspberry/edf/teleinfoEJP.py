@@ -132,4 +132,3 @@ def teleinfoEJP():
 
 if __name__ == "__main__":
     edf = teleinfoEJP()
-    edf.saveStats("edf.log")

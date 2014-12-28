@@ -3,7 +3,6 @@
 
 import sys,time
 import RPi.GPIO as GPIO
-from setsnmp import setSnmp
 
 RaspberryPath = "/home/prog/raspberry"
 
@@ -14,18 +13,13 @@ pinFuel      = gpioBCMPrise2[1]
 
 literPerSecond = 4.6/3600
 
-oidFuelBurningTime  = "1.3.6.1.4.1.43689.1.5.1.0"
-oidFuelBurnt        = "1.3.6.1.4.1.43689.1.5.2.0"
-oidFuelRemaining    = "1.3.6.1.4.1.43689.1.5.3.0"
-ipHostSnmp          = "192.168.0.199"
-
 GPIO.setmode(GPIO.BCM)
 for pin in gpioBCMPrise2:
   GPIO.setup(pin, GPIO.IN)
 
 
 if __name__ == "__main__":
-  fuelFileData = RaspberryPath + "/leroux/fuelFileData.log"
+  fuelFileData = RaspberryPath + "/leroux/LogFuelData.log"
   time.sleep(20)
   fileReadWrite = open(fuelFileData,'r')
   fuelData = fileReadWrite.read().split()
@@ -33,9 +27,6 @@ if __name__ == "__main__":
   fuelBurnt     = float(fuelData[1])
   fuelRemaining = float(fuelData[2])
   fileReadWrite.close() 
-  setSnmp(ipHostSnmp,oidFuelBurningTime,int(burningTime))
-  setSnmp(ipHostSnmp,oidFuelBurnt,int(fuelBurnt))
-  setSnmp(ipHostSnmp,oidFuelRemaining,int(fuelRemaining))
   counter = 0
   previousTime = time.time()
 

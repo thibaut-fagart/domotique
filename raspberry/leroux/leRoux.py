@@ -10,6 +10,7 @@ from teleinfoEJP import Edf as Edf
 from teleinfoEJP import teleinfoEJP as teleinfoEJP
 
 RaspberryPath = "/home/prog/raspberry"
+
 gpioBCMPrise1   = [ 27, 22, 10,  9, 11]
 gpioBCMPrise2   = [ 24, 25,  8,  7]
 gpioBCMPrise3   = [ 23]
@@ -34,7 +35,7 @@ class Fuel :
     self.oidFuelRemaining    = "1.3.6.1.4.1.43689.1.5.3.0"
   
   def readFuelData(self):
-    fuelFileData = RaspberryPath + "/leroux/fuelFileData.log"
+    fuelFileData = RaspberryPath + "/leroux/LogFuelData.log"
     with open(fuelFileData, 'r') as fileReadWrite:
       fuelData = fileReadWrite.read().split()
     self.burningTime = float(fuelData[0])
@@ -66,7 +67,7 @@ if __name__ == "__main__":
   fuel = Fuel()
   fuel.readFuelData()
   edf=teleinfoEJP()
-  edfFilePath = RaspberryPath + "/leroux/edf.log"
+  edfFilePath = RaspberryPath + "/leroux/LogEdfData.log"
   edf.saveStats(edfFilePath)
 
   cmdGen = cmdgen.CommandGenerator()
