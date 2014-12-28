@@ -17,12 +17,14 @@ class EtiquetteInt (Etiquette):
     def fromTrame(self, str):
         self.value = int(str)
     def toSnmp(self):
+        print ("tosnmpEdf %s : %s" % (self.label, self.value))
         return (self.oid, rfc1902.Integer(self.value))
 
 class EtiquetteStr (Etiquette):
     def fromTrame(self, str):
         self.value = str
     def toSnmp(self):
+        print ("tosnmpEdf %s : %s" % (self.label, self.value))
         return (self.oid, rfc1902.Integer(self.value))
 
 class Edf:
