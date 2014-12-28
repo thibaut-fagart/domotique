@@ -6,6 +6,11 @@ import datetime
 import time
 from pysnmp.proto import rfc1902
 
+debugFile = '/home/prog/raspberry/leroux/edf_debug.log'
+
+def debug(str):
+    with open(debugFile, "a") as myfile:
+        myfile.write(str)
 
 class Etiquette:
     def __init__(self, oid, label):
@@ -13,20 +18,21 @@ class Etiquette:
         self.value = None
         self.oid = oid
     def toSnmp(self):
+        debug("Etiquette.toSnmp (%s, %s)\n" % (self.label, str(self.value)))
         return None
 
 class EtiquetteInt (Etiquette):
     def fromTrame(self, str):
         self.value = int(str)
     def toSnmp(self):
-        print ("tosnmpEdf %s : %s" % (self.label, self.value))
+        debug("EtiquetteInt.toSnmp (%s, %s)\n" % (self.label, str(self.value)))
         return (self.oid, rfc1902.Integer(self.value))
 
 class EtiquetteStr (Etiquette):
     def fromTrame(self, str):
         self.value = str
     def toSnmp(self):
-        print ("tosnmpEdf %s : %s" % (self.label, self.value))
+        debug("EtiquetteStr.toSnmp (%s, %s)\n" % (self.label, self.value))
         return (self.oid, rfc1902.Integer(self.value))
 
 class Edf:
