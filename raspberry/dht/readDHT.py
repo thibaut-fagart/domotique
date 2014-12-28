@@ -49,6 +49,7 @@ def readDHT(pin, sensor=22, retries=15, delay_seconds=2):
         return (None, None)
 
 def readDHTSnmp(host,oidT,oidH,pin):
+  print "readDHT : ",  pin[0]
   humidity, temperature = readDHT(pin[0])
   if humidity is not None and temperature is not None:
       # printlog(time.asctime(), " : %s  temperature : %s : humidity : %s"%(pin[1],temperature,humidity) )
