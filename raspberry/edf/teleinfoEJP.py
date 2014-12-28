@@ -61,7 +61,8 @@ class Edf:
         edfFileData =filepath
         fileReadWrite = open(edfFileData, 'w')
         fileReadWrite.write(st)
-        for etiquette in self.etiquettes:
+        for etiquetteLabel in self.etiquettes:
+            etiquette = self.etiquettes[etiquetteLabel]
             fileReadWrite.write(etiquette.label + ' : '+ etiquette.value)
         fileReadWrite.close()
 
