@@ -69,6 +69,8 @@ if __name__ == "__main__":
   edf=teleinfoEJP()
 
   cmdGen = cmdgen.CommandGenerator()
+  edfFilePath = RaspberryPath + "/leroux/edf.log"
+  edf.saveStats(edfFilePath)
 
   errorIndication, errorStatus, errorIndex, varBinds = cmdGen.setCmd(
     cmdgen.CommunityData('private', mpModel=0),

@@ -2,6 +2,8 @@
 # -*- coding:utf-8 -*-
 
 import serial
+import datetime
+import time
 from pysnmp.proto import rfc1902
 
 
@@ -52,6 +54,16 @@ class Edf:
         self.etiquettes['PAPP'] = EtiquetteInt(Edf.oidEdfPapp, 'PAPP')
         self.etiquettes['EJPHN'] = EtiquetteInt(Edf.oidEdfIsousc, 'EJPHN')
         self.etiquettes['EJPHPM'] = EtiquetteInt(Edf.oidEdfIsousc, 'EJPHPM')
+
+    def saveStats(self, filepath):
+        ts = time.time()
+        st = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+        edfFileData =filepath
+        fileReadWrite = open(edfFileData, 'w')
+        fileReadWrite.write(st)
+        for etiquette in self.etiquettes:
+            fileReadWrite.write(etiquette.label + ' : '+ etiquette.value)
+        fileReadWrite.close()
 
 ser = serial.Serial(
     port='/dev/ttyAMA0',
@@ -113,3 +125,4 @@ def teleinfoEJP():
 
 if __name__ == "__main__":
     edf = teleinfoEJP()
+    edf.saveStats("edf.log")
