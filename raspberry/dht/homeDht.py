@@ -56,10 +56,10 @@ def printlog(datelog,text):
   fichierWrite.close()   
 
 if __name__ == "__main__":
-  #try:
-    #readDht(ipHostSnmp,oidDht22CaveTemp,oidDht22CaveHum,pinCave)
-  #except:
-    #printlog(time.asctime(),' : no dht22 answer from pin %s sensor'%pinCave)
+#  try:
+#    readDht(ipHostSnmp,oidDht22CaveTemp,oidDht22CaveHum,pinCave)
+#  except:
+#    printlog(time.asctime(),' : no dht22 answer from pin %s sensor'%pinCave)
 
   try:
     readDht(ipHostSnmp,oidDht22SalonTemp,oidDht22SalonHum,pinSalon)

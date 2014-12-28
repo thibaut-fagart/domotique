@@ -25,16 +25,18 @@ def logic_VMC():
   valHumSalon = int(valHumSalon)
   valHumSdb = int(valHumSdb)
 
-  valHumMed = max(valHumSalon,valHumExt)
+  coefTuning = 2.0      # coef high reduce VMC runing
+  deltaHumMax = max(150.,(valHumExt - valHumSalon)/coefTuning)
+  valHumMax = max(valHumSalon + deltaHumMax,800.)
 
   if (valTempExt > tempExtEte + 5.):
     setSnmp(ipHostSnmp,oidVmcPowerState,1)
     setSnmp(ipHostSnmp,oidVentiloPowerState,0)
   else:
-    if (valHumSdb > valHumMed + 200.):
+    if (valHumSdb > valHumMax):
       setSnmp(ipHostSnmp,oidVmcPowerState,1)
       setSnmp(ipHostSnmp,oidVentiloPowerState,0)
-    if ((valHumSdb < valHumMed + 100.) and (valTempExt < tempExtEte - 5.)):
+    if ((valHumSdb < valHumMax - 100.) and (valTempExt < tempExtEte - 5.)):
       setSnmp(ipHostSnmp,oidVmcPowerState,0)
       setSnmp(ipHostSnmp,oidVentiloPowerState,1)
 
