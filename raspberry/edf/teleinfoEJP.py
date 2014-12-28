@@ -58,8 +58,8 @@ class Edf:
         self.etiquettes['IINST2'] = EtiquetteInt(Edf.oidEdfIinst2, 'IINST2')
         self.etiquettes['IINST3'] = EtiquetteInt(Edf.oidEdfIinst3, 'IINST3')
         self.etiquettes['PAPP'] = EtiquetteInt(Edf.oidEdfPapp, 'PAPP')
-        self.etiquettes['EJPHN'] = EtiquetteInt(Edf.oidEdfIsousc, 'EJPHN')
-        self.etiquettes['EJPHPM'] = EtiquetteInt(Edf.oidEdfIsousc, 'EJPHPM')
+        self.etiquettes['EJPHN'] = EtiquetteInt(Edf.oidEdfEjphn, 'EJPHN')
+        self.etiquettes['EJPHPM'] = EtiquetteInt(Edf.oidEdfEjphpm, 'EJPHPM')
 
     def saveStats(self, filepath):
         ts = time.time()
