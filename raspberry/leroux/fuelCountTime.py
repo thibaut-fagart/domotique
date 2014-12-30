@@ -6,16 +6,12 @@ import RPi.GPIO as GPIO
 
 RaspberryPath = "/home/prog/raspberry"
 
-gpioBCMPrise2   = [ 23, 24]
-gpioHeadPrise2  = [ 16, 18]
-
-pinFuel      = gpioBCMPrise2[1]
+pinFuel = 24
 
 literPerSecond = 4.6/3600
 
 GPIO.setmode(GPIO.BCM)
-for pin in gpioBCMPrise2:
-  GPIO.setup(pin, GPIO.IN)
+GPIO.setup(pinFuel, GPIO.IN)
 
 
 if __name__ == "__main__":

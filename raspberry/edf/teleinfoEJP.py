@@ -6,7 +6,9 @@ import datetime
 import time
 from pysnmp.proto import rfc1902
 
-debugFile = '/home/prog/raspberry/leroux/edf_debug.log'
+RaspberryPath = "/home/prog/raspberry"
+
+debugFile = RaspberryPath + "/leroux/edf_debug.log"
 
 def debug(str):
     with open(debugFile, "a") as myfile:

@@ -6,49 +6,24 @@ import RPi.GPIO as GPIO
 from pysnmp.entity.rfc3413.oneliner import cmdgen
 from pysnmp.proto import rfc1902
 from readDHT import SenseurDHT
+from fuelSet import Fuel
 from teleinfoEJP import Edf as Edf
 from teleinfoEJP import teleinfoEJP as teleinfoEJP
 
 RaspberryPath = "/home/prog/raspberry"
 
-gpioBCMPrise1   = [ 27, 22, 10,  9, 11]
-gpioBCMPrise2   = [ 24, 25,  8,  7]
-gpioBCMPrise3   = [ 23]
-#gpioBCMPrise4   = [ 14, 15, 18]
-#gpioListBCMWhite    = [  4, 17]
-
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
-for pin in gpioBCMPrise1:
-  GPIO.setup(pin, GPIO.IN)
-for pin in gpioBCMPrise2:
-  GPIO.setup(pin, GPIO.IN)
-for pin in gpioBCMPrise3:
-  GPIO.setup(pin, GPIO.IN)
 
 ipHostSnmp            = "192.168.0.199"
 
-class Fuel :
-  def __init__(self):
-    self.oidFuelBurningTime  = "1.3.6.1.4.1.43689.1.5.1.0"
-    self.oidFuelBurnt        = "1.3.6.1.4.1.43689.1.5.2.0"
-    self.oidFuelRemaining    = "1.3.6.1.4.1.43689.1.5.3.0"
-  
-  def readFuelData(self):
-    fuelFileData = RaspberryPath + "/leroux/LogFuelData.log"
-    with open(fuelFileData, 'r') as fileReadWrite:
-      fuelData = fileReadWrite.read().split()
-    self.burningTime = float(fuelData[0])
-    self.fuelBurnt = float(fuelData[1])
-    self.fuelRemaining = float(fuelData[2])
-  def toSnmpBurningTime(self):
-    return (self.oidFuelBurningTime, rfc1902.Integer(self.burningTime))
-  def toSnmpFuelBurnt(self):
-    return (self.oidFuelBurnt, rfc1902.Integer(self.fuelBurnt))
-  def toSnmpFuelRemaining(self):
-    return (self.oidFuelRemaining, rfc1902.Integer(self.fuelRemaining))
-
 if __name__ == "__main__":
+  #Prise1   = [ 27, 22, 10,  9, 11]
+  #Prise2   = [ 24, 25,  8,  7]
+  #Prise3   = [ 23]
+  #Prise4   = [ 14, 15, 18]
+  #White    = [  4, 17]
+
   allSenseurs = [
     SenseurDHT('Ext', "1.3.6.1.4.1.43689.1.2.1.1.0", "1.3.6.1.4.1.43689.1.2.1.2.0", 23),
     SenseurDHT('Cuisine', "1.3.6.1.4.1.43689.1.2.2.1.0", "1.3.6.1.4.1.43689.1.2.2.2.0", 8),
@@ -60,9 +35,11 @@ if __name__ == "__main__":
   ]
   dic = {} 
   for senseur in allSenseurs :
+    GPIO.setup(senseur.getDhtPin(), GPIO.IN)
     senseur.getDhtValues()
     dic[senseur.label] = senseur
-    # print(" %s , hum %s , temp: %s " % (senseur.label, senseur.valHum,senseur.valTemp))
+    # print "Humidity    : ",senseur.label, dic[senseur.label].toSnmpSetHum()
+    # print "Temperature : ",senseur.label, dic[senseur.label].toSnmpSetTemp()
 
   fuel = Fuel()
   fuel.readFuelData()
