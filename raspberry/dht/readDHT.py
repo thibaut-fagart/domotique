@@ -55,6 +55,8 @@ class SenseurDHT :
     self.oidTemp = anOidTemp
     self.oidHum = andOidHum
     self.pin = aPinBCM
+  def getDhtPin(self):
+    return self.pin
   def getDhtValues(self):
     self.hum , self.temp = readDHT(self.pin)
   def toSnmpSetTemp(self):
