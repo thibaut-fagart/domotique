@@ -9,24 +9,8 @@ from readDHT import SenseurDHT
 
 RaspberryPath = "/home/prog/raspberry"
 
-gpioBCMPrise1   = [ 4]
-gpioBCMPrise2   = [17]
-gpioBCMPrise3   = [27]
-gpioBCMPrise4   = [ 9]
-gpioBCMPrise5   = [11]
-
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
-for pin in gpioBCMPrise1:
-  GPIO.setup(pin, GPIO.IN)
-for pin in gpioBCMPrise2:
-  GPIO.setup(pin, GPIO.IN)
-for pin in gpioBCMPrise3:
-  GPIO.setup(pin, GPIO.IN)
-for pin in gpioBCMPrise4:
-  GPIO.setup(pin, GPIO.IN)
-for pin in gpioBCMPrise5:
-  GPIO.setup(pin, GPIO.IN)
 
 ipHostSnmp  = "192.168.0.110"
 
@@ -49,9 +33,11 @@ if __name__ == "__main__":
   ]
   dic = {}
   for senseur in allSenseurs :
+    GPIO.setup(senseur.getDhtPin(), GPIO.IN)
     senseur.getDhtValues()
     dic[senseur.label] = senseur
-    # print(" %s , hum %s , temp: %s " % (senseur.label, senseur.valHum,senseur.valTemp))
+    # print "Humidity    : ",senseur.label, dic[senseur.label].toSnmpSetHum()
+    # print "Temperature : ",senseur.label, dic[senseur.label].toSnmpSetTemp()
 
   cmdGen = cmdgen.CommandGenerator()
   errorIndication, errorStatus, errorIndex, varBinds = cmdGen.setCmd(
@@ -59,14 +45,10 @@ if __name__ == "__main__":
     cmdgen.UdpTransportTarget((ipHostSnmp, 161)),
     dic['Ext'].toSnmpSetHum(),
     dic['Ext'].toSnmpSetTemp(),
-    dic['Cuisine'].toSnmpSetHum(),
-    dic['Cuisine'].toSnmpSetTemp(),
-    dic['ThermoOld'].toSnmpSetHum(),
-    dic['ThermoOld'].toSnmpSetTemp(),
-    dic['ThermoNew'].toSnmpSetHum(),
-    dic['ThermoNew'].toSnmpSetTemp(),
-    dic['SdbNew'].toSnmpSetHum(),
-    dic['SdbNew'].toSnmpSetTemp(),
+    dic['Salon'].toSnmpSetHum(),
+    dic['Salon'].toSnmpSetTemp(),
+    dic['Sdb'].toSnmpSetHum(),
+    dic['Sdb'].toSnmpSetTemp(),
     dic['Rasp'].toSnmpSetHum(),
     dic['Rasp'].toSnmpSetTemp(),
   )
