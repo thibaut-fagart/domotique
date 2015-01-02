@@ -55,12 +55,15 @@ class SenseurDHT :
     self.oidTemp = anOidTemp
     self.oidHum = andOidHum
     self.pin = aPinBCM
-  def getDhtPin(self):
-    return self.pin
   def getDhtValues(self):
     self.hum , self.temp = readDHT(self.pin)
   def toSnmpSetTemp(self):
     return (self.oidTemp, rfc1902.Integer(self.temp*10))
   def toSnmpSetHum(self):
     return (self.oidHum, rfc1902.Integer(self.hum*10))
-
+  def isValid(self):
+    if (None == self.temp or None == self.hum):
+      return False
+      printlog(time.asctime(),'read DHT %s error With temp : %s and Hum : %s'%(self.label,self.temp,self.hum))
+    else:
+      return True

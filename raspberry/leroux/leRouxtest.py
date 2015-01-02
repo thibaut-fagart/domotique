@@ -43,9 +43,8 @@ if __name__ == "__main__":
 
   fuel = Fuel()
   fuel.readFuelData()
+
   edf=teleinfoEJP()
-  edfFilePath = RaspberryPath + "/leroux/LogEdfData.log"
-  edf.saveStats(edfFilePath)
 
   snmpValuesToSet = []
   
@@ -58,7 +57,9 @@ if __name__ == "__main__":
   snmpValuesToSet.append(fuel.toSnmpFuelBurnt())
   snmpValuesToSet.append(fuel.toSnmpFuelRemaining())
 
-  snmpValuesToSet += map(lambda et: et.toSnmp(), edf.etiquettes.values())
+  for teleinfoLabel in allTeleinfoLabel:
+    if teleinfoLabel.isValid():
+      snmpValuesToSet.append(teleinfoLabel.toSnmpSet())
   
   # print ("snmpValuesToSet %s" %(snmpValuesToSet) )
 
