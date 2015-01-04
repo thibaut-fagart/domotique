@@ -5,6 +5,7 @@ from getsnmp import getSnmp
 from setsnmp import setSnmp
 
 ipHostSnmp      = "192.168.0.110"
+ipHostSnmpAudio = "192.168.0.103"
 oidAmpliSalonState   = "1.3.6.1.4.1.43689.1.1.1.0"
 oidAmpliSdbState     = "1.3.6.1.4.1.43689.1.1.2.0"
 oidAmpliCuisineState = "1.3.6.1.4.1.43689.1.1.3.0"
@@ -44,10 +45,10 @@ def main():
   while(int(valLogic)):
     nameLogic,  valLogic  = getSnmp(ipHostSnmp,oidLogicalSpare1)
     
-    nameSalon,   valSalon   = getSnmp(ipHostSnmp,oidAmpliSalonState)
-    nameCuisine, valCuisine = getSnmp(ipHostSnmp,oidAmpliCuisineState)
-    nameSdb,     valSdb     = getSnmp(ipHostSnmp,oidAmpliSdbState)
-    nameChambre, valChambre = getSnmp(ipHostSnmp,oidAmpliChambreState)
+    nameSalon,   valSalon   = getSnmp(ipHostSnmpAudio,oidAmpliSalonState)
+    nameCuisine, valCuisine = getSnmp(ipHostSnmpAudio,oidAmpliCuisineState)
+    nameSdb,     valSdb     = getSnmp(ipHostSnmpAudio,oidAmpliSdbState)
+    nameChambre, valChambre = getSnmp(ipHostSnmpAudio,oidAmpliChambreState)
     nameVMC,     valVMC     = getSnmp(ipHostSnmp,oidVmcPowerState)
     nameVentilo, valVentilo = getSnmp(ipHostSnmp,oidVentiloPowerState)
     nameThermo,  valThermo  = getSnmp(ipHostSnmp,oidThermoState)
