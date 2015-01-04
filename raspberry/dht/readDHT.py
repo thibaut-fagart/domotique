@@ -3,6 +3,7 @@
 
 import time
 import Raspberry_Pi_Driver as driver
+import RPi.GPIO as GPIO
 from pysnmp.proto import rfc1902
 
 RaspberryPath = "/home/prog/raspberry"
@@ -15,6 +16,8 @@ DHT_ERROR_ARGUMENT = -3
 DHT_ERROR_GPIO     = -4
 TRANSIENT_ERRORS = [DHT_ERROR_CHECKSUM, DHT_ERROR_TIMEOUT]
 
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BCM)
 
 def printlog(datelog, text):
     fileToBeWriten = RaspberryPath + "/dht/LogReadDht.log"
@@ -67,3 +70,35 @@ class SenseurDHT :
       printlog(time.asctime(),'read DHT %s error With temp : %s and Hum : %s'%(self.label,self.temp,self.hum))
     else:
       return True
+
+class DhtDef:
+  def __init__(self):
+    #Prise1   = [ 27, 22, 10,  9, 11]
+    #Prise2   = [ 24, 25,  8,  7]
+    #Prise3   = [ 23]
+    #Prise4   = [ 14, 15, 18]
+    #White    = [  4, 17]
+
+    senseurList = [
+      SenseurDHT('Ext', "1.3.6.1.4.1.43689.1.2.1.1.0", "1.3.6.1.4.1.43689.1.2.1.2.0", 23),
+      SenseurDHT('Cuisine', "1.3.6.1.4.1.43689.1.2.2.1.0", "1.3.6.1.4.1.43689.1.2.2.2.0", 8),
+      SenseurDHT('ThermoOld', "1.3.6.1.4.1.43689.1.2.9.1.0", "1.3.6.1.4.1.43689.1.2.9.2.0", 9),
+      SenseurDHT('ThermoNew', "1.3.6.1.4.1.43689.1.2.10.1.0", "1.3.6.1.4.1.43689.1.2.10.2.0", 10),
+      SenseurDHT('SdbNew', "1.3.6.1.4.1.43689.1.2.12.1.0", "1.3.6.1.4.1.43689.1.2.12.2.0", 11),
+      SenseurDHT('Rasp', "1.3.6.1.4.1.43689.1.2.13.1.0", "1.3.6.1.4.1.43689.1.2.13.2.0", 25),
+      # SenseurDHT('SdbOld', "1.3.6.1.4.1.43689.1.2.11.1.0", "1.3.6.1.4.1.43689.1.2.11.2.0", pinSdbOld),
+    ]
+
+    self.allSenseurs = {}
+
+    for senseur in senseurList :
+      GPIO.setup(senseur.pin, GPIO.IN)
+      senseur.getDhtValues()
+      self.allSenseurs[senseur.label] = senseur
+      # print "Humidity    : ",senseur.label, dic[senseur.label].toSnmpSetHum()
+      # print "Temperature : ",senseur.label, dic[senseur.label].toSnmpSetTemp()
+
+def Dht():
+  allSenseurs = DhtDef()
+  return allSenseurs
+

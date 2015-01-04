@@ -8,6 +8,13 @@ from pysnmp.proto import rfc1902
 
 RaspberryPath = "/home/prog/raspberry"
 
+ser = serial.Serial(
+    port='/dev/ttyAMA0',
+    baudrate=1200,
+    parity=serial.PARITY_EVEN,
+    stopbits=serial.STOPBITS_ONE,
+    bytesize=serial.SEVENBITS)
+
 class TeleinfoLabel :
   def __init__(self, aLabel, anOid):
     self.label =  aLabel
@@ -45,14 +52,6 @@ class Edf:
       self.allTeleinfoLabel[teleinfoLabel.label] = teleinfoLabel
 
 
-ser = serial.Serial(
-    port='/dev/ttyAMA0',
-    baudrate=1200,
-    parity=serial.PARITY_EVEN,
-    stopbits=serial.STOPBITS_ONE,
-    bytesize=serial.SEVENBITS)
-
-
 def checksum(etiquette, valeur):
     sum = 32
     for c in etiquette: sum = sum + ord(c)
@@ -79,7 +78,7 @@ def LireTeleinfo():
       trame.split(" ")
       for trame in message.strip("\r\n\x03").split("\r\n")
     ]
-    #print trames
+    # print trames
 
     tramesValides = dict([
       [trame[0], trame[1]]
@@ -90,19 +89,19 @@ def LireTeleinfo():
     return tramesValides
 
 
-def teleinfoEJP():
+def teleinfo():
     ser.flushInput()
     tramesOk = LireTeleinfo()
     edf = Edf()
     for etiquette in tramesOk:
       if etiquette in edf.allTeleinfoLabel:
         edf.allTeleinfoLabel[etiquette].value = int(tramesOk[etiquette])
-        print edf.allTeleinfoLabel[etiquette].label, ' = ', int(tramesOk[etiquette])
-      else:
-        print etiquette, " : etiquette non supportee"
+        # print edf.allTeleinfoLabel[etiquette].label, ' = ', int(tramesOk[etiquette])
+      # else:
+        # print etiquette, " : etiquette non supportee"
     ser.close()
     return edf
 
 
 if __name__ == "__main__":
-  edf = teleinfoEJP()
+  edf = teleinfo()
