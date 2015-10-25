@@ -45,20 +45,27 @@ def main():
   while(int(valLogic)):
     nameLogic,  valLogic  = getSnmp(ipHostSnmp,oidLogicalSpare1)
     
-    nameSalon,   valSalon   = getSnmp(ipHostSnmpAudio,oidAmpliSalonState)
-    nameCuisine, valCuisine = getSnmp(ipHostSnmpAudio,oidAmpliCuisineState)
-    nameSdb,     valSdb     = getSnmp(ipHostSnmpAudio,oidAmpliSdbState)
-    nameChambre, valChambre = getSnmp(ipHostSnmpAudio,oidAmpliChambreState)
-    nameVMC,     valVMC     = getSnmp(ipHostSnmp,oidVmcPowerState)
-    nameVentilo, valVentilo = getSnmp(ipHostSnmp,oidVentiloPowerState)
-    nameThermo,  valThermo  = getSnmp(ipHostSnmp,oidThermoState)
+    try:
+      nameSalon,   valSalon   = getSnmp(ipHostSnmpAudio,oidAmpliSalonState)
+      nameCuisine, valCuisine = getSnmp(ipHostSnmpAudio,oidAmpliCuisineState)
+      nameSdb,     valSdb     = getSnmp(ipHostSnmpAudio,oidAmpliSdbState)
+      nameChambre, valChambre = getSnmp(ipHostSnmpAudio,oidAmpliChambreState)
+      nameVMC,     valVMC     = getSnmp(ipHostSnmp,oidVmcPowerState)
+      nameVentilo, valVentilo = getSnmp(ipHostSnmp,oidVentiloPowerState)
+      nameThermo,  valThermo  = getSnmp(ipHostSnmp,oidThermoState)
+    except:
+      print 'getSnmp Fail'
 
     bus1.writePin(pinCuisine, int(valCuisine))
+    time.sleep(0.5)
     bus1.writePin(pinChambre, int(valChambre))
+    time.sleep(0.5)
     bus1.writePin(pinSdb, int(valChambre))
-    #bus1.writePin(pinSdb, int(valSdb))
+    ##bus1.writePin(pinSdb, int(valSdb))
     bus1.writePin(pinVMC, int(valVMC))
+    time.sleep(0.5)
     bus1.writePin(pinVentilo, int(valVentilo))
+    time.sleep(0.5)
     bus1.writePin(pinThermo, int(valThermo))
 
 if __name__ == "__main__":

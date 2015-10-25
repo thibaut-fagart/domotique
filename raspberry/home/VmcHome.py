@@ -6,6 +6,7 @@ from setsnmp import setSnmp
 ipHostSnmp           = "192.168.0.110"
 oidVmcPowerState     = "1.3.6.1.4.1.43689.1.6.1.0"
 oidVentiloPowerState = "1.3.6.1.4.1.43689.1.6.2.0"
+oidForceVMC          = "1.3.6.1.4.1.43689.1.6.5.0"
 oidDht22ExtTemp      = "1.3.6.1.4.1.43689.1.2.1.1.0"
 oidDht22ExtHum       = "1.3.6.1.4.1.43689.1.2.1.2.0"
 oidDht22SalonHum     = "1.3.6.1.4.1.43689.1.2.4.2.0"
@@ -19,6 +20,7 @@ def logic_VMC():
   nameHumExt,   valHumExt   = getSnmp(ipHostSnmp,oidDht22ExtHum)
   nameHumSalon, valHumSalon = getSnmp(ipHostSnmp,oidDht22SalonHum)
   nameHumSdb,   valHumSdb   = getSnmp(ipHostSnmp,oidDht22SdbHum)
+  nameForceVMC, valForceVMC = getSnmp(ipHostSnmp,oidForceVMC)
 
   valTempExt = int(valTempExt)
   valHumExt = int(valHumExt)
@@ -29,7 +31,8 @@ def logic_VMC():
   deltaHumMax = max(150.,(valHumExt - valHumSalon)/coefTuning)
   valHumMax = max(valHumSalon + deltaHumMax,800.)
 
-  if (valTempExt > tempExtEte + 5.):
+  #if (valTempExt > tempExtEte + 5.):
+  if ((valTempExt > tempExtEte + 5.) or int(valForceVMC)):
     setSnmp(ipHostSnmp,oidVmcPowerState,1)
     setSnmp(ipHostSnmp,oidVentiloPowerState,0)
   else:

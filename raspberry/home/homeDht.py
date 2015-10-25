@@ -33,7 +33,7 @@ if __name__ == "__main__":
   ]
   dic = {}
   for senseur in allSenseurs :
-    GPIO.setup(senseur.getDhtPin(), GPIO.IN)
+    GPIO.setup(senseur.pin, GPIO.IN)
     senseur.getDhtValues()
     dic[senseur.label] = senseur
     # print "Humidity    : ",senseur.label, dic[senseur.label].toSnmpSetHum()
