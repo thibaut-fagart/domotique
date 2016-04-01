@@ -28,6 +28,7 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
+LIBS:rasp-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -446,8 +447,6 @@ Wire Wire Line
 	5550 4350 5650 4350
 Connection ~ 5550 4350
 Connection ~ 5400 5450
-Wire Wire Line
-	4700 5450 5400 5450
 NoConn ~ 3800 1850
 NoConn ~ 3800 1950
 NoConn ~ 3800 2450
@@ -508,4 +507,10 @@ F 3 "" H 1300 7150 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 NoConn ~ 1550 5000
+Text Notes 6850 3550 0    60   ~ 0
+PIN 9
+Text Notes 6900 2350 0    60   ~ 0
+PIN 27
+Text Notes 6900 1100 0    60   ~ 0
+PIN 17
 $EndSCHEMATC
