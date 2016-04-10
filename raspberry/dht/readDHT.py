@@ -102,3 +102,12 @@ def Dht():
   allSenseurs = DhtDef()
   return allSenseurs
 
+if __name__ == "__main__":
+    while 1==1:
+        # pins = [4,9,11,17,27]
+        pins = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27]
+        for i in pins :
+            result = driver.read(22,i)
+            if 0 == result[0]:
+                print("%d (%d,%d,%d)"%((i,)+result))
+            time.sleep(1)

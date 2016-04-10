@@ -27,8 +27,8 @@ if __name__ == "__main__":
   allSenseurs = [
     SenseurDHT('Ext'    , "1.3.6.1.4.1.43689.1.2.1.1.0" , "1.3.6.1.4.1.43689.1.2.1.2.0" , 27),
     SenseurDHT('Sdb'    , "1.3.6.1.4.1.43689.1.2.3.1.0" , "1.3.6.1.4.1.43689.1.2.3.2.0" ,  4),
-    SenseurDHT('Salon'  , "1.3.6.1.4.1.43689.1.2.4.1.0" , "1.3.6.1.4.1.43689.1.2.4.2.0" , 17),
-    #SenseurDHT('Cave'   , "1.3.6.1.4.1.43689.1.2.8.1.0" , "1.3.6.1.4.1.43689.1.2.8.2.0" , 11),
+#    SenseurDHT('Salon'  , "1.3.6.1.4.1.43689.1.2.4.1.0" , "1.3.6.1.4.1.43689.1.2.4.2.0" , 17),
+#    SenseurDHT('Cave'   , "1.3.6.1.4.1.43689.1.2.8.1.0" , "1.3.6.1.4.1.43689.1.2.8.2.0" , 11),
     SenseurDHT('Rasp'   , "1.3.6.1.4.1.43689.1.2.13.1.0", "1.3.6.1.4.1.43689.1.2.13.2.0",  9),
   ]
   dic = {}
@@ -36,8 +36,8 @@ if __name__ == "__main__":
     GPIO.setup(senseur.pin, GPIO.IN)
     senseur.getDhtValues()
     dic[senseur.label] = senseur
-    # print "Humidity    : ",senseur.label, dic[senseur.label].toSnmpSetHum()
-    # print "Temperature : ",senseur.label, dic[senseur.label].toSnmpSetTemp()
+    print "Humidity    : ",senseur.label, dic[senseur.label].toSnmpSetHum()
+    print "Temperature : ",senseur.label, dic[senseur.label].toSnmpSetTemp()
 
   cmdGen = cmdgen.CommandGenerator()
   errorIndication, errorStatus, errorIndex, varBinds = cmdGen.setCmd(
@@ -45,8 +45,8 @@ if __name__ == "__main__":
     cmdgen.UdpTransportTarget((ipHostSnmp, 161)),
     dic['Ext'].toSnmpSetHum(),
     dic['Ext'].toSnmpSetTemp(),
-    dic['Salon'].toSnmpSetHum(),
-    dic['Salon'].toSnmpSetTemp(),
+#    dic['Salon'].toSnmpSetHum(),
+#    dic['Salon'].toSnmpSetTemp(),
     dic['Sdb'].toSnmpSetHum(),
     dic['Sdb'].toSnmpSetTemp(),
     dic['Rasp'].toSnmpSetHum(),
